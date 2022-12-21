@@ -1,0 +1,151 @@
+@media only screen and (min-width: 768px) {
+  // FOR DESKTOP AND TABLET
+  .mainContainer {
+    background-color: #ffffff;
+    padding-top: 70px;
+  }
+  .heading {
+    text-align: center;
+    font-family: ProximaNovaBold;
+    color: black;
+    font-size: 42px;
+  }
+  .designContainer {
+    text-align: center;
+    img:nth-child(1) {
+      transform: scaleX(-1);
+    }
+    span {
+      display: inline-block;
+      width: 100px;
+      height: 4px;
+      border-top: 2px solid #e5e5e5;
+    }
+    span:nth-child(2) {
+      margin-right: 15px;
+      margin-left: 10px;
+    }
+    span:nth-child(4) {
+      margin-right: 10px;
+      margin-left: 15px;
+    }
+  }
+  .imagesContainer {
+    text-align: center;
+    padding-top: 30px;
+  }
+  .images {
+    display: inline-block;
+    position: relative;
+    margin: 1rem;
+    overflow: hidden;
+    transition: .3s linear;
+    height: 13rem;
+      width: 13rem;
+    h4 {
+      font-family: ProximaNovaRegular;
+      color: white;
+      font-size: 24px;
+      background: rgba(0, 0, 0, 0.6);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      transform: scale(0);
+      opacity: 0;
+      transition: .3s linear;
+    }
+    img {
+      height: 100%;
+      width: 100%;
+    }
+     h4 {
+      transform: scale(1);
+      opacity: 1;
+    }
+    &:hover {
+      transform: scale(1.1)
+    }
+  }
+}
+@media only screen and (max-width: 767px) {
+  /* phones */
+
+  .mainContainer {
+    background-color: #ffffff;
+    padding-top: 70px;
+  }
+  .heading {
+    text-align: center;
+    font-family: ProximaNovaBold;
+    color: black;
+    font-size: 42px;
+  }
+  .designContainer {
+    text-align: center;
+    img:nth-child(1) {
+      transform: scaleX(-1);
+    }
+    span {
+      display: inline-block;
+      width: 100px;
+      height: 4px;
+      border-top: 2px solid #e5e5e5;
+    }
+    span:nth-child(2) {
+      margin-right: 15px;
+      margin-left: 10px;
+    }
+    span:nth-child(4) {
+      margin-right: 10px;
+      margin-left: 15px;
+    }
+  }
+  .imagesContainer {
+    text-align: center;
+    padding-top: 30px;
+  }
+  .images {
+    display: inline-block;
+    position: relative;
+    margin: 1rem;
+    overflow: hidden;
+    transition: .3s linear;
+    height: 13rem;
+      width: 13rem;
+    h4 {
+      font-family: ProximaNovaRegular;
+      color: white;
+      font-size: 24px;
+      background: rgba(0, 0, 0, 0.6);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      transform: scale(0);
+      opacity: 0;
+      transition: .3s linear;
+    }
+    img {
+      height: 100%;
+      width: 100%;
+    }
+    h4 {
+      transform: scale(1);
+      opacity: 1;
+    }
+    &:hover {
+      transform: scale(1.1)
+    }
+  }
+}
