@@ -10,6 +10,7 @@ function Search({handleSelectedAddress}) {
 
   const handleChange = (address) => {
     setAddress(address);
+    console.log("test");
   };
 
   const handleSelect = (address, placeId) => {
