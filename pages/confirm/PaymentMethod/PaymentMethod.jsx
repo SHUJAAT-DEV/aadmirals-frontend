@@ -10,7 +10,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {useRouter} from "next/router";
 import {Alert} from "reactstrap";
 import GooglePay from "../../../Payment/GooglePay";
-import googlePay from "../../../Assets/googlePay.svg";
 
 function PaymentMethod() {
   const dispatch = useDispatch();
