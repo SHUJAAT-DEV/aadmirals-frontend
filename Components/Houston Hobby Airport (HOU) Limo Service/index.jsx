@@ -109,18 +109,20 @@ function HoustonHobbyAirport(props) {
               <Row>
                 <center>
                   <Col
-                    xs={12}
+                    xs={11}
                     xl={10}
                     md={10}
-                    style={{ paddingTop: "50px", textAlign: "center" }}
+                    sm={10}
+                    style={{ paddingTop: "50px", textAlign: "justify" }}
                   >
                     <h6
                       style={{
                         fontSize: "17px",
                         fontFamily: "ProximaNovaLight",
                         color: "#727070",
-                        textAlign: 'left'
+                        textAlign: 'justify'
                       }}
+                      className={styles.HoustinHobby}
                     >
                       {data.bannerImageText} <br /> <br />
 
@@ -129,7 +131,7 @@ function HoustonHobbyAirport(props) {
                       fontSize: "17px",
                       fontFamily: "ProximaNovaLight",
                       color: "#727070",
-                      textAlign: 'center'
+                      textAlign: 'justify'
                     }}>
                       Call AADMIRLAS at{" "}
                       <span

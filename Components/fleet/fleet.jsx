@@ -7,7 +7,7 @@ import Fleetcard from "./fleetcard/fleetcard";
 const Fleet = (props) => {
   const typeset = props.type;
   return (
-    <div>
+    <div style={{marginTop: "-124px"}}>
       <Container className="my-3">
         <Row>
           <Col xs={12}>
