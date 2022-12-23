@@ -228,7 +228,7 @@ const [clickable, setclickable] = useState(false)
         <label for="from">Pickup Address</label>
         <div className={styles.input}>
           <img src="/Assets/Icon awesome-map-marker-alt.svg" alt="Map12" loading="lazy"  />
-          {/* <Autocomplete
+          <Autocomplete
             style={{ width: "90%" }}
             onPlaceSelected={(place) => handleChangeFrom(place)}
             types={["address"]}
@@ -237,8 +237,8 @@ const [clickable, setclickable] = useState(false)
             onBlur={onBlurHandler}
             onFocus={onFocusHandler}
             name="from"
-          /> */}
-          <Search handleSelectedAddress={handleChangeFrom} />
+          />
+          {/* <Search handleSelectedAddress={handleChangeFrom} /> */}
 
         </div>
       </div>
@@ -246,7 +246,7 @@ const [clickable, setclickable] = useState(false)
         <label for="to">Drop off Address</label>
         <div className={styles.input}>
           <img src="/Assets/Icon awesome-map-marker-alt.svg" alt="Map13" loading="lazy"  />
-          {/* <Autocomplete
+          <Autocomplete
             style={{ width: "90%" }}
             onPlaceSelected={(place) => handleChangeTo(place)}
             types={["address"]}
@@ -255,8 +255,8 @@ const [clickable, setclickable] = useState(false)
             onBlur={onBlurHandler}
             onFocus={onFocusHandler}
             name="to"
-          /> */}
-          <Search handleSelectedAddress={handleChangeTo} />
+          />
+          {/* <Search handleSelectedAddress={handleChangeTo} /> */}
         </div>
       </div>
       <div className={`${state.date ? styles.inputBox1 : styles.inputBox}`}>
