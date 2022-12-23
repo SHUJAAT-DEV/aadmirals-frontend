@@ -7,13 +7,13 @@
   .image {
     border-radius: 4px;
   }
-  .padding{
+  .padding {
     padding-left: 20px;
   }
   .heading {
     color: #000000;
     font-size: 18px;
-    font-family: ProximaNovaBold;
+    font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif !important;
     margin: 0;
   }
   .fix {
@@ -28,12 +28,12 @@
   .headingcont {
     color: #636363;
     font-size: 14px;
-    font-family: ProximaNovaLight;
+    font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif !important;
     margin: 0;
   }
   .headingpayment {
     font-size: 16px;
-    font-family: ProximaNovaBold;
+    font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif !important;
   }
   .button {
     background-color: #ee405e;
@@ -42,11 +42,11 @@
     outline: none;
     padding: 10px 22px;
     font-size: 16px;
-    font-family: ProximaNovaRegular;
+    font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif !important;
     border-radius: 2px;
     width: 100%;
   }
-  .payment{
+  .payment {
     text-align: center;
   }
 }
@@ -65,8 +65,8 @@
     padding: 0;
     margin: 0;
     color: #373737;
-    font-size: 11px;
-    font-family: ProximaNovaBold;
+    font-size: 18px;
+    font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif !important;
   }
   .fix {
     display: flex;
@@ -77,19 +77,19 @@
     margin: 0;
     img {
       margin-right: 5px;
-      width: 10px;
+      width: 16px;
     }
   }
   .headingcont {
     color: #636363;
-    font-size: 11px;
+    font-size: 15px;
     padding: 0;
     margin: 0;
-    font-family: ProximaNovaRegular;
+    font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif !important;
   }
   .headingpayment {
-    font-size: 11px;
-    font-family: ProximaNovaBold;
+    font-size: 15px;
+    font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif !important;
     padding: 0;
     margin: 0;
   }
@@ -99,11 +99,11 @@
     border: none;
     outline: none;
     padding: 5px 20px;
-    font-size: 11px;
-    font-family: ProximaNovaRegular;
+    font-size: 15px;
+    font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif !important;
     border-radius: 2px;
   }
-  .payment{
+  .payment {
     padding-top: 10px;
     text-align: left;
   }

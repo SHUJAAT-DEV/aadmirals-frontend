@@ -11,9 +11,9 @@
     "postbuild": "cross-env next-sitemap --config next-sitemap.js"
   },
   "dependencies": {
+    "@google-pay/button-react": "^3.0.5",
     "@next/bundle-analyzer": "^12.0.8",
     "@szhsin/react-menu": "^2.0.1",
-    "@types/react-places-autocomplete": "^7.2.9",
     "@zeit/next-sass": "^1.0.1",
     "axios": "^0.21.1",
     "braintree-web-drop-in": "^1.25.0",

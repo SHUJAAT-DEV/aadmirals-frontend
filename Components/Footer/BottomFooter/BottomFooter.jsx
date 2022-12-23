@@ -1,7 +1,5 @@
 import React from "react";
-
-import Link from 'next/link'
-
+import Link from "next/link";
 
 const BottomFooter = () => {
   return (
@@ -18,33 +16,43 @@ const BottomFooter = () => {
                   <ul>
                     <li>
                       <Link href="https://www.facebook.com/AAdmirals">
-                        <a><i className="fa fa-facebook"></i></a>
+                        <a>
+                          <i className="fa fa-facebook"></i>
+                        </a>
                       </Link>
                     </li>
                     <li>
                       <Link href="https://twitter.com/AAdmiralsTravel">
-                        <a><i className="fa fa-twitter"></i></a>
+                        <a>
+                          <i className="fa fa-twitter"></i>
+                        </a>
                       </Link>
                     </li>
                     <li>
                       <Link href="https://wa.me/13468574294">
-                        <a><i className="fa fa-whatsapp"></i></a>
+                        <a>
+                          <i className="fa fa-whatsapp"></i>
+                        </a>
                       </Link>
                     </li>
                     <li>
                       <Link href="https://www.linkedin.com/company/aadmirals-group-inc">
-                        <a><i className="fa fa-linkedin"></i></a>
+                        <a>
+                          <i className="fa fa-linkedin"></i>
+                        </a>
                       </Link>
                     </li>
                     <li>
                       <Link href="https://www.yelp.com/biz/aadmirals-travel-and-transportation-houston-2">
-                        <a><i className="fa fa-suitcase"></i></a>
+                        <a>
+                          <i className="fa fa-suitcase"></i>
+                        </a>
                       </Link>
                     </li>
                   </ul>
                 </div>
               </div>
-              <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+              <div className="useful_contact col-xl-4 col-lg-4 col-md-6 col-sm-6">
                 <div className="header_name">
                   <h3>Useful Links</h3>
                 </div>
@@ -67,7 +75,7 @@ const BottomFooter = () => {
                     </li>
                     <li>
                       <Link href="/about-us">
-                      <a>About</a>
+                        <a>About</a>
                       </Link>
                     </li>
                     <li>
@@ -78,7 +86,7 @@ const BottomFooter = () => {
                   </ul>
                 </div>
               </div>
-              <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+              <div className="useful_contact2 col-xl-4 col-lg-4 col-md-6 col-sm-6">
                 <div className="header_name">
                   <h3>Contact Us</h3>
                 </div>
@@ -86,23 +94,38 @@ const BottomFooter = () => {
                   <ul>
                     <li>
                       <Link href="">
-                        <a><i className="fa fa-map-marker" aria-hidden="true"></i> 8222 Kingsbrook Rd , Houston, TX 77024</a>
+                        <a>
+                          <i
+                            className="fa fa-map-marker"
+                            aria-hidden="true"></i>{" "}
+                          8222 Kingsbrook Rd , Houston, TX 77024
+                        </a>
                       </Link>
-                      
                     </li>
                     <li>
-                    <Link href="">
-                        <a><i className="fa fa-map-marker" aria-hidden="true"></i> 17103 Imperial Valley Dr, Houston, TX 77060</a>
+                      <Link href="">
+                        <a>
+                          <i
+                            className="fa fa-map-marker"
+                            aria-hidden="true"></i>{" "}
+                          17103 Imperial Valley Dr, Houston, TX 77060
+                        </a>
                       </Link>
                     </li>
                     <li>
                       <Link href="mailto:info@aadmirals.com">
-                        <a><i className="fa fa-envelope" aria-hidden="true"></i> info@aadmirals.com</a>
+                        <a>
+                          <i className="fa fa-envelope" aria-hidden="true"></i>{" "}
+                          info@aadmirals.com
+                        </a>
                       </Link>
                     </li>
                     <li>
                       <Link href="/">
-                        <a><i className="fa fa-globe" aria-hidden="true"></i> aadmirals.com</a>
+                        <a>
+                          <i className="fa fa-globe" aria-hidden="true"></i>{" "}
+                          aadmirals.com
+                        </a>
                       </Link>
                     </li>
                   </ul>
@@ -168,11 +191,16 @@ const BottomFooter = () => {
       </div>
       <div className="sub-footer">
         <div className="container">
-            <div className="row">
-              <div className="col-lg-12 col-md-12 text-center">
-                  <p className="copy">Est 2013 All Rights Reserved© <Link href="/"><a> AAdmirals Group,INC</a></Link>  </p>
-              </div>
+          <div className="row">
+            <div className="col-lg-12 col-md-12 text-center">
+              <p className="copy">
+                Est 2013 All Rights Reserved©{" "}
+                <Link href="/">
+                  <a> AAdmirals Group,INC</a>
+                </Link>{" "}
+              </p>
             </div>
+          </div>
         </div>
       </div>
     </div>

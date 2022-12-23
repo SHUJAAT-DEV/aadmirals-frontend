@@ -11,28 +11,6 @@ $sourcedBlue: #007bff;
 $lightGrey: #858585;
 $purple: #6f52ed;
 
-// Font Family
-// @font-face {
-//   font-family: "Ginger";
-//   src: url("/fonts/f37ginger-regular-webfont.eot");
-//   src: url("/fonts/f37ginger-regular-webfont.eot?#iefix")
-//       format("embedded-opentype"),
-//     url("/fonts/f37ginger-regular-webfont.woff") format("woff"),
-//     url("/fonts/f37ginger-regular-webfont.ttf") format("truetype");
-//   font-weight: normal;
-//   font-style: normal;
-// }
-
-// @font-face {
-//   font-family: "Ginger";
-//   src: url("/fonts/f37ginger-bold-webfont.eot");
-//   src: url("/fonts/f37ginger-bold-webfont.eot?#iefix")
-//       format("embedded-opentype"),
-//     url("/fonts/f37ginger-bold-webfont.woff") format("woff"),
-//     url("/fonts/f37ginger-bold-webfont.ttf") format("truetype");
-//   font-weight: bold;
-//   font-style: normal;
-// }
 @font-face {
   font-family: ProximaNovaBold;
   src: url("/Fonts/Proxima\ Nova\ Alt\ Bold.otf");
@@ -189,19 +167,19 @@ a {
   color: #979797;
   opacity: 1;
 }
-.imageCardContainer{
+.imageCardContainer {
   height: 300px;
   border: 1px solid rgba(0, 0, 0, 0.459);
   border-radius: 10px;
   margin-bottom: 5px;
   overflow: hidden;
 }
-.imageCardContainer img{
-  height:100%;
-  width:100%;
+.imageCardContainer img {
+  height: 100%;
+  width: 100%;
   object-fit: cover;
   object-position: center;
-} 
-.carCardContainer p{
+}
+.carCardContainer p {
   font-size: 12px;
 }

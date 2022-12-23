@@ -1,6 +1,6 @@
-/* eslint-disable @next/next/no-img-element */
 import React, {useState, useEffect} from "react";
 import styles from "./airportTransfer.module.scss";
+import Autocomplete from "react-google-autocomplete";
 import {useRouter} from "next/router";
 import {Alert} from "reactstrap";
 import {Spinner} from "reactstrap";
@@ -8,7 +8,7 @@ import {getQuoteAirportTransfer} from "../../../redux/Bookings/Quote/action";
 import {useDispatch} from "react-redux";
 import {Input} from "reactstrap";
 import moment from "moment";
-import Search from "./Map";
+import Search from "./SearchMap";
 
 function AirportTransfer() {
   const history = useRouter();
@@ -31,9 +31,9 @@ function AirportTransfer() {
   const [currentTime, setcurrentTime] = useState();
   const [ischanges, setischanges] = useState(false);
   const dispatch = useDispatch();
+
   const [date, setDate] = useState();
   const [time, setTime] = useState();
-
   useEffect(() => {
     var d = new Date(),
       month = "" + (d.getMonth() + 1),
@@ -62,6 +62,7 @@ function AirportTransfer() {
       if (ischanges) {
         setError("Please Select Updated Time!");
       }
+
       setDate(e);
     }
   }
@@ -120,7 +121,7 @@ function AirportTransfer() {
       setToLng(address.geometry.location.lng());
     }
   };
-  
+
   const handleChangeFrom = (address) => {
     setError("");
     console.log("address final", address, address.address);
@@ -193,7 +194,6 @@ function AirportTransfer() {
   };
 
   const onBlurHandler = (event) => {
-    console.log("onBlurHandler", event);
     setState({...state, [event.target.name]: false});
   };
 
@@ -201,29 +201,49 @@ function AirportTransfer() {
     <div>
       {error ? <Alert color="danger">{error}</Alert> : null}
       <div className={`${state.from ? styles.inputBox1 : styles.inputBox}`}>
-        <label htmlFor="from">Pickup Address</label>
+        <label for="from">Pickup Address</label>
         <div className={styles.input} style={{cursor: "pointer"}}>
           <img
             src="/Assets/Icon awesome-map-marker-alt.svg"
             alt="Map"
             loading="lazy"
           />
+          {/* <Autocomplete
+            style={{ width: "90%" }}
+            onPlaceSelected={(place) => handleChangeFrom(place)}
+            types={["address"]}
+            componentRestrictions={{ country: "USA" }}
+            placeholder="Address, airport, hotel, ..."
+            onBlur={onBlurHandler}
+            onFocus={onFocusHandler}
+            name="from1"
+          /> */}
           <Search handleSelectedAddress={handleChangeFrom} />
         </div>
       </div>
       <div className={`${state.to ? styles.inputBox1 : styles.inputBox}`}>
-        <label htmlFor="to">Drop off Address</label>
+        <label for="to">Drop off Address</label>
         <div className={styles.input} style={{cursor: "pointer"}}>
           <img
             src="/Assets/Icon awesome-map-marker-alt.svg"
             alt="Map"
             loading="lazy"
           />
-          <Search handleSelectedAddress={handleChangeFrom} />
+          {/* <Autocomplete
+            style={{ width: "90%" }}
+            onPlaceSelected={(place) => handleChangeTo(place)}
+            onBlur={onBlurHandler}
+            onFocus={onFocusHandler}
+            name="to"
+            types={["address"]}
+            componentRestrictions={{ country: "USA" }}
+            placeholder="Address, airport, hotel, ..."
+          /> */}
+          <Search handleSelectedAddress={handleChangeTo} />
         </div>
       </div>
       <div className={`${state.date ? styles.inputBox1 : styles.inputBox}`}>
-        <label htmlFor="date">Pickup Date</label>
+        <label for="date">Pickup Date</label>
         <div className={styles.input} style={{cursor: "pointer"}}>
           <img
             src="/Assets/Icon awesome-calendar-alt.svg"
@@ -244,7 +264,7 @@ function AirportTransfer() {
         </div>
       </div>
       <div className={`${state.time ? styles.inputBox1 : styles.inputBox}`}>
-        <label htmlFor="time">Pickup Time</label>
+        <label for="time">Pickup Time</label>
         <div className={styles.input} style={{cursor: "pointer"}}>
           <img src="/Assets/Icon awesome-clock.svg" alt="Map2" loading="lazy" />
           <Input

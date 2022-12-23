@@ -6,7 +6,8 @@
     margin: auto;
     text-align: center;
     margin-top: 1rem;
-    font-family: 'ProximaNovaBold';
+    font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif !important;
+
     margin-bottom: 1rem;
   }
   .subhead {
@@ -14,21 +15,20 @@
     width: 38%;
     font-size: 16px;
     margin-bottom: 3rem;
-    font-family: 'ProximaNovaLight';
+    font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif !important;
   }
   .question {
     text-align: left;
     font-size: 18px;
     font-weight: 500;
     color: #ee405e;
-    font-family: 'ProximaNovaBold';
+    font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif !important;
   }
   .answer {
     text-align: left;
     font-size: 16px;
-    color: #000000;
-    font-family: 'ProximaNovaLight';
-
+    color: #777777;
+    font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif !important;
   }
   .headingques {
     margin: auto;
@@ -37,13 +37,19 @@
     font-weight: 600;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    font-family: 'ProximaNovaBold';
+    font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif !important;
   }
   .contact {
     color: #ee405e;
   }
 }
-
+.subhead {
+  width: 100%;
+}
+.ques_ans_div {
+  flex: auto !important;
+  max-width: 100% !important;
+}
 @media only screen and (max-width: 767px) {
   //   /* phones */
   .main {
@@ -51,7 +57,7 @@
     overflow: hidden;
   }
   .heading {
-    font-size: 1.3rem;
+    font-size: 18px !important;
     font-weight: 700;
     text-align: center;
     margin-top: 1rem;
@@ -59,19 +65,20 @@
   }
   .subhead {
     color: #777777;
-    width: 100%;
-    font-size: 0.8rem;
+    width: 80%;
+    font-size: 0.9rem;
     margin-bottom: 3rem;
   }
   .question {
     text-align: left;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 600;
     margin-top: -0.2rem;
+    color: #ee405e;
   }
   .answer {
     text-align: left;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     color: #777777;
   }
   .headingques {

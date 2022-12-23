@@ -1,3 +1,10 @@
+@media only screen and (min-width: 768px) and (max-width: 1500px) {
+  .images {
+    margin: 1px 5px !important;
+    width: 23vw !important;
+    box-shadow: 0px 0px 3px 1px black;
+  }
+}
 @media only screen and (min-width: 768px) {
   // FOR DESKTOP AND TABLET
   .mainContainer {
@@ -6,7 +13,7 @@
   }
   .heading {
     text-align: center;
-    font-family: ProximaNovaBold;
+    font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
     color: black;
     font-size: 42px;
   }
@@ -37,15 +44,17 @@
   .images {
     display: inline-block;
     position: relative;
-    margin: 1rem;
+    border-radius: 10px;
+    margin: 1px 5px;
+    height: 61vh;
+    width: 23vw;
     overflow: hidden;
-    transition: .3s linear;
+    transition: 0.3s linear;
     height: 13rem;
-      width: 13rem;
+    width: 13rem;
     h4 {
-      font-family: ProximaNovaRegular;
+      font: 24px AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
       color: white;
-      font-size: 24px;
       background: rgba(0, 0, 0, 0.6);
       position: absolute;
       top: 0;
@@ -58,31 +67,39 @@
       margin: 0;
       transform: scale(0);
       opacity: 0;
-      transition: .3s linear;
+      transition: 0.3s linear;
     }
     img {
       height: 100%;
       width: 100%;
     }
-     h4 {
+    h4 {
       transform: scale(1);
       opacity: 1;
+      font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
     }
     &:hover {
-      transform: scale(1.1)
+      transform: scale(1.1);
     }
+  }
+  .cities_name {
+    font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  }
+}
+@media only screen and (min-width: 468px) and (max-width: 874px) {
+  .images {
+    width: 30vw !important;
   }
 }
 @media only screen and (max-width: 767px) {
   /* phones */
-
   .mainContainer {
     background-color: #ffffff;
     padding-top: 70px;
   }
   .heading {
     text-align: center;
-    font-family: ProximaNovaBold;
+    font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
     color: black;
     font-size: 42px;
   }
@@ -115,11 +132,11 @@
     position: relative;
     margin: 1rem;
     overflow: hidden;
-    transition: .3s linear;
+    transition: 0.3s linear;
     height: 13rem;
-      width: 13rem;
+    width: 13rem;
     h4 {
-      font-family: ProximaNovaRegular;
+      font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
       color: white;
       font-size: 24px;
       background: rgba(0, 0, 0, 0.6);
@@ -134,7 +151,7 @@
       margin: 0;
       transform: scale(0);
       opacity: 0;
-      transition: .3s linear;
+      transition: 0.3s linear;
     }
     img {
       height: 100%;
@@ -143,9 +160,54 @@
     h4 {
       transform: scale(1);
       opacity: 1;
+      font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
     }
     &:hover {
-      transform: scale(1.1)
+      transform: scale(1.1);
     }
   }
 }
+
+// cities image re-design
+
+@media only screen and (max-width: 767px) {
+  .images {
+    border-radius: 14px !important;
+    width: 38vw !important;
+    margin: 3px !important;
+  }
+}
+
+@media only screen and (max-width: 510px) {
+  .imagesContainer {
+    height: 55.5rem;
+    overflow: scroll;
+  }
+  .imagesContainer::-webkit-scrollbar-thumb {
+    background: #8080808c;
+  }
+  .imagesContainer::-webkit-scrollbar {
+    max-width: 3px !important;
+  }
+
+  .images {
+    height: 17rem !important;
+    width: 27rem !important;
+    border-radius: 13px !important;
+    box-shadow: 0px 0px 3px 1px black !important;
+    margin: 0px;
+    margin-bottom: 3px !important;
+  }
+}
+@media only screen and(max-width: 469px) {
+  .images {
+    max-height: 30vh !important;
+    height: 30vh !important;
+    width: 88vw !important;
+  }
+  .imagesContainer {
+    height: 102vh;
+  }
+}
+
+// end cities image re-design

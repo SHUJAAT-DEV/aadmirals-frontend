@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import { Carousel, CarouselItem, CarouselIndicators } from "reactstrap";
+import React, {useState} from "react";
+import {Carousel, CarouselItem, CarouselIndicators} from "reactstrap";
 import "./carousel.css";
 import ServicesCards from "../Our Services/ServicesCards/ServicesCards";
 
 const items = [1, 2, 3];
-
-function CarouselSlider({ Slides }) {
+function CarouselSlider({Slides}) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -31,8 +30,7 @@ function CarouselSlider({ Slides }) {
       <CarouselItem
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
-        key={item.src}
-      >
+        key={item.src}>
         <Slides />
       </CarouselItem>
     );

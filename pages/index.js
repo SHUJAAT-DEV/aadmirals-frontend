@@ -15,7 +15,7 @@ import { Card, Button } from "reactstrap";
 import Carousel from "react-elastic-carousel";
 const styles = dynamic(() => import('./home.module.scss'))
 import { getHomePage } from "../redux/CMS/action";
-const TestimonialCards = dynamic(()=> import('../Components/Testimonial/Testimonial Cards/TestimonialCards'))
+const TestimonialCards = dynamic(() => import('../Components/Testimonial/Testimonial Cards/TestimonialCards'))
 
 const SideNav = dynamic(() => import('../Components/Header/SideNav/SideNav'))
 const Hero = dynamic(() => import('../Components/hero/HomeHero'))
@@ -25,11 +25,7 @@ const Cities = dynamic(() => import('../Components/Cities/Cities'))
 const Header = dynamic(() => import('../Components/Header/Header'))
 const LimousineService = dynamic(() => import('../Components/Limousine Service/LimousineService'))
 const HomeForm = dynamic(() => import('../Components/Home Form/HomeForm'))
-
 const OurServices = dynamic(() => import('../Components/Our Services/OurServices'))
-
-
-
 import { getContactPage } from "../redux/Contact_us/action";
 import { getContactDetailsPage } from "../redux/Contact_details/action";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -40,8 +36,9 @@ import "swiper/css/pagination"
 
 // import Swiper core and required modules
 import SwiperCore, {
-  Pagination , Autoplay
+  Pagination, Autoplay
 } from 'swiper';
+import { Helmet } from "react-helmet";
 
 // install Swiper modules
 SwiperCore.use([Pagination, Autoplay]);
@@ -53,12 +50,14 @@ const Home = (props) => {
   useEffect(() => {
     dispatch(getHomePage());
   }, []);
+
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 1, itemsToScroll: 2 },
     { width: 768, itemsToShow: 3 },
     { width: 1200, itemsToShow: 3 },
   ];
+
   const cancelBooking = useSelector((state) => state.cancelBooking);
   const { success } = cancelBooking;
   const succ = () => {
@@ -99,19 +98,22 @@ const Home = (props) => {
   }, []);
   return (
     <>
+      <Helmet>
+        <script src="//code.tidio.co/qfrondfu1stskkupw9qtryxqmm3kzd7r.js" async></script>
+      </Helmet>
       <NextSeo
         title={data1?.metaTitle}
         description={data1?.metaDescription}
         canonical="https://www.aadmirals.com"
       />
       {cms.loading || cms.error ? (
-          <div className={styles.loader}>
+        <div className={styles.loader}>
           <section>
             <img src="/Assets/Loader-Logo.svg" alt="88logo" />
           </section>
           <section>
             <Spinner animation="border" role="status" className={styles.spinner} />
-          </section> 
+          </section>
         </div>
       ) : (
         <>
@@ -135,56 +137,52 @@ const Home = (props) => {
             </div>
             <OurServices services={cms.home_page.services} />
             <div>
-               <Image priority={true} src={cms.home_page.home[0].serveYouLikeKingImage} alt="Airport Shuttle Houston" layout="responsive" width={50} height={20} priorit={true} quality={100} objectFit="fill" />
+              <Image priority={true} src={cms.home_page.home[0].serveYouLikeKingImage} alt="Airport Shuttle Houston" layout="responsive" width={50} height={20} priorit={true} quality={100} objectFit="fill" />
             </div>
             <Cities cities={cms.home_page.cityWeServe} />
-            
+
             <div className={styles.mainContainer_Testimonial}>
-      <center>
-        <Row>
-          <Col xs={12} md={12} xl={12}>
-            <h2 style={{paddingTop:'60px'}}>WHAT OUR CUSTOMERS ARE SAYING</h2>
-          </Col>
+              <center>
+                <Row>
+                  <Col xs={12} md={12} xl={12}>
+                    <h2 style={{ paddingTop: '60px' }}>WHAT OUR CUSTOMERS ARE SAYING</h2>
+                  </Col>
 
+                  <Swiper slidesPerView={1} spaceBetween={30} autoplay={{
+                    "delay": 2500,
+                    "disableOnInteraction": false
+                  }} pagination={{
+                    "clickable": true
+                  }}
 
-          <Swiper slidesPerView={1} spaceBetween={30} autoplay={{
-            "delay": 2500,
-            "disableOnInteraction": false
-          }} pagination={{
-            "clickable": true
-          }} 
+                    breakpoints={{
+                      640: {
+                        "slidesPerView": 1,
+                        "spaceBetween": 20
+                      },
+                      768: {
+                        "slidesPerView": 2,
+                        "spaceBetween": 40
+                      },
+                      1024: {
+                        "slidesPerView": 3,
+                        "spaceBetween": 20
+                      }
+                    }}
 
-          breakpoints={{
-            640: {
-              "slidesPerView": 1,
-              "spaceBetween": 20
-            },
-            768: {
-              "slidesPerView": 2,
-              "spaceBetween": 40
-            },
-            1024: {
-              "slidesPerView": 3,
-              "spaceBetween": 20
-            }
-          }}
+                    className="mySwiper">
 
-          className="mySwiper">
+                    {
+                      cms?.home_page?.testimonial ? cms?.home_page?.testimonial?.map(testimonial => (
+                        <SwiperSlide>
 
+                          <TestimonialCards image={testimonial.image} name={testimonial.name} msg={testimonial.message} />
+                        </SwiperSlide>
+                      )) : null
+                    }
+                  </Swiper>
 
-            {
-              cms?.home_page?.testimonial ? cms?.home_page?.testimonial?.map(testimonial => (
-                <SwiperSlide>
-                  
-                  <TestimonialCards image={testimonial.image} name={testimonial.name} msg={testimonial.message} />
-                </SwiperSlide>
-              )) : null
-            }
-          </Swiper>
-
-
-
-          {/* <Carousel
+                  {/* <Carousel
           itemPadding={[10, 10]}
             autoPlaySpeed={4000}
             showArrows={false}
@@ -198,90 +196,92 @@ const Home = (props) => {
               )):null
             }
 
-
-           
           </Carousel> */}
-        </Row>
-      </center>
-    </div>
+                </Row>
+              </center>
+            </div>
             <>
-      <Container fluid className={styles.mainContainer_Partner}>
-        <center>
-          <Row>
-            <Col xs={12} md={12} xl={12}>
-              <h2 style={{padding:'60px 0'}}>Our Partners</h2>
-            </Col>
-            <Carousel
-              autoPlaySpeed={4000}
-              showArrows={false}
-              breakPoints={breakPoints}
-              enableAutoPlay={true}
-            >
-              {
-                cms?.home_page?.partner && cms?.home_page?.partner?.map(partner=>(
-                  <>
-                  <a href={`${partner?.url}`} target="_blank">
-              <div className={styles.logos_container}>
-                 <Image priority={true} src={partner.image}   className={styles.logo_container} alt={partner.name} width={100} height={100}  objectFit="contain"/>
-                {/* <img src={image} className={styles.logo} alt="..1partnerimg" /> */}
-                <h2>{partner.name}</h2>
-              </div>
-              </a>
-                  </>
-                
+              <Container fluid className={styles.mainContainer_Partner}>
+                <center>
+                  <Row>
+                    <Col xs={12} md={12} xl={12}>
+                      <h2 style={{ padding: '60px 0' }}>Our Partners</h2>
+                    </Col>
+                    <Carousel
+                      autoPlaySpeed={4000}
+                      showArrows={false}
+                      breakPoints={breakPoints}
+                      enableAutoPlay={true}
+                    >
+                      {
+                        cms?.home_page?.partner && cms?.home_page?.partner?.map(partner => (
+                          <>
+                            <a href={`${partner?.url}`} target="_blank">
+                              <div className={styles.logos_container}>
+                                <Image priority={true} src={partner.image} className={styles.logo_container} alt={partner.name} width={100} height={100} objectFit="contain" />
+                                {/* <img src={image} className={styles.logo} alt="..1partnerimg" /> */}
+                                <h2>{partner.name}</h2>
+                              </div>
+                            </a>
+                          </>
+                        ))
+                      }
+                    </Carousel>
+                  </Row>
+                </center>
+              </Container>
+            </>
 
-                ))
-              }
-            </Carousel>
-          </Row>
-        </center>
-      </Container>
-    </>
-          
             <LimousineService data={cms.home_page.home[0]} />
             <div className="main_section_bg">
-      <Container className={`${styles.main_container_footer} mb-5 p-0`}>
-        <div className="contact_heding">
-          <h3>Contact Us</h3>
-        </div>
-        <Row>
-          <Col xs={12} md={6} className="info_boxes_main contact ">
-            <div className="main_infos">
-              <div className="row">
-                <div className="col-md-6">
-                  <div className="info-box">
-                    <i className="fa fa-phone"></i>
-                    <h3>Call Us</h3>
-                    <a href={`tel:+1${det && det.phoneNumber}`}> <i className="fa fa-volume-control-phone custom_size_icon" style=
-                      {{ transform: 'rotate(-40deg)' }}></i> +1{det && det.phoneNumber}</a><br />
-                    <a href={`https://wa.me/1${det && det.whatsapp}`}> <i className="fa fa-whatsapp custom_size_icon"></i> +1{det && det.whatsapp}</a><br />
-                    <a href={`skype:+1${det && det.skype}-?chat`}> <i className="fa fa-skype custom_size_icon"></i> +1{det && det.skype}</a><br />
-                  </div>
+              <Container className={`${styles.main_container_footer} mb-5 p-0`}>
+                <div className="contact_heding">
+                  <h3>Contact Us</h3>
                 </div>
-                <div className="col-md-6">
-                  <div className="info-box">
-                    <i className="fa fa-map-marker"></i>
-                    <h3>Location</h3>
-                    <p>8222 Kingsbrook Rd, <br /> Houston, TX 77024</p>
-                  </div>
-                </div>
-                <div className="col-md-6">
-                  <div className="info-box">
-                    <i className="fa fa-envelope-o"></i>
-                    <h3>Email Us</h3>
-                    <a href={`mailto:${det && det.email}`}>{det && det.email}</a>
-                  </div>
-                </div>
-                <div className="col-md-6">
-                  <div className="info-box">
-                    <i className="fa fa-clock-o"></i>
-                    <h3>Open Hours</h3>
-                    <p>Monday - Friday<br />9:00AM - 05:00PM</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* {details.error && (
+                <Row>
+                  <Col xs={12} md={6} className="info_boxes_main contact ">
+                    <div className="main_infos">
+                      <div className="row">
+                        <div className="col-md-6 contact_div">
+                          <div className="info-box">
+                            <i className="fa fa-phone"></i>
+                            <h3>Call Us</h3>
+                            <a href={`tel:+1${det && det.phoneNumber}`} className="terminate_newline">
+                              <i className="fa fa-volume-control-phone custom_size_icon" style=
+                                {{
+                                  transform: 'rotate(-40deg)', display: "inline - flex"
+                                }}></i> +1{det && det.phoneNumber}</a>
+                            <a href={`https://wa.me/1${det && det.whatsapp}`} className="terminate_newline">
+                              <i className="fa fa-whatsapp custom_size_icon"></i> +1{det && det.whatsapp}</a>
+                            <a href={`skype:+1${det && det.skype}-?chat`} className="terminate_newline">
+                              <i className="fa fa-skype custom_size_icon"></i> +1{det && det.skype}</a>
+                          </div>
+                        </div>
+                        <div className="col-md-6 contact_div">
+                          <div className="info-box">
+                            <i className="fa fa-map-marker"></i>
+                            <h3>Location</h3>
+                            <p>8222 Kingsbrook Rd, <br /> Houston, TX 77024</p>
+                          </div>
+                        </div>
+                        <div className="col-md-6 contact_div">
+                          <div className="info-box">
+                            <i className="fa fa-envelope-o"></i>
+                            <h3>Email Us</h3>
+                            <a href={`mailto:${det && det.email}`}>{det && det.email}</a>
+                          </div>
+                        </div>
+                        <div className="col-md-6 contact_div">
+                          <div className="info-box">
+                            <i className="fa fa-clock-o"></i>
+                            <h3>Open Hours</h3>
+                            <p>Monday - Friday<br />9:00AM - 05:00PM</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* {details.error && (
               <Alert className="m-0" color="danger">
                 {details.error}
               </Alert>
@@ -343,207 +343,205 @@ const Home = (props) => {
                 </div>
               </div>
             </div> */}
-          </Col>
-          <Col xs={11} md={6} className="add_overflow">
-            <div className="custom_contactus">
-              {cms.error && (
-                <Alert className="m-0" color="danger">
-                  {cms.error}
-                </Alert>
-              )}
-              <Row style={{ marginTop: "15px" }}>
-                <Col xs="12">
-                  {reqFields ? (
-                    <Alert
-                      style={{ borderRadius: "0.5rem" }}
-                      color="danger"
-                    >
-                      All Fields Are Required
-                    </Alert>
-                  ) : ""}
-                </Col>
-              </Row>
-              <Card className={`${styles.cardPayment}`}>
+                  </Col>
+                  <Col xs={11} md={6} className="add_overflow" style={{ margin: "auto" }}>
+                    <div className="custom_contactus">
+                      {cms.error && (
+                        <Alert className="m-0" color="danger">
+                          {cms.error}
+                        </Alert>
+                      )}
+                      <Row style={{ marginTop: "15px" }}>
+                        <Col xs="12">
+                          {reqFields ? (
+                            <Alert
+                              style={{ borderRadius: "0.5rem" }}
+                              color="danger"
+                            >
+                              All Fields Are Required
+                            </Alert>
+                          ) : ""}
+                        </Col>
+                      </Row>
+                      <Card className={`${styles.cardPayment}`}>
 
-                <div className="form-group icon">
-                  <label
-                    for="exampleInputPassword1"
-                    className={styles.label}
-                  >
-                    Email
-                  </label>
-                  <input
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    type="email"
-                    placeholder="@"
-                    className={`${styles.input} bg-light inside form-control`}
-                  />
-                </div>
+                        <div className="form-group icon">
+                          <label
+                            for="exampleInputPassword1"
+                            className={styles.label}
+                          >
+                            Email
+                          </label>
+                          <input
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            type="email"
+                            placeholder="@"
+                            className={`${styles.input} bg-light inside form-control`}
+                          />
+                        </div>
 
-                <div className="form-group">
-                  <label className={styles.label} for="exampleInputEmail1">
-                    Phone
-                  </label>
-                  <input
-                    value={phoneNumber}
-                    onChange={(e) => setPhoneNumber(e.target.value)}
-                    type="number"
-                    placeholder="+1"
-                    className={`${styles.input} form-control inside bg-light`}
-                  />
-                </div>
-                <div className="form-group">
-                  <label className={styles.label} for="exampleInputEmail1">
-                    Message
-                  </label>
-                  <textarea
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    className={`${styles.input} form-control inside bg-light`}
-                    placeholder="type a message..."
-                    id="w3review"
-                    name="w3review"
-                    rows="4"
-                    cols="50"
-                  ></textarea>
-                </div>
+                        <div className="form-group">
+                          <label className={styles.label} for="exampleInputEmail1">
+                            Phone
+                          </label>
+                          <input
+                            value={phoneNumber}
+                            onChange={(e) => setPhoneNumber(e.target.value)}
+                            type="number"
+                            placeholder="+1"
+                            className={`${styles.input} form-control inside bg-light`}
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label className={styles.label} for="exampleInputEmail1">
+                            Message
+                          </label>
+                          <textarea
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
+                            className={`${styles.input} form-control inside bg-light`}
+                            placeholder="type a message..."
+                            id="w3review"
+                            name="w3review"
+                            rows="4"
+                            cols="50"
+                          ></textarea>
+                        </div>
 
-                <Row>
-                  <Col xs="12">
-                    <Button
-                      onClick={submitHandler}
-                      className={styles.buttonPayment}
-                    >
-                      Send
-                    </Button>
+                        <Row>
+                          <Col xs="12">
+                            <Button
+                              onClick={submitHandler}
+                              className={styles.buttonPayment}
+                            >
+                              Send
+                            </Button>
+                          </Col>
+                        </Row>
+                        <Row style={{ marginTop: "15px" }}>
+                          <Col xs="12">
+                            {contact_us_page && (
+                              <Alert
+                                style={{ borderRadius: "0.5rem" }}
+                                color="success"
+                              >
+                                {contact_us_page.status}
+                              </Alert>
+                            )}
+                          </Col>
+                        </Row>
+                      </Card>
+                    </div>
                   </Col>
                 </Row>
-                <Row style={{ marginTop: "15px" }}>
-                  <Col xs="12">
-                    {contact_us_page && (
-                      <Alert
-                        style={{ borderRadius: "0.5rem" }}
-                        color="success"
-                      >
-                        {contact_us_page.status}
-                      </Alert>
-                    )}
-                  </Col>
-                </Row>
-              </Card>
-            </div>
-          </Col>
-
-        </Row>
-      </Container>
-      <div className="footer_parenbt">
-      <div className="container">
-        <div className="main_footer">
-          <footer>
-            <div className="row">
-              <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                <div className="footer_logo">
-                  <img src="/Assets/logo-header.svg" alt="..12" />
-                </div>
-                <div className="social_links">
-                  <ul>
-                    <li>
-                      <Link href="https://www.facebook.com/AAdmirals">
-                        <a><i className="fa fa-facebook"></i></a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="https://twitter.com/AAdmiralsTravel">
-                        <a><i className="fa fa-twitter"></i></a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="https://wa.me/13468574294">
-                        <a><i className="fa fa-whatsapp"></i></a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="https://www.linkedin.com/company/aadmirals-group-inc">
-                        <a><i className="fa fa-linkedin"></i></a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="https://www.yelp.com/biz/aadmirals-travel-and-transportation-houston-2">
-                        <a><i className="fa fa-suitcase"></i></a>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                <div className="header_name">
-                  <h3>Useful Links</h3>
-                </div>
-                <div className="links_footer">
-                  <ul>
-                    <li>
-                      <Link href="/">
-                        <a>Home</a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/login">
-                        <a>Login</a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/FAQ">
-                        <a>FAQs</a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/about-us">
-                      <a>About</a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/fleet">
-                        <a>fleet</a>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                <div className="header_name">
-                  <h3>Contact Us</h3>
-                </div>
-                <div className="links_footer">
-                  <ul>
-                    <li>
-                      <Link href="">
-                        <a><i className="fa fa-map-marker" aria-hidden="true"></i> 8222 Kingsbrook Rd , Houston, TX 77024</a>
-                      </Link>
-                      
-                    </li>
-                    <li>
-                    <Link href="">
-                        <a><i className="fa fa-map-marker" aria-hidden="true"></i> 17103 Imperial Valley Dr, Houston, TX 77060</a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="mailto:info@aadmirals.com">
-                        <a><i className="fa fa-envelope" aria-hidden="true"></i> info@aadmirals.com</a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/">
-                        <a><i className="fa fa-globe" aria-hidden="true"></i> aadmirals.com</a>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </footer>
-        </div>
-        {/* <div className={styles.nav_container}>
+              </Container>
+              <div className="footer_parenbt">
+                <div className="container">
+                  <div className="main_footer">
+                    <footer>
+                      <div className="row">
+                        <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                          <div className="footer_logo">
+                            <img src="/Assets/logo-header.svg" alt="..12" />
+                          </div>
+                          <div className="social_links">
+                            <ul>
+                              <li>
+                                <Link href="https://www.facebook.com/AAdmirals">
+                                  <a><i className="fa fa-facebook"></i></a>
+                                </Link>
+                              </li>
+                              <li>
+                                <Link href="https://twitter.com/AAdmiralsTravel">
+                                  <a><i className="fa fa-twitter"></i></a>
+                                </Link>
+                              </li>
+                              <li>
+                                <Link href="https://wa.me/13468574294">
+                                  <a><i className="fa fa-whatsapp"></i></a>
+                                </Link>
+                              </li>
+                              <li>
+                                <Link href="https://www.linkedin.com/company/aadmirals-group-inc">
+                                  <a><i className="fa fa-linkedin"></i></a>
+                                </Link>
+                              </li>
+                              <li>
+                                <Link href="https://www.yelp.com/biz/aadmirals-travel-and-transportation-houston-2">
+                                  <a><i className="fa fa-suitcase"></i></a>
+                                </Link>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div className="useful_contact col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                          <div className="header_name">
+                            <h3>Useful Links</h3>
+                          </div>
+                          <div className="links_footer">
+                            <ul>
+                              <li>
+                                <Link href="/">
+                                  <a>Home</a>
+                                </Link>
+                              </li>
+                              <li>
+                                <Link href="/login">
+                                  <a>Login</a>
+                                </Link>
+                              </li>
+                              <li>
+                                <Link href="/FAQ">
+                                  <a>FAQs</a>
+                                </Link>
+                              </li>
+                              <li>
+                                <Link href="/about-us">
+                                  <a>About</a>
+                                </Link>
+                              </li>
+                              <li>
+                                <Link href="/fleet">
+                                  <a>fleet</a>
+                                </Link>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div className="useful_contact2 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                          <div className="header_name">
+                            <h3>Contact Us</h3>
+                          </div>
+                          <div className="links_footer">
+                            <ul>
+                              <li>
+                                <Link href="">
+                                  <a><i className="fa fa-map-marker" aria-hidden="true"></i> 8222 Kingsbrook Rd , Houston, TX 77024</a>
+                                </Link>
+                              </li>
+                              <li>
+                                <Link href="">
+                                  <a><i className="fa fa-map-marker" aria-hidden="true"></i> 17103 Imperial Valley Dr, Houston, TX 77060</a>
+                                </Link>
+                              </li>
+                              <li>
+                                <Link href="mailto:info@aadmirals.com">
+                                  <a><i className="fa fa-envelope" aria-hidden="true"></i> info@aadmirals.com</a>
+                                </Link>
+                              </li>
+                              <li>
+                                <Link href="/">
+                                  <a><i className="fa fa-globe" aria-hidden="true"></i> aadmirals.com</a>
+                                </Link>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </footer>
+                  </div>
+                  {/* <div className={styles.nav_container}>
           <div className={styles.nav_inner_container}>
             <Container>
               <Row>
@@ -597,18 +595,18 @@ const Home = (props) => {
             </Container>
           </div>
         </div> */}
-      </div>
-      <div className="sub-footer">
-        <div className="container">
-            <div className="row">
-              <div className="col-lg-12 col-md-12 text-center">
-                  <p className="copy">Est 2013 All Rights Reserved© <Link href="/"><a> AAdmirals Group,INC</a></Link>  </p>
+                </div>
+                <div className="sub-footer">
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-lg-12 col-md-12 text-center">
+                        <p className="copy">Est 2013 All Rights Reserved© <Link href="/"><a> AAdmirals Group,INC</a></Link>  </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-        </div>
-      </div>
-    </div>
-    </div>
           </div>
         </>
       )}
@@ -616,7 +614,7 @@ const Home = (props) => {
   );
 };
 
-export async function getServerSideProps({ req,res }) {
+export async function getServerSideProps({ req, res }) {
   res.setHeader(
     'Cache-Control',
     'public, s-maxage=10, stale-while-revalidate=59,immutable'

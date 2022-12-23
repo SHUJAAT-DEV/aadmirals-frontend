@@ -1,3 +1,16 @@
+@media only screen and (max-width: 1200px) {
+  .imageContainer {
+    width: 300vw;
+    margin-top: 4px;
+  }
+  .discription {
+    max-width: 100%;
+  }
+  .travel {
+    margin-top: -50vh;
+    margin-bottom: 4vh;
+  }
+}
 @media only screen and (min-width: 768px) {
   // FOR DESKTOP AND TABLET
   .mainContainer {
@@ -41,6 +54,7 @@
       position: absolute;
       top: 50%;
       left: 50%;
+      border-radius: 10px;
       transform: translate(-50%, -50%);
     }
   }
@@ -77,6 +91,10 @@
     }
   }
   .discription {
+    flex: 0 0 100%;
+    text-align: justify;
+  }
+  .discription {
     h6:nth-child(1) {
       color: #ee405e;
       font-family: ProximaNovaRegular;
@@ -104,6 +122,9 @@
     img {
       height: 100%;
       width: 100%;
+      min-height: 68% !important;
+      margin-top: 3px !important;
+      border-radius: 10px;
     }
   }
   .discription1 {
@@ -162,13 +183,16 @@
       padding-top: 15px;
     }
   }
-  .menuButton{
+  .menuButton {
     display: none;
   }
 }
+@media only screen and (max-width: 992px) {
+  .travel {
+    margin-top: -266px;
+  }
+}
 @media only screen and (max-width: 767px) {
-  /* phones */
-
   .mainContainer {
     background-image: url("../../Assets/airport\ transfer.jpg");
     background-size: cover;
@@ -177,6 +201,9 @@
     position: relative;
     overflow: hidden;
     width: 100%;
+  }
+  .travel {
+    margin-top: -35vh;
   }
   .mainContainer::after {
     content: "";
@@ -208,6 +235,7 @@
     background-color: #ee405e;
     img {
       position: absolute;
+      border-radius: 10px;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -268,11 +296,15 @@
       font-size: 16px;
       padding-top: 10px;
     }
+    text-align: justify;
   }
   .imageContainer {
     img {
       height: 100%;
+      border-radius: 10px;
       width: 100%;
+      min-height: 68% !important;
+      margin-top: 3px !important;
     }
   }
   .discription1 {
@@ -348,5 +380,11 @@
         font-size: 20px;
         font-weight: 800;
       }
-    }    }
+    }
+  }
+}
+@media only screen and (max-width: 478px) {
+  .travel {
+    margin-top: -28vh;
+  }
 }

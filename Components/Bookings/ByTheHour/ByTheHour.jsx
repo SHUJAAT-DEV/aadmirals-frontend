@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+
 import styles from "./byTheHour.module.scss";
 import Autocomplete from "react-google-autocomplete";
 import {useRouter} from "next/router";
@@ -8,6 +9,7 @@ import {getQuoteHourly} from "../../../redux/Bookings/Quote/action";
 import {useDispatch} from "react-redux";
 import {Input} from "reactstrap";
 import moment from "moment";
+import Search from "../AirportTransfer/SearchMap";
 
 function ByTheHour() {
   const history = useRouter();
@@ -52,6 +54,7 @@ function ByTheHour() {
     setcurrentTime(tim);
     setTime(tim);
   }, []);
+
   const handleChangeFrom = (address) => {
     setError("");
     if (address.name) {
@@ -60,6 +63,7 @@ function ByTheHour() {
       setFrom(address.formatted_address);
     }
   };
+
   const handleChangeTo = (address) => {
     setError("");
     if (address.name) {
@@ -193,47 +197,49 @@ function ByTheHour() {
     <div>
       {error ? <Alert color="danger">{error}</Alert> : null}
       <div className={`${state.from ? styles.inputBox1 : styles.inputBox}`}>
-        <label htmlFor="from">Pickup Address</label>
+        <label for="from">Pickup Address</label>
         <div className={styles.input}>
           <img
             src="/Assets/Icon awesome-map-marker-alt.svg"
             alt="Map8"
             loading="lazy"
           />
-          <Autocomplete
-            style={{width: "90%"}}
+          {/* <Autocomplete
+            style={{ width: "90%" }}
             onPlaceSelected={(place) => handleChangeFrom(place)}
             types={["address"]}
-            componentRestrictions={{country: "USA"}}
+            componentRestrictions={{ country: "USA" }}
             placeholder="Address, airport, hotel, ..."
             onBlur={onBlurHandler}
             onFocus={onFocusHandler}
             name="from"
-          />
+          /> */}
+          <Search handleSelectedAddress={handleChangeFrom} />
         </div>
       </div>
       <div className={`${state.to ? styles.inputBox1 : styles.inputBox}`}>
-        <label htmlFor="to">Drop off Address</label>
+        <label for="to">Drop off Address</label>
         <div className={styles.input}>
           <img
             src="/Assets/Icon awesome-map-marker-alt.svg"
             alt="Map9"
             loading="lazy"
           />
-          <Autocomplete
-            style={{width: "90%"}}
+          {/* <Autocomplete
+            style={{ width: "90%" }}
             onPlaceSelected={(place) => handleChangeTo(place)}
             types={["address"]}
-            componentRestrictions={{country: "USA"}}
+            componentRestrictions={{ country: "USA" }}
             placeholder="Address, airport, hotel, ..."
             onBlur={onBlurHandler}
             onFocus={onFocusHandler}
             name="to"
-          />
+          /> */}
+          <Search handleSelectedAddress={handleChangeTo} />
         </div>
       </div>
       <div className={`${state.duration ? styles.inputBox1 : styles.inputBox}`}>
-        <label htmlFor="duration">Duration(Hours)</label>
+        <label for="duration">Duration(Hours)</label>
         <div className={styles.input}>
           <img
             src="/Assets/Icon awesome-clock.svg"
@@ -252,7 +258,7 @@ function ByTheHour() {
         </div>
       </div>
       <div className={`${state.date ? styles.inputBox1 : styles.inputBox}`}>
-        <label htmlFor="date">Pickup Date</label>
+        <label for="date">Pickup Date</label>
         <div className={styles.input} style={{cursor: "pointer"}}>
           <img
             src="/Assets/Icon awesome-calendar-alt.svg"
@@ -273,7 +279,7 @@ function ByTheHour() {
         </div>
       </div>
       <div className={`${state.time ? styles.inputBox1 : styles.inputBox}`}>
-        <label htmlFor="time">Pickup Time</label>
+        <label for="time">Pickup Time</label>
         <div className={styles.input} style={{cursor: "pointer"}}>
           <img
             src="/Assets/Icon awesome-clock.svg"
