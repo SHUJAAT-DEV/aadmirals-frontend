@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 import React, {useState, useEffect} from "react";
 import {Container, Row, Col} from "reactstrap";
 import styles from "./GalvestonCruisesTransportation.module.scss";
@@ -272,7 +273,6 @@ function GalvestonCruisesTransportation(props) {
                       src={data.imageThree}
                       alt="Galveston Cruises"
                       height={300}
-                      priority
                       quality={100}
                       objectFit="cover"
                     />
