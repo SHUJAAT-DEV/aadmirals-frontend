@@ -11,7 +11,7 @@ function PopularLocations(props) {
         <Row className={styles.container}>
           <Col xl={5} md={12} lg={12} xs={12}>
             <h3 className={styles.heading}>Popular Locations</h3>
-            <h6 className={styles.text}>
+            <h6 className={styles.text} style={{textAlign:"justify"}}>
               {props.popularLocations}
             </h6>
           </Col>
@@ -23,11 +23,11 @@ function PopularLocations(props) {
           <Col xl={5} md={12} lg={12} xs={12}>
             <img src={props.hobbyAirportRatesImage} alt="pic2" width="100%" />
           </Col>
-          <Col xl={5} md={5} xs={12}>
+          <Col xl={5} md={12} lg={12} xs={12}>
             <h3 className={styles.heading}>
               Hobby Airport Rates: Popular Locations
             </h3>
-            <h6 className={styles.text}>
+            <h6 className={styles.text} style={{textAlign:"justify"}}>
               {props.hobbyAirportRates}
             </h6>
           </Col>

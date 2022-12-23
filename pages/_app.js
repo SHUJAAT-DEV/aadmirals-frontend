@@ -23,6 +23,7 @@ function MyApp({ Component, pageProps }) {
     timeout: 5000,
     position: positions.TOP_CENTER,
   };
+
   return (
      
       <Provider store={store}>
@@ -36,12 +37,11 @@ function MyApp({ Component, pageProps }) {
         
       />
         <AlertProvider template={AlertTemplate} {...options}>
-          
+
           <News />
           <Component {...pageProps} />
         </AlertProvider>
       </Provider>
- 
   )
 }
 

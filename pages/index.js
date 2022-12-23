@@ -38,6 +38,7 @@ import "swiper/css/pagination"
 import SwiperCore, {
   Pagination, Autoplay
 } from 'swiper';
+import { Helmet } from "react-helmet";
 
 // install Swiper modules
 SwiperCore.use([Pagination, Autoplay]);
@@ -97,6 +98,9 @@ const Home = (props) => {
   }, []);
   return (
     <>
+    <Helmet>
+    <script src="//code.tidio.co/qfrondfu1stskkupw9qtryxqmm3kzd7r.js" async></script>
+    </Helmet>
       <NextSeo
         title={data1?.metaTitle}
         description={data1?.metaDescription}

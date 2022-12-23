@@ -9,6 +9,7 @@ import { getQuoteHourly } from "../../../redux/Bookings/Quote/action";
 import { useDispatch } from "react-redux";
 import { Input } from 'reactstrap';
 import moment from "moment";
+import Search from "../AirportTransfer/SearchMap";
 
 function ByTheHour() {
   const history = useRouter();
@@ -55,6 +56,7 @@ function ByTheHour() {
     setTime(tim)
 
   }, []);
+
   const handleChangeFrom = (address) => {
     setError("");
     if (address.name) {
@@ -63,6 +65,7 @@ function ByTheHour() {
       setFrom(address.formatted_address);
     }
   };
+
   const handleChangeTo = (address) => {
     setError("");
     if (address.name) {
@@ -118,18 +121,18 @@ function ByTheHour() {
     var endTime = moment(afcon, 'h:mma');
     const date1 = new Date(date);
     const date2 = new Date(currentDate);
-    var d1 = new Date ();
-    var d2 = new Date ( d1 );
-    d2.setMinutes ( d1.getMinutes() + 30 );
-   
-    let chtim=d2.getHours();
-    let chmin=d2.getMinutes();
-    let final =tConvert([chtim, chmin].join(":"))
-  
+    var d1 = new Date();
+    var d2 = new Date(d1);
+    d2.setMinutes(d1.getMinutes() + 30);
+
+    let chtim = d2.getHours();
+    let chmin = d2.getMinutes();
+    let final = tConvert([chtim, chmin].join(":"))
+
     if (date1.toDateString() === date2.toDateString()) {
       if (beginningTime.isBefore(endTime)) {
         setError("You Can't select past time!")
-      }else if(noch < final){
+      } else if (noch < final) {
         setError("Please Enter 30 Minutes Ahead of your current time!");
       } else {
         setError(null);
@@ -170,17 +173,17 @@ function ByTheHour() {
         duration: { text: `${duration} hours`, value: duration * 3600 },
         bookingType: 1,
       };
-      if(data?.from ===undefined  ){
+      if (data?.from === undefined) {
         setError("Please enter pickup Location")
       }
-      else if(data?.to === undefined){
+      else if (data?.to === undefined) {
         setError("Please enter dropoff location")
       }
       else {
-      dispatch(getQuoteHourly(data, history));
+        dispatch(getQuoteHourly(data, history));
       }
-// console.log(data)
-      
+      // console.log(data)
+
       setLoading(false);
     }
   };
@@ -213,8 +216,8 @@ function ByTheHour() {
       <div className={`${state.from ? styles.inputBox1 : styles.inputBox}`}>
         <label for="from">Pickup Address</label>
         <div className={styles.input}>
-          <img src="/Assets/Icon awesome-map-marker-alt.svg" alt="Map8"  loading="lazy"/>
-          <Autocomplete
+          <img src="/Assets/Icon awesome-map-marker-alt.svg" alt="Map8" loading="lazy" />
+          {/* <Autocomplete
             style={{ width: "90%" }}
             onPlaceSelected={(place) => handleChangeFrom(place)}
             types={["address"]}
@@ -223,14 +226,16 @@ function ByTheHour() {
             onBlur={onBlurHandler}
             onFocus={onFocusHandler}
             name="from"
-          />
+          /> */}
+          <Search handleSelectedAddress={handleChangeFrom} />
+
         </div>
       </div>
       <div className={`${state.to ? styles.inputBox1 : styles.inputBox}`}>
         <label for="to">Drop off Address</label>
         <div className={styles.input}>
           <img src="/Assets/Icon awesome-map-marker-alt.svg" alt="Map9" loading="lazy" />
-          <Autocomplete
+          {/* <Autocomplete
             style={{ width: "90%" }}
             onPlaceSelected={(place) => handleChangeTo(place)}
             types={["address"]}
@@ -239,7 +244,9 @@ function ByTheHour() {
             onBlur={onBlurHandler}
             onFocus={onFocusHandler}
             name="to"
-          />
+          /> */}
+          <Search handleSelectedAddress={handleChangeTo} />
+          
         </div>
       </div>
       <div className={`${state.duration ? styles.inputBox1 : styles.inputBox}`}>
@@ -277,7 +284,7 @@ function ByTheHour() {
       <div className={`${state.time ? styles.inputBox1 : styles.inputBox}`}>
         <label for="time">Pickup Time</label>
         <div className={styles.input} style={{ cursor: 'pointer' }}>
-          <img src="/Assets/Icon awesome-clock.svg" alt="Map11"  loading="lazy" />
+          <img src="/Assets/Icon awesome-clock.svg" alt="Map11" loading="lazy" />
           <Input
             style={{ cursor: 'pointer' }}
             type="time"

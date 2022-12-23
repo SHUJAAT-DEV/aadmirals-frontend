@@ -15,16 +15,8 @@ const Floatingbutton = () => {
           <button className={styles.floatingButton} >
             <a href="tel:+13468574294">
             <img src="/Assets/phone-call.svg" alt="..1phone"  />
-  
             </a>
           </button>
-          <button className={styles.floatingButton}>
-            <a href="sms:+13468574294">
-            <img src="/Assets/chat.svg" alt="..2chat"  />
-  
-            </a>
-          </button>
-         
         </div>
         <div className={styles.floatingContainerTop}>
         <button className={styles.floatingButtonScrollTop} onClick={scrollToTop}>

@@ -8,6 +8,8 @@ import { getQuoteAirportTransfer } from "../../../redux/Bookings/Quote/action";
 import { useDispatch } from "react-redux";
 import { Input } from "reactstrap";
 import moment from "moment";
+import Search from "./SearchMap";
+
 function AirportTransfer() {
   const history = useRouter();
   const [value, onChange] = useState(new Date());
@@ -27,10 +29,10 @@ function AirportTransfer() {
   const [clickable, setclickable] = useState(false)
   const [currentDate, setCurrentDate] = useState();
   const [currentTime, setcurrentTime] = useState()
-const [ischanges, setischanges] = useState(false)
+  const [ischanges, setischanges] = useState(false)
   const dispatch = useDispatch();
- 
-  
+
+
   const [date, setDate] = useState();
   const [time, setTime] = useState();
   useEffect(() => {
@@ -46,7 +48,7 @@ const [ischanges, setischanges] = useState(false)
     setDate([year, month, day].join("-"))
     let hour = d.getHours();
     let minutes = d.getMinutes();
-  
+
     let tim = [hour, minutes].join(":");
     setcurrentTime(tim)
     setTime(tim)
@@ -55,18 +57,18 @@ const [ischanges, setischanges] = useState(false)
 
 
   function ChangeDate(e) {
-  
+
     if (moment(e).isBefore(currentDate)) {
       setclickable(true)
       setError("You can't Select Past Date!")
     }
     else {
       setclickable(false)
-      if(ischanges){
+      if (ischanges) {
         setError("Please Select Updated Time!")
       }
-    
-     
+
+
 
 
       setDate(e)
@@ -85,19 +87,19 @@ const [ischanges, setischanges] = useState(false)
   }
 
   function ChangeTime(e) {
- 
-    let noch=tConvert(e)
-   
+
+    let noch = tConvert(e)
+
     const d = new Date();
     let hour = d.getHours();
     let minutes = d.getMinutes();
-  
-    let tim = [hour, minutes].join(":")
-    
-    let afcon=tConvert(tim)
 
-  
-    
+    let tim = [hour, minutes].join(":")
+
+    let afcon = tConvert(tim)
+
+
+
     var beginningTime = moment(noch, 'h:mma');
     var endTime = moment(afcon, 'h:mma');
     const date1 = new Date(date);
@@ -121,10 +123,9 @@ const [ischanges, setischanges] = useState(false)
 
   }
 
-
-
   const handleChangeTo = (address) => {
     setError("");
+    console.log("ddd", address);
     if (address.name) {
       setError("Location Not Valid");
     } else {
@@ -132,16 +133,18 @@ const [ischanges, setischanges] = useState(false)
       setToLng(address.geometry.location.lng());
     }
   };
+  
   const handleChangeFrom = (address) => {
-
     setError("");
-    if (address.name) {
+    console.log("address final", address, address.address);
+    if (address.address) {
       setError("Location Not Valid");
     } else {
-      setFromLat(address.geometry.location.lat());
-      setFromLng(address.geometry.location.lng());
+      setFromLat(address.latLng.lat());
+      setFromLng(address.latLng.lng());
     }
   };
+
   const findDistance = () => {
     if (date < currentDate) {
       setError("You can't select the past date.");
@@ -201,6 +204,7 @@ const [ischanges, setischanges] = useState(false)
   const onFocusHandler = (event) => {
     setState({ ...state, [event.target.name]: true });
   };
+
   const onBlurHandler = (event) => {
     setState({ ...state, [event.target.name]: false });
   };
@@ -212,7 +216,7 @@ const [ischanges, setischanges] = useState(false)
         <label for="from">Pickup Address</label>
         <div className={styles.input} style={{ cursor: 'pointer' }}>
           <img src="/Assets/Icon awesome-map-marker-alt.svg" alt="Map" loading="lazy" />
-          <Autocomplete
+          {/* <Autocomplete
             style={{ width: "90%" }}
             onPlaceSelected={(place) => handleChangeFrom(place)}
             types={["address"]}
@@ -221,14 +225,15 @@ const [ischanges, setischanges] = useState(false)
             onBlur={onBlurHandler}
             onFocus={onFocusHandler}
             name="from1"
-          />
+          /> */}
+          <Search handleSelectedAddress={handleChangeFrom} />
         </div>
       </div>
       <div className={`${state.to ? styles.inputBox1 : styles.inputBox}`}>
         <label for="to">Drop off Address</label>
         <div className={styles.input} style={{ cursor: 'pointer' }}>
-          <img src="/Assets/Icon awesome-map-marker-alt.svg" alt="Map" loading="lazy"  />
-          <Autocomplete
+          <img src="/Assets/Icon awesome-map-marker-alt.svg" alt="Map" loading="lazy" />
+          {/* <Autocomplete
             style={{ width: "90%" }}
             onPlaceSelected={(place) => handleChangeTo(place)}
             onBlur={onBlurHandler}
@@ -237,13 +242,14 @@ const [ischanges, setischanges] = useState(false)
             types={["address"]}
             componentRestrictions={{ country: "USA" }}
             placeholder="Address, airport, hotel, ..."
-          />
+          /> */}
+          <Search handleSelectedAddress={handleChangeTo} />
         </div>
       </div>
       <div className={`${state.date ? styles.inputBox1 : styles.inputBox}`}>
         <label for="date">Pickup Date</label>
         <div className={styles.input} style={{ cursor: 'pointer' }}>
-          <img src="/Assets/Icon awesome-calendar-alt.svg" alt="Map1" loading="lazy"/>
+          <img src="/Assets/Icon awesome-calendar-alt.svg" alt="Map1" loading="lazy" />
           <Input
             style={{ cursor: 'pointer' }}
             type="date"
@@ -256,8 +262,8 @@ const [ischanges, setischanges] = useState(false)
             onFocus={onFocusHandler}
             defaultValue={currentDate}
           />
-          
-          
+
+
         </div>
       </div>
       <div className={`${state.time ? styles.inputBox1 : styles.inputBox}`}>
@@ -288,6 +294,7 @@ const [ischanges, setischanges] = useState(false)
       )}
     </div>
   );
+
 }
 
 export default AirportTransfer;
