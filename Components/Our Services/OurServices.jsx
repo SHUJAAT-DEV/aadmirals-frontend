@@ -2,12 +2,8 @@ import React from "react";
 import dynamic from 'next/dynamic'
 import { Container, Row, Col } from "reactstrap";
 import styles from "./OurServices.module.scss";
-
 const ServicesCards = dynamic(()=> import('./ServicesCards/ServicesCards'))
-
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 dynamic(()=>import ("swiper/css"));
 dynamic(()=>import ("swiper/css/pagination"));
 
@@ -37,10 +33,10 @@ function OurServices({ services }) {
             </Col>
 
             <Swiper slidesPerView={1} spaceBetween={30} 
-            autoplay={{
-              "delay": 2500,
-              "disableOnInteraction": false
-            }} 
+            // autoplay={{
+            //   "delay": 2500,
+            //   "disableOnInteraction": false
+            // }} 
             pagination={{
               "clickable": true
             }} 
@@ -58,14 +54,12 @@ function OurServices({ services }) {
                 "spaceBetween": 30
               }
             }}
-
             className="mySwiper">
               {
                 services ? services.map(service => (
                   <SwiperSlide>
                     <ServicesCards url={service.url} image={service.image} description={service.description} title={service.name} />
                   </SwiperSlide>
-
                 )) : null
               }
             </Swiper>
