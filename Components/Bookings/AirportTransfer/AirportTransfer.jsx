@@ -113,23 +113,22 @@ function AirportTransfer() {
 
   const handleChangeTo = (address) => {
     setError("");
-    console.log("ddd", address);
-    if (address.name) {
+    if (address.latLng === undefined) {
       setError("Location Not Valid");
     } else {
-      setToLat(address.geometry.location.lat());
-      setToLng(address.geometry.location.lng());
+      setToLat(address.latLng.lat);
+      setToLng(address.latLng.lng);
     }
   };
 
   const handleChangeFrom = (address) => {
     setError("");
     console.log("address final", address, address.address);
-    if (address.address) {
+    if (address.latLng === undefined) {
       setError("Location Not Valid");
     } else {
-      setFromLat(address.latLng.lat());
-      setFromLng(address.latLng.lng());
+      setFromLat(address.latLng.lat);
+      setFromLng(address.latLng.lng);
     }
   };
 
@@ -201,7 +200,7 @@ function AirportTransfer() {
     <div>
       {error ? <Alert color="danger">{error}</Alert> : null}
       <div className={`${state.from ? styles.inputBox1 : styles.inputBox}`}>
-        <label for="from">Pickup Address</label>
+        <label htmlFor="from">Pickup Address</label>
         <div className={styles.input} style={{cursor: "pointer"}}>
           <img
             src="/Assets/Icon awesome-map-marker-alt.svg"
@@ -218,11 +217,14 @@ function AirportTransfer() {
             onFocus={onFocusHandler}
             name="from1"
           /> */}
-          <Search handleSelectedAddress={handleChangeFrom} />
+          <Search
+            name="from1"
+            handleSelectedAddress={(place) => handleChangeFrom(place)}
+          />
         </div>
       </div>
       <div className={`${state.to ? styles.inputBox1 : styles.inputBox}`}>
-        <label for="to">Drop off Address</label>
+        <label htmlFor="to">Drop off Address</label>
         <div className={styles.input} style={{cursor: "pointer"}}>
           <img
             src="/Assets/Icon awesome-map-marker-alt.svg"
@@ -239,11 +241,14 @@ function AirportTransfer() {
             componentRestrictions={{ country: "USA" }}
             placeholder="Address, airport, hotel, ..."
           /> */}
-          <Search handleSelectedAddress={handleChangeTo} />
+          <Search
+            name="to"
+            handleSelectedAddress={(place) => handleChangeTo(place)}
+          />
         </div>
       </div>
       <div className={`${state.date ? styles.inputBox1 : styles.inputBox}`}>
-        <label for="date">Pickup Date</label>
+        <label htmlFor="date">Pickup Date</label>
         <div className={styles.input} style={{cursor: "pointer"}}>
           <img
             src="/Assets/Icon awesome-calendar-alt.svg"
@@ -264,7 +269,7 @@ function AirportTransfer() {
         </div>
       </div>
       <div className={`${state.time ? styles.inputBox1 : styles.inputBox}`}>
-        <label for="time">Pickup Time</label>
+        <label htmlFor="time">Pickup Time</label>
         <div className={styles.input} style={{cursor: "pointer"}}>
           <img src="/Assets/Icon awesome-clock.svg" alt="Map2" loading="lazy" />
           <Input

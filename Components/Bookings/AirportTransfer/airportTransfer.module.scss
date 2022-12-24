@@ -1,6 +1,13 @@
 .search_api {
   display: inline !important;
 }
+.dropdown_map_search {
+  z-index: 300;
+  position: absolute;
+  left: 5%;
+  width: 80%;
+  height: 50%;
+}
 @media only screen and (min-width: 1000px) {
   // FOR DESKTOP AND TABLET
   .mainContainer {

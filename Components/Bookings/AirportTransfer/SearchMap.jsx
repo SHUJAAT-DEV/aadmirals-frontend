@@ -4,13 +4,13 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from "react-places-autocomplete";
+import styles from "./airportTransfer.module.scss";
 
-function Search({handleSelectedAddress}) {
+function Search({handleSelectedAddress, name}) {
   const [address, setAddress] = useState("");
 
   const handleChange = (address) => {
     setAddress(address);
-    console.log("test again");
   };
 
   const handleSelect = (address, placeId) => {
@@ -45,18 +45,15 @@ function Search({handleSelectedAddress}) {
       {({getInputProps, suggestions, getSuggestionItemProps, loading}) => (
         <div>
           <input
+            name={name}
             {...getInputProps({
               placeholder: "Address, airport, hotel, ...",
             })}
           />
           <div
-            style={{
-              zIndex: 300,
-              position: "absolute",
-              left: "5%",
-              width: "80%",
-              height: "50%",
-            }}>
+            className={`${
+              suggestions.length > 0 ? styles.dropdown_map_search : ""
+            }`}>
             {loading && <div>Loading...</div>}
             {suggestions.map((suggestion) => {
               const style = suggestion.active
