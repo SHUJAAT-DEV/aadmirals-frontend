@@ -14,33 +14,32 @@
     height: 240px;
     border: 1px solid #eee;
     background-color: #f8faff;
-    h5{
+    h5 {
       font-size: 20px;
     }
-    h5:nth-child(1){
+    h5:nth-child(1) {
       font-weight: Bold;
     }
-    h5:nth-child(2){
+    h5:nth-child(2) {
       font-weight: lighter;
     }
-    h6{
+    h6 {
       color: #777777;
       font-size: 12px;
       font-family: ProximaNovaRegular;
     }
   }
-  .button{
-    background-color: #EE405E;
-    border: 1px solid #DADADA;
+  .button {
+    background-color: #ee405e;
+    border: 1px solid #dadada;
     margin-top: 40px;
-
   }
 }
-.cards{
+.cards {
   border-radius: 10px;
   box-shadow: 0px 0px 9px -4px #8080808f;
 }
-.cardsContainer{
+.cardsContainer {
   height: 250px;
   margin-top: 7px;
 }
@@ -61,25 +60,24 @@
     height: 240px;
     border: 1px solid #eee;
     background-color: #f8faff;
-    h5{
+    h5 {
       font-size: 20px;
     }
-    h5:nth-child(1){
+    h5:nth-child(1) {
       font-weight: Bold;
     }
-    h5:nth-child(2){
+    h5:nth-child(2) {
       font-weight: lighter;
     }
-    h6{
+    h6 {
       color: #777777;
       font-size: 12px;
       font-family: ProximaNovaRegular;
     }
   }
-  .button{
-    background-color: #EE405E;
-    border: 1px solid #DADADA;
+  .button {
+    background-color: #ee405e;
+    border: 1px solid #dadada;
     margin-top: 40px;
-
   }
 }

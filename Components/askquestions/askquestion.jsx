@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./askquestion.module.scss";
-import { Col, Container, Row } from "reactstrap";
+import {Col, Container, Row} from "reactstrap";
 
-const Askquestion = ({ faqs }) => {
+const Askquestion = ({faqs}) => {
   return (
     <div className={`pt-5 ${styles.main}`}>
       <Row>

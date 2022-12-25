@@ -22,17 +22,30 @@ function LimousineService({ data }) {
             <div className="custom_main_images">
               <Row>
                 <Col>
-                  <div className={styles.properties_Limo} style={{
-                    boxShadow: "0px 0 5px #21252985",
-                    borderRadius: "10px",
-                    marginBottom: "18px"
-                  }}>
-                    <Image priority={true} src="/Assets/surface1.svg" width="70" height="50" alt="AAdmirals Saftey" />
+                  <div
+                    className={styles.properties_Limo}
+                    style={{
+                      boxShadow: "0px 0 5px #21252985",
+                      borderRadius: "10px",
+                      marginBottom: "18px",
+                    }}>
+                    <Image
+                      priority={true}
+                      src="/Assets/surface1.svg"
+                      width="70"
+                      height="50"
+                      alt="AAdmirals Saftey"
+                    />
                     <h3>Safety, Time and Satisfaction are our priorities.</h3>
-                    <p className={styles.service_detail} style={{
-                      fontFamily: "AvenirNext, Helvetica, Arial, Open Sans, sans-serif",
-                      padding: "12px 12px"
-                    }}>{data.paragraphOne}</p>
+                    <p
+                      className={styles.service_detail}
+                      style={{
+                        fontFamily:
+                          "AvenirNext, Helvetica, Arial, Open Sans, sans-serif",
+                        padding: "12px 12px",
+                      }}>
+                      {data.paragraphOne}
+                    </p>
                   </div>
                 </Col>
                 <Col>
@@ -66,6 +79,11 @@ function LimousineService({ data }) {
           </div>
         </div>
         <div
+          style={{
+            paddingTop: "100px", paddingTop: "58px",
+            height: "104vh !important",
+            overflow: "scroll"
+          }}
           className={styles.discriptionContainer_Limo}
         >
           <h2 className={styles.heading_Limo}>
@@ -73,7 +91,7 @@ function LimousineService({ data }) {
           </h2>
           <p style={{ textAlign: "justify" }} className={styles.paragraph_Limo}>
             {content}
-            <span onClick={handleChange} style={{color: 'blue'}}> Read more</span>
+            <span onClick={handleChange} style={{color: "blue"}}> Read More</span>
           </p>
         </div>
       </div>
@@ -83,11 +101,10 @@ function LimousineService({ data }) {
             src="https://www.youtube.com/embed/wq9SHYyzLNs"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
+            allowFullScreen></iframe>
         </div>
       </div>
-    </Container >
+    </Container>
   );
 }
 

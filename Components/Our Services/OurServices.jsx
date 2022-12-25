@@ -1,6 +1,6 @@
 import React from "react";
-import dynamic from 'next/dynamic'
-import { Container, Row, Col } from "reactstrap";
+import dynamic from "next/dynamic";
+import {Container, Row, Col} from "reactstrap";
 import styles from "./OurServices.module.scss";
 const ServicesCards = dynamic(()=> import('./ServicesCards/ServicesCards'))
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,21 +8,19 @@ dynamic(()=>import ("swiper/css"));
 dynamic(()=>import ("swiper/css/pagination"));
 
 // import Swiper core and required modules
-import SwiperCore, {
-  Pagination , Autoplay
-} from 'swiper';
+import SwiperCore, {Pagination, Autoplay} from "swiper";
 
 // install Swiper modules
 SwiperCore.use([Pagination, Autoplay]);
 
-function OurServices({ services }) {
+function OurServices({services}) {
   const breakPoints = [
-    { width: 1, itemsToShow: 1 },
-    { width: 550, itemsToShow: 1, itemsToScroll: 2 },
-    { width: 768, itemsToShow: 3 },
-    { width: 1200, itemsToShow: 4 },
+    {width: 1, itemsToShow: 1},
+    {width: 550, itemsToShow: 1, itemsToScroll: 2},
+    {width: 768, itemsToShow: 3},
+    {width: 1200, itemsToShow: 4},
   ];
-  // 
+  //
   return (
     <>
       <Container fluid className={styles.mainContainer}>

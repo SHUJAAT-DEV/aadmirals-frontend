@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import styles from "./airportTransfer.module.scss";
 import Autocomplete from "react-google-autocomplete";
-import { useRouter } from "next/router";
-import { Alert } from "reactstrap";
-import { Spinner } from "reactstrap";
-import { getQuoteAirportTransfer } from "../../../redux/Bookings/Quote/action";
-import { useDispatch } from "react-redux";
-import { Input } from "reactstrap";
+import {useRouter} from "next/router";
+import {Alert} from "reactstrap";
+import {Spinner} from "reactstrap";
+import {getQuoteAirportTransfer} from "../../../redux/Bookings/Quote/action";
+import {useDispatch} from "react-redux";
+import {Input} from "reactstrap";
 import moment from "moment";
 import Search from "./SearchMap";
 
@@ -26,12 +26,11 @@ function AirportTransfer() {
   const [fromLng, setFromLng] = useState();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [clickable, setclickable] = useState(false)
+  const [clickable, setclickable] = useState(false);
   const [currentDate, setCurrentDate] = useState();
-  const [currentTime, setcurrentTime] = useState()
-  const [ischanges, setischanges] = useState(false)
+  const [currentTime, setcurrentTime] = useState();
+  const [ischanges, setischanges] = useState(false);
   const dispatch = useDispatch();
-
 
   const [date, setDate] = useState();
   const [time, setTime] = useState();
@@ -45,103 +44,91 @@ function AirportTransfer() {
     if (day.length < 2) day = "0" + day;
 
     setCurrentDate([year, month, day].join("-"));
-    setDate([year, month, day].join("-"))
+    setDate([year, month, day].join("-"));
     let hour = d.getHours();
     let minutes = d.getMinutes();
 
     let tim = [hour, minutes].join(":");
-    setcurrentTime(tim)
-    setTime(tim)
-
+    setcurrentTime(tim);
+    setTime(tim);
   }, []);
 
-
   function ChangeDate(e) {
-
     if (moment(e).isBefore(currentDate)) {
-      setclickable(true)
-      setError("You can't Select Past Date!")
-    }
-    else {
-      setclickable(false)
+      setclickable(true);
+      setError("You can't Select Past Date!");
+    } else {
+      setclickable(false);
       if (ischanges) {
-        setError("Please Select Updated Time!")
+        setError("Please Select Updated Time!");
       }
 
-
-
-
-      setDate(e)
+      setDate(e);
     }
   }
   function tConvert(time) {
     // Check correct time format and split into components
-    time = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+    time = time
+      .toString()
+      .match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
 
-    if (time.length > 1) { // If time format correct
-      time = time.slice(1);  // Remove full string match value
-      time[5] = +time[0] < 12 ? 'AM' : 'PM'; // Set AM/PM
+    if (time.length > 1) {
+      // If time format correct
+      time = time.slice(1); // Remove full string match value
+      time[5] = +time[0] < 12 ? "AM" : "PM"; // Set AM/PM
       time[0] = +time[0] % 12 || 12; // Adjust hours
     }
-    return time.join(''); // return adjusted time or original string
+    return time.join(""); // return adjusted time or original string
   }
 
   function ChangeTime(e) {
-
-    let noch = tConvert(e)
+    let noch = tConvert(e);
 
     const d = new Date();
     let hour = d.getHours();
     let minutes = d.getMinutes();
 
-    let tim = [hour, minutes].join(":")
+    let tim = [hour, minutes].join(":");
 
-    let afcon = tConvert(tim)
+    let afcon = tConvert(tim);
 
-
-
-    var beginningTime = moment(noch, 'h:mma');
-    var endTime = moment(afcon, 'h:mma');
+    var beginningTime = moment(noch, "h:mma");
+    var endTime = moment(afcon, "h:mma");
     const date1 = new Date(date);
     const date2 = new Date(currentDate);
     if (date1.toDateString() === date2.toDateString()) {
       if (beginningTime.isBefore(endTime)) {
-        setError("You Can't select past time!")
+        setError("You Can't select past time!");
       } else {
         setError(null);
         setTime(e);
-        setischanges(true)
+        setischanges(true);
       }
     } else {
       setError(null);
       setTime(e);
       setischanges(true);
     }
-
-
-
-
   }
 
   const handleChangeTo = (address) => {
     setError("");
-    console.log("ddd", address);
-    if (address.name) {
+    if (address.latLng === undefined) {
       setError("Location Not Valid");
     } else {
-      setToLat(address.geometry.location.lat());
-      setToLng(address.geometry.location.lng());
+      setToLat(address.latLng.lat);
+      setToLng(address.latLng.lng);
     }
   };
-  
+
   const handleChangeFrom = (address) => {
     setError("");
     console.log("address final", address, address.address);
-    if (address.address) {
+    if (address.latLng === undefined) {
       setError("Location Not Valid");
     } else {
-      setFromLat(address.latLng.lat());
-      setFromLng(address.latLng.lng());
+      setFromLat(address.latLng.lat);
+      setFromLng(address.latLng.lng);
     }
   };
 
@@ -202,20 +189,24 @@ function AirportTransfer() {
   };
 
   const onFocusHandler = (event) => {
-    setState({ ...state, [event.target.name]: true });
+    setState({...state, [event.target.name]: true});
   };
 
   const onBlurHandler = (event) => {
-    setState({ ...state, [event.target.name]: false });
+    setState({...state, [event.target.name]: false});
   };
 
   return (
     <div>
       {error ? <Alert color="danger">{error}</Alert> : null}
       <div className={`${state.from ? styles.inputBox1 : styles.inputBox}`}>
-        <label for="from">Pickup Address</label>
-        <div className={styles.input} style={{ cursor: 'pointer' }}>
-          <img src="/Assets/Icon awesome-map-marker-alt.svg" alt="Map" loading="lazy" />
+        <label htmlFor="from">Pickup Address</label>
+        <div className={styles.input} style={{cursor: "pointer"}}>
+          <img
+            src="/Assets/Icon awesome-map-marker-alt.svg"
+            alt="Map"
+            loading="lazy"
+          />
           {/* <Autocomplete
             style={{ width: "90%" }}
             onPlaceSelected={(place) => handleChangeFrom(place)}
@@ -226,13 +217,20 @@ function AirportTransfer() {
             onFocus={onFocusHandler}
             name="from1"
           /> */}
-          <Search handleSelectedAddress={handleChangeFrom} />
+          <Search
+            name="from1"
+            handleSelectedAddress={(place) => handleChangeFrom(place)}
+          />
         </div>
       </div>
       <div className={`${state.to ? styles.inputBox1 : styles.inputBox}`}>
-        <label for="to">Drop off Address</label>
-        <div className={styles.input} style={{ cursor: 'pointer' }}>
-          <img src="/Assets/Icon awesome-map-marker-alt.svg" alt="Map" loading="lazy" />
+        <label htmlFor="to">Drop off Address</label>
+        <div className={styles.input} style={{cursor: "pointer"}}>
+          <img
+            src="/Assets/Icon awesome-map-marker-alt.svg"
+            alt="Map"
+            loading="lazy"
+          />
           {/* <Autocomplete
             style={{ width: "90%" }}
             onPlaceSelected={(place) => handleChangeTo(place)}
@@ -243,35 +241,39 @@ function AirportTransfer() {
             componentRestrictions={{ country: "USA" }}
             placeholder="Address, airport, hotel, ..."
           /> */}
-          <Search handleSelectedAddress={handleChangeTo} />
+          <Search
+            name="to"
+            handleSelectedAddress={(place) => handleChangeTo(place)}
+          />
         </div>
       </div>
       <div className={`${state.date ? styles.inputBox1 : styles.inputBox}`}>
-        <label for="date">Pickup Date</label>
-        <div className={styles.input} style={{ cursor: 'pointer' }}>
-          <img src="/Assets/Icon awesome-calendar-alt.svg" alt="Map1" loading="lazy" />
+        <label htmlFor="date">Pickup Date</label>
+        <div className={styles.input} style={{cursor: "pointer"}}>
+          <img
+            src="/Assets/Icon awesome-calendar-alt.svg"
+            alt="Map1"
+            loading="lazy"
+          />
           <Input
-            style={{ cursor: 'pointer' }}
+            style={{cursor: "pointer"}}
             type="date"
             name="date"
             id="exampleDate"
             placeholder="date placeholder"
             onChange={(e) => ChangeDate(e.target.value)}
-
             onBlur={onBlurHandler}
             onFocus={onFocusHandler}
             defaultValue={currentDate}
           />
-
-
         </div>
       </div>
       <div className={`${state.time ? styles.inputBox1 : styles.inputBox}`}>
-        <label for="time">Pickup Time</label>
-        <div className={styles.input} style={{ cursor: 'pointer' }}>
+        <label htmlFor="time">Pickup Time</label>
+        <div className={styles.input} style={{cursor: "pointer"}}>
           <img src="/Assets/Icon awesome-clock.svg" alt="Map2" loading="lazy" />
           <Input
-            style={{ cursor: 'pointer' }}
+            style={{cursor: "pointer"}}
             type="time"
             name="time"
             id="exampleTime"
@@ -294,7 +296,6 @@ function AirportTransfer() {
       )}
     </div>
   );
-
 }
 
 export default AirportTransfer;

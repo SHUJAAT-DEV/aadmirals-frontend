@@ -25,8 +25,8 @@ function MyApp({ Component, pageProps }) {
   };
 
   return (
-     
-      <Provider store={store}>
+
+    <Provider store={store}>
       <DefaultSeo
         openGraph={{
           type: 'website',
@@ -34,14 +34,14 @@ function MyApp({ Component, pageProps }) {
           url: 'https://aadmirals.com/',
           site_name: 'Houston Limo Services | AAdmirals Travel& Transportation',
         }}
-        
-      />
-        <AlertProvider template={AlertTemplate} {...options}>
 
-          <News />
-          <Component {...pageProps} />
-        </AlertProvider>
-      </Provider>
+      />
+      <AlertProvider template={AlertTemplate} {...options}>
+
+        <News />
+        <Component {...pageProps} />
+      </AlertProvider>
+    </Provider>
   )
 }
 

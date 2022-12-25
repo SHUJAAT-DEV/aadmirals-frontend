@@ -82,7 +82,7 @@
     }
     h2:nth-child(3) {
       font-size: 34px;
-      font-family: 'ProximaNovaBold';
+      font-family: "ProximaNovaBold";
       padding-top: 30px;
       line-height: 100%;
       text-align: left;
@@ -108,7 +108,7 @@
   .discription1 {
     h2:nth-child(1) {
       color: #020101;
-      font-family: 'ProximaNovaBold';
+      font-family: "ProximaNovaBold";
       text-align: left;
     }
     h2 {
@@ -165,11 +165,11 @@
     display: none;
   }
 }
-.discription{
+.discription {
   flex: auto;
   max-width: 100%;
 }
-.images{
+.images {
   border-radius: 10px;
 }
 @media only screen and (max-width: 767px) {
@@ -357,8 +357,8 @@
   }
 }
 
-@media only screen and (min-width: 1200px){
-  .discription{
+@media only screen and (min-width: 1200px) {
+  .discription {
     max-width: 50%;
   }
 }

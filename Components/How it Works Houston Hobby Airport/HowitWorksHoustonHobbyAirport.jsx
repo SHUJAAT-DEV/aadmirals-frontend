@@ -1,32 +1,26 @@
 import React from "react";
-import { Container, Row, Col } from "reactstrap";
+import {Container, Row, Col} from "reactstrap";
 import styles from "./HowitWorksHoustonHobbyAirport.module.scss";
 
 function HowitWorksHoustonHobbyAirport(props) {
   return (
-    <Container style={{marginTop:"-49px"}}>
-      <h2 style={{textAlign:'center'}}>HOW IT WORKS</h2>
+    <Container style={{marginTop: "-49px"}}>
+      <h2 style={{textAlign: "center"}}>HOW IT WORKS</h2>
       <Row className={styles.featuresContainer}>
         <Col xs={12} xl={4} md={12} className={styles.features}>
           <h6>Selection</h6>
           <span></span>
-          <h6 style={{textAlign:'justify'}}>
-            {props.selection}
-          </h6>
+          <h6 style={{textAlign: "justify"}}>{props.selection}</h6>
         </Col>
         <Col xs={12} xl={4} md={12} className={styles.features}>
           <h6>Booking</h6>
           <span></span>
-          <h6 style={{textAlign:'justify'}}>
-            {props.booking}
-          </h6>
+          <h6 style={{textAlign: "justify"}}>{props.booking}</h6>
         </Col>
         <Col xs={12} xl={4} md={12} className={styles.features}>
           <h6>Payment</h6>
           <span></span>
-          <h6 style={{textAlign:'justify'}}>
-            {props.payment}
-          </h6>
+          <h6 style={{textAlign: "justify"}}>{props.payment}</h6>
         </Col>
         <Col
           xs={12}
@@ -37,8 +31,7 @@ function HowitWorksHoustonHobbyAirport(props) {
             textAlign: "center",
             color: "#727070",
             fontFamily: "ProximaNovaLight",
-          }}
-        >
+          }}>
           <h6>
             We thank our new and regular Customers by delivering a high quality
             service and Discounts. Below are AAdmirals’s Houston limo service

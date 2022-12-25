@@ -162,19 +162,19 @@ a {
   color: #979797;
   opacity: 1;
 }
-.imageCardContainer{
+.imageCardContainer {
   height: 300px;
   border: 1px solid rgba(0, 0, 0, 0.459);
   border-radius: 10px;
   margin-bottom: 5px;
   overflow: hidden;
 }
-.imageCardContainer img{
-  height:100%;
-  width:100%;
+.imageCardContainer img {
+  height: 100%;
+  width: 100%;
   object-fit: cover;
   object-position: center;
-} 
-.carCardContainer p{
+}
+.carCardContainer p {
   font-size: 12px;
 }

@@ -98,9 +98,9 @@ const Home = (props) => {
   }, []);
   return (
     <>
-    <Helmet>
-    <script src="//code.tidio.co/qfrondfu1stskkupw9qtryxqmm3kzd7r.js" async></script>
-    </Helmet>
+      <Helmet>
+        <script src="//code.tidio.co/qfrondfu1stskkupw9qtryxqmm3kzd7r.js" async></script>
+      </Helmet>
       <NextSeo
         title={data1?.metaTitle}
         description={data1?.metaDescription}
@@ -174,8 +174,8 @@ const Home = (props) => {
 
                     {
                       cms?.home_page?.testimonial ? cms?.home_page?.testimonial?.map(testimonial => (
+                        // eslint-disable-next-line react/jsx-key
                         <SwiperSlide>
-
                           <TestimonialCards image={testimonial.image} name={testimonial.name} msg={testimonial.message} />
                         </SwiperSlide>
                       )) : null
@@ -216,7 +216,7 @@ const Home = (props) => {
                       {
                         cms?.home_page?.partner && cms?.home_page?.partner?.map(partner => (
                           <>
-                            <a href={`${partner?.url}`} target="_blank">
+                            <a href={`${partner?.url}`} target="_blank" rel="noreferrer">
                               <div className={styles.logos_container}>
                                 <Image priority={true} src={partner.image} className={styles.logo_container} alt={partner.name} width={100} height={100} objectFit="contain" />
                                 {/* <img src={image} className={styles.logo} alt="..1partnerimg" /> */}
@@ -367,7 +367,7 @@ const Home = (props) => {
 
                         <div className="form-group icon">
                           <label
-                            for="exampleInputPassword1"
+                            htmlFor="exampleInputPassword1"
                             className={styles.label}
                           >
                             Email
@@ -382,7 +382,7 @@ const Home = (props) => {
                         </div>
 
                         <div className="form-group">
-                          <label className={styles.label} for="exampleInputEmail1">
+                          <label className={styles.label} htmlFor="exampleInputEmail1">
                             Phone
                           </label>
                           <input
@@ -394,7 +394,7 @@ const Home = (props) => {
                           />
                         </div>
                         <div className="form-group">
-                          <label className={styles.label} for="exampleInputEmail1">
+                          <label className={styles.label} htmlFor="exampleInputEmail1">
                             Message
                           </label>
                           <textarea

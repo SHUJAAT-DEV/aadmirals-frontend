@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import styles from "./SideNav.module.scss";
-import { useRouter } from "next/router";
+import {useRouter} from "next/router";
 import Link from "next/link";
 
 import NavHeaderLogo from "../../../Assets/Group1077.svg";
-import { Collapse, Button } from "reactstrap";
+import {Collapse, Button} from "reactstrap";
 
 function SideNav() {
   const history = useRouter();
@@ -60,7 +60,11 @@ function SideNav() {
           </button>
         </div>
         <div className={styles.smLogo}>
-          <img src="/Assets/logo-header.svg" alt="1website logo" className={styles.logo1} />
+          <img
+            src="/Assets/logo-header.svg"
+            alt="1website logo"
+            className={styles.logo1}
+          />
         </div>
       </div>
       {SideNavOpen ? (
@@ -71,86 +75,115 @@ function SideNav() {
           </div>
           <ul>
             <Link href="/">
-              <a><li>home</li></a>
+              <a>
+                <li>home</li>
+              </a>
             </Link>
             <li onClick={toggleService}>
               <Link href="/services">
                 <a className="custom_lniks_mobile">Services</a>
               </Link>
               <i
-                style={{ float: "right", marginRight: "2rem" }}
-                className="fas fa-caret-down"
-              ></i>
+                style={{float: "right", marginRight: "2rem"}}
+                className="fas fa-caret-down"></i>
             </li>
             <Collapse isOpen={isOpenService}>
               <li onClick={toggleTransport} className={styles.liDropStyle}>
                 houston airport transpotation
                 <i
-                  style={{ marginLeft: "15px", marginRight: "20px" }}
-                  className="fas fa-caret-down"
-                ></i>
+                  style={{marginLeft: "15px", marginRight: "20px"}}
+                  className="fas fa-caret-down"></i>
               </li>
               <Collapse isOpen={isOpenTransport}>
                 <Link href="/airport-transportation/george-bush-airport-transfer">
-                  <a><li className={styles.liDropStyle}>
-                    george bush airport transfer
-                  </li></a>
+                  <a>
+                    <li className={styles.liDropStyle}>
+                      george bush airport transfer
+                    </li>
+                  </a>
                 </Link>
                 <Link href="/airport-transportation/hobby-airport-transfer">
-                  <a><li className={styles.liDropStyle}>hobby airport transfer</li></a>
+                  <a>
+                    <li className={styles.liDropStyle}>
+                      hobby airport transfer
+                    </li>
+                  </a>
                 </Link>
                 <Link href="/airport-transportation/private-jet-limo">
-                  <a><li className={styles.liDropStyle}>
-                    private aviation & regional airports
-                  </li></a>
+                  <a>
+                    <li className={styles.liDropStyle}>
+                      private aviation & regional airports
+                    </li>
+                  </a>
                 </Link>
               </Collapse>
               <Link href="/services/galveston-cruise-transfer">
-                <a><li className={styles.liDropStyle}>
-                  galveston cruise transfer
-                </li></a>
+                <a>
+                  <li className={styles.liDropStyle}>
+                    galveston cruise transfer
+                  </li>
+                </a>
               </Link>
               <li onClick={toggleCity} className={styles.liDropStyle}>
                 <Link href="/city-to-city-transfer">
                   <a className="grey_submenu">city to city transfer</a>
                 </Link>
                 <i
-                  style={{ marginLeft: "82px", marginRight: "20px" }}
-                  className="fas fa-caret-down"
-                ></i>
+                  style={{marginLeft: "82px", marginRight: "20px"}}
+                  className="fas fa-caret-down"></i>
               </li>
               <Collapse isOpen={isOpenCity}>
                 <Link href="/city-to-city-transfer/houston-to-lake-jackson">
-                  <a> <li className={styles.liDropStyle}>
-                    houston to lake jackson
-                  </li></a>
+                  <a>
+                    {" "}
+                    <li className={styles.liDropStyle}>
+                      houston to lake jackson
+                    </li>
+                  </a>
                 </Link>
                 <Link href="/city-to-city-transfer/houston-to-victoria">
-                  <a> <li className={styles.liDropStyle}>
-                    houston to victoria
-                  </li></a>
+                  <a>
+                    {" "}
+                    <li className={styles.liDropStyle}>houston to victoria</li>
+                  </a>
                 </Link>
                 <Link href="/city-to-city-transfer/houston-to-college-station">
-                  <a> <li className={styles.liDropStyle}>
-                    houston to college station
-                  </li></a>
+                  <a>
+                    {" "}
+                    <li className={styles.liDropStyle}>
+                      houston to college station
+                    </li>
+                  </a>
                 </Link>
                 <Link href="/city-to-city-transfer/houston-to-austin">
-                  <a> <li className={styles.liDropStyle}>houston to austin</li></a>
+                  <a>
+                    {" "}
+                    <li className={styles.liDropStyle}>houston to austin</li>
+                  </a>
                 </Link>
                 <Link href="/city-to-city-transfer/houston-to-dallas">
-                  <a><li className={styles.liDropStyle}>houston to dallas</li></a>
+                  <a>
+                    <li className={styles.liDropStyle}>houston to dallas</li>
+                  </a>
                 </Link>
                 <Link href="/city-to-city-transfer/houston-to-san-antonio">
-                  <a><li className={styles.liDropStyle}>houston to san antonio</li></a>
+                  <a>
+                    <li className={styles.liDropStyle}>
+                      houston to san antonio
+                    </li>
+                  </a>
                 </Link>
                 <Link href="/city-to-city-transfer/houston-to-lakecharles">
-                  <a><li className={styles.liDropStyle}>
-                    houston to lake charles
-                  </li></a>
+                  <a>
+                    <li className={styles.liDropStyle}>
+                      houston to lake charles
+                    </li>
+                  </a>
                 </Link>
                 <Link href="/city-to-city-transfer/houston-to-lafayette">
-                  <a><li className={styles.liDropStyle}>houston to lafayette</li></a>
+                  <a>
+                    <li className={styles.liDropStyle}>houston to lafayette</li>
+                  </a>
                 </Link>
               </Collapse>
               <li onClick={toggleEvents} className={styles.liDropStyle}>
@@ -158,24 +191,35 @@ function SideNav() {
                   <a className="grey_submenu">events transfer</a>
                 </Link>
                 <i
-                  style={{ marginLeft: "108px", marginRight: "20px" }}
-                  className="fas fa-caret-down"
-                ></i>
+                  style={{marginLeft: "108px", marginRight: "20px"}}
+                  className="fas fa-caret-down"></i>
               </li>
               <Collapse isOpen={isOpenEvents}>
                 <Link href="/events/business-event-transfer">
-                  <a><li className={styles.liDropStyle}>
-                    business conventions transfer
-                  </li></a>
+                  <a>
+                    <li className={styles.liDropStyle}>
+                      business conventions transfer
+                    </li>
+                  </a>
                 </Link>
                 <Link href="/events/sport-events-transfer">
-                  <a><li className={styles.liDropStyle}>sports event transfer</li></a>
+                  <a>
+                    <li className={styles.liDropStyle}>
+                      sports event transfer
+                    </li>
+                  </a>
                 </Link>
                 <Link href="/events/concerts-transfer">
-                  <a><li className={styles.liDropStyle}>concerts transfer</li></a>
+                  <a>
+                    <li className={styles.liDropStyle}>concerts transfer</li>
+                  </a>
                 </Link>
                 <Link href="/events/houston-rodeo-transfer">
-                  <a><li className={styles.liDropStyle}>houston rodeo transfer</li></a>
+                  <a>
+                    <li className={styles.liDropStyle}>
+                      houston rodeo transfer
+                    </li>
+                  </a>
                 </Link>
               </Collapse>
               <li onClick={toggleCelebration} className={styles.liDropStyle}>
@@ -183,100 +227,148 @@ function SideNav() {
                   <a className="grey_submenu">celebration transfer</a>
                 </Link>
                 <i
-                  style={{ marginLeft: "78px", marginRight: "20px" }}
-                  className="fas fa-caret-down"
-                ></i>
+                  style={{marginLeft: "78px", marginRight: "20px"}}
+                  className="fas fa-caret-down"></i>
               </li>
               <Collapse isOpen={isOpenCelebration}>
                 <Link href="/celebrations/party-transfer">
-                  <a><li className={styles.liDropStyle}>party transfer</li></a>
+                  <a>
+                    <li className={styles.liDropStyle}>party transfer</li>
+                  </a>
                 </Link>
                 <Link href="/celebrations/graduation-transfer">
-                  <a><li className={styles.liDropStyle}>graduation transfer</li></a>
+                  <a>
+                    <li className={styles.liDropStyle}>graduation transfer</li>
+                  </a>
                 </Link>
                 <Link href="/celebrations/bachelor-party-transfer">
-                  <a><li className={styles.liDropStyle}>
-                    Bachelorette party transfer
-                  </li></a>
+                  <a>
+                    <li className={styles.liDropStyle}>
+                      Bachelorette party transfer
+                    </li>
+                  </a>
                 </Link>
               </Collapse>
             </Collapse>
             <li onClick={toggleCities}>
               Cities
               <i
-                style={{ float: "right", marginRight: "2rem" }}
-                className="fas fa-caret-down"
-              ></i>
+                style={{float: "right", marginRight: "2rem"}}
+                className="fas fa-caret-down"></i>
             </li>
             <Collapse isOpen={isOpenCities}>
               <Link href="/cities/houston-limo-car-service">
-                <a><li className={styles.liDropStyle}>houston limo car service</li></a>
+                <a>
+                  <li className={styles.liDropStyle}>
+                    houston limo car service
+                  </li>
+                </a>
               </Link>
               <Link href="/cities/spring-limo-car-service">
-                <a><li className={styles.liDropStyle}>spring limo car service</li></a>
+                <a>
+                  <li className={styles.liDropStyle}>
+                    spring limo car service
+                  </li>
+                </a>
               </Link>
               <Link href="/cities/fulshear-limo-car-service">
-                <a><li className={styles.liDropStyle}>fulshear limo car service</li></a>
+                <a>
+                  <li className={styles.liDropStyle}>
+                    fulshear limo car service
+                  </li>
+                </a>
               </Link>
               <Link href="/cities/galveston-limo-car-service">
-                <a><li className={styles.liDropStyle}>
-                  galveston limo car service
-                </li></a>
+                <a>
+                  <li className={styles.liDropStyle}>
+                    galveston limo car service
+                  </li>
+                </a>
               </Link>
               <Link href="/cities/montgomery-limo-car-service">
-                <a><li className={styles.liDropStyle}>montogomery limo service</li></a>
+                <a>
+                  <li className={styles.liDropStyle}>
+                    montogomery limo service
+                  </li>
+                </a>
               </Link>
               <Link href="/cities/conroe-limo-car-service">
-                <a><li className={styles.liDropStyle}>conroe limo service</li></a>
+                <a>
+                  <li className={styles.liDropStyle}>conroe limo service</li>
+                </a>
               </Link>
               <Link href="/cities/tomball-limo-car-service">
-                <a><li className={styles.liDropStyle}>tomball limo service</li></a>
+                <a>
+                  <li className={styles.liDropStyle}>tomball limo service</li>
+                </a>
               </Link>
               <Link href="/cities/cypress-limo-car-service">
-                <a><li className={styles.liDropStyle}>cypress limo service</li></a>
+                <a>
+                  <li className={styles.liDropStyle}>cypress limo service</li>
+                </a>
               </Link>
               <Link href="/cities/beaumont-limo-car-service">
                 <li className={styles.liDropStyle}>beaumont limo service</li>
               </Link>
               <Link href="/cities/sugarland-limo-car-service">
-                <a><li className={styles.liDropStyle}>sugarland limo service</li></a>
+                <a>
+                  <li className={styles.liDropStyle}>sugarland limo service</li>
+                </a>
               </Link>
               <Link href="/cities/richmond-limo-car-service">
-                <a><li className={styles.liDropStyle}>richmond limo service</li></a>
+                <a>
+                  <li className={styles.liDropStyle}>richmond limo service</li>
+                </a>
               </Link>
               <Link href="/cities/katy-limo-car-service">
-                <a> <li className={styles.liDropStyle}>katy limo service</li></a>
+                <a>
+                  {" "}
+                  <li className={styles.liDropStyle}>katy limo service</li>
+                </a>
               </Link>
             </Collapse>
             <Link href="/fleet">
-              <a><li>Fleet</li></a>
+              <a>
+                <li>Fleet</li>
+              </a>
             </Link>
             <Link href="/about-us">
-              <a><li>About</li></a>
+              <a>
+                <li>About</li>
+              </a>
             </Link>
             <Link href="/FAQ">
-              <a><li>Faq</li></a>
+              <a>
+                <li>Faq</li>
+              </a>
             </Link>
             <Link href="/contact-us">
-              <a><li>Contact</li></a>
+              <a>
+                <li>Contact</li>
+              </a>
             </Link>
             <Link href="/blogs">
-              <a><li>Blog</li></a>
+              <a>
+                <li>Blog</li>
+              </a>
             </Link>
 
             <Link href="/cancel-booking-email-verify">
-              <a><li className={styles.canc}>Cancel a Booking?</li></a>
+              <a>
+                <li className={styles.canc}>Cancel a Booking?</li>
+              </a>
             </Link>
             <Link href="/refund-request">
-              <a><li className={styles.canc}>Refund Request</li></a>
+              <a>
+                <li className={styles.canc}>Refund Request</li>
+              </a>
             </Link>
           </ul>
 
           <div className={styles.bottomButton}>
             <Button
               className={styles.loginButton}
-              onClick={(e) => history.push("/login")}
-            >
+              onClick={(e) => history.push("/login")}>
               Login
             </Button>
             <Button color="secondary" onClick={(e) => history.push("/signup")}>

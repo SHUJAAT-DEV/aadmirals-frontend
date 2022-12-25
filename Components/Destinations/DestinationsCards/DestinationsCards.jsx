@@ -1,15 +1,17 @@
 import React from "react";
-import { Button } from "reactstrap";
+import {Button} from "reactstrap";
 import styles from "./DestinationsCards.module.scss";
 
-function ServicesCards({ heading, subHeading, approx }) {
+function ServicesCards({heading, subHeading, approx}) {
   const goUp = () => {
     window.scrollTo(0, 0);
   };
 
   return (
     <div>
-      <div style={{ textAlign: "center", width: "90%" }} className="main_card_style">
+      <div
+        style={{textAlign: "center", width: "90%"}}
+        className="main_card_style">
         <div className={styles.cardsContainer}>
           <div className={styles.cards}>
             <h5>{heading}</h5>
@@ -20,7 +22,7 @@ function ServicesCards({ heading, subHeading, approx }) {
             </Button>
           </div>
         </div>
-      </div>  
+      </div>
     </div>
   );
 }

@@ -1,20 +1,19 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import styles from "../Confirm.module.scss";
 import Paypal from "../../../Payment/Paypal";
 import Braintree from "../../../Payment/Braintree";
-import { ListGroup, ListGroupItem } from "reactstrap";
+import {ListGroup, ListGroupItem} from "reactstrap";
 
-import { Collapse, Button, CardBody, Card } from "reactstrap";
-import { getToken } from "../../../redux/Payment/actions";
-import { useDispatch, useSelector } from "react-redux";
-import { useRouter } from "next/router";
-import { Alert } from 'reactstrap'
+import {Collapse, Button, CardBody, Card} from "reactstrap";
+import {getToken} from "../../../redux/Payment/actions";
+import {useDispatch, useSelector} from "react-redux";
+import {useRouter} from "next/router";
+import {Alert} from "reactstrap";
 import GooglePay from "../../../Payment/GooglePay";
-import googlePay from "../../../Assets/googlePay.svg";
 
 function PaymentMethod() {
   const dispatch = useDispatch();
-  const { execute_error } = useSelector((state) => state.paymentReducer);
+  const {execute_error} = useSelector((state) => state.paymentReducer);
 
   const history = useRouter();
   const [isOpen, setIsOpen] = useState(false);
@@ -31,11 +30,17 @@ function PaymentMethod() {
   return (
     <>
       <div className={styles.payment_method_main}>
-        {execute_error && <Alert className="m-2" color="danger">{execute_error}</Alert>}
+        {execute_error && (
+          <Alert className="m-2" color="danger">
+            {execute_error}
+          </Alert>
+        )}
         <h3>How would you like to pay?</h3>
         <div className={styles.list_container}>
           <ListGroup>
-            <ListGroupItem className={styles.list_option} onClick={(e) => toggle2()}>
+            <ListGroupItem
+              className={styles.list_option}
+              onClick={(e) => toggle2()}>
               <span>
                 <img
                   width="32px"
@@ -46,15 +51,29 @@ function PaymentMethod() {
               </span>
               Pay With Card
             </ListGroupItem>
-            <ListGroupItem className={styles.list_option} onClick={(e) => toggle()}>
+            <ListGroupItem
+              className={styles.list_option}
+              onClick={(e) => toggle()}>
               <span>
-                <img src="../../../Assets/paypal.svg" width="32px" className="img img fluid mr-2" alt="paypal img" />
+                <img
+                  src="../../../Assets/paypal.svg"
+                  width="32px"
+                  className="img img fluid mr-2"
+                  alt="paypal img"
+                />
               </span>
               PayPal
             </ListGroupItem>
-            <ListGroupItem className={styles.list_option} onClick={(e) => toggle3()}>
+            <ListGroupItem
+              className={styles.list_option}
+              onClick={(e) => toggle3()}>
               <span>
-                <img src="../../../Assets/give.svg" width="32px"  className="img img fluid mr-2" alt="GooglePay img" />
+                <img
+                  src="../../../Assets/give.svg"
+                  width="32px"
+                  className="img img fluid mr-2"
+                  alt="GooglePay img"
+                />
               </span>
               GooglePay
             </ListGroupItem>

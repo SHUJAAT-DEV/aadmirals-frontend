@@ -1,12 +1,12 @@
-@media only screen and (max-width: 1200px){
-  .imageContainer{
+@media only screen and (max-width: 1200px) {
+  .imageContainer {
     width: 300vw;
     margin-top: 4px;
   }
-  .discription{
+  .discription {
     max-width: 100%;
   }
-  .travel{
+  .travel {
     margin-top: -50vh;
     margin-bottom: 4vh;
   }
@@ -21,7 +21,7 @@
     min-height: 82vh;
     position: relative;
     width: 100%;
-  } 
+  }
   .mainContainer::after {
     content: "";
     position: absolute;
@@ -90,7 +90,7 @@
       }
     }
   }
-  .discription{
+  .discription {
     flex: 0 0 100%;
     text-align: justify;
   }
@@ -124,7 +124,7 @@
       width: 100%;
       min-height: 68% !important;
       margin-top: 3px !important;
-    border-radius: 10px;
+      border-radius: 10px;
     }
   }
   .discription1 {
@@ -183,12 +183,12 @@
       padding-top: 15px;
     }
   }
-  .menuButton{
+  .menuButton {
     display: none;
   }
 }
-@media only screen and (max-width: 992px){
-  .travel{
+@media only screen and (max-width: 992px) {
+  .travel {
     margin-top: -266px;
   }
 }
@@ -202,7 +202,7 @@
     overflow: hidden;
     width: 100%;
   }
-  .travel{
+  .travel {
     margin-top: -35vh;
   }
   .mainContainer::after {
@@ -380,10 +380,11 @@
         font-size: 20px;
         font-weight: 800;
       }
-    }    }
+    }
+  }
 }
-@media only screen and (max-width: 478px){
-  .travel{
+@media only screen and (max-width: 478px) {
+  .travel {
     margin-top: -28vh;
   }
 }

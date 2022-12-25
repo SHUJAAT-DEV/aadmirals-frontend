@@ -22,7 +22,6 @@
     z-index: 1000;
   }
   .floatingButton {
-   
     transition: 0.2s ease-in-out;
     outline: 0;
     border: none;
@@ -60,8 +59,6 @@
       color: #ee405e;
       font-size: 15px;
       font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
-
-   
     }
     h1:nth-child(2) {
       line-height: 90%;
@@ -82,7 +79,7 @@
   .menuButton {
     display: none;
   }
-  .div_iframe{
+  .div_iframe {
     text-align: center;
     margin-top: 4rem;
   }
@@ -101,15 +98,13 @@
     width: 70px;
     color: #e73f5e;
   }
-  
 }
 @media only screen and (max-width: 767px) {
-  .properties_Limo{
+  .properties_Limo {
     width: 94vw !important;
     padding-top: 2vh !important;
   }
   .mainContainer {
-
     position: relative;
     max-width: 100vw !important;
     padding: 0;
@@ -175,7 +170,6 @@
       line-height: 90%;
       font-size: 73px;
       font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
-
     }
     h1:nth-child(3) {
       line-height: 90%;
@@ -186,7 +180,6 @@
       line-height: 200%;
       font-size: 19px;
       font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
-
     }
   }
   .menuButton {
@@ -209,18 +202,18 @@
       }
     }
   }
-  .div_iframe{
+  .div_iframe {
     text-align: center;
     margin-top: 6rem;
   }
 }
 // Footer
-.message_icon{
+.message_icon {
   width: 1.5rem;
 }
 @media only screen and (min-width: 768px) {
   // FOR DESKTOP AND TABLET
-  
+
   .main_container_footer {
     max-width: 90% !important;
     .background {
@@ -252,7 +245,7 @@
               margin-right: 2rem;
             }
           }
-          & a{
+          & a {
             text-decoration: none;
           }
           & h6 {
@@ -287,7 +280,7 @@
     .buttonPayment {
       width: 100%;
       height: 3rem;
-      background-color: #ee405e  !important ;
+      background-color: #ee405e !important ;
       color: white !important;
       border: none !important;
       border-radius: 0.5rem !important;
@@ -295,7 +288,7 @@
       padding-bottom: 0.3rem !important;
       font-size: 1rem !important;
       margin-top: 3rem;
-      font-family: 'ProximaNovaBold';
+      font-family: "ProximaNovaBold";
       filter: drop-shadow(1px 5px 5px rgba(75, 56, 56, 0.192));
     }
     .label {
@@ -323,8 +316,8 @@
     overflow: hidden;
   }
   .cardPayment {
-      border: none;
-      background: transparent !important;
+    border: none;
+    background: transparent !important;
     .headingMain {
       color: #707070;
       font-size: 1.7rem;
@@ -383,7 +376,7 @@
     .details_container {
       margin: 38px;
     }
-    & a{
+    & a {
       text-decoration: none;
     }
     & h6 {
@@ -395,7 +388,6 @@
     }
   }
 }
-
 
 ////Limoooo
 @media only screen and (min-width: 768px) {
@@ -458,10 +450,10 @@
     padding: 34px 20px;
     min-height: 376px;
     box-shadow: 0px 0 5px rgb(1 41 112 / 8%);
-    transition: .3s linear;
-      h3 {
-        font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
-        font-size: 20px;
+    transition: 0.3s linear;
+    h3 {
+      font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+      font-size: 20px;
       padding-top: 10px;
     }
     p {
@@ -471,8 +463,8 @@
     }
     &:hover {
       transform: translateY(-10px);
-      box-shadow: 0 7px 9px 0px #fafafc;  
-    } 
+      box-shadow: 0 7px 9px 0px #fafafc;
+    }
   }
 }
 @media only screen and (max-width: 767px) {
@@ -527,8 +519,8 @@
     padding-top: 50px;
     justify-content: center;
   }
-  .service_detail{
-    font-size:16px !important;
+  .service_detail {
+    font-size: 16px !important;
   }
   .properties_Limo {
     width: 330px;
@@ -563,7 +555,7 @@
 }
 
 .discriptionContainer_Limo::-webkit-scrollbar-thumb {
-  background:rgba(168, 163, 163, 0.26);
+  background: rgba(168, 163, 163, 0.26);
   border-radius: 0px;
 }
 @media only screen and (max-width: 767px) {
@@ -577,7 +569,7 @@
       font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
     }
   }
-  .featuresBox_Limo{
+  .featuresBox_Limo {
     margin-top: -73px;
   }
 }
@@ -585,45 +577,45 @@
 ///partner card
 @media only screen and (min-width: 768px) {
   // FOR DESKTOP AND TABLET
-  .logos_container{
+  .logos_container {
     margin: 0rem 1rem 1rem 0rem;
     display: flex;
     align-items: center;
     flex-direction: column;
-    .logo_container{
+    .logo_container {
       height: 10rem;
     }
-    h2{
+    h2 {
       font-size: 0.9rem;
     }
   }
 }
 @media only screen and (max-width: 767px) {
   /* phones */
-  .logos_container{
+  .logos_container {
     margin: 0rem 1rem 1rem 0rem;
     display: flex;
     align-items: center;
     flex-direction: column;
-    .logo_container{
+    .logo_container {
       height: 10rem;
-
     }
-    h2{
+    h2 {
       font-size: 0.9rem;
     }
-  }}
-
-  ///Testimonial
-  .mainContainer_Testimonial {
-    background: #f0f2f7;
-    max-width: 100vw;
-    overflow: hidden;
-    h2 {
-      padding-top: 60px;
-      font-size: 32px;
-      font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
-    }
   }
+}
+
+///Testimonial
+.mainContainer_Testimonial {
+  background: #f0f2f7;
+  max-width: 100vw;
+  overflow: hidden;
+  h2 {
+    padding-top: 60px;
+    font-size: 32px;
+    font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  }
+}
 
 //Testomonoa; CArd

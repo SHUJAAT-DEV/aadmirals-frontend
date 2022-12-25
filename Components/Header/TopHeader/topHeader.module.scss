@@ -1,5 +1,4 @@
 @media only screen and (min-width: 768px) {
-
   // FOR DESKTOP AND TABLET
   .main_container {
     background: #212b36 0% 0% no-repeat padding-box;
@@ -96,7 +95,7 @@
           .contact_item {
             margin-left: 0.5rem;
             margin-right: 0.5rem;
-            font-family: 'ProximaNovaBold';
+            font-family: "ProximaNovaBold";
 
             & img {
               margin-right: 0.3rem;
@@ -108,7 +107,7 @@
               color: white;
               margin: 0 !important;
               text-decoration: none !important;
-              font-family: 'ProximaNovaRegular';
+              font-family: "ProximaNovaRegular";
             }
           }
         }
@@ -120,7 +119,7 @@
             background-color: transparent;
             border: none;
             color: #ee405e;
-            font-family: 'ProximaNovaBold';
+            font-family: "ProximaNovaBold";
           }
 
           .color_white {

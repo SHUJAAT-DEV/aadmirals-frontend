@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./fleet.module.scss";
-import { Button, Col, Container, Row } from "reactstrap";
-import  Link  from "next/link";
+import {Button, Col, Container, Row} from "reactstrap";
+import Link from "next/link";
 import Fleetcard from "./fleetcard/fleetcard";
 
 const Fleet = (props) => {
@@ -29,7 +29,7 @@ const Fleet = (props) => {
           <center>
             <Link href="/fleet">
               <a>
-              <Button className={styles.button}>Go to Fleet Page</Button>
+                <Button className={styles.button}>Go to Fleet Page</Button>
               </a>
             </Link>
           </center>

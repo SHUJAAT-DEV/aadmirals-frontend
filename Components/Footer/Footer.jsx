@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import dynamic from 'next/dynamic'
-const styles = dynamic(() => import('../../pages/home.module.scss'))
+import React, {useEffect, useState} from "react";
+import dynamic from "next/dynamic";
+const styles = dynamic(() => import("../../pages/home.module.scss"));
 
-import { Container, Row, Col } from "reactstrap";
-import { Card, Button } from "reactstrap";
-const BottomFooter = dynamic(()=> import('./BottomFooter/BottomFooter'))
-import { getContactPage } from "../../redux/Contact_us/action";
-import { getContactDetailsPage } from "../../redux/Contact_details/action";
-import { useDispatch, useSelector } from "react-redux";
-import { Alert } from "reactstrap";
+import {Container, Row, Col} from "reactstrap";
+import {Card, Button} from "reactstrap";
+const BottomFooter = dynamic(() => import("./BottomFooter/BottomFooter"));
+import {getContactPage} from "../../redux/Contact_us/action";
+import {getContactDetailsPage} from "../../redux/Contact_details/action";
+import {useDispatch, useSelector} from "react-redux";
+import {Alert} from "reactstrap";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -21,21 +21,19 @@ const Footer = () => {
   const cms = useSelector((state) => state.contact);
   const details = useSelector((state) => state.contactDetails);
 
-  const { contact_us_page } = cms;
-  const { contact_details_page } = details;
+  const {contact_us_page} = cms;
+  const {contact_details_page} = details;
 
   const det = contact_details_page && contact_details_page.contactDetails[0];
 
   const submitHandler = (e) => {
     e.preventDefault();
-    setreqFields(false)
+    setreqFields(false);
 
     if (!email || !phoneNumber || !message) {
-      setreqFields(true)
-
+      setreqFields(true);
     } else {
       dispatch(getContactPage(email, phoneNumber, message));
-
     }
   };
   useEffect(() => {
@@ -56,31 +54,55 @@ const Footer = () => {
                   <div className="info-box">
                     <i className="fa fa-phone"></i>
                     <h3>Call Us</h3>
-                    <a href={`tel:+1${det && det.phoneNumber}`}> <i className="fa fa-volume-control-phone custom_size_icon" style=
-                      {{ transform: 'rotate(-40deg)' }}></i> +1{det && det.phoneNumber}</a><br />
-                    <a href={`https://wa.me/1${det && det.whatsapp}`}> <i className="fa fa-whatsapp custom_size_icon"></i> +1{det && det.whatsapp}</a><br />
-                    <a href={`skype:+1${det && det.skype}-?chat`}> <i className="fa fa-skype custom_size_icon"></i> +1{det && det.skype}</a><br />
+                    <a href={`tel:+1${det && det.phoneNumber}`}>
+                      {" "}
+                      <i
+                        className="fa fa-volume-control-phone custom_size_icon"
+                        style={{transform: "rotate(-40deg)"}}></i>{" "}
+                      +1{det && det.phoneNumber}
+                    </a>
+                    <br />
+                    <a href={`https://wa.me/1${det && det.whatsapp}`}>
+                      {" "}
+                      <i className="fa fa-whatsapp custom_size_icon"></i> +1
+                      {det && det.whatsapp}
+                    </a>
+                    <br />
+                    <a href={`skype:+1${det && det.skype}-?chat`}>
+                      {" "}
+                      <i className="fa fa-skype custom_size_icon"></i> +1
+                      {det && det.skype}
+                    </a>
+                    <br />
                   </div>
                 </div>
                 <div className="contact_div col-md-6">
                   <div className="info-box">
                     <i className="fa fa-map-marker"></i>
                     <h3>Location</h3>
-                    <p>8222 Kingsbrook Rd, <br /> Houston, TX 77024</p>
+                    <p>
+                      8222 Kingsbrook Rd, <br /> Houston, TX 77024
+                    </p>
                   </div>
                 </div>
                 <div className="contact_div col-md-6">
                   <div className="info-box">
                     <i className="fa fa-envelope-o"></i>
                     <h3>Email Us</h3>
-                    <a href={`mailto:${det && det.email}`}>{det && det.email}</a>
+                    <a href={`mailto:${det && det.email}`}>
+                      {det && det.email}
+                    </a>
                   </div>
                 </div>
                 <div className="contact_div col-md-6">
                   <div className="info-box">
                     <i className="fa fa-clock-o"></i>
                     <h3>Open Hours</h3>
-                    <p>Monday - Friday<br />9:00AM - 05:00PM</p>
+                    <p>
+                      Monday - Friday
+                      <br />
+                      9:00AM - 05:00PM
+                    </p>
                   </div>
                 </div>
               </div>
@@ -155,25 +177,20 @@ const Footer = () => {
                   {cms.error}
                 </Alert>
               )}
-              <Row style={{ marginTop: "15px" }}>
+              <Row style={{marginTop: "15px"}}>
                 <Col xs="12">
                   {reqFields ? (
-                    <Alert
-                      style={{ borderRadius: "0.5rem" }}
-                      color="danger"
-                    >
+                    <Alert style={{borderRadius: "0.5rem"}} color="danger">
                       All Fields Are Required
                     </Alert>
-                  ) : ""}
+                  ) : (
+                    ""
+                  )}
                 </Col>
               </Row>
               <Card className={`${styles.cardPayment}`}>
-
                 <div className="form-group icon">
-                  <label
-                    for="exampleInputPassword1"
-                    className={styles.label}
-                  >
+                  <label for="exampleInputPassword1" className={styles.label}>
                     Email
                   </label>
                   <input
@@ -209,27 +226,22 @@ const Footer = () => {
                     id="w3review"
                     name="w3review"
                     rows="4"
-                    cols="50"
-                  ></textarea>
+                    cols="50"></textarea>
                 </div>
 
                 <Row>
                   <Col xs="12">
                     <Button
                       onClick={submitHandler}
-                      className={styles.buttonPayment}
-                    >
+                      className={styles.buttonPayment}>
                       Send
                     </Button>
                   </Col>
                 </Row>
-                <Row style={{ marginTop: "15px" }}>
+                <Row style={{marginTop: "15px"}}>
                   <Col xs="12">
                     {contact_us_page && (
-                      <Alert
-                        style={{ borderRadius: "0.5rem" }}
-                        color="success"
-                      >
+                      <Alert style={{borderRadius: "0.5rem"}} color="success">
                         {contact_us_page.status}
                       </Alert>
                     )}
@@ -238,7 +250,6 @@ const Footer = () => {
               </Card>
             </div>
           </Col>
-
         </Row>
       </Container>
       <BottomFooter />
