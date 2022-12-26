@@ -9,6 +9,12 @@ function LimousineService({ data }) {
   const content = click ? "AAdmirals Travel& Transportation has provided professional airport transfer solutions and limo service since 2013 to individual passengers, families, groups and to corporates. We do airport transportation to and from Houston airports, Galveston cruise terminals, hotels, and other hubs. Whether you depart or arrive at George Bush Airport, Hobby Airport, Galveston port, Sugar Land regional airport, Atlantic aviation, Millionaire aviation or any other private aviation or regional airport in the Houston greater area AAdmirals is the best choice for the transportation service you need." : data.uniqueLimousineExperienceInHouston;
 
   const handleChange = () => setClick(false);
+  const visible = () => {
+    if(click){
+      return <span onClick={handleChange} style={{color: "blue"}}> Read More</span>
+    }
+    return null;
+  }
   return (
     <Container fluid className={styles.mainContainer_Limo}>
       <div className={styles.discriptionContainer_Limo}>
@@ -81,8 +87,6 @@ function LimousineService({ data }) {
         <div
           style={{
             paddingTop: "100px", paddingTop: "58px",
-            height: "104vh !important",
-            overflow: "scroll"
           }}
           className={styles.discriptionContainer_Limo}
         >
@@ -91,7 +95,7 @@ function LimousineService({ data }) {
           </h2>
           <p style={{ textAlign: "justify" }} className={styles.paragraph_Limo}>
             {content}
-            <span onClick={handleChange} style={{color: "blue"}}> Read More</span>
+            {visible()}
           </p>
         </div>
       </div>

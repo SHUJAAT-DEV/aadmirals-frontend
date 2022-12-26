@@ -13,19 +13,19 @@ import Link from 'next/link'
 import { Container, Row, Col } from "reactstrap";
 import { Card, Button } from "reactstrap";
 import Carousel from "react-elastic-carousel";
-const styles = dynamic(() => import('./home.module.scss'))
 import { getHomePage } from "../redux/CMS/action";
-const TestimonialCards = dynamic(() => import('../Components/Testimonial/Testimonial Cards/TestimonialCards'))
 
+const styles = dynamic(() => import('./home.module.scss'))
+const TestimonialCards = dynamic(() => import('../Components/Testimonial/Testimonial Cards/TestimonialCards'))
 const SideNav = dynamic(() => import('../Components/Header/SideNav/SideNav'))
 const Hero = dynamic(() => import('../Components/hero/HomeHero'))
 const Floatingbutton = dynamic(() => import('../Components/floaingbutton/floatingbutton'))
 const Cities = dynamic(() => import('../Components/Cities/Cities'))
-
 const Header = dynamic(() => import('../Components/Header/Header'))
 const LimousineService = dynamic(() => import('../Components/Limousine Service/LimousineService'))
 const HomeForm = dynamic(() => import('../Components/Home Form/HomeForm'))
 const OurServices = dynamic(() => import('../Components/Our Services/OurServices'))
+
 import { getContactPage } from "../redux/Contact_us/action";
 import { getContactDetailsPage } from "../redux/Contact_details/action";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -39,7 +39,6 @@ import SwiperCore, {
   Pagination, Autoplay
 } from 'swiper';
 import { Helmet } from "react-helmet";
-
 // install Swiper modules
 SwiperCore.use([Pagination, Autoplay]);
 
@@ -148,10 +147,12 @@ const Home = (props) => {
                     <h2 style={{ paddingTop: '60px' }}>WHAT OUR CUSTOMERS ARE SAYING</h2>
                   </Col>
 
-                  <Swiper slidesPerView={1} spaceBetween={30} autoplay={{
-                    "delay": 2500,
-                    "disableOnInteraction": false
-                  }} pagination={{
+                  <Swiper slidesPerView={1} spaceBetween={30} 
+                  // autoplay={{
+                  //   "delay": 2500,
+                  //   "disableOnInteraction": false
+                  // }} 
+                  pagination={{
                     "clickable": true
                   }}
 
