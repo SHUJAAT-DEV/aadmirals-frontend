@@ -35,7 +35,6 @@ function AirportTransportationHouston(props) {
 
   // const cms = useSelector(state => state.galvestonCruise)
   // const { galveston_cruise_page } = cms
-
   // const data = galveston_cruise_page && galveston_cruise_page.galvestonCruiseTransfer[0]
   // const faqs = galveston_cruise_page && galveston_cruise_page.faqs
   // const fleet = galveston_cruise_page && galveston_cruise_page.fleet

@@ -146,7 +146,6 @@ const Home = (props) => {
                   <Col xs={12} md={12} xl={12}>
                     <h2 style={{ paddingTop: '60px' }}>WHAT OUR CUSTOMERS ARE SAYING</h2>
                   </Col>
-
                   <Swiper slidesPerView={1} spaceBetween={30} 
                   autoplay={{
                     "delay": 2500,
