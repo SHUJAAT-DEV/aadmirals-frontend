@@ -31,8 +31,6 @@ function ServicesCards({image, description, title, url}) {
   }, []);
   return (
     <div className="main_slider_serv">
-      <Link href={`/${url ? url : ""}`}>
-        <a>
           <div className={styles.cardsContainer}>
             <div className={styles.cards}>
               <div className={styles.cardImage}>
@@ -53,14 +51,13 @@ function ServicesCards({image, description, title, url}) {
                   min={40}
                   ideal={50}
                   max={100}
+                  style={{backgroundColor: "red"}}
                   readMoreText={"Read More"}
                   text={description}
                 />
               </div>
             </div>
           </div>
-        </a>
-      </Link>
     </div>
   );
 }
