@@ -11,7 +11,12 @@ li,
 h6 {
   font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
 }
-
+span.displayed-text .read-more-button{
+  text-decoration: none !important;
+}
+span.displayed-text .read-more-button:hover{
+  cursor: pointer;
+}
 button {
   font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
 }
