@@ -224,7 +224,8 @@ const Header = () => {
                       >
                         <NavbarBrand href="/houston-airport-transportation">
                           <div style={{
-                            fontSize: "14px"
+                            fontSize: "14px",
+                            color: ""
                           }}>
                             Houston Airport Transportation
                           </div>
