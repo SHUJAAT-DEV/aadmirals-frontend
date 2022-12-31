@@ -42,6 +42,7 @@ const Header = () => {
   const history = useRouter();
   const ref = useRef(null);
   const [state, setState] = useState();
+  const [state2, setState2] = useState();
   const [Houtson, setHoutson] = useState();
   const [city, setcity] = useState();
   const [event, setevent] = useState();
@@ -78,122 +79,25 @@ const Header = () => {
                     }}>
                     Home
                   </NavLink> */}
-                  <NavbarBrand className={styles.NavLink} href="/services">
+                  <NavbarBrand className={styles.NavLink} href="/">
                     Home
                   </NavbarBrand>
                 </NavItem>
                 <ButtonDropdown
                   className={`${styles.dropdown} button_dropdown `}
                   isOpen={dropDownOpen}
-                  toggle={toggle2}>
-                  {/* <DropdownToggle caret>SERVICES</DropdownToggle> */}
-                  {/* <DropdownMenu>
-                    <DropdownSubmenu title="Houston Airport Transportation" >
-                      <DropdownItem
-                        onClick={(e) => history.push("/airport-transportation/george-bush-airport")}  
-                      >
-                        George Bush Airport Transfer{" "}
-                      </DropdownItem>
-                      <DropdownItem
-                        onClick={(e) => history.push("/airport-transportation/hobby-airport")}
-                      >
-                        Hobby Airport Transfer{" "}
-                      </DropdownItem>
-                      <DropdownItem
-                        onClick={(e) => history.push("/airport-transportation/private-jet-limo")}
-                      >
-                        {"Private Aviation & Regional Airports"}
-                      </DropdownItem>
-                    </DropdownSubmenu>
-                    <DropdownItem
-                      onClick={(e) =>
-                        history.push("/services/galveston-cruise-transfer")
-                      }
-                    >
-                      Galveston Cruise Transfer{" "}
-                    </DropdownItem>
-
-                    <DropdownSubmenu title="City to City Transfer">
-                      <DropdownItem
-                        onClick={(e) => history.push("/city-to-city-transfer/houston-to-college-station")}
-                      >
-                        Houston To College Station{" "}
-                      </DropdownItem>
-                      <DropdownItem
-                        onClick={(e) => history.push("/city-to-city-transfer/houston-to-austin")}
-                      >
-                        Houston To Austin{" "}
-                      </DropdownItem>
-                      <DropdownItem
-                        onClick={(e) => history.push("/city-to-city-transfer/houston-to-dallas")}
-                      >
-                        Houston To Dallas{" "}
-                      </DropdownItem>
-                      <DropdownItem
-                        onClick={(e) => history.push("/city-to-city-transfer/houston-to-san-antonio")}
-                      >
-                        Houston To San Antonio{" "}
-                      </DropdownItem>
-                      <DropdownItem
-                        onClick={(e) => history.push("/city-to-city-transfer/houston-to-lakecharles")}
-                      >
-                        Houston To Lake Charles{" "}
-                      </DropdownItem>
-                      <DropdownItem
-                        onClick={(e) => history.push("/city-to-city-transfer/houston-to-lafayette")}
-                      >
-                        Houston To Lafayette
-                      </DropdownItem>
-                    </DropdownSubmenu>
-                    <DropdownSubmenu title="Events Transfer">
-                      <DropdownItem
-                        onClick={(e) => history.push("/events/business-events")}
-                      >
-                        Business Conventions Transfer{" "}
-                      </DropdownItem>
-                      <DropdownItem
-                        onClick={(e) => history.push("/events/sporting-events")}
-                      >
-                        Sports Events Transfer{" "}
-                      </DropdownItem>
-                      <DropdownItem
-                        onClick={(e) =>
-                          history.push("/events/concerts")
-                        }
-                      >
-                        Concerts Transfer{" "}
-                      </DropdownItem>
-                      <DropdownItem
-                        onClick={(e) => history.push("/events/houston-rodeo")}
-                      >
-                        Houston Rodeo Transfer{" "}
-                      </DropdownItem>
-                    </DropdownSubmenu>
-                    <DropdownSubmenu title="Celebrations Transfer">
-                      <DropdownItem onClick={(e) => history.push("/celebrations/parties")}>
-                        Party Transfer{" "}
-                      </DropdownItem>
-                      <DropdownItem
-                        onClick={(e) => history.push("/celebrations/graduation-parties")}
-                      >
-                        Graduation Transfer{" "}
-                      </DropdownItem>
-                      <DropdownItem
-                        onClick={(e) => history.push("/celebrations/bachelor-party-limo")}
-                      >
-                      Bachelor Party Transfer{" "}
-                      </DropdownItem>
-                    </DropdownSubmenu>
-                  </DropdownMenu>  */}
-                  <div caret className={styles.NavItem}>
+                  toggle={toggle2}
+                >
+                  <div caret className={styles.NavItem} >
                     <div
                       onClick={() => {
-                        history.push("/services");
+                        history.push("/");
                       }}
                       className={`${styles.NavLink} dropdown_Services`}
                       ref={ref}
-                      onMouseEnter={() => setState("open")}>
-                      <NavbarBrand href="/services">
+                      onMouseEnter={() => setState("open")}
+                    >
+                      <NavbarBrand href="/">
                         Services
                       </NavbarBrand>
                     </div>
@@ -202,102 +106,109 @@ const Header = () => {
                     state={state}
                     anchorRef={ref}
                     onMouseLeave={() => setState("closed")}
-                    onClose={() => setState("closed")}>
-                    <li
-                      onMouseEnter={() => {
-                        setHoutson("show");
-                      }}
-                      onMouseLeave={() => {
-                        setHoutson("closed");
-                      }}
-                      className="szh-menu__submenu"
-                      role="presentation">
-                      <div
-                        onClick={(e) => {
-                          history.push("/houston-airport-transportation");
+                    onClose={() => setState("closed")}
+                  >
+                    <div>
+                      <li
+                        onMouseEnter={() => {
+                          setHoutson("show");
                         }}
-                        role="menuitem"
-                        aria-haspopup="true"
-                        aria-expanded={Houtson == "show" ? "true" : "false"}
-                        tabIndex={-1}
-                        className="szh-menu__item"
+                        onMouseLeave={() => {
+                          setHoutson("closed");
+                        }}
+                        className="szh-menu__submenu"
+                        role="presentation"
                       >
-                        <NavbarBrand href="/houston-airport-transportation">
-                          <div style={{
-                            fontSize: "14px",
-                            color: ""
+                        <div
+                          onClick={(e) => {
+                            history.push("/houston-airport-transportation");
+                          }}
+                          role="menuitem"
+                          aria-haspopup="true"
+                          aria-expanded={Houtson == "show" ? "true" : "false"}
+                          tabIndex={-1}
+                          className="szh-menu__item"
+                        >
+                          <NavbarBrand href="/houston-airport-transportation">
+                            <div style={{
+                              fontSize: "14px",
+                              color: ""
+                            }}>
+                              Houston Airport Transportation
+                            </div>
+                          </NavbarBrand>
+                        </div>
+                        <ul
+                          role="menu"
+                          tabIndex={-1}
+                          aria-label="Houston Airport Transportation"
+                          className={
+                            Houtson == "show"
+                              ? "szh-menu szh-menu--state-open szh-menu--dir-right"
+                              : "szh-menu szh-menu--state-closed szh-menu--dir-right"
+                          }
+                          style={{
+                            left: "246.109px", top: "4px"
                           }}>
-                            Houston Airport Transportation
-                          </div>
-                        </NavbarBrand>
-                      </div>
-                      <ul
-                        role="menu"
-                        tabIndex={-1}
-                        aria-label="Houston Airport Transportation"
-                        className={
-                          Houtson == "show"
-                            ? "szh-menu szh-menu--state-open szh-menu--dir-right"
-                            : "szh-menu szh-menu--state-closed szh-menu--dir-right"
-                        }
-                        style={{ left: "246.109px", top: "4px" }}>
-                        <li
-                          onClick={(e) =>
-                            history.push(
-                              "/airport-transportation/george-bush-airport-transfer"
-                            )
-                          }
-                          role="menuitem"
-                          tabIndex={-1}
-                          className="szh-menu__item">
-                          <NavbarBrand
-                            href="/airport-transportation/george-bush-airport-transfer"
-                            style={{
-                              fontSize: "14px"
-                            }}
-                          >
-                            George Bush Airport Transfer
-                          </NavbarBrand>
-                        </li>
-                        <li
-                          onClick={(e) =>
-                            history.push(
-                              "/airport-transportation/hobby-airport-transfer"
-                            )
-                          }
-                          role="menuitem"
-                          tabIndex={-1}
-                          className="szh-menu__item">
-                          <NavbarBrand
-                            href="/airport-transportation/hobby-airport-transfer"
-                            style={{
-                              fontSize: "14px"
-                            }}
-                          >
-                            Hobby Airport Transfer
-                          </NavbarBrand>
+                          <li
+                            onClick={(e) =>
+                              history.push(
+                                "/airport-transportation/george-bush-airport-transfer"
+                              )
+                            }
+                            role="menuitem"
+                            tabIndex={-1}
+                            className="szh-menu__item">
+                            <NavbarBrand
+                              href="/airport-transportation/george-bush-airport-transfer"
+                              style={{
+                                fontSize: "14px"
+                              }}
+                            >
+                              George Bush Airport Transfer
+                            </NavbarBrand>
+                          </li>
+                          <li
+                            onClick={(e) =>
+                              history.push(
+                                "/airport-transportation/hobby-airport-transfer"
+                              )
+                            }
+                            role="menuitem"
+                            tabIndex={-1}
+                            className="szh-menu__item">
+                            <NavbarBrand
+                              href="/airport-transportation/hobby-airport-transfer"
+                              style={{
+                                fontSize: "14px"
+                              }}
+                            >
+                              Hobby Airport Transfer
+                            </NavbarBrand>
 
-                        </li>
-                        <li
-                          onClick={(e) =>
-                            history.push(
-                              "/airport-transportation/private-jet-limo"
-                            )
-                          }
-                          role="menuitem"
-                          tabIndex={-1}
-                          className="szh-menu__item">
-                          <NavbarBrand
-                            href="/airport-transportation/private-jet-limo"
-                            style={{
-                              fontSize: "14px"
-                            }}
-                          >
-                            Private Aviation &amp; Regional Airports
-                          </NavbarBrand>
-                        </li>
-                      </ul>
-                    </li>
+                          </li>
+                          <li
+                            onClick={(e) =>
+                              history.push(
+                                "/airport-transportation/private-jet-limo"
+                              )
+                            }
+                            role="menuitem"
+                            tabIndex={-1}
+                            className="szh-menu__item">
+                            <NavbarBrand
+                              href="/airport-transportation/private-jet-limo"
+                              style={{
+                                fontSize: "14px"
+                              }}
+                            >
+                              Private Aviation &amp; Regional Airports
+                            </NavbarBrand>
+                          </li>
+                        </ul>
+                      </li>
+
+                    </div>
                     <MenuItem
                       onClick={(e) =>
                         history.push("/services/galveston-cruise-transfer")
@@ -473,7 +384,7 @@ const Header = () => {
                           role="menuitem"
                           tabIndex={-1}
                           className="szh-menu__item">
-                             <NavbarBrand href="/city-to-city-transfer/houston-to-lafayette">
+                          <NavbarBrand href="/city-to-city-transfer/houston-to-lafayette">
                             <div style={{
                               fontSize: "14px"
                             }}>
@@ -499,13 +410,13 @@ const Header = () => {
                         aria-expanded={event == "show" ? "true" : "false"}
                         tabIndex={-1}
                         className="szh-menu__item">
-                           <NavbarBrand href="/events">
-                            <div style={{
-                              fontSize: "14px"
-                            }}>
-                        Events Transfer
-                            </div>
-                          </NavbarBrand>
+                        <NavbarBrand href="/events">
+                          <div style={{
+                            fontSize: "14px"
+                          }}>
+                            Events Transfer
+                          </div>
+                        </NavbarBrand>
                       </div>
                       <ul
                         role="menu"
@@ -524,11 +435,11 @@ const Header = () => {
                           role="menuitem"
                           tabIndex={-1}
                           className="szh-menu__item">
-                             <NavbarBrand href="/events/business-event-transfer">
+                          <NavbarBrand href="/events/business-event-transfer">
                             <div style={{
                               fontSize: "14px"
                             }}>
-                          Business Conventions Transfer
+                              Business Conventions Transfer
                             </div>
                           </NavbarBrand>
                         </li>
@@ -539,11 +450,11 @@ const Header = () => {
                           role="menuitem"
                           tabIndex={-1}
                           className="szh-menu__item">
-                              <NavbarBrand href="/events/sport-events-transfer">
+                          <NavbarBrand href="/events/sport-events-transfer">
                             <div style={{
                               fontSize: "14px"
                             }}>
-                          Sports Events Transfer
+                              Sports Events Transfer
                             </div>
                           </NavbarBrand>
                         </li>
@@ -554,11 +465,11 @@ const Header = () => {
                           role="menuitem"
                           tabIndex={-1}
                           className="szh-menu__item">
-                               <NavbarBrand href="/events/concerts-transfer">
+                          <NavbarBrand href="/events/concerts-transfer">
                             <div style={{
                               fontSize: "14px"
                             }}>
-                          Concerts Transfer
+                              Concerts Transfer
                             </div>
                           </NavbarBrand>
                         </li>
@@ -574,7 +485,7 @@ const Header = () => {
                             <div style={{
                               fontSize: "14px"
                             }}>
-                          Houston Rodeo Transfer
+                              Houston Rodeo Transfer
                             </div>
                           </NavbarBrand>
                         </li>
@@ -597,19 +508,19 @@ const Header = () => {
                         aria-expanded={celebration == "show" ? "true" : "false"}
                         tabIndex={-1}
                         className="szh-menu__item szh-menu__item--open szh-menu__item--hover">
-                            <NavbarBrand href="/celebrations">
-                            <div style={{
-                              fontSize: "14px"
-                            }}>
-                        Celebrations Transfer
-                            </div>
-                          </NavbarBrand>
+                        <NavbarBrand href="/celebrations">
+                          <div style={{
+                            fontSize: "14px"
+                          }}>
+                            Celebrations Transfer
+                          </div>
+                        </NavbarBrand>
                       </div>
                       <ul
                         role="menu"
                         tabIndex={-1}
                         aria-label="Celebrations Transfer"
-                        className={
+                        className={ 
                           celebration == "show"
                             ? "szh-menu szh-menu--state-open szh-menu--dir-right"
                             : "szh-menu szh-menu--state-closed szh-menu--dir-right"
@@ -622,11 +533,11 @@ const Header = () => {
                           role="menuitem"
                           tabIndex={-1}
                           className="szh-menu__item">
-                              <NavbarBrand href="/celebrations/party-transfer">
+                          <NavbarBrand href="/celebrations/party-transfer">
                             <div style={{
                               fontSize: "14px"
                             }}>
-                          Party Transfer
+                              Party Transfer
                             </div>
                           </NavbarBrand>
                         </li>
@@ -637,7 +548,7 @@ const Header = () => {
                           role="menuitem"
                           tabIndex={-1}
                           className="szh-menu__item">
-                                  <NavbarBrand href="/celebrations/graduation-transfer">
+                          <NavbarBrand href="/celebrations/graduation-transfer">
                             <div style={{
                               fontSize: "14px"
                             }}>
@@ -659,7 +570,7 @@ const Header = () => {
                             <div style={{
                               fontSize: "14px"
                             }}>
-                          Bachelor Party Transfer
+                              Bachelor Party Transfer
                             </div>
                           </NavbarBrand>
                         </li>
@@ -667,12 +578,12 @@ const Header = () => {
                     </li>
                   </ControlledMenu>
                 </ButtonDropdown>
-                <ButtonDropdown
+                {/* <ButtonDropdown
                   isOpen={dropDownOpen1}
                   className={styles.dropdown}
                   toggle={toggle3}>
                   <DropdownToggle caret>CITIES</DropdownToggle>
-                  <DropdownMenu>
+                   <DropdownMenu>
                     <DropdownItem
                       onClick={(e) =>
                         history.push("/cities/houston-limo-car-service")
@@ -746,8 +657,127 @@ const Header = () => {
                       Katy Limo Service
                     </DropdownItem>
                   </DropdownMenu>
-                </ButtonDropdown>
+                </ButtonDropdown> */}
+                <ButtonDropdown
+                  className={`${styles.dropdown} button_dropdown `}
+                  isOpen={dropDownOpen1}
+                  toggle={toggle3}>
+                  <div caret className={styles.NavItem}>
+                    <div
+                      onClick={() => {
+                        history.push("/services");
+                      }}
+                      className={`${styles.NavLink} dropdown_Services`}
+                      ref={ref}
+                      onMouseEnter={() => setState2("open")}>
+                      <NavbarBrand href="/services">
+                        Cities
+                      </NavbarBrand>
+                    </div>
+                  </div>
+                  <ControlledMenu
+                    state={state2}
+                    anchorRef={ref}
+                    onMouseLeave={() => setState2("closed")}
+                    onClose={() => setState2("closed")}>
+                    <li
+                      onMouseEnter={() => {
+                        setHoutson("show");
+                      }}
+                      onMouseLeave={() => {
+                        setHoutson("closed");
+                      }}
+                      className="szh-menu__submenu"
+                      role="presentation">
+                      <div
+                        onClick={(e) => {
+                          history.push("/houston-airport-transportation");
+                        }}
+                        role="menuitem"
+                        aria-haspopup="true"
+                        aria-expanded={Houtson == "show" ? "true" : "false"}
+                        tabIndex={-1}
+                        className="szh-menu__item"
+                      >
+                        <NavbarBrand href="/houston-airport-transportation">
+                          <div style={{
+                            fontSize: "14px",
+                            color: ""
+                          }}>
+                            Houston Airport Transportation
+                          </div>
+                        </NavbarBrand>
+                      </div>
+                      <ul
+                        role="menu"
+                        tabIndex={-1}
+                        aria-label="Houston Airport Transportation"
+                        className={
+                          Houtson == "show"
+                            ? "szh-menu szh-menu--state-open szh-menu--dir-right"
+                            : "szh-menu szh-menu--state-closed szh-menu--dir-right"
+                        }
+                        style={{ left: "246.109px", top: "4px"}}>
+                        <li 
+                          onClick={(e) =>
+                            history.push(
+                              "/airport-transportation/george-bush-airport-transfer"
+                            )
+                          }
+                          role="menuitem"
+                          tabIndex={-1}
+                          className="szh-menu__item">
+                          <NavbarBrand
+                            href="/airport-transportation/george-bush-airport-transfer"
+                            style={{
+                              fontSize: "14px"
+                            }}
+                          >
+                            George Bush Airport Transfer
+                          </NavbarBrand>
+                        </li>
+                        <li
+                          onClick={(e) =>
+                            history.push(
+                              "/airport-transportation/hobby-airport-transfer"
+                            )
+                          }
+                          role="menuitem"
+                          tabIndex={-1}
+                          className="szh-menu__item">
+                          <NavbarBrand
+                            href="/airport-transportation/hobby-airport-transfer"
+                            style={{
+                              fontSize: "14px"
+                            }}
+                          >
+                            Hobby Airport Transfer
+                          </NavbarBrand>
 
+                        </li>
+                        <li
+                          onClick={(e) =>
+                            history.push(
+                              "/airport-transportation/private-jet-limo"
+                            )
+                          }
+                          role="menuitem"
+                          tabIndex={-1}
+                          className="szh-menu__item">
+                          <NavbarBrand
+                            href="/airport-transportation/private-jet-limo"
+                            style={{
+                              fontSize: "14px"
+                            }}
+                          >
+                            Private Aviation &amp; Regional Airports
+                          </NavbarBrand>
+                        </li>
+                      </ul>
+                    </li>
+
+                  </ControlledMenu>
+                </ButtonDropdown>
                 <NavItem className={styles.NavItem}>
                   <NavLink
                     className={styles.NavLink}
