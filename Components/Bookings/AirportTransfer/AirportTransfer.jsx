@@ -120,15 +120,14 @@ function AirportTransfer() {
       setToLng(address.latLng.lng);
     }
   };
-
+  
   const handleChangeFrom = (address) => {
     setError("");
-    console.log("address final", address, address.address);
-    if (address.latLng === undefined) {
+    if (address.latLng===undefined) {
       setError("Location Not Valid");
-    } else {
+    } else { 
       setFromLat(address.latLng.lat);
-      setFromLng(address.latLng.lng);
+      setFromLng(address.latLng.lng); 
     }
   };
 

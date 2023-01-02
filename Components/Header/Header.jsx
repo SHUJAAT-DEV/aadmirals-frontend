@@ -19,25 +19,25 @@ import {
   NavItem,
   NavLink,
 } from "reactstrap";
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { useRouter } from "next/router";
 import Link from "next/link";
 
 import {
   ButtonDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
 } from "reactstrap";
-//  import { DropdownSubmenu } from "react-bootstrap-submenu";
 import Logo from "../../Assets/logo-header.svg";
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropDownOpen, setDropDownOpen] = useState(false);
   const [dropDownOpen1, setDropDownOpen1] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
   const toggle2 = () => setDropDownOpen(!dropDownOpen);
   const toggle3 = () => setDropDownOpen1(!dropDownOpen1);
+  const toggle4 = () => setDropdownOpen(prevState => !prevState);
 
   const history = useRouter();
   const ref = useRef(null);
@@ -72,21 +72,16 @@ const Header = () => {
             <Collapse isOpen={isOpen} navbar>
               <Nav className="ml-auto headeR_nav_main_header" navbar>
                 <NavItem className={styles.NavItem}>
-                  {/* <NavLink
-                    className={styles.NavLink}
-                    onClick={() => {
-                      history.push("/");
-                    }}>
-                    Home
-                  </NavLink> */}
-                  <NavbarBrand className={styles.NavLink} href="/">
+                  <NavbarBrand className={styles.NavLink} href="/" style={{ fontFamily: "ProximaNovaRegular" }}>
                     Home
                   </NavbarBrand>
                 </NavItem>
+
                 <ButtonDropdown
                   className={`${styles.dropdown} button_dropdown `}
                   isOpen={dropDownOpen}
                   toggle={toggle2}
+                  onMouseLeave={() => setState("closed")}
                 >
                   <div caret className={styles.NavItem} >
                     <div
@@ -97,7 +92,10 @@ const Header = () => {
                       ref={ref}
                       onMouseEnter={() => setState("open")}
                     >
-                      <NavbarBrand href="/">
+                      <NavbarBrand href="/" style={{
+                        color: "white", marginRight: "0.5rem",
+                        fontFamily: "ProximaNovaRegular"
+                      }}>
                         Services
                       </NavbarBrand>
                     </div>
@@ -105,7 +103,6 @@ const Header = () => {
                   <ControlledMenu
                     state={state}
                     anchorRef={ref}
-                    onMouseLeave={() => setState("closed")}
                     onClose={() => setState("closed")}
                   >
                     <div>
@@ -520,7 +517,7 @@ const Header = () => {
                         role="menu"
                         tabIndex={-1}
                         aria-label="Celebrations Transfer"
-                        className={ 
+                        className={
                           celebration == "show"
                             ? "szh-menu szh-menu--state-open szh-menu--dir-right"
                             : "szh-menu szh-menu--state-closed szh-menu--dir-right"
@@ -578,213 +575,216 @@ const Header = () => {
                     </li>
                   </ControlledMenu>
                 </ButtonDropdown>
-                {/* <ButtonDropdown
-                  isOpen={dropDownOpen1}
-                  className={styles.dropdown}
-                  toggle={toggle3}>
-                  <DropdownToggle caret>CITIES</DropdownToggle>
-                   <DropdownMenu>
+
+                <Dropdown isOpen={dropDownOpen1} toggle={toggle3}
+                  onMouseEnter={toggle3}
+                  onMouseLeave={() => setDropDownOpen1(false)}
+                  onClose={() => setState2("closed")}
+                >
+                  <DropdownToggle nav className={`${styles.NavLink}`}
+                    style={{
+                      marginTop: "13px",
+                      marginRight: "0.5rem",
+                      fontFamily: "ProximaNovaRegular"
+                    }}
+                  >
+                    CITIES
+                  </DropdownToggle>
+                  <DropdownMenu>
                     <DropdownItem
                       onClick={(e) =>
-                        history.push("/cities/houston-limo-car-service")
-                      }>
-                      Houston Limo Car Service{" "}
+                        history.push("/cities/houston-limo-car-service")}
+                      style={{
+                        backgroundColor: "white"
+                      }}
+                    >
+                      <NavbarBrand href="/cities/houston-limo-car-service"
+                        style={{
+                          fontSize: "14px",
+                          marginRight: "0.5rem"
+                        }}
+                      >
+                        Houston Limo Car Service{" "}
+                      </NavbarBrand>
                     </DropdownItem>
                     <DropdownItem
                       onClick={(e) =>
                         history.push("/cities/spring-limo-car-service")
-                      }>
-                      Spring Limo Car Service{" "}
+                      }
+                      style={{
+                        backgroundColor: "white"
+                      }}>
+                      <NavbarBrand href="/cities/spring-limo-car-service"
+                        style={{
+                          fontSize: "14px",
+                          marginRight: "0.5rem"
+                        }}
+                      >
+                        Spring Limo Car Service{" "}
+                      </NavbarBrand>
                     </DropdownItem>
                     <DropdownItem
                       onClick={(e) =>
                         history.push("/cities/fulshear-limo-car-service")
-                      }>
-                      Fulshear Limo Car Service{" "}
+                      } style={{
+                        backgroundColor: "white"
+                      }}>
+                      <NavbarBrand href="/cities/fulshear-limo-car-service"
+                        style={{
+                          fontSize: "14px",
+                          marginRight: "0.5rem"
+                        }}
+                      >
+                        Fulshear Limo Car Service{" "}
+                      </NavbarBrand>
                     </DropdownItem>
                     <DropdownItem
                       onClick={(e) =>
                         history.push("/cities/galveston-limo-car-service")
                       }>
-                      Galveston Limo Car Service{" "}
+                      <NavbarBrand href="/cities/galveston-limo-car-service"
+                        style={{
+                          fontSize: "14px",
+                          marginRight: "0.5rem"
+                        }}
+                      >
+                        Galveston Limo Car Service{" "}
+                      </NavbarBrand>
                     </DropdownItem>
                     <DropdownItem
                       onClick={(e) =>
                         history.push("/cities/montgomery-limo-car-service")
-                      }>
-                      Montgomery Limo Service{" "}
+                      } style={{
+                        backgroundColor: "white"
+                      }}>
+                      <NavbarBrand href="/cities/montgomery-limo-car-service"
+                        style={{
+                          fontSize: "14px",
+                          marginRight: "0.5rem"
+                        }}
+                      >
+                        Montgomery Limo Service{" "}
+                      </NavbarBrand>
                     </DropdownItem>
                     <DropdownItem
                       onClick={(e) =>
                         history.push("/cities/conroe-limo-car-service")
-                      }>
-                      Conroe Limo Service{" "}
+                      } style={{
+                        backgroundColor: "white"
+                      }}>
+                      <NavbarBrand href="/cities/conroe-limo-car-service"
+                        style={{
+                          fontSize: "14px",
+                          marginRight: "0.5rem"
+                        }}
+                      >
+                        Conroe Limo Service{" "}
+                      </NavbarBrand>
                     </DropdownItem>
                     <DropdownItem
                       onClick={(e) =>
                         history.push("/cities/tomball-limo-car-service")
-                      }>
-                      Tomball Limo Service{" "}
+                      } style={{
+                        backgroundColor: "white"
+                      }}>
+                      <NavbarBrand href="/cities/tomball-limo-car-service"
+                        style={{
+                          fontSize: "14px",
+                          marginRight: "0.5rem"
+                        }}
+                      >
+                        Tomball Limo Service{" "}
+                      </NavbarBrand>
                     </DropdownItem>
                     <DropdownItem
                       onClick={(e) =>
                         history.push("/cities/cypress-limo-car-service")
-                      }>
-                      Cypress Limo Service{" "}
+                      } style={{
+                        backgroundColor: "white"
+                      }}>
+                      <NavbarBrand href="/cities/cypress-limo-car-service"
+                        style={{
+                          fontSize: "14px",
+                          marginRight: "0.5rem"
+                        }}
+                      >
+                        Cypress Limo Service{" "}
+                      </NavbarBrand>
                     </DropdownItem>
                     <DropdownItem
                       onClick={(e) =>
                         history.push("/cities/beaumont-limo-car-service")
-                      }>
-                      Beaumont Limo Service{" "}
+                      } style={{
+                        backgroundColor: "white"
+                      }}>
+                      <NavbarBrand href="/cities/beaumont-limo-car-service"
+                        style={{ fontSize: "14px" }}
+                      >
+                        Beaumont Limo Service{" "}
+                      </NavbarBrand>
                     </DropdownItem>
                     <DropdownItem
                       onClick={(e) =>
                         history.push("/cities/sugarland-limo-car-service")
-                      }>
-                      Sugarland Limo Service{" "}
+                      } style={{
+                        backgroundColor: "white"
+                      }}>
+                      <NavbarBrand href="/cities/sugarland-limo-car-service"
+                        style={{
+                          fontSize: "14px",
+                          marginRight: "0.5rem"
+                        }}
+                      >
+                        Sugarland Limo Service{" "}
+                      </NavbarBrand>
                     </DropdownItem>
                     <DropdownItem
                       onClick={(e) =>
                         history.push("/cities/richmond-limo-car-service")
-                      }>
-                      Richmond Limo Service{" "}
+                      } style={{
+                        backgroundColor: "white"
+                      }}>
+                      <NavbarBrand href="/cities/richmond-limo-car-service"
+                        style={{
+                          fontSize: "14px",
+                          marginRight: "0.5rem"
+                        }}
+                      >
+                        Richmond Limo Service{" "}
+                      </NavbarBrand>
                     </DropdownItem>
                     <DropdownItem
                       onClick={(e) =>
                         history.push("/cities/katy-limo-car-service")
-                      }>
-                      Katy Limo Service
+                      } style={{
+                        backgroundColor: "white"
+                      }}>
+                      <NavbarBrand href="/cities/katy-limo-car-service"
+                        style={{
+                          fontSize: "14px",
+                          marginRight: "0.5rem"
+                        }}
+                      >
+                        Katy Limo Service
+                      </NavbarBrand>
                     </DropdownItem>
                   </DropdownMenu>
-                </ButtonDropdown> */}
-                <ButtonDropdown
-                  className={`${styles.dropdown} button_dropdown `}
-                  isOpen={dropDownOpen1}
-                  toggle={toggle3}>
-                  <div caret className={styles.NavItem}>
-                    <div
-                      onClick={() => {
-                        history.push("/services");
-                      }}
-                      className={`${styles.NavLink} dropdown_Services`}
-                      ref={ref}
-                      onMouseEnter={() => setState2("open")}>
-                      <NavbarBrand href="/services">
-                        Cities
-                      </NavbarBrand>
-                    </div>
-                  </div>
-                  <ControlledMenu
-                    state={state2}
-                    anchorRef={ref}
-                    onMouseLeave={() => setState2("closed")}
-                    onClose={() => setState2("closed")}>
-                    <li
-                      onMouseEnter={() => {
-                        setHoutson("show");
-                      }}
-                      onMouseLeave={() => {
-                        setHoutson("closed");
-                      }}
-                      className="szh-menu__submenu"
-                      role="presentation">
-                      <div
-                        onClick={(e) => {
-                          history.push("/houston-airport-transportation");
-                        }}
-                        role="menuitem"
-                        aria-haspopup="true"
-                        aria-expanded={Houtson == "show" ? "true" : "false"}
-                        tabIndex={-1}
-                        className="szh-menu__item"
-                      >
-                        <NavbarBrand href="/houston-airport-transportation">
-                          <div style={{
-                            fontSize: "14px",
-                            color: ""
-                          }}>
-                            Houston Airport Transportation
-                          </div>
-                        </NavbarBrand>
-                      </div>
-                      <ul
-                        role="menu"
-                        tabIndex={-1}
-                        aria-label="Houston Airport Transportation"
-                        className={
-                          Houtson == "show"
-                            ? "szh-menu szh-menu--state-open szh-menu--dir-right"
-                            : "szh-menu szh-menu--state-closed szh-menu--dir-right"
-                        }
-                        style={{ left: "246.109px", top: "4px"}}>
-                        <li 
-                          onClick={(e) =>
-                            history.push(
-                              "/airport-transportation/george-bush-airport-transfer"
-                            )
-                          }
-                          role="menuitem"
-                          tabIndex={-1}
-                          className="szh-menu__item">
-                          <NavbarBrand
-                            href="/airport-transportation/george-bush-airport-transfer"
-                            style={{
-                              fontSize: "14px"
-                            }}
-                          >
-                            George Bush Airport Transfer
-                          </NavbarBrand>
-                        </li>
-                        <li
-                          onClick={(e) =>
-                            history.push(
-                              "/airport-transportation/hobby-airport-transfer"
-                            )
-                          }
-                          role="menuitem"
-                          tabIndex={-1}
-                          className="szh-menu__item">
-                          <NavbarBrand
-                            href="/airport-transportation/hobby-airport-transfer"
-                            style={{
-                              fontSize: "14px"
-                            }}
-                          >
-                            Hobby Airport Transfer
-                          </NavbarBrand>
+                </Dropdown>
 
-                        </li>
-                        <li
-                          onClick={(e) =>
-                            history.push(
-                              "/airport-transportation/private-jet-limo"
-                            )
-                          }
-                          role="menuitem"
-                          tabIndex={-1}
-                          className="szh-menu__item">
-                          <NavbarBrand
-                            href="/airport-transportation/private-jet-limo"
-                            style={{
-                              fontSize: "14px"
-                            }}
-                          >
-                            Private Aviation &amp; Regional Airports
-                          </NavbarBrand>
-                        </li>
-                      </ul>
-                    </li>
-
-                  </ControlledMenu>
-                </ButtonDropdown>
                 <NavItem className={styles.NavItem}>
                   <NavLink
                     className={styles.NavLink}
                     onClick={() => {
                       history.push("/fleet");
                     }}>
-                    Fleet
+                    <NavbarBrand href="/fleet"
+                      style={{
+                        color: "white",
+                        marginRight: "0.5rem",
+                        fontFamily: "ProximaNovaRegular"
+                      }}>
+                      Fleet
+                    </NavbarBrand>
                   </NavLink>
                 </NavItem>
                 <NavItem className={styles.NavItem}>
@@ -793,7 +793,14 @@ const Header = () => {
                     onClick={() => {
                       history.push("/about-us");
                     }}>
-                    About
+                    <NavbarBrand href="/about-us"
+                      style={{
+                        color: "white",
+                        marginRight: "0.5rem",
+                        fontFamily: "ProximaNovaRegular"
+                      }}>
+                      About
+                    </NavbarBrand>
                   </NavLink>
                 </NavItem>
 
@@ -803,7 +810,14 @@ const Header = () => {
                     onClick={() => {
                       history.push("/FAQ");
                     }}>
-                    FAQ
+                    <NavbarBrand href="/FAQ"
+                      style={{
+                        color: "white",
+                        marginRight: "0.5rem",
+                        fontFamily: "ProximaNovaRegular"
+                      }}>
+                      FAQ
+                    </NavbarBrand>
                   </NavLink>
                 </NavItem>
 
@@ -813,7 +827,14 @@ const Header = () => {
                     onClick={() => {
                       history.push("/contact-us");
                     }}>
-                    Contact
+                    <NavbarBrand href="/contact-us"
+                      style={{
+                        color: "white",
+                        marginRight: "0.5rem",
+                        fontFamily: "ProximaNovaRegular"
+                      }}>
+                      Contact
+                    </NavbarBrand>
                   </NavLink>
                 </NavItem>
 
@@ -823,7 +844,14 @@ const Header = () => {
                     onClick={() => {
                       history.push("/blogs");
                     }}>
-                    Blog
+                    <NavbarBrand href="/blogs"
+                      style={{
+                        color: "white",
+                        marginRight: "0.5rem",
+                        fontFamily: "ProximaNovaRegular"
+                      }}>
+                      Blog
+                    </NavbarBrand>
                   </NavLink>
                 </NavItem>
               </Nav>
