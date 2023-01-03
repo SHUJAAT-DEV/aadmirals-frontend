@@ -4,7 +4,6 @@ import styles from "../../pages/home.module.scss";
 import ParnterCard from "./PartnerCards/PartnerCards";
 import Carousel from "react-elastic-carousel";
 
-
 function Ourpartners({partners}) {
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
