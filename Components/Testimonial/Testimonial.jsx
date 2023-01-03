@@ -10,6 +10,7 @@ import SwiperCore, {Pagination, Autoplay} from "swiper";
 SwiperCore.use([Pagination, Autoplay]);
 
 function Testinmonial({testimonials}) {
+
   const breakPoints = [
     {width: 1, itemsToShow: 1},
     {width: 550, itemsToShow: 1, itemsToScroll: 2},
@@ -24,7 +25,6 @@ function Testinmonial({testimonials}) {
           <Col xs={12} md={12} xl={12}>
             <h2>WHAT OUR CUSTOMERS ARE SAYING</h2>
           </Col>
-
           <Swiper
             slidesPerView={1}
             spaceBetween={30}
@@ -75,7 +75,6 @@ function Testinmonial({testimonials}) {
 
               )):null
             }
-
           </Carousel> */}
         </Row>
       </center>

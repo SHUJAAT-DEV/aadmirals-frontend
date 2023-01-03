@@ -46,14 +46,12 @@ function ServicesCards({image, description, title, url}) {
                 />
               </div>
               <div className={styles.cardDetail}>
-                <h3 className={styles.cardTitle}>{title}</h3>
-                <ReadMoreReact
-                  min={40}
+                <h3 className={styles.cardTitle} style={{ color: "black" }}>{title}</h3>
+                <ReadMoreReact min={40}
                   ideal={50}
                   max={100}
-                  style={{backgroundColor: "red"}}
-                  readMoreText={"Read More"}
-                  text={description}
+                  readMoreText={'Read More'} text={description}
+                  class
                 />
               </div>
             </div>
