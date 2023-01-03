@@ -63,8 +63,8 @@
 
   .imageContainer {
     text-align: left;
-    margin-top: 30px;
-    margin-left: 30px;
+    margin-top: 34px;
+    margin-left: -287px;
 
     & img {
       clip-path: circle(50% at 50% 50%);
@@ -81,11 +81,26 @@
   min-width: 29vw;
 }
 
+.imageContainer {
+  height: 50px;
+  width: 50px;
+  border-radius: 64px;
+  box-shadow: 0px 0px 3px 0px black;
+}
+
 @media only screen and (max-width: 767px) {
   .testimonialContainer {
     padding-top: 50px;
     width: 100%;
     height: 100%;
+  }
+
+  .imageContainer {
+    height: 79px;
+    width: 79px;
+    border-radius: 48px;
+    -webkit-box-shadow: 0px 0px 3px 0px black;
+    box-shadow: 0px 0px 3px 3px #00000054;
   }
 
   .testimonial {
@@ -163,7 +178,18 @@
   .testimonial {
     min-width: 0vw;
   }
+
+  .imageContainer {
+    margin-left: -293px !important;
+  }
 }
+
+@media only screen and (max-width: 1181px) {
+  .imageContainer {
+    margin-left: -231px !important;
+  }
+}
+
 @media only screen and (max-width: 767px) {
   .testimonial {
     min-width: 50vw;

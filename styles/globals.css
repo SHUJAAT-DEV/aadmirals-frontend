@@ -284,7 +284,12 @@ span.displayed-text .read-more-button {
   font-size: 16px;
   font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
 }
-
+.display-text-group:hover span{
+  color: black;
+}
+.display-text-group{
+  color: black;
+}
 .custom_main_images {
   width: 100%;
 }

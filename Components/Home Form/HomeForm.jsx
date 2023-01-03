@@ -43,7 +43,7 @@ function HomeForm() {
                 toggle("1");
               }}
             >
-              <span>Airport Transfer</span>
+              <span className={styles.link_items}>Airport Transfer</span>
             </NavLink>
           </NavItem>
           <NavItem className="main_nav_li">
@@ -53,7 +53,7 @@ function HomeForm() {
                 toggle("2");
               }}
             >
-              <span>By the Hour</span>
+              <span className={styles.link_items}>By the Hour</span>
             </NavLink>
           </NavItem>
           <NavItem className="main_nav_li">
@@ -63,7 +63,7 @@ function HomeForm() {
                 toggle("3");
               }}
             >
-              <span>City to City</span>
+              <span className={styles.link_items}>City to City</span>
             </NavLink>
           </NavItem>
         </Nav>
