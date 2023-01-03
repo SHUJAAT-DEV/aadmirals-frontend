@@ -54,20 +54,20 @@ function CityToCity() {
   }, []);
   const handleChangeTo = (address) => {
     setError("");
-    if (address.name) {
+    if (address.latLng === undefined) {
       setError("Location Not Valid");
     } else {
-      setToLat(address.geometry.location.lat());
-      setToLng(address.geometry.location.lng());
+      setFromLat(address.latLng.lat);
+      setFromLng(address.latLng.lng); 
     }
   };
   const handleChangeFrom = (address) => {
     setError("");
-    if (address.name) {
+    if (address.latLng === undefined) {
       setError("Location Not Valid");
     } else {
-      setFromLat(address.geometry.location.lat());
-      setFromLng(address.geometry.location.lng());
+      setFromLat(address.latLng.lat);
+      setFromLng(address.latLng.lng); 
     }
   };
   function ChangeDate(e) {
@@ -215,7 +215,7 @@ function CityToCity() {
             alt="Map12"
             loading="lazy"
           />
-          <Autocomplete
+          {/* <Autocomplete
             style={{width: "90%"}}
             onPlaceSelected={(place) => handleChangeFrom(place)}
             types={["address"]}
@@ -224,8 +224,8 @@ function CityToCity() {
             onBlur={onBlurHandler}
             onFocus={onFocusHandler}
             name="from"
-          />
-          {/* <Search handleSelectedAddress={handleChangeFrom} /> */}
+          /> */}
+          <Search handleSelectedAddress={handleChangeFrom} />
         </div>
       </div>
       <div className={`${state.to ? styles.inputBox1 : styles.inputBox}`}>
@@ -236,7 +236,7 @@ function CityToCity() {
             alt="Map13"
             loading="lazy"
           />
-          <Autocomplete
+          {/* <Autocomplete
             style={{width: "90%"}}
             onPlaceSelected={(place) => handleChangeTo(place)}
             types={["address"]}
@@ -245,8 +245,8 @@ function CityToCity() {
             onBlur={onBlurHandler}
             onFocus={onFocusHandler}
             name="to"
-          />
-          {/* <Search handleSelectedAddress={handleChangeTo} /> */}
+          /> */}
+          <Search handleSelectedAddress={handleChangeTo} />
         </div>
       </div>
       <div className={`${state.date ? styles.inputBox1 : styles.inputBox}`}>
