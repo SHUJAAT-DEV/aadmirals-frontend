@@ -1,5 +1,8 @@
 @media only screen and (min-width: 768px) {
   // FOR DESKTOP AND TABLET
+  .partnarLogo{
+    flex-direction: row;
+  }
   .logos_container{
     margin: 0rem 1rem 1rem 0rem;
     display: flex;
@@ -15,7 +18,9 @@
 }
 @media only screen and (max-width: 767px) {
   /* phones */
-
+  .partnarLogo{
+    flex-direction: column;
+  }
   .logos_container{
     margin: 0rem 1rem 1rem 0rem;
     display: flex;

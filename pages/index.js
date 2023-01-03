@@ -14,6 +14,7 @@ import { Container, Row, Col } from "reactstrap";
 import { Card, Button } from "reactstrap";
 import Carousel from "react-elastic-carousel";
 import { getHomePage } from "../redux/CMS/action";
+import "./../Components/Ourpartners/PartnerCards/Partnercard.module.scss";
 
 const styles = dynamic(() => import('./home.module.scss'))
 const TestimonialCards = dynamic(() => import('../Components/Testimonial/Testimonial Cards/TestimonialCards'))
@@ -207,26 +208,29 @@ const Home = (props) => {
                     <Col xs={12} md={12} xl={12}>
                       <h2 style={{ padding: '60px 0' }}>Our Partners</h2>
                     </Col>
-                    <Carousel
+                    {/* <Carousel
                       autoPlaySpeed={4000}
                       showArrows={false}
                       breakPoints={breakPoints}
                       enableAutoPlay={true}
-                    >
+                    > */}
+                    <div className={styles.partnarLogo} style={{display:'flex',justifyContent:'space-evenly',width:'100%'}} >
                       {
                         cms?.home_page?.partner && cms?.home_page?.partner?.map(partner => (
                           <>
                             <a href={`${partner?.url}`} target="_blank" rel="noreferrer">
-                              <div className={styles.logos_container}>
+                              <div style={{marginBottom:30,padding:'2em',borderRadius:5,boxShadow:'0 0 8px 0'}}>
                                 <Image priority={true} src={partner.image} className={styles.logo_container} alt={partner.name} width={100} height={100} objectFit="contain" />
                                 {/* <img src={image} className={styles.logo} alt="..1partnerimg" /> */}
-                                <h2>{partner.name}</h2>
+                                <h2 style={{fontSize:'1.5em'}}>{partner.name}</h2>
                               </div>
                             </a>
                           </>
                         ))
                       }
-                    </Carousel>
+                    </div>
+
+                    {/* </Carousel> */}
                   </Row>
                 </center>
               </Container>

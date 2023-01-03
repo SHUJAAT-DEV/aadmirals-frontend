@@ -30,7 +30,7 @@ function OurServices({services}) {
               <h2>Our Services</h2>
             </Col>
 
-            <Swiper slidesPerView={1} spaceBetween={30} 
+            <Swiper style={{padding:10}} slidesPerView={1} spaceBetween={30} 
             autoplay={{
               "delay": 2500,
               "disableOnInteraction": false
@@ -39,13 +39,17 @@ function OurServices({services}) {
               "clickable": true
             }} 
             breakpoints={{
-              640: {
-                "slidesPerView": 1,
-                "spaceBetween": 20
-              },
-              768: {
+              // 640: {
+              //   "slidesPerView": 2,
+              //   "spaceBetween": 20
+              // },
+              300: {
                 "slidesPerView": 2,
-                "spaceBetween": 40
+                "spaceBetween": 25
+              },
+              767: {
+                "slidesPerView": 3,
+                "spaceBetween": 35
               },
               1024: {
                 "slidesPerView": 4,
