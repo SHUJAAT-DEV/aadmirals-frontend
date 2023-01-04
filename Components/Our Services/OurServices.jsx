@@ -30,7 +30,7 @@ function OurServices({services}) {
               <h2>Our Services</h2>
             </Col>
 
-            <Swiper slidesPerView={1} spaceBetween={30} 
+            <Swiper style={{padding:10}} slidesPerView={1} spaceBetween={30} 
             autoplay={{
               "delay": 2500,
               "disableOnInteraction": false
@@ -39,13 +39,13 @@ function OurServices({services}) {
               "clickable": true
             }} 
             breakpoints={{
-              640: {
-                "slidesPerView": 1,
-                "spaceBetween": 20
-              },
-              768: {
+              300: {
                 "slidesPerView": 2,
-                "spaceBetween": 40
+                "spaceBetween": 25
+              },
+              767: {
+                "slidesPerView": 3,
+                "spaceBetween": 35
               },
               1024: {
                 "slidesPerView": 4,
@@ -61,20 +61,6 @@ function OurServices({services}) {
                 )) : null
               }
             </Swiper>
-            {/* <Carousel
-              autoPlaySpeed={4000}
-              showArrows={false}
-              breakPoints={breakPoints}
-              enableAutoPlay={false}
-              itemPadding={[0, 10]}
-            >
-              {
-                services ? services.map(service => (
-                  <ServicesCards url={service.url} image={service.image} description={service.description} title={service.name} />
-
-                )) : null
-              }
-            </Carousel> */}
           </Row>
         </center>
       </Container>
