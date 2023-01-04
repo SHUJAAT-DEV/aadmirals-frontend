@@ -119,8 +119,6 @@ function Confirm({ router }) {
                     <div style={{ fontSize: '20px', marginTop: '20px', fontWeight: 'bold' }}>Showing 1 - {quotes.quotes.quoteResponse.length} of {quotes.quotes.quoteResponse.length}</div>
                     <div style={{ fontSize: '20px', fontWeight: 'bold' }}>Scroll Down for more Choices</div>
 
-
-
                   </Col>
                 </Row>
               </Container>

@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Alert } from "reactstrap";
 import moment from "moment";
 import RED_EYE from "../../../red-eye-time";
-function UserDetails({ otherDetails, stepper, setStepper,router,onCheckRed }) {
+function UserDetails({ otherDetails, stepper, setStepper, router, onCheckRed }) {
   const dispatch = useDispatch();
 
   const { pathname } = router;
@@ -26,16 +26,19 @@ function UserDetails({ otherDetails, stepper, setStepper,router,onCheckRed }) {
   const [returnDate, setDate] = useState("N/A");
   const [returnTime, setTime] = useState("N/A");
   const [error, setError] = useState("");
+  const [mailValidate, setMailValidate] = useState(false);
+  const [phoneValidate, setPhoneValidate] = useState(false);
+  const [BookedByPhone, setBookedByPhone] = useState(false);
   const [redEye, setRedEye] = useState(true);
   const loginReducer = useSelector((state) => state.login);
   const direction = useSelector((state) => state.PreBookingReducer.direction);
-  const preammount = useSelector((state)=> state?.PreBookingReducer?.amount)
+  const preammount = useSelector((state) => state?.PreBookingReducer?.amount)
   const { type } = direction;
   const { user } = loginReducer;
 
-    // const { time, bookingTypes, date } = otherDetails 
-  
-  const { pickupSign, noteForChauffeur, email, fullName, phoneNumber } =
+  // const { time, bookingTypes, date } = otherDetails 
+
+  const {bookedByName, bookedByPhone, pickupSign, noteForChauffeur, email, fullName, phoneNumber } =
     formData;
   const redEyeBeginningTime = moment(RED_EYE.STARTING_TIME, "hh:mm");
   const redEyeEndingTime = moment(RED_EYE.ENDING_TIME, "hh:mm");
@@ -50,7 +53,7 @@ function UserDetails({ otherDetails, stepper, setStepper,router,onCheckRed }) {
     ) {
       setRedEye(true);
       onCheckRed(true);
-      dispatch(setAmount(parseInt(preammount)+ parseInt(30)))
+      dispatch(setAmount(parseInt(preammount) + parseInt(30)))
 
     } else {
       setRedEye(false);
@@ -62,19 +65,16 @@ function UserDetails({ otherDetails, stepper, setStepper,router,onCheckRed }) {
       var Date = moment(returnDate);
       if (!Date.isValid() || returnTime == "N/A") {
         window.scrollTo(0, 0);
-
         return setError("Return trip details required");
-      }
+      } 
       if (returnTime < otherDetails.time && moment(returnDate).isSame(otherDetails.date && otherDetails.date)) {
         window.scrollTo(0, 0);
-
         return setError(
           "You can't select a time that is behind innitial pickup time."
         );
       }
-      if (moment(returnDate).isBefore(otherDetails.date &&  otherDetails.date)) {
+      if (moment(returnDate).isBefore(otherDetails.date && otherDetails.date)) {
         window.scrollTo(0, 0);
-
         return setError(
           "You can't select a date that is behind innitial pickup date."
         );
@@ -82,14 +82,23 @@ function UserDetails({ otherDetails, stepper, setStepper,router,onCheckRed }) {
       setError("");
       dispatch(setDirection({ returnDate, returnTime, type }));
     }
-    if (pickupSign && email && fullName && phoneNumber) {
+    if (bookedByName && bookedByPhone && pickupSign && email && fullName && phoneNumber) {
       dispatch(setAccountDetails(formData));
     } else {
       window.scrollTo(0, 0);
-
-      return setError("All fields are required");
+      return (
+        setError("All fields are required"));
     }
-
+    if(BookedByPhone){
+      return setError('Enter a valid US phone number pattern');
+    }
+    if (mailValidate) {
+      return setError('Enter a valid Email address');
+    }
+    else { }
+    if(phoneValidate){
+      return setError("Enter a valid US phone number pattern");
+    }
     setStepper(stepper + 1);
   };
 
@@ -98,12 +107,32 @@ function UserDetails({ otherDetails, stepper, setStepper,router,onCheckRed }) {
     if (user) {
       formData.email = user.email;
       formData.fullName = user.fullName;
-      formData.phoneNumber=user.phoneNumber
+      formData.phoneNumber = user.phoneNumber
     }
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
+    if (e.target.name === "email") {
+      const regExp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      const checkValidate = regExp.test(e.target.value);
+      checkValidate ? setMailValidate(false) : setMailValidate(true);
+    }
+    else { }
+    if (e.target.name === "phoneNumber"){
+      const regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+      const checkValidate = regex.test(e.target.value);
+      checkValidate ? console.log("phone validated") : console.log("phone not validate");
+      checkValidate ? setPhoneValidate(false) : setPhoneValidate(true);
+    }
+    else{}
+    if (e.target.name === "bookedByPhone"){
+      const regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+      const checkValidate = regex.test(e.target.value);
+      checkValidate ? console.log("phone validated") : console.log("phone not validate");
+      checkValidate ? setBookedByPhone(false) : setBookedByPhone(true);
+    }
+    else{}
   };
 
   return (
@@ -113,7 +142,7 @@ function UserDetails({ otherDetails, stepper, setStepper,router,onCheckRed }) {
           {error}
         </Alert>
       ) : null}
-      {(otherDetails && otherDetails.bookingTypes == 0)? (
+      {(otherDetails && otherDetails.bookingTypes == 0) ? (
         <Row>
           <Col sm={12} md={12} lg={12} xl={12} className={styles.text_center}>
             <Row>
@@ -137,17 +166,6 @@ function UserDetails({ otherDetails, stepper, setStepper,router,onCheckRed }) {
                     onChange={(e) => handleChange(e)}
                     name="flightDetails"
                     placeholder="LH 204"
-                  />
-                </div>
-              </Col>
-              <Col xs={12} sm={6}>
-                <div className={styles.inputBox}>
-                  <h6 className="mt-3">Pickup Sign</h6>
-                  <input
-                    type="text"
-                    onChange={(e) => handleChange(e)}
-                    name="pickupSign"
-                    placeholder="John Doe"
                   />
                 </div>
               </Col>
@@ -177,7 +195,7 @@ function UserDetails({ otherDetails, stepper, setStepper,router,onCheckRed }) {
                           type="text"
                           name="fullName"
                           placeholder="John Doe"
-                          value={user ? user.fullName:""}
+                          value={user ? user.fullName : ""}
                         />
                       ) : (
                         <input
@@ -235,23 +253,23 @@ function UserDetails({ otherDetails, stepper, setStepper,router,onCheckRed }) {
                       <div className={styles.inputBox}>
                         <h6 className="mt-3">Passenger's Mobile Number</h6>
                         {user ? (
-                             <input
-                             type="text"
-                             onChange={(e) => handleChange(e)}
-                             name="phoneNumber"
-                             placeholder="+12356376353"
-                             value={user.phoneNumber}
-                           />
-                        )
-                        :
-                        (
                           <input
-                          type="text"
-                          onChange={(e) => handleChange(e)}
-                          name="phoneNumber"
-                          placeholder="+12356376353"
-                        />
-                        )}
+                            type="text"
+                            onChange={(e) => handleChange(e)}
+                            name="phoneNumber"
+                            placeholder="+12356376353"
+                            value={user.phoneNumber}
+                          />
+                        )
+                          :
+                          (
+                            <input
+                              type="text"
+                              onChange={(e) => handleChange(e)}
+                              name="phoneNumber"
+                              placeholder="+12356376353"
+                            />
+                          )}
                       </div>
                     </div>
                   </Col>
@@ -335,7 +353,30 @@ function UserDetails({ otherDetails, stepper, setStepper,router,onCheckRed }) {
                 </div>
               </Col>
             </Row>
-
+            <Row>
+              <Col xs={12} sm={6}>
+                <div className={styles.inputBox}>
+                  <h6 className="mt-3">Booked By Name</h6>
+                  <input
+                    type="text"
+                    onChange={(e) => handleChange(e)}
+                    name="bookedByName"
+                    placeholder="By Name"
+                  />
+                </div>
+              </Col>
+              <Col xs={12} sm={6}>
+                <div className={styles.inputBox}>
+                  <h6 className="mt-3">Booked By Phone</h6>
+                  <input
+                    type="text"
+                    onChange={(e) => handleChange(e)}
+                    name="bookedByPhone"
+                    placeholder="xyz-xyz-xyz"
+                    />
+                </div>
+              </Col>
+            </Row>
             <Row>
               <Col
                 sm={12}
@@ -361,7 +402,7 @@ function UserDetails({ otherDetails, stepper, setStepper,router,onCheckRed }) {
                           type="text"
                           name="fullName"
                           placeholder="John Doe"
-                          value={user ? user.fullName:""}
+                          value={user ? user.fullName : ""}
                         />
                       ) : (
                         <input
@@ -419,24 +460,24 @@ function UserDetails({ otherDetails, stepper, setStepper,router,onCheckRed }) {
                       <div className={styles.inputBox}>
                         <h6 className="mt-3">Passenger's Mobile Number</h6>
                         {user ? (
-                             <input
-                             type="text"
-                             onChange={(e) => handleChange(e)}
-                             name="phoneNumber"
-                             placeholder="+12356376353"
-                             value={user.phoneNumber}
-                           />
-                        )
-                        :
-                        (
                           <input
-                          type="text"
-                          onChange={(e) => handleChange(e)}
-                          name="phoneNumber"
-                          placeholder="+12356376353"
-                        />
-                        )}
-                     
+                            type="text"
+                            onChange={(e) => handleChange(e)}
+                            name="phoneNumber"
+                            placeholder="xyz-xyz-xyz"
+                            value={user.phoneNumber}
+                          />
+                        )
+                          :
+                          (
+                            <input
+                              type="text"
+                              onChange={(e) => handleChange(e)}
+                              name="phoneNumber"
+                              placeholder="+12356376353"
+                            />
+                          )}
+
                       </div>
                     </div>
                   </Col>
