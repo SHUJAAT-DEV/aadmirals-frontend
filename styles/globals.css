@@ -11,12 +11,15 @@ li,
 h6 {
   font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
 }
-span.displayed-text .read-more-button{
+
+span.displayed-text .read-more-button {
   text-decoration: none !important;
 }
-span.displayed-text .read-more-button:hover{
+
+span.displayed-text .read-more-button:hover {
   cursor: pointer;
 }
+
 button {
   font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
 }
@@ -284,12 +287,15 @@ span.displayed-text .read-more-button {
   font-size: 16px;
   font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
 }
-.display-text-group:hover span{
+
+.display-text-group:hover span {
   color: black;
 }
-.display-text-group{
+
+.display-text-group {
   color: black;
 }
+
 .custom_main_images {
   width: 100%;
 }
@@ -373,6 +379,7 @@ span.displayed-text .read-more-button {
 
 .custom_contactus .card {
   background: transparent;
+  border: 0px !important;
 }
 
 .custom_contactus label {

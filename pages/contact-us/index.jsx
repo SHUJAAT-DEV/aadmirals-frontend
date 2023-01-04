@@ -53,16 +53,6 @@ const Contact = () => {
   const {contact_details_page} = details;
   const det = contact_details_page && contact_details_page.contactDetails[0];
 
-  // const submitHandler = (e) => {
-  //   e.preventDefault();
-  //   setreqFields(false);
-  //   if (!email || !phoneNumber || !message) {
-  //     setreqFields(true);
-  //   } else {
-  //     dispatch(getContactPage(email, phoneNumber, message));
-  //   }
-  // };
-
   useEffect(() => {
     dispatch(getContactDetailsPage());
   }, []);
