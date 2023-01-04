@@ -34,8 +34,8 @@
     min-height: 182px;
     padding: 25px 20px;
     text-align: left;
-    max-height: 182px;
-    overflow-y: auto;
+    max-height: fit-content;
+    // overflow-y: hidden;
     h3 {
       font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
       font-size: 20px;

@@ -219,12 +219,12 @@ const Home = (props) => {
                         cms?.home_page?.partner && cms?.home_page?.partner?.map(partner => (
                           <>
                             <a href={`${partner?.url}`} target="_blank" rel="noreferrer">
-                              <div style={{marginBottom:30,padding:'2em',borderRadius:5,boxShadow:'0 0 8px 0'}}>
+                              <div style={{marginBottom:30}}>
                                 <Image priority={true} src={partner.image} className={styles.logo_container} alt={partner.name} width={100} height={100} objectFit="contain" />
                                 {/* <img src={image} className={styles.logo} alt="..1partnerimg" /> */}
                                 <h2 style={{fontSize:'1.5em'}}>{partner.name}</h2>
                               </div>
-                            </a>
+                            </a >
                           </>
                         ))
                       }

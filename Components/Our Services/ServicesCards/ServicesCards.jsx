@@ -32,29 +32,33 @@ function ServicesCards({image, description, title, url}) {
   return (
     <div className="main_slider_serv">
           <div className={styles.cardsContainer}>
-            <div className={styles.cards}>
-              <div className={styles.cardImage}>
-                <Image
-                  priority={true}
-                  src={image}
-                  alt={title}
-                  width={50}
-                  height={30}
-                  blurDataURL="https://www.pexels.com/photo/dark-blur-blurred-gradient-1526/"
-                  layout="responsive"
-                  objectFit="cover"
-                />
+          {/* <Link href={`/${url ? url : ""}`}>
+              <a> */}
+              <div className={styles.cards}>
+                <div className={styles.cardImage}>
+                  <Image
+                    priority={true}
+                    src={image}
+                    alt={title}
+                    width={50}
+                    height={30}
+                    blurDataURL="https://www.pexels.com/photo/dark-blur-blurred-gradient-1526/"
+                    layout="responsive"
+                    objectFit="cover"
+                  />
+                </div>
+                <div className={styles.cardDetail}>
+                  <h3 className={styles.cardTitle} style={{ color: "black" }}>{title}</h3>
+                  <ReadMoreReact min={40}
+                    ideal={50}
+                    max={100}
+                    readMoreText={'Read More'} text={description}
+                    class
+                  />
+                </div>
               </div>
-              <div className={styles.cardDetail}>
-                <h3 className={styles.cardTitle} style={{ color: "black" }}>{title}</h3>
-                <ReadMoreReact min={40}
-                  ideal={50}
-                  max={100}
-                  readMoreText={'Read More'} text={description}
-                  class
-                />
-              </div>
-            </div>
+              {/* </a>
+            </Link> */}
           </div>
     </div>
   );

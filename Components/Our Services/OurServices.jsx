@@ -39,10 +39,6 @@ function OurServices({services}) {
               "clickable": true
             }} 
             breakpoints={{
-              // 640: {
-              //   "slidesPerView": 2,
-              //   "spaceBetween": 20
-              // },
               300: {
                 "slidesPerView": 2,
                 "spaceBetween": 25
@@ -65,20 +61,6 @@ function OurServices({services}) {
                 )) : null
               }
             </Swiper>
-            {/* <Carousel
-              autoPlaySpeed={4000}
-              showArrows={false}
-              breakPoints={breakPoints}
-              enableAutoPlay={false}
-              itemPadding={[0, 10]}
-            >
-              {
-                services ? services.map(service => (
-                  <ServicesCards url={service.url} image={service.image} description={service.description} title={service.name} />
-
-                )) : null
-              }
-            </Carousel> */}
           </Row>
         </center>
       </Container>
