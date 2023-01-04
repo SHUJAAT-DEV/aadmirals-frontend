@@ -9,7 +9,6 @@ import styles from "./airportTransfer.module.scss";
 function Search({ handleSelectedAddress, name }) {
 
   const [address, setAddress] = useState("");
-
   const handleChange = (address) => {
     setAddress(address);
   };
@@ -32,7 +31,6 @@ function Search({ handleSelectedAddress, name }) {
       });
     }
   }
-
   var searchOptions = {
     componentRestrictions: { country: "us" },
   };
@@ -49,7 +47,7 @@ function Search({ handleSelectedAddress, name }) {
             name={name}
             {...getInputProps({
               placeholder: "Address, airport, hotel, ...",
-            })}
+            })} 
           />
           <div
             className={`${suggestions.length > 0 ? styles.dropdown_map_search : ""

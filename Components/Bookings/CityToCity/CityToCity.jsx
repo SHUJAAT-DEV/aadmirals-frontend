@@ -57,18 +57,25 @@ function CityToCity() {
     if (address.latLng === undefined) {
       setError("Location Not Valid");
     } else {
-      setFromLat(address.latLng.lat);
-      setFromLng(address.latLng.lng); 
+      setToLat(address.latLng.lat);
+      setToLng(address.latLng.lng);
     }
   };
   const handleChangeFrom = (address) => {
     setError("");
-    if (address.latLng === undefined) {
+
+    if (address.latLng===undefined) {
       setError("Location Not Valid");
-    } else {
+    } else { 
       setFromLat(address.latLng.lat);
       setFromLng(address.latLng.lng); 
     }
+    // if (address.name) {
+    //   setError("Location Not Valid");
+    // } else {
+    //   setFromLat(address.geometry.location.lat());
+    //   setFromLng(address.geometry.location.lng());
+    // }
   };
   function ChangeDate(e) {
     if (moment(e).isBefore(currentDate)) {
@@ -165,6 +172,7 @@ function CityToCity() {
       );
 
       function callback(response, status) {
+        console.log('data',response);
         setError("");
         if (response?.rows[0]?.elements[0]?.distance?.value / 1609 < 81) {
           setError(
@@ -175,6 +183,7 @@ function CityToCity() {
         }
         setLoading(false);
         if (response) {
+          
           let data = {
             from: response?.originAddresses[0],
             to: response?.destinationAddresses[0],
@@ -221,8 +230,8 @@ function CityToCity() {
             types={["address"]}
             componentRestrictions={{country: "USA"}}
             placeholder="Address, airport, hotel, ..."
-            onBlur={onBlurHandler}
-            onFocus={onFocusHandler}
+            // onBlur={onBlurHandler}
+            // onFocus={onFocusHandler}
             name="from"
           /> */}
           <Search handleSelectedAddress={handleChangeFrom} />
@@ -242,8 +251,8 @@ function CityToCity() {
             types={["address"]}
             componentRestrictions={{country: "USA"}}
             placeholder="Address, airport, hotel, ..."
-            onBlur={onBlurHandler}
-            onFocus={onFocusHandler}
+            // onBlur={onBlurHandler}
+            // onFocus={onFocusHandler}
             name="to"
           /> */}
           <Search handleSelectedAddress={handleChangeTo} />
