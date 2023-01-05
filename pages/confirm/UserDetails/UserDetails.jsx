@@ -54,7 +54,6 @@ function UserDetails({ otherDetails, stepper, setStepper, router, onCheckRed }) 
       setRedEye(true);
       onCheckRed(true);
       dispatch(setAmount(parseInt(preammount) + parseInt(30)))
-
     } else {
       setRedEye(false);
       onCheckRed(false);
@@ -134,7 +133,7 @@ function UserDetails({ otherDetails, stepper, setStepper, router, onCheckRed }) 
     }
     else{}
   };
-
+  
   return (
     <div className={styles.detail}>
       {error ? (
@@ -370,9 +369,9 @@ function UserDetails({ otherDetails, stepper, setStepper, router, onCheckRed }) 
                   <h6 className="mt-3">Booked By Phone</h6>
                   <input
                     type="text"
-                    onChange={(e) => handleChange(e)}
-                    name="bookedByPhone"
-                    placeholder="xyz-xyz-xyz"
+                    onChange={(e) => handleChange(e)} 
+                    name="bookedByPhone" 
+                    placeholder="xyz-xyz-xyz"  
                     />
                 </div>
               </Col>
