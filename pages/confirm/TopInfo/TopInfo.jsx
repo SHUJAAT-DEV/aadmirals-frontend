@@ -22,10 +22,10 @@ function TopInfo({ quotes }) {
     <Container fluid className={styles.data}>
       {quotes ? (
         <h6>
-          {quotes.otherDetails.from} <FaChevronRight className={styles.icons} />
-          <FaChevronRight className={styles.icons} />
+          {quotes.otherDetails.from} 
+          {" "}
           {quotes.otherDetails.to}{" "}
-          <FaGripLinesVertical className={styles.icons} />
+          {" "}
           {`Duration: ${
             quotes.otherDetails.duration
               ? quotes.otherDetails.duration
@@ -33,9 +33,10 @@ function TopInfo({ quotes }) {
           } – Distance: ${
             quotes.otherDetails.distance ? quotes.otherDetails.distance : "N/A"
           }`}
-          <FaGripLinesVertical className={styles.icons} />{" "}
+          {" "}
           {quotes.otherDetails.date}
-          <FaGripLinesVertical className={styles.icons} />{" "}
+          {" "}
+          {" "}
           {quotes.otherDetails.time}
         </h6>
       ) : (
