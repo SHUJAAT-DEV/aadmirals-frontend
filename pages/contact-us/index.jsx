@@ -32,10 +32,10 @@ const schema = Joi.object({
   phoneNumber: Joi.number().required(),
   message: Joi.string().required(),
 });
+
 const Contact = () => {
   const router = useRouter();
   const dispatch = useDispatch();
-
   const {handleSubmit, control} = useForm({
     mode: "onSubmit",
     defaultValues: {

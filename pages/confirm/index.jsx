@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Header from "../../Components/Header/Header";
 import SideNav from "../../Components/Header/SideNav/SideNav";
 import styles from "./Confirm.module.scss";
-import Stepper from "react-stepper-horizontal";
 import {
   Col,
   Row,
@@ -87,38 +86,15 @@ function Confirm({ router }) {
           <SideNav />
           <Header />
           <Floatingbutton />
-
           <div className={styles.mainContainer}>
-            <Stepper
-              steps={[
-                { title: "Service Class" },
-                { title: "Options" },
-                { title: "Checkout" },
-                { title: "Payment" },
-              ]}
-              activeStep={stepper}
-              completeColor="#ee405e"
-              defaultColor="rgba(238,64,94,0.3)"
-              activeColor="#212B36"
-              activeTitleColor="#212B36"
-              completeTitleColor="#ee405e"
-              defaultTitleColor="rgba(238,64,94,0.3)"
-              circleTop={50}
-              defaultBarColor="rgba(238,64,94,0.3)"
-              completeBarColor="#ee405e"
-              lineMarginOffset={10}
-              circleFontSize={15}
-            />
             <TopInfo quotes={quotes.quotes} />
             <div className={stepper == 0 ? "" : styles.service}>
-              
+
               <Container style={{ overflow: 'hidden' }}>
                 <Row sm={12} md={12} lg={12} xl={12} >
                   <Col sm={12} md={12} lg={12} xl={12}>
-
                     <div style={{ fontSize: '20px', marginTop: '20px', fontWeight: 'bold' }}>Showing 1 - {quotes.quotes.quoteResponse.length} of {quotes.quotes.quoteResponse.length}</div>
                     <div style={{ fontSize: '20px', fontWeight: 'bold' }}>Scroll Down for more Choices</div>
-
                   </Col>
                 </Row>
               </Container>

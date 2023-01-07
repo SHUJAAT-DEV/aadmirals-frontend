@@ -11,9 +11,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { Alert } from "reactstrap";
 import moment from "moment";
 import RED_EYE from "../../../red-eye-time";
-function UserDetails({ otherDetails, stepper, setStepper, router, onCheckRed }) {
-  const dispatch = useDispatch();
+import Stepper from "react-stepper-horizontal";
 
+function UserDetails({ otherDetails, stepper, setStepper, router, onCheckRed }) {
+
+  const dispatch = useDispatch();
   const { pathname } = router;
   const [formData, setFormData] = useState({
     pickupSign: "",
@@ -38,7 +40,7 @@ function UserDetails({ otherDetails, stepper, setStepper, router, onCheckRed }) 
 
   // const { time, bookingTypes, date } = otherDetails 
 
-  const {bookedByName, bookedByPhone, pickupSign, noteForChauffeur, email, fullName, phoneNumber } =
+  const { bookedByName, bookedByPhone, pickupSign, noteForChauffeur, email, fullName, phoneNumber } =
     formData;
   const redEyeBeginningTime = moment(RED_EYE.STARTING_TIME, "hh:mm");
   const redEyeEndingTime = moment(RED_EYE.ENDING_TIME, "hh:mm");
@@ -54,7 +56,6 @@ function UserDetails({ otherDetails, stepper, setStepper, router, onCheckRed }) 
       setRedEye(true);
       onCheckRed(true);
       dispatch(setAmount(parseInt(preammount) + parseInt(30)))
-
     } else {
       setRedEye(false);
       onCheckRed(false);
@@ -66,7 +67,7 @@ function UserDetails({ otherDetails, stepper, setStepper, router, onCheckRed }) 
       if (!Date.isValid() || returnTime == "N/A") {
         window.scrollTo(0, 0);
         return setError("Return trip details required");
-      } 
+      }
       if (returnTime < otherDetails.time && moment(returnDate).isSame(otherDetails.date && otherDetails.date)) {
         window.scrollTo(0, 0);
         return setError(
@@ -89,14 +90,14 @@ function UserDetails({ otherDetails, stepper, setStepper, router, onCheckRed }) 
       return (
         setError("All fields are required"));
     }
-    if(BookedByPhone){
+    if (BookedByPhone) {
       return setError('Enter a valid US phone number pattern');
     }
     if (mailValidate) {
       return setError('Enter a valid Email address');
     }
     else { }
-    if(phoneValidate){
+    if (phoneValidate) {
       return setError("Enter a valid US phone number pattern");
     }
     setStepper(stepper + 1);
@@ -119,20 +120,20 @@ function UserDetails({ otherDetails, stepper, setStepper, router, onCheckRed }) 
       checkValidate ? setMailValidate(false) : setMailValidate(true);
     }
     else { }
-    if (e.target.name === "phoneNumber"){
+    if (e.target.name === "phoneNumber") {
       const regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
       const checkValidate = regex.test(e.target.value);
       checkValidate ? console.log("phone validated") : console.log("phone not validate");
       checkValidate ? setPhoneValidate(false) : setPhoneValidate(true);
     }
-    else{}
-    if (e.target.name === "bookedByPhone"){
+    else { }
+    if (e.target.name === "bookedByPhone") {
       const regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
       const checkValidate = regex.test(e.target.value);
       checkValidate ? console.log("phone validated") : console.log("phone not validate");
       checkValidate ? setBookedByPhone(false) : setBookedByPhone(true);
     }
-    else{}
+    else { }
   };
 
   return (
@@ -142,350 +143,57 @@ function UserDetails({ otherDetails, stepper, setStepper, router, onCheckRed }) 
           {error}
         </Alert>
       ) : null}
-      {(otherDetails && otherDetails.bookingTypes == 0) ? (
-        <Row>
-          <Col sm={12} md={12} lg={12} xl={12} className={styles.text_center}>
-            <Row>
-              <Col>
-                <div className="pt-5">
-                  <h3>Airport Pickup Details (If any)</h3>
-                  <h6>
-                    Enter your flight number so our chauffeur can track the
-                    status of your flight and pick you up when you arrive, even
-                    if your flight is delayed.
-                  </h6>
-                </div>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={12} sm={6}>
-                <div className={styles.inputBox}>
-                  <h6 className="mt-3">Flight Details</h6>
-                  <input
-                    type="text"
-                    onChange={(e) => handleChange(e)}
-                    name="flightDetails"
-                    placeholder="LH 204"
-                  />
-                </div>
-              </Col>
-            </Row>
-            <Row>
-              <Col
-                sm={12}
-                md={12}
-                lg={12}
-                xl={12}
-                className={styles.text_center}
-              >
-                <Row>
-                  <Col>
-                    <div className="pt-5 pb-3">
-                      <h3>Additional Info</h3>
-                    </div>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col xs={12} sm={6}>
-                    <div className={styles.inputBox}>
-                      <h6 className="mt-3">Passenger's Name</h6>
-                      {user ? (
-                        <input
-                          onChange={(e) => handleChange(e)}
-                          type="text"
-                          name="fullName"
-                          placeholder="John Doe"
-                          value={user ? user.fullName : ""}
-                        />
-                      ) : (
-                        <input
-                          onChange={(e) => handleChange(e)}
-                          type="text"
-                          name="fullName"
-                          placeholder="John Doe"
-                        />
-                      )}
-                    </div>
-                  </Col>
-
-                  <Col xs={12} sm={6}>
-                    <div className={styles.inputBox}>
-                      <h6 className="mt-3">Passenger's Email</h6>
-                      {user ? (
-                        <input
-                          onChange={(e) => handleChange(e)}
-                          type="text"
-                          name="email"
-                          placeholder="email@email.com"
-                          value={user ? user.email : ""}
-                        />
-                      ) : (
-                        <input
-                          onChange={(e) => handleChange(e)}
-                          type="text"
-                          name="email"
-                          placeholder="email@email.com"
-                        />
-                      )}
-                    </div>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col xs={12} sm={6}>
-                    <div className={styles.inputBox}>
-                      <h6 className="mt-3">
-                        Notes for the chauffeur (Optional)
-                      </h6>
-                      <textarea
-                        name="noteForChauffeur"
-                        onChange={(e) => handleChange(e)}
-                        id=""
-                        placeholder="Any special requests (child car seats) Please dont include any confidential information"
-                      ></textarea>
-                      <h6>
-                        Help us provide you with a better service and add any
-                        special requests
-                      </h6>
-                    </div>
-                  </Col>
-                  <Col xs={12} sm={6}>
-                    <div>
-                      <div className={styles.inputBox}>
-                        <h6 className="mt-3">Passenger's Mobile Number</h6>
-                        {user ? (
-                          <input
-                            type="text"
-                            onChange={(e) => handleChange(e)}
-                            name="phoneNumber"
-                            placeholder="+12356376353"
-                            value={user.phoneNumber}
-                          />
-                        )
-                          :
-                          (
-                            <input
-                              type="text"
-                              onChange={(e) => handleChange(e)}
-                              name="phoneNumber"
-                              placeholder="+12356376353"
-                            />
-                          )}
-                      </div>
-                    </div>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-            <Row>
-              {type === "ROUND TRIP" ? (
-                <Col
-                  sm={12}
-                  md={12}
-                  lg={12}
-                  xl={12}
-                  className={styles.text_center}
-                >
-                  <Row>
-                    <Col>
-                      <div className="pt-5 pb-3">
-                        <h3>Return Trip Information</h3>
-                      </div>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col xs={12} sm={6}>
-                      <div>
-                        <div className={styles.inputBox}>
-                          <h6 className="mt-3">Return Pickup Date</h6>
-
-                          <input
-                            onChange={(e) => setDate(moment(e.target.value).format("MM-DD-YYYY"))}
-                            type="date"
-                            name="date"
-                          />
-                        </div>
-                      </div>
-                    </Col>
-                    <Col xs={12} sm={6}>
-                      <div className={styles.inputBox}>
-                        <h6 className="mt-3">Return Pickup Time</h6>
-
-                        <input
-                          onChange={(e) => setTime(e.target.value)}
-                          type="time"
-                          name="time"
-                        />
-                        {redEye ? (
-                          <p className={styles.danger}>
-                            Pickup between 12AM and 6AM costs 30$ Red Eye
-                            charges that will be add on total bill during
-                            booking.
-                          </p>
-                        ) : null}
-                      </div>
-                    </Col>
-                  </Row>
+      <div className={styles.form_reDesign} >
+      <Stepper
+              steps={[
+                { title: "Service Class" },
+                { title: "Options" },
+                { title: "Checkout" },
+                { title: "Payment" },
+              ]}
+              activeStep={stepper}
+              completeColor="#ee405e"
+              defaultColor="rgba(238,64,94,0.3)"
+              activeColor="#212B36"
+              activeTitleColor="#212B36"
+              completeTitleColor="#ee405e"
+              defaultTitleColor="rgba(238,64,94,0.3)"
+              circleTop={50}
+              defaultBarColor="rgba(238,64,94,0.3)"
+              completeBarColor="#ee405e"
+              lineMarginOffset={10}
+              circleFontSize={15}
+            />
+        {(otherDetails && otherDetails.bookingTypes == 0) ? (
+          <Row>
+            <Col sm={12} md={12} lg={12} xl={12} className={styles.text_center}>
+              <Row>
+                <Col>
+                  <div className="pt-5">
+                    <h3>Airport Pickup Details (If any)</h3>
+                    <h6>
+                      Enter your flight number so our chauffeur can track the
+                      status of your flight and pick you up when you arrive, even
+                      if your flight is delayed.
+                    </h6>
+                  </div>
                 </Col>
-              ) : null}
-            </Row>
-          </Col>
-        </Row>
-      ) : (
-        <Row>
-          <Col sm={12} md={12} lg={12} xl={12} className={styles.text_center}>
-            <Row>
-              <Col>
-                <div className="pt-5">
-                  <h3>Pickup Details</h3>
-                </div>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={12} sm={6}>
-                <div className={styles.inputBox}>
-                  <h6 className="mt-3">Pickup Sign</h6>
-                  <input
-                    type="text"
-                    onChange={(e) => handleChange(e)}
-                    name="pickupSign"
-                    placeholder="John Doe"
-                  />
-                </div>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={12} sm={6}>
-                <div className={styles.inputBox}>
-                  <h6 className="mt-3">Booked By Name</h6>
-                  <input
-                    type="text"
-                    onChange={(e) => handleChange(e)}
-                    name="bookedByName"
-                    placeholder="By Name"
-                  />
-                </div>
-              </Col>
-              <Col xs={12} sm={6}>
-                <div className={styles.inputBox}>
-                  <h6 className="mt-3">Booked By Phone</h6>
-                  <input
-                    type="text"
-                    onChange={(e) => handleChange(e)}
-                    name="bookedByPhone"
-                    placeholder="xyz-xyz-xyz"
+              </Row>
+              <Row>
+                <Col xs={12} sm={6}>
+                  <div className={styles.inputBox}>
+                    <h6 className="mt-3">Flight Details</h6>
+                    <input
+                      type="text"
+                      onChange={(e) => handleChange(e)}
+                      name="flightDetails"
+                      placeholder="LH 204"
+                      className={styles.fields_reDesign} 
                     />
-                </div>
-              </Col>
-            </Row>
-            <Row>
-              <Col
-                sm={12}
-                md={12}
-                lg={12}
-                xl={12}
-                className={styles.text_center}
-              >
-                <Row>
-                  <Col>
-                    <div className="pt-5 pb-3">
-                      <h3>Additional Info</h3>
-                    </div>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col xs={12} sm={6}>
-                    <div className={styles.inputBox}>
-                      <h6 className="mt-3">Passenger's Name</h6>
-                      {user ? (
-                        <input
-                          onChange={(e) => handleChange(e)}
-                          type="text"
-                          name="fullName"
-                          placeholder="John Doe"
-                          value={user ? user.fullName : ""}
-                        />
-                      ) : (
-                        <input
-                          onChange={(e) => handleChange(e)}
-                          type="text"
-                          name="fullName"
-                          placeholder="John Doe"
-                        />
-                      )}
-                    </div>
-                  </Col>
-
-                  <Col xs={12} sm={6}>
-                    <div className={styles.inputBox}>
-                      <h6 className="mt-3">Passenger's Email</h6>
-                      {user ? (
-                        <input
-                          onChange={(e) => handleChange(e)}
-                          type="text"
-                          name="email"
-                          placeholder="email@email.com"
-                          value={user ? user.email : ""}
-                        />
-                      ) : (
-                        <input
-                          onChange={(e) => handleChange(e)}
-                          type="text"
-                          name="email"
-                          placeholder="email@email.com"
-                        />
-                      )}
-                    </div>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col xs={12} sm={6}>
-                    <div className={styles.inputBox}>
-                      <h6 className="mt-3">
-                        Notes for the chauffeur (Optional)
-                      </h6>
-                      <textarea
-                        name="noteForChauffeur"
-                        onChange={(e) => handleChange(e)}
-                        id=""
-                        placeholder="Any special requests (child car seats) Please dont include any confidential information"
-                      ></textarea>
-                      <h6>
-                        Help us provide you with a better service and add any
-                        special requests
-                      </h6>
-                    </div>
-                  </Col>
-                  <Col xs={12} sm={6}>
-                    <div>
-                      <div className={styles.inputBox}>
-                        <h6 className="mt-3">Passenger's Mobile Number</h6>
-                        {user ? (
-                          <input
-                            type="text"
-                            onChange={(e) => handleChange(e)}
-                            name="phoneNumber"
-                            placeholder="xyz-xyz-xyz"
-                            value={user.phoneNumber}
-                          />
-                        )
-                          :
-                          (
-                            <input
-                              type="text"
-                              onChange={(e) => handleChange(e)}
-                              name="phoneNumber"
-                              placeholder="+12356376353"
-                            />
-                          )}
-
-                      </div>
-                    </div>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-            <Row>
-              {type === "ROUND TRIP" ? (
+                  </div>
+                </Col>
+              </Row>
+              <Row>
                 <Col
                   sm={12}
                   md={12}
@@ -496,45 +204,412 @@ function UserDetails({ otherDetails, stepper, setStepper, router, onCheckRed }) 
                   <Row>
                     <Col>
                       <div className="pt-5 pb-3">
-                        <h3>Return Trip Information</h3>
+                        <h3>Additional Info</h3>
                       </div>
                     </Col>
                   </Row>
                   <Row>
                     <Col xs={12} sm={6}>
-                      <div>
-                        <div className={styles.inputBox}>
-                          <h6 className="mt-3">Return Pickup Date</h6>
-
+                      <div className={styles.inputBox}>
+                        <h6 className="mt-3">Passenger's Name</h6>
+                        {user ? (
                           <input
-                            onChange={(e) => setDate(e.target.value)}
-                            type="date"
-                            name="date"
+                            onChange={(e) => handleChange(e)}
+                            type="text"
+                            name="fullName"
+                            placeholder="John Doe"
+                            value={user ? user.fullName : ""}
+                            className={styles.fields_reDesign}
                           />
-                        </div>
+                        ) : (
+                          <input
+                            onChange={(e) => handleChange(e)}
+                            type="text"
+                            name="fullName"
+                            placeholder="John Doe"
+                            className={styles.fields_reDesign}
+
+                          />
+                        )}
+                      </div>
+                    </Col>
+
+                    <Col xs={12} sm={6}>
+                      <div className={styles.inputBox}>
+                        <h6 className="mt-3">Passenger's Email</h6>
+                        {user ? (
+                          <input
+                            onChange={(e) => handleChange(e)}
+                            type="text"
+                            name="email"
+                            placeholder="email@email.com"
+                            value={user ? user.email : ""}
+                            className={styles.fields_reDesign}
+
+                          />
+                        ) : (
+                          <input
+                            onChange={(e) => handleChange(e)}
+                            type="text"
+                            name="email"
+                            placeholder="email@email.com"
+                            className={styles.fields_reDesign}
+
+                          />
+                        )}
+                      </div>
+                    </Col>
+                  </Row>
+
+                  <Row>
+                    <Col xs={12} sm={6}>
+                      <div className={styles.inputBox}>
+                        <h6 className="mt-3">
+                          Notes for the chauffeur (Optional)
+                        </h6>
+                        <textarea
+                          name="noteForChauffeur"
+                          onChange={(e) => handleChange(e)}
+                          id=""
+                          className={styles.fields_reDesign}
+
+                          placeholder="Any special requests (child car seats) Please dont include any confidential information"
+                        ></textarea>
+                        <h6>
+                          Help us provide you with a better service and add any
+                          special requests
+                        </h6>
                       </div>
                     </Col>
                     <Col xs={12} sm={6}>
-                      <div className={styles.inputBox}>
-                        <h6 className="mt-3">Return Pickup Time</h6>
+                      <div>
+                        <div className={styles.inputBox}>
+                          <h6 className="mt-3">Passenger's Mobile Number</h6>
+                          {user ? (
+                            <input
+                              type="text"
+                              onChange={(e) => handleChange(e)}
+                              name="phoneNumber"
+                              placeholder="+12356376353"
+                              value={user.phoneNumber}
+                              className={styles.fields_reDesign}
 
-                        <input
-                          onChange={(e) => setTime(e.target.value)}
-                          type="time"
-                          name="time"
-                        />
+                            />
+                          )
+                            :
+                            (
+                              <input
+                                type="text"
+                                onChange={(e) => handleChange(e)}
+                                name="phoneNumber"
+                                placeholder="+12356376353"
+                                className={styles.fields_reDesign}
+
+                              />
+                            )}
+                        </div>
                       </div>
                     </Col>
                   </Row>
                 </Col>
-              ) : null}
-            </Row>
-          </Col>
-        </Row>
-      )}
-      <div className={` ${styles.buttonsContainer} mb-5`}>
-        <button onClick={(e) => setStepper(stepper - 1)}>Previous</button>
-        <button onClick={(e) => handleNext()}>Next</button>
+              </Row>
+
+              <Row>
+                {type === "ROUND TRIP" ? (
+                  <Col
+                    sm={12}
+                    md={12}
+                    lg={12}
+                    xl={12}
+                    className={styles.text_center}
+                  >
+                    <Row>
+                      <Col>
+                        <div className="pt-5 pb-3">
+                          <h3>Return Trip Information</h3>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col xs={12} sm={6}>
+                        <div>
+                          <div className={styles.inputBox}>
+                            <h6 className="mt-3">Return Pickup Date</h6>
+
+                            <input
+                              onChange={(e) => setDate(moment(e.target.value).format("MM-DD-YYYY"))}
+                              type="date"
+                              name="date"
+                            />
+                          </div>
+                        </div>
+                      </Col>
+                      <Col xs={12} sm={6}>
+                        <div className={styles.inputBox}>
+                          <h6 className="mt-3">Return Pickup Time</h6>
+
+                          <input
+                            onChange={(e) => setTime(e.target.value)}
+                            type="time"
+                            name="time"
+                          />
+                          {redEye ? (
+                            <p className={styles.danger}>
+                              Pickup between 12AM and 6AM costs 30$ Red Eye
+                              charges that will be add on total bill during
+                              booking.
+                            </p>
+                          ) : null}
+                        </div>
+                      </Col>
+                    </Row>
+                  </Col>
+                ) : null}
+              </Row>
+
+            </Col>
+          </Row>
+        ) : (
+          <Row>
+            <Col sm={12} md={12} lg={12} xl={12} className={styles.text_center}>
+              <Row>
+                <Col>
+                  <div className="pt-5">
+                    <h3>Pickup Details</h3>
+                  </div>
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={12} sm={6}>
+                  <div className={styles.inputBox}>
+                    <h6
+                      className={styles.formText_reDesign}
+                    >Pickup Sign</h6>
+                    <input
+                      type="text"
+                      onChange={(e) => handleChange(e)}
+                      name="pickupSign"
+                      placeholder="John Doe"
+                      className={styles.fields_reDesign}
+
+                    />
+                  </div>
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={12} sm={6}>
+                  <div className={styles.inputBox}>
+                    <h6
+                      className={styles.formText_reDesign}
+                    >Booked By Name</h6>
+                    <input
+                      type="text"
+                      onChange={(e) => handleChange(e)}
+                      name="bookedByName"
+                      placeholder="By Name"
+                      className={styles.fields_reDesign}
+
+                    />
+                  </div>
+                </Col>
+                <Col xs={12} sm={6}>
+                  <div className={styles.inputBox}>
+                    <h6
+                      className={styles.formText_reDesign}
+                    >Booked By Phone</h6>
+                    <input
+                      type="text"
+                      onChange={(e) => handleChange(e)}
+                      name="bookedByPhone"
+                      placeholder="xyz-xyz-xyz"
+                      className={styles.fields_reDesign}
+
+                    />
+                  </div>
+                </Col>
+              </Row>
+              <Row>
+                <Col
+                  sm={12}
+                  md={12}
+                  lg={12}
+                  xl={12}
+                  className={styles.text_center}
+                >
+                  <Row>
+                    <Col>
+                      <div className="pt-5 pb-3">
+                        <h3>Additional Info</h3>
+                      </div>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col xs={12} sm={6}>
+                      <div className={styles.inputBox}>
+                        <h6
+                          className={styles.formText_reDesign}
+                        >Passenger's Name</h6>
+                        {user ? (
+                          <input
+                            onChange={(e) => handleChange(e)}
+                            type="text"
+                            name="fullName"
+                            placeholder="John Doe"
+                            value={user ? user.fullName : ""}
+                            className={styles.fields_reDesign}
+
+                          />
+                        ) : (
+                          <input
+                            onChange={(e) => handleChange(e)}
+                            type="text"
+                            name="fullName"
+                            placeholder="John Doe"
+                            className={styles.fields_reDesign}
+
+                          />
+                        )}
+                      </div>
+                    </Col>
+
+                    <Col xs={12} sm={6}>
+                      <div className={styles.inputBox}>
+                        <h6
+                          className={styles.formText_reDesign}
+
+                        >Passenger's Email</h6>
+                        {user ? (
+                          <input
+                            onChange={(e) => handleChange(e)}
+                            type="text"
+                            name="email"
+                            placeholder="email@email.com"
+                            value={user ? user.email : ""}
+                            className={styles.fields_reDesign}
+
+                          />
+                        ) : (
+                          <input
+                            onChange={(e) => handleChange(e)}
+                            type="text"
+                            name="email"
+                            placeholder="email@email.com"
+                            className={styles.fields_reDesign}
+
+                          />
+                        )}
+                      </div>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col xs={12} sm={6}>
+                      <div className={styles.inputBox}>
+                        <h6
+                          className={styles.formText_reDesign}
+
+                        >
+                          Notes for the chauffeur (Optional)
+                        </h6>
+                        <textarea
+                          name="noteForChauffeur"
+                          onChange={(e) => handleChange(e)}
+                          id=""
+                          className={styles.fields_reDesign}
+
+                          placeholder="Any special requests (child car seats) Please dont include any confidential information"
+                        ></textarea>
+                        <h6>
+                          Help us provide you with a better service and add any
+                          special requests
+                        </h6>
+                      </div>
+                    </Col>
+                    <Col xs={12} sm={6}>
+                      <div>
+                        <div className={styles.inputBox}
+                        >
+                          <h6
+                            className={styles.formText_reDesign}
+                          >Passenger's Mobile Number</h6>
+                          {user ? (
+                            <input
+                              type="text"
+                              onChange={(e) => handleChange(e)}
+                              name="phoneNumber"
+                              placeholder="xyz-xyz-xyz"
+                              className={styles.fields_reDesign}
+                              value={user.phoneNumber}
+                            />
+                          )
+                            :
+                            (
+                              <input
+                                type="text"
+                                onChange={(e) => handleChange(e)}
+                                name="phoneNumber"
+                                placeholder="+12356376353"
+                                className={styles.fields_reDesign}
+
+                              />
+                            )}
+
+                        </div>
+                      </div>
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
+              <Row>
+                {type === "ROUND TRIP" ? (
+                  <Col
+                    sm={12}
+                    md={12}
+                    lg={12}
+                    xl={12}
+                    className={styles.text_center}
+                  >
+                    <Row>
+                      <Col>
+                        <div className="pt-5 pb-3">
+                          <h3>Return Trip Information</h3>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col xs={12} sm={6}>
+                        <div>
+                          <div className={styles.inputBox}>
+                            <h6 className="mt-3">Return Pickup Date</h6>
+                            <input
+                              onChange={(e) => setDate(e.target.value)}
+                              type="date"
+                              name="date"
+                            />
+                          </div>
+                        </div>
+                      </Col>
+                      <Col xs={12} sm={6}>
+                        <div className={styles.inputBox}>
+                          <h6 className="mt-3">Return Pickup Time</h6>
+
+                          <input
+                            onChange={(e) => setTime(e.target.value)}
+                            type="time"
+                            name="time"
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                  </Col>
+                ) : null}
+              </Row>
+            </Col>
+          </Row>
+        )}
+        <div className={` ${styles.buttonsContainer} mb-5`}>
+          <button onClick={(e) => setStepper(stepper - 1)}>Previous</button>
+          <button onClick={(e) => handleNext()}>Next</button>
+        </div>
       </div>
     </div>
   );
