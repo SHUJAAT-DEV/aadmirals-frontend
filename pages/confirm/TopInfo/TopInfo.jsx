@@ -23,22 +23,25 @@ function TopInfo({ quotes }) {
     <Container fluid
       className={styles.data}
       style={{
+        backgroundColor: "transparent", 
+        color : "black"
       }}
-    >
+    > 
       <div style={{
         alignContent: "center"
       }}>
         {quotes ? (
-          <h6
+          <div
             style={{
               textAlign: "center"
-            }}
+                        }}
           >
             <span
               style={{
                 padding: "5px 5px",
                 borderRadius: "10px",
-                border: "1px solid"
+              fontSize: "14px !important",
+              border: "1px solid",
               }}
             >
               {quotes.otherDetails.from}
@@ -49,7 +52,8 @@ function TopInfo({ quotes }) {
                 padding: "5px 5px",
                 borderRadius: "10px",
                 border: "1px solid",
-                marginRight: "4px"
+              fontSize: "14px !important",
+              marginRight: "4px"
               }}
             >
               {quotes.otherDetails.to}{" "}
@@ -58,7 +62,8 @@ function TopInfo({ quotes }) {
               style={{
                 padding: "5px 5px",
                 borderRadius: "10px",
-                border: "1px solid"
+              fontSize: "14px !important",
+              border: "1px solid"
               }}
             >
               {`Duration: ${quotes.otherDetails.duration
@@ -67,14 +72,13 @@ function TopInfo({ quotes }) {
                 } – Distance: ${quotes.otherDetails.distance ? quotes.otherDetails.distance : "N/A"
                 }`}
             </span>
-      
             {" "}
             <span
               style={{
                 padding: "5px 5px",
                 borderRadius: "10px",
-                border: "1px solid",
-                
+              fontSize: "14px !important",
+              border: "1px solid",
               }}>
               {quotes.otherDetails.date}
             </span>
@@ -83,11 +87,12 @@ function TopInfo({ quotes }) {
               style={{
                 padding: "5px 5px",
                 borderRadius: "10px",
-                border: "1px solid"
+              fontSize: "14px !important",
+              border: "1px solid"
               }}>
               {quotes.otherDetails.time}
             </span>
-          </h6>
+          </div>
         ) : (
           "Loading"
         )}
