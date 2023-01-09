@@ -367,13 +367,14 @@ margin-top: 0.5rem;
   border: 1px;
   border-radius: 10px;
 } 
-// .fields_reDesign:focus{
-//   border-color: red;
+.svgReplace{
+  font-size: 25px;
+    font-weight: bolder;
+    position: relative;
+    top: 4px;
+    color: #000000;
+}
 
-// }
-// .form-group input: focus{
-
-// }
 .formText_reDesign{
   margin-top: 3px;
   color: #707070 !important;

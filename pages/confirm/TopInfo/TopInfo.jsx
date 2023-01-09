@@ -23,10 +23,10 @@ function TopInfo({ quotes }) {
     <Container fluid
       className={styles.data}
       style={{
-        backgroundColor: "transparent", 
-        color : "black"
+        backgroundColor: "transparent",
+        color: "black"
       }}
-    > 
+    >
       <div style={{
         alignContent: "center"
       }}>
@@ -34,17 +34,24 @@ function TopInfo({ quotes }) {
           <div
             style={{
               textAlign: "center"
-                        }}
+            }}
           >
             <span
               style={{
                 padding: "5px 5px",
                 borderRadius: "10px",
-              fontSize: "14px !important",
-              border: "1px solid",
+                fontSize: "14px !important",
+                border: "1px solid",
+                fontFamily: "AvenirNext, Helvetica, Arial, Open Sans, sans-seri"
               }}
             >
               {quotes.otherDetails.from}
+            </span>
+            {" "}
+            <span
+              className={styles.svgReplace}
+            >
+              &gt;&gt;
             </span>
             {" "}
             <span
@@ -52,18 +59,27 @@ function TopInfo({ quotes }) {
                 padding: "5px 5px",
                 borderRadius: "10px",
                 border: "1px solid",
-              fontSize: "14px !important",
-              marginRight: "4px"
+                fontSize: "14px !important",
+                marginRight: "4px",
+                fontFamily: "AvenirNext, Helvetica, Arial, Open Sans, sans-seri"
               }}
             >
               {quotes.otherDetails.to}{" "}
+            
             </span>
+            <span
+                className={styles.svgReplace}
+              >
+                &gt;&gt;
+              </span>
+              {" "}
             <span
               style={{
                 padding: "5px 5px",
                 borderRadius: "10px",
-              fontSize: "14px !important",
-              border: "1px solid"
+                fontSize: "14px !important",
+                border: "1px solid",
+                fontFamily: "AvenirNext, Helvetica, Arial, Open Sans, sans-seri"
               }}
             >
               {`Duration: ${quotes.otherDetails.duration
@@ -74,21 +90,35 @@ function TopInfo({ quotes }) {
             </span>
             {" "}
             <span
-              style={{
-                padding: "5px 5px",
-                borderRadius: "10px",
-              fontSize: "14px !important",
-              border: "1px solid",
-              }}>
-              {quotes.otherDetails.date}
+              className={styles.svgReplace}
+            >
+              &gt;&gt;
             </span>
             {" "}
             <span
               style={{
                 padding: "5px 5px",
                 borderRadius: "10px",
-              fontSize: "14px !important",
-              border: "1px solid"
+                fontSize: "14px !important",
+                border: "1px solid",
+                fontFamily: "AvenirNext, Helvetica, Arial, Open Sans, sans-seri"
+              }}>
+              {quotes.otherDetails.date}
+            </span>
+            {" "}
+            <span
+              className={styles.svgReplace}
+            >
+              &gt;&gt;
+            </span>
+            {" "}
+            <span
+              style={{
+                padding: "5px 5px",
+                borderRadius: "10px",
+                fontFamily: "AvenirNext, Helvetica, Arial, Open Sans, sans-seri",
+                fontSize: "14px !important",
+                border: "1px solid"
               }}>
               {quotes.otherDetails.time}
             </span>
