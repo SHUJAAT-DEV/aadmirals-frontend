@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import {Container, Row, Col} from "reactstrap";
+import React, { useState, useEffect } from "react";
+import { Container, Row, Col } from "reactstrap";
 import styles from "./HoustonHobbyAirport.module.scss";
 import Header from "../Header/Header";
 import Fleet from "../fleet/fleet";
@@ -13,10 +13,10 @@ import PopularLocations from "../Popular Locations/PopularLocations";
 import HomeForm from "../Home Form/HomeForm";
 
 import Testinmonial from "../Testimonial/Testimonial";
-import {Alert} from "reactstrap";
+import { Alert } from "reactstrap";
 import Loader from "../Loader/Loader";
-import {useDispatch, useSelector} from "react-redux";
-import {getHobbyAirportPage} from "../../redux/Services/Houston_Airport/Hobby_airport/action";
+import { useDispatch, useSelector } from "react-redux";
+import { getHobbyAirportPage } from "../../redux/Services/Houston_Airport/Hobby_airport/action";
 import Image from "next/image";
 
 function HoustonHobbyAirport(props) {
@@ -34,7 +34,7 @@ function HoustonHobbyAirport(props) {
     dispatch(getHobbyAirportPage());
   }, []);
   const cms = props.data1;
-  const {hobby_airport_page} = cms;
+  const { hobby_airport_page } = cms;
 
   const data = hobby_airport_page && hobby_airport_page.hobbyAirport[0];
   const faqs = hobby_airport_page && hobby_airport_page.faqs;
@@ -46,7 +46,7 @@ function HoustonHobbyAirport(props) {
         <Loader />
       ) : (
         <>
-          <div style={{overflow: "hidden"}}>
+          <div style={{ overflow: "hidden" }}>
             <SideNav />
             <Floatingbutton />
             <Header />
@@ -63,7 +63,7 @@ function HoustonHobbyAirport(props) {
                 Form={HomeForm}
               />
             </div>
-            <Container fluid style={{padding: "100px 0"}}>
+            <Container fluid style={{ padding: "100px 0" }}>
               <Container>
                 <Row>
                   <Col xl={6} md={6} xs={12} className={styles.discription}>
@@ -96,7 +96,6 @@ function HoustonHobbyAirport(props) {
                         width={100}
                         height={70}
                         objectFit="fill"
-                        priority
                         quality={100}
                       />
                       <h3>
@@ -148,17 +147,18 @@ function HoustonHobbyAirport(props) {
                   </Row>
                 </div>
               </Container>
-              <Row>
-                <Col xs={12} xl={12} md={12}>
-                  <Image
-                    priority={true}
-                    width="1000"
-                    height="500"
-                    src={data.bannerImage}
-                    alt="Car Service from Hobby Airport"
-                    quality={100}
-                    layout="responsive"
-                  />
+              <Row className={styles.imageBannerContainer}>
+                <Col xs={12} xl={12} md={12} lg={12} className="imageBannerDiv">
+                    <Image
+                      priority={true}
+                      width="1000"
+                      height="500"
+                      src={data.bannerImage}
+                      alt="Car Service from Hobby Airport"
+                      quality={100}
+                      layout="responsive"
+                      className={styles.bannerImageAdjust}
+                    />
                 </Col>
               </Row>
               <Row>
@@ -168,13 +168,14 @@ function HoustonHobbyAirport(props) {
                     xl={10}
                     md={10}
                     sm={10}
-                    style={{paddingTop: "50px", textAlign: "justify"}}>
+                    style={{ paddingTop: "50px" }}
+                  >
                     <h6
                       style={{
                         fontSize: "17px",
                         fontFamily: "ProximaNovaLight",
                         color: "#727070",
-                        textAlign: "justify",
+                        textAlign: "left",
                       }}
                       className={styles.HoustinHobby}>
                       {data.bannerImageText} <br /> <br />
@@ -201,7 +202,6 @@ function HoustonHobbyAirport(props) {
                 </center>
               </Row>
             </Container>
-
             <HowitWorksHoustonHobbyAirport
               payment={data.payment}
               booking={data.booking}

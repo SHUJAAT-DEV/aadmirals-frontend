@@ -8,9 +8,7 @@ const ImageSection = ({ crew }) => {
       <Container>
           <div className={styles.main}> 
           <center>
-            
           <p className={styles.heading}>Meet the Crew</p>
-          
           </center>
         <Row>
 

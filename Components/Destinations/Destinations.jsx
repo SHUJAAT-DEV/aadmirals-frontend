@@ -38,13 +38,14 @@ const Destinations = () => {
           <DestinationsCards heading="George Bush Airport " subHeading="The Galleria" approx="Approx. 28 miles" />
         </Col>
       </Row>
+      
       <div className={styles.someInfo}> 
         Other Airport Transfer Options?{" "}
         <Link href="/airport-transportation/hobby-airport"> 
           <a> <span> 
             William P. Hobby Airport Transfer - Houston Airport Transfer 
           </span></a> 
-        </Link> 
+        </Link> j
       </div> 
     </div> 
   ); 
