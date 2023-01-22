@@ -32,7 +32,15 @@ const Hero = ({Text, Form, MotoHidden, img, Title}) => {
             </p>
           </div>
           <h1 className={styles.home_h1}>{Title}</h1>
-          {MotoHidden ? null : <p className={styles.moto}>{Text}</p>}
+          {MotoHidden ? null : (
+            <p className={styles.moto}>
+              <div
+                className="mt-3"
+                dangerouslySetInnerHTML={{
+                  __html: Text.replace(/<img .*?>/g, ""),
+                }}></div>
+            </p>
+          )}
         </div>
         <Form />
       </Container>

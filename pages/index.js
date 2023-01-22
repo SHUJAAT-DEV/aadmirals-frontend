@@ -145,9 +145,10 @@ const Home = (props) => {
             ) : null}
             {success && succ()}
             <div className={`${styles.mainContainer}`} fluid id="#bookingForm">
+
               <Hero
                 Text={cms.home_page.home[0].heroText}
-                Title={'Houston Limo Service & Airport Transportation | Book Now'}
+                Title={cms.home_page.home[0]?.heroTitle ? cms.home_page.home[0]?.heroTitle : 'Houston Limo Service & Airport Transportation | Book Now'}
                 img={cms.home_page.home[0].heroImage}
                 Form={HomeForm}
               />
@@ -231,15 +232,15 @@ const Home = (props) => {
                       breakPoints={breakPoints}
                       enableAutoPlay={true}
                     > */}
-                    <div className={styles.partnarLogo} style={{display:'flex',justifyContent:'space-evenly',width:'100%'}} >
+                    <div className={styles.partnarLogo} style={{ display: 'flex', justifyContent: 'space-evenly', width: '100%' }} >
                       {
                         cms?.home_page?.partner && cms?.home_page?.partner?.map(partner => (
                           <>
                             <a href={`${partner?.url}`} target="_blank" rel="noreferrer">
-                              <div style={{marginBottom:30}}>
+                              <div style={{ marginBottom: 30 }}>
                                 <Image priority={true} src={partner.image} className={styles.logo_container} alt={partner.name} width={100} height={100} objectFit="contain" />
                                 {/* <img src={image} className={styles.logo} alt="..1partnerimg" /> */}
-                                <h2 style={{fontSize:'1.5em'}}>{partner.name}</h2>
+                                <h2 style={{ fontSize: '1.5em' }}>{partner.name}</h2>
                               </div>
                             </a >
                           </>
