@@ -3,6 +3,7 @@
     width: 300vw;
     margin-top: 4px;
   }
+
   .discription {
     max-width: 100%;
   }
@@ -14,15 +15,25 @@
 .imageBannerContainer{
   overflow: hidden;
     position: relative;
-    height: 273px;
+    height: 359px;
 }
 .bannerImageAdjust{
   position: absolute;
-  top: -340px;
+  // top: -340px;
+  top: "";
+  margin-top: 50px !important;
+
   min-height: 164%;
 }
 .imageBannerDiv{
   padding-top: 0px;
+}
+.features{
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 @media only screen and (min-width: 768px) {
   // FOR DESKTOP AND TABLET

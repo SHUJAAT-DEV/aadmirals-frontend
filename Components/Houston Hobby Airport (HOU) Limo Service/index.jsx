@@ -86,7 +86,11 @@ function HoustonHobbyAirport(props) {
                     />
                   </Col>
                 </Row>
-                <div className={styles.travel}>
+                <div className={styles.travel} style={{
+                position: 'relative',
+                top: '-6vw',
+                marginBottom: '-90px'
+                }}>
                   <Row className={styles.logoContainer}>
                     <Col xs={12} xl={12} md={12} className={styles.heading1}>
                       <Image
@@ -141,6 +145,10 @@ function HoustonHobbyAirport(props) {
                         objectFit="contain"
                         height={30}
                         quality={100}
+                        style={{
+                          position: "absolute !important  ", 
+                          bottom: "519px !important"
+                        }}
                       />
                       <h6>All Inclusive Pricing</h6>
                     </Col>
@@ -150,6 +158,10 @@ function HoustonHobbyAirport(props) {
               <Row className={styles.imageBannerContainer}>
                 <Col xs={12} xl={12} md={12} lg={12} className="imageBannerDiv">
                     <Image
+                    style={{
+                      position: "absolute", 
+                      top: "-350px" 
+                    }}
                       priority={true}
                       width="1000"
                       height="500"
