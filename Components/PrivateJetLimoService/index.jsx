@@ -67,46 +67,47 @@ function PrivateJetLimoService(props) {
               Form={HomeForm}
             />
           </div>
-          <Container fluid style={{ padding: "100px 0" }}>
+          <Container fluid >
             <Container>
               <center>
+                <Row className={styles.logoContainer}>
+                  <Col xs={12} xl={12} md={12} className={styles.heading1}>
+                    <h3>
+                      AAdmirals Travel & Transportation Houston Limo Service
+                    </h3>
+                    <h6>
+                      A Professional Limo & Airport Transfer Serve you in Harmony
+                    </h6>
+                  </Col>
+                </Row>
                 <Row>
                   <Col className={styles.discription}>
                     <h1>Regional Aviation Airport Transfer</h1>
-                    <h6>{data.regionalAviationAirportTransfer}</h6>
-                     <Image priority={true}
+                  </Col>
+                </Row>
+
+                <Row style={{ marginTop: "30px", marginBottom: "25px" }}>
+                  <Col xl={6} xs={12}>
+                    <Image
                       width="100"
                       src={data.regionalAviationAirportTransferImage}
                       alt="Regional Aviation Airport Transfer"
                       height={50}
                       layout='responsive'
-                      
                       quality={100}
                     />
                   </Col>
+                  <Col xl={6} md={6} xs={12} className={styles.discription}
+                    style={{
+                      textAlign: "left"
+                    }}
+                  >
+                    <h6>{data.regionalAviationAirportTransfer}</h6>
+                  </Col>
+
                 </Row>
+
               </center>
-              <Row className={styles.logoContainer}>
-                <Col xs={12} xl={12} md={12} className={styles.heading1}>
-                 <Image priority={true}
-                      width="100"
-                      src="/Assets/Group 943.png"
-                      alt="Regional Aviation Airport Transfer"
-                      height={50}
-                   
-                      
-                      objectFit="contain"
-                      quality={100}
-                    />
-                  
-                  <h3>
-                    AAdmirals Travel & Transportation Houston Limo Service
-                  </h3>
-                  <h6>
-                    A Professional Limo & Airport Transfer Serve you in Harmony
-                  </h6>
-                </Col>
-              </Row>
               <Row className={styles.featuresContainer}>
                 <Col xs={12} xl={4} md={12} className={styles.features}>
                   <h6>24 Hours Service</h6>
@@ -118,26 +119,12 @@ function PrivateJetLimoService(props) {
                   <h6>Airport Transfers</h6>
                 </Col>
               </Row>
-              <Row>
-                <Col xs={12} xl={12} md={12}>
-                   <Image priority={true}
-                      width="100"
-                      src={data.bannerImage}
-                      alt="Regional Aviation Airport Transfer"
-                      height={30}
-                      layout='responsive'
-                      
-                      quality={100}
-                    />
-        
-                </Col>
-              </Row>
-              <Row>
-                <Col
-                  xs={12}
-                  xl={12}
-                  md={12}
-                  style={{ paddingTop: "50px", textAlign: "center" }}
+
+              <Row style={{ marginTop: "30px", marginBottom: "25px" }}>
+                <Col xl={6} md={6} xs={12} className={styles.discription}
+                  style={{
+                    textAlign: "left"
+                  }}
                 >
                   <h6
                     style={{
@@ -148,6 +135,26 @@ function PrivateJetLimoService(props) {
                   >
                     {data.bannerText}
                   </h6>
+                </Col>
+                <Col xl={6} xs={12}>
+                  <Image
+                    width="100"
+                    src={data.bannerImage}
+                    alt="Regional Aviation Airport Transfer"
+                    height={50}
+                    layout='responsive'
+                    quality={100}
+                  />
+                </Col>
+              </Row>
+
+              <Row>
+                <Col
+                  xs={12}
+                  xl={12}
+                  md={12}
+                  style={{ paddingTop: "50px", textAlign: "center" }}
+                >
                   <h4
                     style={{
                       fontSize: "28px",
@@ -184,6 +191,7 @@ function PrivateJetLimoService(props) {
                   </h6>
                 </Col>
               </Row>
+
             </Container>
           </Container>
           <Fleet fleet={fleet} />
@@ -241,18 +249,18 @@ function PrivateJetLimoService(props) {
                 <Col xl={12} md={12} xs={12} className={styles.discription2}>
                   <center>
                     <h4>AAdmirals for Private Aviation Houston Limo Service</h4>
-                    
-                     <Image priority={true}
+
+                    <Image priority={true}
                       width="100"
                       src={data.aadmiralsPrivateImage}
                       alt="AAdmirals for Private Aviation Houston Limo Service"
                       height={50}
-                   layout='responsive'
-                      
+                      layout='responsive'
+
                       objectFit="contain"
                       quality={100}
                     />
-                    
+
                   </center>
                   <h6>{data.aadmiralsPrivateImageText}</h6>
                 </Col>

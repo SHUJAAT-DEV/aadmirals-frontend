@@ -11,7 +11,6 @@ import Hero from "../hero/hero";
 import SideNav from "../Header/SideNav/SideNav";
 import PopularLocations from "../Popular Locations/PopularLocations";
 import HomeForm from "../Home Form/HomeForm";
-
 import Testinmonial from "../Testimonial/Testimonial";
 import { Alert } from "reactstrap";
 import Loader from "../Loader/Loader";
@@ -63,8 +62,19 @@ function HoustonHobbyAirport(props) {
                 Form={HomeForm}
               />
             </div>
-            <Container fluid style={{ padding: "100px 0" }}>
+            <Container fluid >
               <Container>
+                <Row className={styles.logoContainer}>
+                  <Col xs={12} xl={12} md={12} className={styles.heading1}>
+                    <h3>
+                      AAdmirals Travel & Transportation Houston Limo Service
+                    </h3>
+                    <h6>
+                      A Professional Limo & Airport Transfer Serve you in
+                      Harmony
+                    </h6>
+                  </Col>
+                </Row>
                 <Row>
                   <Col xl={6} md={6} xs={12} className={styles.discription}>
                     <h6>TRANSPORT SERVICE</h6>
@@ -73,7 +83,7 @@ function HoustonHobbyAirport(props) {
                     <h6>{data.limousineServicesInTheHobbyAirportArea}</h6>
                   </Col>
 
-                  <Col xl={6} xs={12} className={styles.imageContainer}>
+                  <Col xl={6} xs={12}>
                     <Image
                       priority={true}
                       src={data.transportServiceImage}
@@ -83,34 +93,11 @@ function HoustonHobbyAirport(props) {
                       height={500}
                       quality={100}
                       objectFit="cover"
+                      className={styles.images}
                     />
                   </Col>
                 </Row>
-                <div className={styles.travel} style={{
-                position: 'relative',
-                top: '-6vw',
-                marginBottom: '-90px'
-                }}>
-                  <Row className={styles.logoContainer}>
-                    <Col xs={12} xl={12} md={12} className={styles.heading1}>
-                      <Image
-                        priority={true}
-                        src="/Assets/Group 943.png"
-                        alt="AAdmirals Travel & Transportation"
-                        width={100}
-                        height={70}
-                        objectFit="fill"
-                        quality={100}
-                      />
-                      <h3>
-                        AAdmirals Travel & Transportation Houston Limo Service
-                      </h3>
-                      <h6>
-                        A Professional Limo & Airport Transfer Serve you in
-                        Harmony
-                      </h6>
-                    </Col>
-                  </Row>
+                <div className={styles.travel}>
                   <Row className={styles.featuresContainer}>
                     <Col xs={12} xl={4} md={12} className={styles.features}>
                       <Image
@@ -120,7 +107,8 @@ function HoustonHobbyAirport(props) {
                         objectFit="contain"
                         width={30}
                         height={30}
-                        quality={100}
+                      className={styles.images}
+                      quality={100}
                       />
                       <h6>24 Hours Service</h6>
                     </Col>
@@ -132,7 +120,8 @@ function HoustonHobbyAirport(props) {
                         alt="..1clock"
                         objectFit="contain"
                         height={30}
-                        quality={100}
+                      className={styles.images}
+                      quality={100}
                       />
                       <h6>Car Services</h6>
                     </Col>
@@ -144,45 +133,33 @@ function HoustonHobbyAirport(props) {
                         alt="..2clock"
                         objectFit="contain"
                         height={30}
-                        quality={100}
+                      className={styles.images}
+                      quality={100}
                         style={{
-                          position: "absolute !important  ", 
+                          position: "absolute !important  ",
                           bottom: "519px !important"
                         }}
                       />
                       <h6>All Inclusive Pricing</h6>
                     </Col>
                   </Row>
-                </div>
-              </Container>
-              <Row className={styles.imageBannerContainer}>
-                <Col xs={12} xl={12} md={12} lg={12} className="imageBannerDiv">
-                    <Image
-                    style={{
-                      position: "absolute", 
-                      top: "-350px" 
-                    }}
-                      priority={true}
-                      width="1000"
-                      height="500"
-                      src={data.bannerImage}
-                      alt="Car Service from Hobby Airport"
-                      quality={100}
-                      layout="responsive"
-                      className={styles.bannerImageAdjust}
-                    />
-                </Col>
-              </Row>
-              <Row>
-                <center>
-                  <Col
-                    xs={11}
-                    xl={10}
-                    md={10}
-                    sm={10}
-                    style={{ paddingTop: "50px" }}
-                  >
-                    <h6
+
+                  <Row style={{marginTop: "30px", marginBottom: "25px"}}>
+                  <Col xl={6} xs={12}>
+                      <Image
+                        priority={true}
+                        src={data.bannerImage}
+                        alt="Car Service from Hobby Airport"
+                        layout="responsive"
+                        width={500}
+                        height={500}
+                        quality={100}
+                      className={styles.images}
+                      objectFit="cover"
+                      />
+                    </Col>
+                    <Col xl={6} md={6} xs={12} className={styles.discription}>
+                      <h6
                       style={{
                         fontSize: "17px",
                         fontFamily: "ProximaNovaLight",
@@ -210,9 +187,13 @@ function HoustonHobbyAirport(props) {
                       </span>
                       or Book Online to reserve your car service today!
                     </h6>
-                  </Col>
-                </center>
-              </Row>
+                    </Col>
+                 
+                  </Row>
+
+                </div>
+              </Container>
+
             </Container>
             <HowitWorksHoustonHobbyAirport
               payment={data.payment}

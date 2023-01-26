@@ -1,32 +1,33 @@
 @media only screen and (max-width: 1200px) {
-  .imageContainer {
-    width: 300vw;
-    margin-top: 4px;
-  }
-
   .discription {
     max-width: 100%;
   }
   .travel {
-    margin-top: -50vh;
+    margin-top: -320px;
     margin-bottom: 4vh;
+  }
+  .heading1{
+    height: "";
   }
 }
 .imageBannerContainer{
   overflow: hidden;
     position: relative;
-    height: 359px;
+    top: -70px;
+    height: 330px;
+}
+.images{
+  border-radius: 5px;
+}
+.heading1{
+  margin-top: -3vw;
+  padding-bottom: 17px;
 }
 .bannerImageAdjust{
-  position: absolute;
-  // top: -340px;
-  top: "";
-  margin-top: 50px !important;
+  margin-top: 102px !important;
+  min-height: 100%;
+  min-height: 100%;
 
-  min-height: 164%;
-}
-.imageBannerDiv{
-  padding-top: 0px;
 }
 .features{
   display: -webkit-box;
@@ -66,9 +67,7 @@
     right: 4%;
     z-index: 1000;
   }
-  .logoContainer{
-    padding-top: 140px !important;
-  }
+
   .floatingButton {
     // display: inline-block;
     transition: 0.2s ease-in-out;
@@ -233,7 +232,7 @@
     width: 100%;
   }
   .travel {
-    margin-top: -35vh;
+    margin-top: -194px;
   }
   .mainContainer::after {
     content: "";
@@ -415,6 +414,6 @@
 }
 @media only screen and (max-width: 478px) {
   .travel {
-    margin-top: -28vh;
+    margin-top: -180px;
   }
 }
