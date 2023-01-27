@@ -19,7 +19,7 @@ import Image from "next/image";
 
 function GeorgeBushAirport(props) {
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(getGeorgeBushPage());
   }, []);
@@ -178,15 +178,27 @@ function GeorgeBushAirport(props) {
                       area , call for houston Airport car service
                     </h6>
                   </Col>
-                  <Col xs={12} xl={6} md={12} style={{ paddingTop: "50px" }}>
-                    <Image
+                  <Col xs={12} xl={6} md={12} 
+                  style={{ paddingTop: "50px", marginTop: "40px" }}
+                  >
+                    {/* <Image
                       priority={true}
                       alt="Shuttle from IAH Airport"
                       src={data.IahairportImage}
-                      width={100}
-                      height={40}
+                      width={200}
+                      height={80}
                       layout="responsive"
                       quality={100}
+                      className={styles.images}
+                    /> */}
+                    <Image
+                      priority={true}
+                      src={data.IahairportImage}
+                      alt="George Bush Limo Service"
+                      width={980}
+                      height={490}
+                      quality={100}
+                      objectFit="cover"
                       className={styles.images}
                     />
                   </Col>

@@ -95,6 +95,7 @@ function PrivateJetLimoService(props) {
                       height={50}
                       layout='responsive'
                       quality={100}
+                      style={{borderRadius: "5px"}}
                     />
                   </Col>
                   <Col xl={6} md={6} xs={12} className={styles.discription}
@@ -104,10 +105,9 @@ function PrivateJetLimoService(props) {
                   >
                     <h6>{data.regionalAviationAirportTransfer}</h6>
                   </Col>
-
                 </Row>
-
               </center>
+
               <Row className={styles.featuresContainer}>
                 <Col xs={12} xl={4} md={12} className={styles.features}>
                   <h6>24 Hours Service</h6>
@@ -144,6 +144,7 @@ function PrivateJetLimoService(props) {
                     height={50}
                     layout='responsive'
                     quality={100}
+                    style={{borderRadius: "5px"}}
                   />
                 </Col>
               </Row>
@@ -245,27 +246,38 @@ function PrivateJetLimoService(props) {
               </Row>
             </Container>
             <Container>
+
               <Row style={{ paddingTop: "100px" }}>
                 <Col xl={12} md={12} xs={12} className={styles.discription2}>
                   <center>
                     <h4>AAdmirals for Private Aviation Houston Limo Service</h4>
-
-                    <Image priority={true}
-                      width="100"
-                      src={data.aadmiralsPrivateImage}
-                      alt="AAdmirals for Private Aviation Houston Limo Service"
-                      height={50}
-                      layout='responsive'
-
-                      objectFit="contain"
-                      quality={100}
-                    />
-
                   </center>
+                </Col>
+              </Row>
+
+              <Row style={{ marginTop: "30px", marginBottom: "25px" }}>
+                <Col xl={6} xs={12}>
+                  <Image
+                    width="100"
+                    src={data.aadmiralsPrivateImage}
+                    alt="AAdmirals for Private Aviation Houston Limo Service"
+                    height={50}
+                    layout='responsive'
+                      style={{borderRadius: "5px"}}
+                      quality={100}
+                  />
+                </Col>
+                <Col xl={6} md={6} xs={12} className={styles.discription}
+                  style={{
+                    textAlign: "left"
+                  }}
+                >
                   <h6>{data.aadmiralsPrivateImageText}</h6>
                 </Col>
               </Row>
+
             </Container>
+
             <Row className={styles.container1}>
               <Col xs={12} md={12} xl={12} className={styles.contact}>
                 <h6>

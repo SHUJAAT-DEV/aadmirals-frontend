@@ -83,7 +83,9 @@ function HoustonHobbyAirport(props) {
                     <h6>{data.limousineServicesInTheHobbyAirportArea}</h6>
                   </Col>
 
-                  <Col xl={6} xs={12}>
+                  <Col xl={6} xs={12} style={{
+                    marginTop: "94px"
+                  }}>
                     <Image
                       priority={true}
                       src={data.transportServiceImage}
@@ -107,8 +109,8 @@ function HoustonHobbyAirport(props) {
                         objectFit="contain"
                         width={30}
                         height={30}
-                      className={styles.images}
-                      quality={100}
+                        className={styles.images}
+                        quality={100}
                       />
                       <h6>24 Hours Service</h6>
                     </Col>
@@ -120,8 +122,8 @@ function HoustonHobbyAirport(props) {
                         alt="..1clock"
                         objectFit="contain"
                         height={30}
-                      className={styles.images}
-                      quality={100}
+                        className={styles.images}
+                        quality={100}
                       />
                       <h6>Car Services</h6>
                     </Col>
@@ -133,10 +135,11 @@ function HoustonHobbyAirport(props) {
                         alt="..2clock"
                         objectFit="contain"
                         height={30}
-                      className={styles.images}
-                      quality={100}
+                        className={styles.images}
+                        quality={100}
                         style={{
                           position: "absolute !important  ",
+                          top: "8px",
                           bottom: "519px !important"
                         }}
                       />
@@ -144,51 +147,53 @@ function HoustonHobbyAirport(props) {
                     </Col>
                   </Row>
 
-                  <Row style={{marginTop: "30px", marginBottom: "25px"}}>
-                  <Col xl={6} xs={12}>
+                  <Row style={{ marginTop: "30px", marginBottom: "25px" }}>
+                    <Col xl={6} xs={12} style={{
+                      marginTop: "-1px"
+                    }}>
                       <Image
                         priority={true}
                         src={data.bannerImage}
                         alt="Car Service from Hobby Airport"
                         layout="responsive"
-                        width={500}
-                        height={500}
+                        width={800}
+                        height={550}
                         quality={100}
-                      className={styles.images}
-                      objectFit="cover"
+                        className={styles.images}
+                        objectFit="cover"
                       />
                     </Col>
                     <Col xl={6} md={6} xs={12} className={styles.discription}>
                       <h6
-                      style={{
-                        fontSize: "17px",
-                        fontFamily: "ProximaNovaLight",
-                        color: "#727070",
-                        textAlign: "left",
-                      }}
-                      className={styles.HoustinHobby}>
-                      {data.bannerImageText} <br /> <br />
-                    </h6>
-                    <h6
-                      style={{
-                        fontSize: "17px",
-                        fontFamily: "ProximaNovaLight",
-                        color: "#727070",
-                        textAlign: "justify",
-                      }}>
-                      Call AADMIRLAS at{" "}
-                      <span
                         style={{
-                          fontFamily: "ProximaNovaBold",
-                          color: "#1E1E1E",
+                          fontSize: "17px",
+                          fontFamily: "ProximaNovaLight",
+                          color: "#727070",
+                          textAlign: "left",
+                        }}
+                        className={styles.HoustinHobby}>
+                        {data.bannerImageText} <br /> <br />
+                      </h6>
+                      <h6
+                        style={{
+                          fontSize: "17px",
+                          fontFamily: "ProximaNovaLight",
+                          color: "#727070",
+                          textAlign: "justify",
                         }}>
-                        {" "}
-                        +1 346-857-4294 / 800-994-5078{" "}
-                      </span>
-                      or Book Online to reserve your car service today!
-                    </h6>
+                        Call AADMIRLAS at{" "}
+                        <span
+                          style={{
+                            fontFamily: "ProximaNovaBold",
+                            color: "#1E1E1E",
+                          }}>
+                          {" "}
+                          +1 346-857-4294 / 800-994-5078{" "}
+                        </span>
+                        or Book Online to reserve your car service today!
+                      </h6>
                     </Col>
-                 
+
                   </Row>
 
                 </div>
