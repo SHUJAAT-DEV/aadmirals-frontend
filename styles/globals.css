@@ -288,14 +288,6 @@ span.displayed-text .read-more-button {
   font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
 }
 
-.display-text-group:hover span {
-  color: black;
-}
-
-.display-text-group {
-  color: black;
-}
-
 .custom_main_images {
   width: 100%;
 }
@@ -379,7 +371,6 @@ span.displayed-text .read-more-button {
 
 .custom_contactus .card {
   background: transparent;
-  border: 0px !important;
 }
 
 .custom_contactus label {

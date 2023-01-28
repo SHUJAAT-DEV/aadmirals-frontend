@@ -13,25 +13,19 @@ import Link from 'next/link'
 import { Container, Row, Col } from "reactstrap";
 import { Card, Button } from "reactstrap";
 import Carousel from "react-elastic-carousel";
-import { getHomePage } from "../redux/CMS/action";
-import "./../Components/Ourpartners/PartnerCards/Partnercard.module.scss";
-
 const styles = dynamic(() => import('./home.module.scss'))
+import { getHomePage } from "../redux/CMS/action";
 const TestimonialCards = dynamic(() => import('../Components/Testimonial/Testimonial Cards/TestimonialCards'))
+
 const SideNav = dynamic(() => import('../Components/Header/SideNav/SideNav'))
 const Hero = dynamic(() => import('../Components/hero/HomeHero'))
 const Floatingbutton = dynamic(() => import('../Components/floaingbutton/floatingbutton'))
 const Cities = dynamic(() => import('../Components/Cities/Cities'))
+
 const Header = dynamic(() => import('../Components/Header/Header'))
 const LimousineService = dynamic(() => import('../Components/Limousine Service/LimousineService'))
 const HomeForm = dynamic(() => import('../Components/Home Form/HomeForm'))
 const OurServices = dynamic(() => import('../Components/Our Services/OurServices'))
-
-import { ErrorMessage } from "@hookform/error-message";
-import { useForm, Controller } from "react-hook-form";
-import { joiResolver } from "@hookform/resolvers/joi";
-import Joi from "joi";
-
 import { getContactPage } from "../redux/Contact_us/action";
 import { getContactDetailsPage } from "../redux/Contact_details/action";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -45,32 +39,13 @@ import SwiperCore, {
   Pagination, Autoplay
 } from 'swiper';
 import { Helmet } from "react-helmet";
+
 // install Swiper modules
 SwiperCore.use([Pagination, Autoplay]);
-
-const schema = Joi.object({
-  email: Joi.string().email({
-    minDomainSegments: 2,
-    tlds: { allow: ["com", "net"] },
-  }),
-  phoneNumber: Joi.number().required(),
-  message: Joi.string().required(),
-});
 
 const Home = (props) => {
   const router = useRouter()
   const alert = useAlert();
-
-  const { handleSubmit, control } = useForm({
-    mode: "onSubmit",
-    defaultValues: {
-      email: "",
-      phoneNumber: "",
-      message: "",
-    },
-    resolver: joiResolver(schema),
-  });
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getHomePage());
@@ -105,9 +80,17 @@ const Home = (props) => {
 
   const det = contact_details_page && contact_details_page.contactDetails[0];
 
-  const onSubmit = (event) => {
-    const { email, phoneNumber, message } = event;
-    dispatch(getContactPage(email, phoneNumber, message));
+  const submitHandler = (e) => {
+    e.preventDefault();
+    setreqFields(false)
+
+    if (!email || !phoneNumber || !message) {
+      setreqFields(true)
+
+    } else {
+      dispatch(getContactPage(email, phoneNumber, message));
+
+    }
   };
 
   useEffect(() => {
@@ -145,10 +128,9 @@ const Home = (props) => {
             ) : null}
             {success && succ()}
             <div className={`${styles.mainContainer}`} fluid id="#bookingForm">
-
               <Hero
                 Text={cms.home_page.home[0].heroText}
-                Title={cms.home_page.home[0]?.heroTitle ? cms.home_page.home[0]?.heroTitle : 'Houston Limo Service & Airport Transportation | Book Now'}
+                Title={'Houston Limo Service & Airport Transportation | Book Now'}
                 img={cms.home_page.home[0].heroImage}
                 Form={HomeForm}
               />
@@ -165,14 +147,13 @@ const Home = (props) => {
                   <Col xs={12} md={12} xl={12}>
                     <h2 style={{ paddingTop: '60px' }}>WHAT OUR CUSTOMERS ARE SAYING</h2>
                   </Col>
-                  <Swiper slidesPerView={1} spaceBetween={30}
-                    autoplay={{
-                      "delay": 2500,
-                      "disableOnInteraction": false
-                    }}
-                    pagination={{
-                      "clickable": true
-                    }}
+
+                  <Swiper slidesPerView={1} spaceBetween={30} autoplay={{
+                    "delay": 2500,
+                    "disableOnInteraction": false
+                  }} pagination={{
+                    "clickable": true
+                  }}
 
                     breakpoints={{
                       640: {
@@ -226,29 +207,26 @@ const Home = (props) => {
                     <Col xs={12} md={12} xl={12}>
                       <h2 style={{ padding: '60px 0' }}>Our Partners</h2>
                     </Col>
-                    {/* <Carousel
+                    <Carousel
                       autoPlaySpeed={4000}
                       showArrows={false}
                       breakPoints={breakPoints}
                       enableAutoPlay={true}
-                    > */}
-                    <div className={styles.partnarLogo} style={{ display: 'flex', justifyContent: 'space-evenly', width: '100%' }} >
+                    >
                       {
                         cms?.home_page?.partner && cms?.home_page?.partner?.map(partner => (
                           <>
                             <a href={`${partner?.url}`} target="_blank" rel="noreferrer">
-                              <div style={{ marginBottom: 30 }}>
+                              <div className={styles.logos_container}>
                                 <Image priority={true} src={partner.image} className={styles.logo_container} alt={partner.name} width={100} height={100} objectFit="contain" />
                                 {/* <img src={image} className={styles.logo} alt="..1partnerimg" /> */}
-                                <h2 style={{ fontSize: '1.5em' }}>{partner.name}</h2>
+                                <h2>{partner.name}</h2>
                               </div>
-                            </a >
+                            </a>
                           </>
                         ))
                       }
-                    </div>
-
-                    {/* </Carousel> */}
+                    </Carousel>
                   </Row>
                 </center>
               </Container>
@@ -366,152 +344,96 @@ const Home = (props) => {
               </div>
             </div> */}
                   </Col>
-
                   <Col xs={11} md={6} className="add_overflow" style={{ margin: "auto" }}>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                      <div className="custom_contactus">
-                        {cms.error && (
-                          <Alert className="m-0" color="danger">
-                            {cms.error}
-                          </Alert>
-                        )}
-                        <Row style={{ marginTop: "15px" }}>
+                    <div className="custom_contactus">
+                      {cms.error && (
+                        <Alert className="m-0" color="danger">
+                          {cms.error}
+                        </Alert>
+                      )}
+                      <Row style={{ marginTop: "15px" }}>
+                        <Col xs="12">
+                          {reqFields ? (
+                            <Alert
+                              style={{ borderRadius: "0.5rem" }}
+                              color="danger"
+                            >
+                              All Fields Are Required
+                            </Alert>
+                          ) : ""}
+                        </Col>
+                      </Row>
+                      <Card className={`${styles.cardPayment}`}>
+
+                        <div className="form-group icon">
+                          <label
+                            htmlFor="exampleInputPassword1"
+                            className={styles.label}
+                          >
+                            Email
+                          </label>
+                          <input
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            type="email"
+                            placeholder="@"
+                            className={`${styles.input} bg-light inside form-control`}
+                          />
+                        </div>
+
+                        <div className="form-group">
+                          <label className={styles.label} htmlFor="exampleInputEmail1">
+                            Phone
+                          </label>
+                          <input
+                            value={phoneNumber}
+                            onChange={(e) => setPhoneNumber(e.target.value)}
+                            type="number"
+                            placeholder="+1"
+                            className={`${styles.input} form-control inside bg-light`}
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label className={styles.label} htmlFor="exampleInputEmail1">
+                            Message
+                          </label>
+                          <textarea
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
+                            className={`${styles.input} form-control inside bg-light`}
+                            placeholder="type a message..."
+                            id="w3review"
+                            name="w3review"
+                            rows="4"
+                            cols="50"
+                          ></textarea>
+                        </div>
+
+                        <Row>
                           <Col xs="12">
-                            {reqFields ? (
-                              <Alert
-                                style={{ borderRadius: "0.5rem" }}
-                                color="danger"
-                              >
-                                All Fields Are Required
-                              </Alert>
-                            ) : ""}
+                            <Button
+                              onClick={submitHandler}
+                              className={styles.buttonPayment}
+                            >
+                              Send
+                            </Button>
                           </Col>
                         </Row>
-                        <Card className={`${styles.cardPayment}`}>
-
-                          <div className="form-group icon">
-                            <label htmlFor="email" className={styles.label}>
-                              Email
-                            </label>
-                            <Controller
-                              name="email"
-                              control={control}
-                              render={({
-                                field: { onChange, onBlur, value, name, ref },
-                                formState: { errors },
-                              }) => (
-                                <div>
-                                  <input
-                                    value={value}
-                                    onChange={onChange}
-                                    onBlur={onBlur}
-                                    placeholder="Enter email"
-                                    className={`${styles.input} bg-light inside form-control`}
-                                  />
-                                  <ErrorMessage
-                                    errors={errors}
-                                    name={name}
-                                    render={({ message }) => (
-                                      <p style={{ color: "red" }}>{message}</p>
-                                    )}
-                                  />
-                                </div>
-                              )}
-                            />
-                          </div>
-                          <div className="form-group">
-                            <label className={styles.label} htmlFor="phoneNumber">
-                              Phone
-                            </label>
-                            <Controller
-                              name="phoneNumber"
-                              control={control}
-                              render={({
-                                field: { onChange, onBlur, value, name, ref },
-                                formState: { errors },
-                              }) => (
-                                <div>
-                                  <input
-                                    value={value}
-                                    onChange={onChange}
-                                    onBlur={onBlur}
-                                    type="number"
-                                    placeholder="+1"
-                                    className={`${styles.input} form-control inside bg-light`}
-                                  />
-                                  <ErrorMessage
-                                    errors={errors}
-                                    name={name}
-                                    render={({ message }) => (
-                                      <p style={{ color: "red" }}>{message}</p>
-                                    )}
-                                  />
-                                </div>
-                              )}
-                            />
-                          </div>
-                          <div className="form-group">
-                            <label className={styles.label} htmlFor="message">
-                              Message
-                            </label>
-                            <Controller
-                              name="message"
-                              control={control}
-                              render={({
-                                field: { onChange, onBlur, value, name, ref },
-                                formState: { errors },
-                              }) => (
-                                <div>
-                                  <textarea
-                                    value={value}
-                                    onChange={onChange}
-                                    onBlur={onBlur}
-                                    className={`${styles.input} form-control inside bg-light`}
-                                    placeholder="type a message..."
-                                    id="w3review"
-                                    name="w3review"
-                                    rows="4"
-                                    cols="50"
-                                  />
-                                  <ErrorMessage
-                                    errors={errors}
-                                    name={name}
-                                    render={({ message }) => (
-                                      <p style={{ color: "red" }}>{message}</p>
-                                    )}
-                                  />
-                                </div>
-                              )}
-                            />
-                          </div>
-
-                          <Row>
-                            <Col xs="12">
-                              <Button
-                                type="submit"
-                                className={styles.buttonPayment}
+                        <Row style={{ marginTop: "15px" }}>
+                          <Col xs="12">
+                            {contact_us_page && (
+                              <Alert
+                                style={{ borderRadius: "0.5rem" }}
+                                color="success"
                               >
-                                Send
-                              </Button>
-                            </Col>
-                          </Row>
-                          <Row style={{ marginTop: "15px" }}>
-                            <Col xs="12">
-                              {contact_us_page && (
-                                <Alert
-                                  style={{ borderRadius: "0.5rem" }}
-                                  color="success"
-                                >
-                                  {contact_us_page.status}
-                                </Alert>
-                              )}
-                            </Col>
-                          </Row>
-                        </Card>
-                      </div>
-                    </form>
+                                {contact_us_page.status}
+                              </Alert>
+                            )}
+                          </Col>
+                        </Row>
+                      </Card>
+                    </div>
                   </Col>
-
                 </Row>
               </Container>
               <div className="footer_parenbt">

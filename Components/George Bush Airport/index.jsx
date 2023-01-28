@@ -20,13 +20,6 @@ import Image from "next/image";
 function GeorgeBushAirport(props) {
   const dispatch = useDispatch();
 
-  // const cms = useSelector((state) => state.georgeBush);
-  // const { george_bush_page } = cms;
-  // const data = george_bush_page && george_bush_page.georgeBushAirport[0];
-  // const faqs = george_bush_page && george_bush_page.faqs;
-  // const fleet = george_bush_page && george_bush_page.fleet;
-  // const testimonial = george_bush_page && george_bush_page.testimonial;
-
   useEffect(() => {
     dispatch(getGeorgeBushPage());
   }, []);
@@ -63,6 +56,17 @@ function GeorgeBushAirport(props) {
             </div>
             <Container fluid style={{padding: "100px 0"}}>
               <Container>
+                <Row className={styles.logoContainer}>
+                  <Col xs={12} xl={12} md={12} className={styles.heading1}>
+                    <h2>
+                      AAdmirals Travel & Transportation Houston Limo Service
+                    </h2>
+                    <h6>
+                      A Professional Limo & Airport Transfer Serve you in
+                      Harmony
+                    </h6>
+                  </Col>
+                </Row>
                 <Row>
                   <Col xl={6} md={6} xs={12} className={styles.discription}>
                     <h6>STRESS-FREE IAH AIRPORT TRANSPORTATION</h6>
@@ -73,7 +77,6 @@ function GeorgeBushAirport(props) {
                     </h2>
                     <h6>{data.getFirstClassService}</h6>
                   </Col>
-                  {/* <Col xl={1} md={1} xs={0}></Col> */}
                   <Col xl={6} xs={12} className={styles.imageContainer}>
                     <Image
                       priority={true}
@@ -86,27 +89,6 @@ function GeorgeBushAirport(props) {
                       objectFit="cover"
                       className={styles.images}
                     />
-                  </Col>
-                </Row>
-                <Row className={styles.logoContainer}>
-                  <Col xs={12} xl={12} md={12} className={styles.heading1}>
-                    <Image
-                      priority={true}
-                      src="/Assets/Group 943.png"
-                      alt="AAdmirals Travel & Transportation"
-                      width={100}
-                      height={70}
-                      objectFit="fill"
-                      quality={100}
-                      className={styles.images}
-                    />
-                    <h2>
-                      AAdmirals Travel & Transportation Houston Limo Service
-                    </h2>
-                    <h6>
-                      A Professional Limo & Airport Transfer Serve you in
-                      Harmony
-                    </h6>
                   </Col>
                 </Row>
                 <Row className={styles.featuresContainer}>
@@ -177,6 +159,7 @@ function GeorgeBushAirport(props) {
                     />
                   </Col>
                 </Row>
+
                 <Row>
                   <Col
                     xs={12}
@@ -186,78 +169,96 @@ function GeorgeBushAirport(props) {
                     <h6
                       style={{
                         color: "#020101",
-                        fontSize: "31px",
-                        fontFamily: "ProximaNovaRegular",
+                        fontSize: "27px",
+                        fontFamily: "ProximaNovaBold",
+                        fontWeight: "bold",
                       }}>
                       AAdmirals Travel & Transportation fleet at IAH Airport
                       area , call for houston Airport car service
                     </h6>
                   </Col>
-                  <Col xs={12} xl={12} md={12} style={{paddingTop: "50px"}}>
-                    <Image
+                  <Col
+                    xs={12}
+                    xl={6}
+                    md={12}
+                    style={{paddingTop: "50px", marginTop: "40px"}}>
+                    {/* <Image
                       priority={true}
                       alt="Shuttle from IAH Airport"
                       src={data.IahairportImage}
-                      width={100}
-                      height={40}
+                      width={200}
+                      height={80}
                       layout="responsive"
                       quality={100}
                       className={styles.images}
+                    /> */}
+                    <Image
+                      priority={true}
+                      src={data.IahairportImage}
+                      alt="George Bush Limo Service"
+                      width={980}
+                      height={490}
+                      quality={100}
+                      objectFit="cover"
+                      className={styles.images}
                     />
                   </Col>
-                  <Col
-                    xs={12}
-                    xl={12}
-                    md={12}
-                    style={{paddingTop: "50px", textAlign: "center"}}>
+                  <Col xl={6} md={12} xs={12} className={styles.discription1}>
+                    <h3
+                      style={{
+                        fontSize: "17px",
+                        fontFamily: "ProximaNovaBold",
+                        paddingTop: "30px",
+                        lineHeight: "100%",
+                        textAlign: "left",
+                      }}>
+                      Houston- limo- service- IAH- Airport{" "}
+                    </h3>
                     <h2
                       style={{
                         fontSize: "17px",
                         fontFamily: "ProximaNovaBold",
-                      }}>
-                      Houston- limo- service- IAH- Airport{" "}
-                    </h2>
+                      }}></h2>
                     <h6
                       style={{
-                        fontSize: "17px",
+                        color: "#72706C",
                         fontFamily: "ProximaNovaLight",
+                        fontSize: "16px",
+                        paddingTop: "10px",
+                        paddingBottom: "10px",
+                        textAlign: "left",
+                        paddingTop: "10px",
                       }}>
                       {data.iahAirportHeading}
                     </h6>
                   </Col>
-                  <Col
-                    xs={12}
-                    xl={12}
-                    md={12}
-                    style={{paddingTop: "20px", textAlign: "center"}}>
-                    {/* <h6 style={{ fontSize: "17px", fontFamily: "ProximaNovaLight" }}>
-                British Airways, KLM, Qatar Airways, Emirates ANA, and many
-                other international airlines deplaning in IAH airport on a daily
-                basis. Whether you are going locally to IAH or through one of
-                the international airlines AAdmirals Travel& Transportation
-                specializes in serving all your airport transportation needs.
-              </h6> */}
-                  </Col>
-                  {/* <Col
-              xs={12}
-              xl={12}
-              md={12}
-              style={{ paddingTop: "20px", textAlign: "center" }}
-            >
-              <h6 style={{ fontSize: "17px", fontFamily: "ProximaNovaLight" }}>
-                Our professional chauffeurs are always tracking weather, traffic
-                and flight information that may affect your trip, and they
-                always ensure that you arrive at your destination safe and on
-                time and relaxed.
-              </h6>
-            </Col> */}
                 </Row>
+
                 <Row>
                   <Col xl={6} md={12} xs={12} className={styles.discription1}>
-                    <h2 style={{fontSize: " 32px"}}>Our Fleet</h2>
-                    <h6>{data.ourFleet}</h6>
+                    <h2
+                      style={{
+                        fontSize: "34px",
+                        fontFamily: "ProximaNovaBold",
+                        paddingTop: "30px",
+                        lineHeight: "100%",
+                        textAlign: "left",
+                      }}>
+                      Our Fleet
+                    </h2>
+                    <h6
+                      style={{
+                        color: "#72706C",
+                        fontFamily: "ProximaNovaLight",
+                        fontSize: "16px",
+                        paddingTop: "10px",
+                        paddingBottom: "10px",
+                        textAlign: "left",
+                        paddingTop: "10px",
+                      }}>
+                      {data.ourFleet}
+                    </h6>
                   </Col>
-                  {/* <Col xl={1} md={1} xs={0}></Col> */}
                   <Col xl={6} xs={12} className={styles.imageContainer1}>
                     <Image
                       priority={true}
@@ -271,6 +272,7 @@ function GeorgeBushAirport(props) {
                     />
                   </Col>
                 </Row>
+
                 <Row style={{paddingTop: "47px"}}>
                   <Col xl={6} md={12} xs={12} className={styles.discription1}>
                     <h2 style={{fontSize: " 27px"}}>
@@ -279,11 +281,31 @@ function GeorgeBushAirport(props) {
                     <h3 style={{fontFamily: "ProximaNovaBold"}}>
                       Meet and Pick-Up Location Instructions:
                     </h3>
-                    <h6>{data.meetAndPickUpLocationInstructions}</h6>
+                    <h6
+                      style={{
+                        color: "#72706C",
+                        fontFamily: "ProximaNovaLight",
+                        fontSize: "16px",
+                        paddingTop: "10px",
+                        paddingBottom: "10px",
+                        textAlign: "left",
+                      }}>
+                      {data.meetAndPickUpLocationInstructions}
+                    </h6>
                     <h3 style={{fontFamily: "ProximaNovaBold"}}>
                       How to Connect to Houston Airport WiFi (IAH)
                     </h3>
-                    <h6>{data.howToConnectToHoustonAirport}</h6>
+                    <h6
+                      style={{
+                        color: "#72706C",
+                        fontFamily: "ProximaNovaLight",
+                        fontSize: "16px",
+                        paddingTop: "10px",
+                        paddingBottom: "10px",
+                        textAlign: "left",
+                      }}>
+                      {data.howToConnectToHoustonAirport}
+                    </h6>
                   </Col>
                   {/* <Col xl={1} md={1} xs={0}></Col> */}
                   <Col xl={6} xs={12} className={styles.imageContainer1}>

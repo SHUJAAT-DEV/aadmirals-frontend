@@ -15,12 +15,31 @@ function PopularLocations(props) {
               {props.popularLocations}
             </h6>
           </Col>
-          <Col xl={5} md={12} lg={12} xs={12}>
-            <img src={props.popularLocationsImage} alt="pic1" width="100%" />
+          <Col
+            xl={5}
+            md={12}
+            lg={12}
+            xs={12}
+            style={{
+              marginTop: "98px",
+            }}>
+            <img
+              src={props.popularLocationsImage}
+              alt="pic1"
+              width="470px"
+              height="260px"
+            />
           </Col>
         </Row>
         <Row className={styles.container}>
-          <Col xl={5} md={12} lg={12} xs={12}>
+          <Col
+            xl={5}
+            md={12}
+            lg={12}
+            xs={12}
+            style={{
+              marginTop: 66,
+            }}>
             <img src={props.hobbyAirportRatesImage} alt="pic2" width="100%" />
           </Col>
           <Col xl={5} md={12} lg={12} xs={12}>

@@ -17,34 +17,17 @@ import {getContactPage} from "../../redux/Contact_us/action";
 import {getContactDetailsPage} from "../../redux/Contact_details/action";
 import {useDispatch, useSelector} from "react-redux";
 import {Alert} from "reactstrap";
+
 import Head from "next/head";
 import {useRouter} from "next/router";
-import {ErrorMessage} from "@hookform/error-message";
-import {useForm, Controller} from "react-hook-form";
-import {joiResolver} from "@hookform/resolvers/joi";
-import Joi from "joi";
-
-const schema = Joi.object({
-  email: Joi.string().email({
-    minDomainSegments: 2,
-    tlds: {allow: ["com", "net"]},
-  }),
-  phoneNumber: Joi.number().required(),
-  message: Joi.string().required(),
-});
 
 const Contact = () => {
+  const [reqFields, setreqFields] = useState(false);
   const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [message, setMessage] = useState("");
   const dispatch = useDispatch();
-  const {handleSubmit, control} = useForm({
-    mode: "onSubmit",
-    defaultValues: {
-      email: "",
-      phoneNumber: "",
-      message: "",
-    },
-    resolver: joiResolver(schema),
-  });
 
   const cms = useSelector((state) => state.contact);
   const details = useSelector((state) => state.contactDetails);
@@ -53,14 +36,19 @@ const Contact = () => {
   const {contact_details_page} = details;
   const det = contact_details_page && contact_details_page.contactDetails[0];
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+    setreqFields(false);
+    if (!email || !phoneNumber || !message) {
+      setreqFields(true);
+    } else {
+      dispatch(getContactPage(email, phoneNumber, message));
+    }
+  };
+
   useEffect(() => {
     dispatch(getContactDetailsPage());
   }, []);
-
-  const onSubmit = (event) => {
-    const {email, phoneNumber, message} = event;
-    dispatch(getContactPage(email, phoneNumber, message));
-  };
 
   return (
     <>
@@ -81,137 +69,91 @@ const Contact = () => {
                     {cms.error}
                   </Alert>
                 )}
-                <form onSubmit={handleSubmit(onSubmit)}>
-                  <Card className={`${styles.cardPayment} mt-5 mb-4 `}>
-                    <CardTitle className={`${styles.headingMain}  mt-4 mb-0`}>
-                      Contact Us
-                    </CardTitle>
-                    <hr />
-                    <CardBody className=" pt-0">
-                      <div className="form-group icon">
-                        <label htmlFor="email" className={styles.label}>
-                          Email
-                        </label>
-                        <Controller
-                          name="email"
-                          control={control}
-                          render={({
-                            field: {onChange, onBlur, value, name, ref},
-                            formState: {errors},
-                          }) => (
-                            <div>
-                              <input
-                                value={value}
-                                onChange={onChange}
-                                onBlur={onBlur}
-                                placeholder="Enter email"
-                                className={`${styles.input} bg-light inside form-control`}
-                              />
-                              <ErrorMessage
-                                errors={errors}
-                                name={name}
-                                render={({message}) => (
-                                  <p style={{color: "red"}}>{message}</p>
-                                )}
-                              />
-                            </div>
-                          )}
-                        />
-                      </div>
+                <Row style={{marginTop: "15px"}}>
+                  <Col xs="12">
+                    {reqFields ? (
+                      <Alert style={{borderRadius: "0.5rem"}} color="danger">
+                        All Fields Are Required
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
+                  </Col>
+                </Row>
+                <Card className={`${styles.cardPayment} mt-5 mb-4 `}>
+                  <CardTitle className={`${styles.headingMain}  mt-4 mb-0`}>
+                    Contact Us
+                  </CardTitle>
+                  <hr />
+                  <CardBody className=" pt-0">
+                    <div className="form-group icon">
+                      <label
+                        for="exampleInputPassword1"
+                        className={styles.label}>
+                        Email
+                      </label>
+                      <input
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        type="email"
+                        placeholder="@"
+                        className={`${styles.input} bg-light inside form-control`}
+                      />
+                    </div>
 
-                      <div className="form-group">
-                        <label className={styles.label} htmlFor="phoneNumber">
-                          Phone
-                        </label>
-                        <Controller
-                          name="phoneNumber"
-                          control={control}
-                          render={({
-                            field: {onChange, onBlur, value, name, ref},
-                            formState: {errors},
-                          }) => (
-                            <div>
-                              <input
-                                value={value}
-                                onChange={onChange}
-                                onBlur={onBlur}
-                                type="number"
-                                placeholder="+1"
-                                className={`${styles.input} form-control inside bg-light`}
-                              />
-                              <ErrorMessage
-                                errors={errors}
-                                name={name}
-                                render={({message}) => (
-                                  <p style={{color: "red"}}>{message}</p>
-                                )}
-                              />
-                            </div>
-                          )}
-                        />
-                      </div>
-                      <div className="form-group">
-                        <label className={styles.label} htmlFor="message">
-                          Message
-                        </label>
-                        <Controller
-                          name="message"
-                          control={control}
-                          render={({
-                            field: {onChange, onBlur, value, name, ref},
-                            formState: {errors},
-                          }) => (
-                            <div>
-                              <textarea
-                                value={value}
-                                onChange={onChange}
-                                onBlur={onBlur}
-                                className={`${styles.input} form-control inside bg-light`}
-                                placeholder="type a message..."
-                                id="w3review"
-                                name="w3review"
-                                rows="4"
-                                cols="50"
-                              />
-                              <ErrorMessage
-                                errors={errors}
-                                name={name}
-                                render={({message}) => (
-                                  <p style={{color: "red"}}>{message}</p>
-                                )}
-                              />
-                            </div>
-                          )}
-                        />
-                      </div>
+                    <div className="form-group">
+                      <label className={styles.label} for="exampleInputEmail1">
+                        Phone
+                      </label>
+                      <input
+                        value={phoneNumber}
+                        onChange={(e) => setPhoneNumber(e.target.value)}
+                        type="number"
+                        placeholder="+1"
+                        className={`${styles.input} form-control inside bg-light`}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label className={styles.label} for="exampleInputEmail1">
+                        Message
+                      </label>
+                      <textarea
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        className={`${styles.input} form-control inside bg-light`}
+                        placeholder="type a message..."
+                        id="w3review"
+                        name="w3review"
+                        rows="4"
+                        cols="50"></textarea>
+                    </div>
 
-                      <Row>
-                        <Col xs="12">
-                          <Button
-                            type="submit"
-                            className={styles.buttonPayment}>
-                            {loading ? (
-                              <span>Loading...</span>
-                            ) : (
-                              <span>Send</span>
-                            )}
-                          </Button>
-                        </Col>
-                      </Row>
-                      <Row style={{marginTop: "15px"}}>
-                        <Col xs="12">
-                          {contact_us_page && (
-                            <Alert
-                              style={{borderRadius: "0.5rem"}}
-                              color="success">
-                              Your query has been sent to admin
-                            </Alert>
+                    <Row>
+                      <Col xs="12">
+                        <Button
+                          onClick={submitHandler}
+                          className={styles.buttonPayment}>
+                          {loading ? (
+                            <span>Loading...</span>
+                          ) : (
+                            <span>Send</span>
                           )}
-                        </Col>
-                      </Row>
-                    </CardBody>
-                  </Card>
-                </form>
+                        </Button>
+                      </Col>
+                    </Row>
+                    <Row style={{marginTop: "15px"}}>
+                      <Col xs="12">
+                        {contact_us_page && (
+                          <Alert
+                            style={{borderRadius: "0.5rem"}}
+                            color="success">
+                            Your query has been sent to admin
+                          </Alert>
+                        )}
+                      </Col>
+                    </Row>
+                  </CardBody>
+                </Card>
               </Container>
             </div>
           </Col>

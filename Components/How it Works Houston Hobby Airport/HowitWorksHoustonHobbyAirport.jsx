@@ -4,7 +4,7 @@ import styles from "./HowitWorksHoustonHobbyAirport.module.scss";
 
 function HowitWorksHoustonHobbyAirport(props) {
   return (
-    <Container style={{marginTop: "-49px"}}>
+    <Container>
       <h2 style={{textAlign: "center"}}>HOW IT WORKS</h2>
       <Row className={styles.featuresContainer}>
         <Col xs={12} xl={4} md={12} className={styles.features}>

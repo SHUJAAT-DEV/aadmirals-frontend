@@ -83,8 +83,24 @@ function GalvestonCruisesTransportation(props) {
                 Form={HomeForm}
               />
             </Container>
-            <Container fluid style={{padding: "100px 0"}}>
+            <Container fluid>
               <Container>
+                <Row
+                  className={styles.logoContainer}
+                  style={{
+                    marginTop: "-10px",
+                    marginBottom: "20px",
+                  }}>
+                  <Col xs={12} xl={12} md={12} className={styles.heading1}>
+                    <h3>
+                      AAdmirals Travel & Transportation Houston Limo Service
+                    </h3>
+                    <h6>
+                      A Professional Limo & Airport Transfer Serve you in
+                      Harmony
+                    </h6>
+                  </Col>
+                </Row>
                 <Row>
                   <Col
                     xl={6}
@@ -103,32 +119,13 @@ function GalvestonCruisesTransportation(props) {
                       width="100"
                       src={data.galvestonCruisesImage}
                       alt="Galveston Cruises"
-                      height={100}
+                      height={70}
                       layout="responsive"
                       quality={100}
                     />
                   </Col>
                 </Row>
-                <Row className={styles.logoContainer}>
-                  <Col xs={12} xl={12} md={12} className={styles.heading1}>
-                    <Image
-                      priority={true}
-                      width="100"
-                      src="/Assets/Group 943.png"
-                      alt="Regional Aviation Airport Transfer"
-                      height={50}
-                      objectFit="contain"
-                      quality={100}
-                    />
-                    <h3>
-                      AAdmirals Travel & Transportation Houston Limo Service
-                    </h3>
-                    <h6>
-                      A Professional Limo & Airport Transfer Serve you in
-                      Harmony
-                    </h6>
-                  </Col>
-                </Row>
+
                 <Row className={styles.featuresContainer}>
                   <Col xs={12} xl={4} md={12} className={styles.features}>
                     <h6>24 Hours Service</h6>
@@ -140,6 +137,7 @@ function GalvestonCruisesTransportation(props) {
                     <h6>Airport Transfers</h6>
                   </Col>
                 </Row>
+
                 <Row>
                   <Col xs={12} xl={12} md={12}>
                     <Image
@@ -153,32 +151,41 @@ function GalvestonCruisesTransportation(props) {
                     />
                   </Col>
                 </Row>
+
                 <Row>
-                  <Col xs={12} xl={12} md={12} style={{paddingTop: "50px"}}>
+                  <Col
+                    xl={6}
+                    xs={12}
+                    lg={6}
+                    className={styles.imageContainer3_1}>
                     <Image
                       priority={true}
                       width="100"
                       src={data.cruiseImage}
                       alt="Glavestone Shuttle"
-                      height={50}
+                      height={70}
                       layout="responsive"
                       quality={100}
                     />
                   </Col>
                   <Col
+                    xl={6}
                     xs={12}
-                    xl={12}
-                    md={12}
+                    lg={6}
                     style={{paddingTop: "50px", textAlign: "center"}}>
                     <h6
                       style={{
                         fontSize: "17px",
                         fontFamily: "ProximaNovaLight",
                         color: "#727070",
+                        textAlign: "left",
                       }}>
                       {data.cruiseText}
                     </h6>
                   </Col>
+                </Row>
+
+                <Row>
                   <Col xs={12} xl={12} md={12}>
                     <Cities cities={cityWeServe} />
                   </Col>
@@ -202,6 +209,7 @@ function GalvestonCruisesTransportation(props) {
                     </h6>
                   </Col>
                 </Row>
+
                 <Row style={{paddingTop: "100px"}}>
                   <Col
                     xl={6}
@@ -233,10 +241,6 @@ function GalvestonCruisesTransportation(props) {
                         Transportation from Houston Airports to Cruise Terminals
                         include:
                       </li>
-                      {/* <h6>Transport from IAH to Houston Cruise Terminal</h6>
-                <h6>Transport from IAH to Galveston Cruise Terminal</h6>
-                <h6>Transport from Hobby to Houston Cruise Terminal</h6>
-                <h6>Transport from Hobby to Galveston Cruise Terminal</h6> */}
                       {data.transportationFromHouston}
                       <li>
                         LOWEST PRIVATE CRUISE TRANSFER FARES WITH HIGH QUALITY
@@ -278,6 +282,7 @@ function GalvestonCruisesTransportation(props) {
                     />
                   </Col>
                 </Row>
+
                 <Row style={{textAlign: "center"}}>
                   <Col
                     xs={12}

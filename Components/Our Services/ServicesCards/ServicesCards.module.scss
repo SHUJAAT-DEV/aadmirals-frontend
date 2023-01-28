@@ -34,8 +34,8 @@
     min-height: 182px;
     padding: 25px 20px;
     text-align: left;
-    max-height: fit-content;
-    // overflow-y: hidden;
+    max-height: 182px;
+    overflow-y: auto;
     h3 {
       font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
       font-size: 20px;
@@ -51,10 +51,10 @@
     font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
   }
 }
-.readMore:hover{
+.readMore:hover {
   cursor: pointer;
 }
-.readMore{
+.readMore {
   text-decoration: none;
 }
 @media only screen and (max-width: 767px) {
@@ -86,13 +86,13 @@
 
     h3 {
       font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
-      font-size: 18px;
+      font-size: 25px;
     }
 
     h6 {
       color: #636363;
       font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
-      font-size: 14px !important;
+      font-size: 14px;
     }
   }
 }

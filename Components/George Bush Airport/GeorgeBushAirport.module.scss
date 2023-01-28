@@ -10,6 +10,7 @@
     padding: 0;
     margin: 0;
   }
+
   .mainContainer::after {
     content: "";
     position: absolute;
@@ -21,12 +22,14 @@
     transition: all 1s;
     -webkit-transition: all 1s;
   }
+
   .floatingContainer {
     position: fixed;
     top: 90%;
     right: 4%;
     z-index: 1000;
   }
+
   .floatingButton {
     // display: inline-block;
     transition: 0.2s ease-in-out;
@@ -38,6 +41,7 @@
     height: 50px;
     border-radius: 50%;
     background-color: #ee405e;
+
     img {
       position: absolute;
       top: 50%;
@@ -45,15 +49,18 @@
       transform: translate(-50%, -50%);
     }
   }
+
   .floatingButton:focus {
     border: none;
     outline: 0;
   }
+
   .floatingButton:active {
     opacity: 0.5;
     border: none;
     outline: 0;
   }
+
   .headingsContainer {
     z-index: 1;
     color: white;
@@ -62,24 +69,27 @@
     top: 50%;
     width: 600px;
     transform: translateY(-50%);
+
     h6 {
       line-height: 200%;
       color: #ee405e;
       font-size: 15px;
       font-family: ProximaNovaBold;
-      //   font-weight: bold;
     }
+
     h1 {
       font-size: 63px;
       font-family: ProximaNovaBold;
     }
   }
+
   .discription {
     h6:nth-child(1) {
       color: #ee405e;
       font-family: ProximaNovaRegular;
       font-size: 16px;
     }
+
     h2:nth-child(3) {
       font-size: 34px;
       font-family: "ProximaNovaBold";
@@ -87,11 +97,13 @@
       line-height: 100%;
       text-align: left;
     }
+
     span:nth-child(2) {
       display: inline-block;
       width: 100px;
       border-top: 2px solid #ee405e;
     }
+
     h6:nth-child(4) {
       color: #727070;
       font-family: ProximaNovaLight;
@@ -99,30 +111,35 @@
       padding-top: 10px;
     }
   }
+
   .imageContainer {
     img {
       height: 100%;
       width: 100%;
     }
   }
+
   .discription1 {
     h2:nth-child(1) {
       color: #020101;
       font-family: "ProximaNovaBold";
       text-align: left;
     }
+
     h2 {
       color: #191919;
       font-family: ProximaNovaLight;
       font-size: 17px;
       padding-top: 10px;
     }
+
     h3 {
       color: #191919;
       font-family: ProximaNovaLight;
       font-size: 17px;
       padding-top: 10px;
     }
+
     h6 {
       color: #191919;
       font-family: ProximaNovaLight;
@@ -130,53 +147,67 @@
       padding-top: 10px;
     }
   }
+
   .imageContainer1 {
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
   .logoContainer {
-    padding-top: 100px;
     text-align: center;
+    padding-bottom: 26px;
   }
+
   .heading1 {
     h2 {
       color: #ee405e;
       font-family: ProximaNovaBold;
     }
+
     h6 {
       color: #020101;
       font-family: ProximaNovaRegular;
     }
   }
+
   .featuresContainer {
     text-align: center;
     padding-top: 50px;
   }
+
   .features {
     vertical-align: top;
+
     h6 {
       font-family: ProximaNovaBold;
       font-size: 20px;
       padding-top: 10px;
     }
   }
+
   .menuButton {
     display: none;
   }
 }
+
 .discription {
   flex: auto;
   max-width: 100%;
 }
-.images {
-  border-radius: 10px;
+
+.heading1 {
+  margin-top: -10px;
+  margin-bottom: 20px;
 }
+.imageContainer {
+  margin-top: 88px;
+}
+
 @media only screen and (max-width: 767px) {
   /* phones */
 
   .mainContainer {
-    // background-image: url("../../Assets/airport\ transfer.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -184,6 +215,7 @@
     position: relative;
     width: 100%;
   }
+
   .mainContainer::after {
     content: "";
     position: absolute;
@@ -195,12 +227,14 @@
     transition: all 1s;
     -webkit-transition: all 1s;
   }
+
   .floatingContainer {
     position: fixed;
     top: 90%;
     right: 4%;
     z-index: 1000;
   }
+
   .floatingButton {
     // display: inline-block;
     transition: 0.2s ease-in-out;
@@ -212,6 +246,7 @@
     height: 50px;
     border-radius: 50%;
     background-color: #ee405e;
+
     img {
       position: absolute;
       top: 50%;
@@ -219,15 +254,18 @@
       transform: translate(-50%, -50%);
     }
   }
+
   .floatingButton:focus {
     border: none;
     outline: 0;
   }
+
   .floatingButton:active {
     opacity: 0.5;
     border: none;
     outline: 0;
   }
+
   .headingsContainer {
     z-index: 1;
     color: white;
@@ -236,6 +274,7 @@
     top: 50%;
     width: 600px;
     transform: translateY(-50%);
+
     h6 {
       line-height: 200%;
       color: #ee405e;
@@ -243,17 +282,20 @@
       font-family: ProximaNovaBold;
       //   font-weight: bold;
     }
+
     h1 {
       font-size: 63px;
       font-family: ProximaNovaBold;
     }
   }
+
   .discription {
     h6:nth-child(1) {
       color: #ee405e;
       font-family: ProximaNovaRegular;
       font-size: 16px;
     }
+
     h2:nth-child(3) {
       font-size: 34px;
       font-family: ProximaNovaRegular;
@@ -261,11 +303,13 @@
       line-height: 100%;
       text-align: left;
     }
+
     span:nth-child(2) {
       display: inline-block;
       width: 100px;
       border-top: 2px solid #ee405e;
     }
+
     h6:nth-child(4) {
       color: #727070;
       font-family: ProximaNovaLight;
@@ -273,30 +317,35 @@
       padding-top: 10px;
     }
   }
+
   .imageContainer {
     img {
       height: 100%;
       width: 100%;
     }
   }
+
   .discription1 {
     h2:nth-child(1) {
       color: #020101;
       font-family: ProximaNovaRegular;
       text-align: left;
     }
+
     h3 {
       color: #191919;
       font-family: ProximaNovaLight;
       font-size: 17px;
       padding-top: 10px;
     }
+
     h6 {
       color: #191919;
       font-family: ProximaNovaLight;
       font-size: 17px;
       padding-top: 10px;
     }
+
     h6 {
       color: #191919;
       font-family: ProximaNovaLight;
@@ -304,48 +353,57 @@
       padding-top: 10px;
     }
   }
+
   .imageContainer1 {
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
   .logoContainer {
-    padding-top: 100px;
     text-align: center;
   }
+
   .heading1 {
     h2 {
       color: #ee405e;
       font-family: ProximaNovaBold;
     }
+
     h6 {
       color: #020101;
       font-family: ProximaNovaRegular;
     }
   }
+
   .featuresContainer {
     text-align: center;
     padding-top: 50px;
   }
+
   .features {
     padding-top: 40px;
     vertical-align: top;
+
     h6 {
       font-family: ProximaNovaBold;
       font-size: 20px;
       padding-top: 15px;
     }
   }
+
   .menuButton {
     display: flex;
     height: 50px !important;
     background-color: white;
 
     text-align: center;
+
     .togButton {
       margin-top: 10px;
       margin-right: 130px;
       margin-left: 20px;
+
       button {
         background-color: transparent !important;
         border: none !important;

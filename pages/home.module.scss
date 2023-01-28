@@ -1,8 +1,4 @@
 @media only screen and (min-width: 768px) {
-  .partnarLogoContainer{
-    flex-direction: row;
-
-  }
   .mainContainer {
     min-height: 82vh;
     position: relative;
@@ -104,9 +100,6 @@
   }
 }
 @media only screen and (max-width: 767px) {
-  .partnarLogoContainer{
-    flex-direction: column; 
-  }
   .properties_Limo {
     width: 94vw !important;
     padding-top: 2vh !important;
@@ -557,6 +550,14 @@
     }
   }
 }
+.discriptionContainer_Limo::-webkit-scrollbar {
+  width: 3px;
+}
+
+.discriptionContainer_Limo::-webkit-scrollbar-thumb {
+  background: rgba(168, 163, 163, 0.26);
+  border-radius: 0px;
+}
 @media only screen and (max-width: 767px) {
   /* phones */
   .mainContainer_Partner {
@@ -591,15 +592,13 @@
 }
 @media only screen and (max-width: 767px) {
   /* phones */
-  
   .logos_container {
     margin: 0rem 1rem 1rem 0rem;
     display: flex;
     align-items: center;
     flex-direction: column;
     .logo_container {
-      width: 20vw;
-      height: 7rem;
+      height: 10rem;
     }
     h2 {
       font-size: 0.9rem;
@@ -618,13 +617,5 @@
     font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
   }
 }
-@media only screen and (max-width: 573px) {
-  .logo_container {
-    width: 10vw;
-  }
-  .partnerContainer{
-    padding: 1em;
-  }
 
-}
 //Testomonoa; CArd

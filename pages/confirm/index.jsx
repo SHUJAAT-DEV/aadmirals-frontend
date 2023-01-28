@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import Header from "../../Components/Header/Header";
 import SideNav from "../../Components/Header/SideNav/SideNav";
 import styles from "./Confirm.module.scss";
+import Stepper from "react-stepper-horizontal";
 import {
   Col,
   Row,
@@ -12,7 +13,7 @@ import {
   ModalBody,
   ModalFooter,
 } from "reactstrap";
-import { useDispatch, useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import Loader from "../../Components/Loader/Loader";
 import Fleet from "../../Components/FleetComponent/Fleet";
 import TopInfo from "./TopInfo/TopInfo";
@@ -21,11 +22,11 @@ import PaymentMethod from "./PaymentMethod/PaymentMethod";
 import Floatingbutton from "../../Components/floaingbutton/floatingbutton";
 import Checkout from "./Checkout/Checkout";
 import TermsAndCondition from "./TermsAndCondition/TermsAndCondition";
-import { setBookingType } from "../../redux/Bookings/PreBooking/action";
-import Router, { withRouter, useRouter } from "next/router";
-import { useAlert } from "react-alert";
+import {setBookingType} from "../../redux/Bookings/PreBooking/action";
+import Router, {withRouter, useRouter} from "next/router";
+import {useAlert} from "react-alert";
 
-function Confirm({ router }) {
+function Confirm({router}) {
   const pathname = router.pathname;
   const dispatch = useDispatch();
   const history = useRouter();
@@ -73,12 +74,11 @@ function Confirm({ router }) {
 
   return (
     <>
-      {
-        quotes.loading ?
-
-          typeof window !== "undefined" ? window.location.href = "/error-confirm" : ""
-          : null
-      }
+      {quotes.loading
+        ? typeof window !== "undefined"
+          ? (window.location.href = "/error-confirm")
+          : ""
+        : null}
       {quotes.loading ? (
         <Loader />
       ) : (
@@ -86,26 +86,53 @@ function Confirm({ router }) {
           <SideNav />
           <Header />
           <Floatingbutton />
+
           <div className={styles.mainContainer}>
+            <Stepper
+              steps={[
+                {title: "Service Class"},
+                {title: "Options"},
+                {title: "Checkout"},
+                {title: "Payment"},
+              ]}
+              activeStep={stepper}
+              completeColor="#ee405e"
+              defaultColor="rgba(238,64,94,0.3)"
+              activeColor="#212B36"
+              activeTitleColor="#212B36"
+              completeTitleColor="#ee405e"
+              defaultTitleColor="rgba(238,64,94,0.3)"
+              circleTop={50}
+              defaultBarColor="rgba(238,64,94,0.3)"
+              completeBarColor="#ee405e"
+              lineMarginOffset={10}
+              circleFontSize={15}
+            />
             <TopInfo quotes={quotes.quotes} />
             <div className={stepper == 0 ? "" : styles.service}>
-
-              <Container style={{ overflow: 'hidden' }}>
-                <Row sm={12} md={12} lg={12} xl={12} >
+              <Container style={{overflow: "hidden"}}>
+                <Row sm={12} md={12} lg={12} xl={12}>
                   <Col sm={12} md={12} lg={12} xl={12}>
-                    <div style={{ fontSize: '20px', marginTop: '20px', fontWeight: 'bold' }}>Showing 1 - {quotes.quotes.quoteResponse.length} of {quotes.quotes.quoteResponse.length}</div>
-                    <div style={{ fontSize: '20px', fontWeight: 'bold' }}>Scroll Down for more Choices</div>
+                    <div
+                      style={{
+                        fontSize: "20px",
+                        marginTop: "20px",
+                        fontWeight: "bold",
+                      }}>
+                      Showing 1 - {quotes.quotes.quoteResponse.length} of{" "}
+                      {quotes.quotes.quoteResponse.length}
+                    </div>
+                    <div style={{fontSize: "20px", fontWeight: "bold"}}>
+                      Scroll Down for more Choices
+                    </div>
                   </Col>
                 </Row>
               </Container>
-              {
-               console.log ("line128",quotes)
-              }
-             
+              {console.log("line128", quotes)}
+
               {quotes.quotes.quoteResponse.map((quote) => {
                 return (
                   <Fleet
-
                     quote={quote}
                     otherDetails={quotes.quotes.otherDetails}
                     bookingType={quotes.quotes.otherDetails.bookingTypes}
@@ -117,24 +144,20 @@ function Confirm({ router }) {
             </div>
 
             <div className={stepper == 1 ? "" : styles.options}>
-              {
-                quotes.quotes.otherDetails.time ?
-                  <UserDetails
-                    otherDetails={quotes.quotes.otherDetails}
-                    stepper={stepper}
-                    setStepper={setStepper}
-                    onCheckRed={(e) => setCheckRedEye(e)}
-                  />
-                  :
-                  ""
-              }
-
+              {quotes.quotes.otherDetails.time ? (
+                <UserDetails
+                  otherDetails={quotes.quotes.otherDetails}
+                  stepper={stepper}
+                  setStepper={setStepper}
+                  onCheckRed={(e) => setCheckRedEye(e)}
+                />
+              ) : (
+                ""
+              )}
             </div>
 
             <div className={stepper == 2 ? "" : styles.payment}>
-              <Checkout
-                RedSignal={CheckRedEye}
-              />
+              <Checkout RedSignal={CheckRedEye} />
             </div>
 
             <div className={stepper == 3 ? "" : styles.checkout}>
@@ -150,7 +173,6 @@ function Confirm({ router }) {
                 </>
               )}
 
-
               {stepper == 2 ? (
                 <button onClick={(e) => setModal(true)}>Checkout</button>
               ) : null}
@@ -159,40 +181,38 @@ function Confirm({ router }) {
             {/* modal */}
             <div>
               <Modal isOpen={modal} toggle={toggle}>
-
-                {
-                  (Number(preBooking.amount) < preBooking.MinFair) ?
-                    <>
-                      <ModalHeader toggle={toggle}>
-                      </ModalHeader>
-                      <p style={{ padding: "33px" }}>Calculated fare is less than minimum fare, please try again!</p>
-                      <ModalFooter>
-                        <Button color="secondary" onClick={toggle}>
-                          Close
-                        </Button>
-                      </ModalFooter>
-                    </>
-                    :
-                    <>
-                      <ModalHeader toggle={toggle}>
-                        Terms {"&"} Conditions
-                      </ModalHeader>
-                      <TermsAndCondition setCheck={setCheck} />
-                      <ModalFooter>
-                        <Button
-                          className={styles.confirmBtn}
-                          onClick={(e) => modalConfirm()}
-                          disabled={!check}
-                        >
-                          Confirm
-                        </Button>{" "}
-                        <Button color="secondary" onClick={toggle}>
-                          Cancel
-                        </Button>
-                      </ModalFooter>
-                    </>
-                }
-
+                {Number(preBooking.amount) < preBooking.MinFair ? (
+                  <>
+                    <ModalHeader toggle={toggle}></ModalHeader>
+                    <p style={{padding: "33px"}}>
+                      Calculated fare is less than minimum fare, please try
+                      again!
+                    </p>
+                    <ModalFooter>
+                      <Button color="secondary" onClick={toggle}>
+                        Close
+                      </Button>
+                    </ModalFooter>
+                  </>
+                ) : (
+                  <>
+                    <ModalHeader toggle={toggle}>
+                      Terms {"&"} Conditions
+                    </ModalHeader>
+                    <TermsAndCondition setCheck={setCheck} />
+                    <ModalFooter>
+                      <Button
+                        className={styles.confirmBtn}
+                        onClick={(e) => modalConfirm()}
+                        disabled={!check}>
+                        Confirm
+                      </Button>{" "}
+                      <Button color="secondary" onClick={toggle}>
+                        Cancel
+                      </Button>
+                    </ModalFooter>
+                  </>
+                )}
               </Modal>
             </div>
           </div>

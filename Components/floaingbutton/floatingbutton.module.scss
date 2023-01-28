@@ -6,8 +6,6 @@
     top: 90%;
     right: 5%;
     z-index: 1000;
-    
-
   }
   .floatingContainerTop {
     position: fixed;
@@ -15,7 +13,7 @@
     left: 5%;
     z-index: 1000;
   }
-  .floatingButtonScrollTop{
+  .floatingButtonScrollTop {
     transition: 0.2s ease-in-out;
     outline: 0;
     border: none;
@@ -73,7 +71,7 @@
     left: 5%;
     z-index: 1000;
   }
-  .floatingButtonScrollTop{
+  .floatingButtonScrollTop {
     transition: 0.2s ease-in-out;
     outline: 0;
     border: none;
@@ -112,8 +110,6 @@
     height: 40px;
     border-radius: 50%;
     background-color: #ee405e;
-    top: 485px;
-    left: -52px;
     img {
       position: absolute;
       top: 50%;

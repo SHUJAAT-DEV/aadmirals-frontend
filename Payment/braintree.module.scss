@@ -2,10 +2,9 @@
   .mainContainer {
     font-family: ProximaNovaRegular;
   }
-  .main_braintree{
+  .main_braintree {
     width: 80%;
     margin: auto;
-
   }
   .button {
     cursor: pointer;
@@ -23,12 +22,12 @@
     display: inline-block;
     width: 100%;
   }
-  
+
   .button_small {
     padding: 10px 20px;
     font-size: 0.875rem;
   }
-  
+
   .button_green {
     outline: none;
     background-color: #64d18a;
@@ -36,7 +35,7 @@
     color: white;
     transition: all 200ms ease;
   }
-  
+
   .button_green:hover {
     background-color: #8bdda8;
     color: white;
@@ -45,7 +44,7 @@
     background-color: white !important;
     height: 250px;
     overflow: scroll;
-    h6 { 
+    h6 {
       margin: 0px 0px 5px 25px;
     }
     p {
@@ -60,34 +59,32 @@
       }
     }
   }
-  .select_button{
+  .select_button {
     width: 100% !important;
     background-color: #ee405e !important;
     border-color: #ee405e !important;
-
   }
-  .add_details_button{
+  .add_details_button {
     width: 25% !important;
     background-color: #ee405e !important;
     border-color: #ee405e !important;
-
   }
   .confirmBtn {
     background-color: #ee405e !important;
   }
-    .checkBoxContainer {
-      display: flex;
-      align-items: center;
-      input {
-        margin-right: 10px;
-      }
-      p {
-        margin: 0px;
-        font: normal normal normal 12px/17px ProximaNovaRegular;
-        letter-spacing: 0px;
-        color: #979797;
-      }
+  .checkBoxContainer {
+    display: flex;
+    align-items: center;
+    input {
+      margin-right: 10px;
     }
+    p {
+      margin: 0px;
+      font: normal normal normal 12px/17px ProximaNovaRegular;
+      letter-spacing: 0px;
+      color: #979797;
+    }
+  }
   .service {
     display: none;
   }
@@ -335,25 +332,14 @@
     display: none;
   }
 }
-.additional_labels{
-    color: #000000; 
-    display: block;
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 1.4;
-    margin: 0;
-    padding: 0;
-    text-align: left;
-}
+
 @media only screen and (max-width: 767px) {
   .mainContainer {
     font-family: ProximaNovaRegular;
     overflow: hidden;
   }
-  .main_braintree{
+  .main_braintree {
     margin: 1rem;
-    
-
   }
   .button {
     cursor: pointer;
@@ -369,14 +355,13 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     display: inline-block;
-    
   }
-  
+
   .button_small {
     padding: 10px 20px;
     font-size: 0.875rem;
   }
-  
+
   .button_green {
     outline: none;
     background-color: #64d18a;
@@ -384,7 +369,7 @@
     color: white;
     transition: all 200ms ease;
   }
-  
+
   .button_green:hover {
     background-color: #8bdda8;
     color: white;
@@ -392,7 +377,7 @@
   .contentContainer {
     height: 250px;
     overflow: scroll;
-    h6 { 
+    h6 {
       margin: 0px 0px 5px 25px;
     }
     p {
@@ -407,38 +392,36 @@
       }
     }
   }
-  .text_center{
+  .text_center {
     text-align: center;
   }
-  .add_details_button{
+  .add_details_button {
     width: 100% !important;
     background-color: #ee405e !important;
     border-color: #ee405e !important;
-
   }
-  .select_button{
+  .select_button {
     width: 100% !important;
     background-color: #ee405e !important;
     border-color: #ee405e !important;
     margin-bottom: 1rem;
-
   }
   .confirmBtn {
     background-color: #ee405e !important;
   }
-    .checkBoxContainer {
-      display: flex;
-      align-items: center;
-      input {
-        margin-right: 10px;
-      }
-      p {
-        margin: 0px;
-        font: normal normal normal 12px/17px ProximaNovaRegular;
-        letter-spacing: 0px;
-        color: #979797;
-      }
+  .checkBoxContainer {
+    display: flex;
+    align-items: center;
+    input {
+      margin-right: 10px;
     }
+    p {
+      margin: 0px;
+      font: normal normal normal 12px/17px ProximaNovaRegular;
+      letter-spacing: 0px;
+      color: #979797;
+    }
+  }
   .service {
     display: none;
   }
