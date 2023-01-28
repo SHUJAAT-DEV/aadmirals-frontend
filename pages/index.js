@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState, useEffect } from "react";
 import dynamic from 'next/dynamic'
 import { useDispatch, useSelector } from "react-redux";
@@ -96,6 +97,7 @@ const Home = (props) => {
   useEffect(() => {
     dispatch(getContactDetailsPage());
   }, []);
+  console.log("cms.home_page.home[0]", cms.home_page.home[0])
   return (
     <>
       <Helmet>
@@ -109,7 +111,12 @@ const Home = (props) => {
       {cms.loading || cms.error ? (
         <div className={styles.loader}>
           <section>
-            <img src="/Assets/Loader-Logo.svg" alt="88logo" />
+            <img
+              src="/Assets/Loader-Logo.svg"
+              alt="88logo"
+              loading="lazy"
+              decoding="async"
+            />
           </section>
           <section>
             <Spinner animation="border" role="status" className={styles.spinner} />
@@ -130,7 +137,7 @@ const Home = (props) => {
             <div className={`${styles.mainContainer}`} fluid id="#bookingForm">
               <Hero
                 Text={cms.home_page.home[0].heroText}
-                Title={'Houston Limo Service & Airport Transportation | Book Now'}
+                Title={cms.home_page.home[0].heroTitle || 'Houston Limo Service & Airport Transportation | Book Now'}
                 img={cms.home_page.home[0].heroImage}
                 Form={HomeForm}
               />
@@ -181,22 +188,6 @@ const Home = (props) => {
                       )) : null
                     }
                   </Swiper>
-
-                  {/* <Carousel
-          itemPadding={[10, 10]}
-            autoPlaySpeed={4000}
-            showArrows={false}
-            breakPoints={breakPoints}
-            enableAutoPlay={true}
-          >
-            {
-              testimonials? testimonials.map(testimonial=>(
-                <TestimonialCards image={testimonial.image} name={testimonial.name} msg={testimonial.message} />
-
-              )):null
-            }
-
-          </Carousel> */}
                 </Row>
               </center>
             </div>

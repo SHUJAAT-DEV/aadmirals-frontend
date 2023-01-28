@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React from "react";
 import {Row, Col} from "reactstrap";
 import TestimonialCards from "./Testimonial Cards/TestimonialCards";
@@ -82,7 +83,5 @@ function Testinmonial({testimonials}) {
     </div>
   );
 }
-
-export default Testinmonial;
 
 export default Testinmonial;
