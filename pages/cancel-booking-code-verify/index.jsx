@@ -1,24 +1,26 @@
-import React, { useState } from "react";
+/* eslint-disable react/no-unescaped-entities */
+import React, {useState} from "react";
 import styles from "./Cancel_Booking.module.scss";
 import Floatingbutton from "../../Components/floaingbutton/floatingbutton";
 import SideNav from "../../Components/Header/SideNav/SideNav";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/BottomFooter/BottomFooter";
-import { Container, Col, Row, CardBody, Button, Card, Alert } from "reactstrap";
+import {Container, Col, Row, CardBody, Button, Card, Alert} from "reactstrap";
 import ReactCodeInput from "react-verification-code-input";
-import { useAlert } from "react-alert";
-import { useDispatch, useSelector } from "react-redux";
-import { cancelBookingAction } from "../../redux/Cancel_Booking/Cancel_Booking/action";
+import {useAlert} from "react-alert";
+import {useDispatch, useSelector} from "react-redux";
+import {cancelBookingAction} from "../../redux/Cancel_Booking/Cancel_Booking/action";
 
-const Cancel_Booking = ({ history }) => {
+const Cancel_Booking = ({history}) => {
   const alert = useAlert();
   const dispatch = useDispatch();
   const [code, setCode] = useState();
 
   const cancelBooking = useSelector((state) => state.cancelBooking);
-  const { loading, error, success } = cancelBooking;
+  const {loading, error, success} = cancelBooking;
 
-  const email = typeof window !="undefined"? localStorage.getItem("email"):"";
+  const email =
+    typeof window != "undefined" ? localStorage.getItem("email") : "";
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -48,7 +50,7 @@ const Cancel_Booking = ({ history }) => {
                       you off safe at where you want to go.
                     </p>
 
-                    <p style={{ textAlign: "center" }}>
+                    <p style={{textAlign: "center"}}>
                       A confirmation code has been sent to <br />
                       <b>{email}</b>.
                     </p>
@@ -65,8 +67,7 @@ const Cancel_Booking = ({ history }) => {
                       <Col xs="12">
                         <Button
                           onClick={submitHandler}
-                          className={styles.buttonPayment}
-                        >
+                          className={styles.buttonPayment}>
                           {loading ? (
                             <span>Loading...</span>
                           ) : (

@@ -41,7 +41,6 @@ function GalvestonCruisesTransportation(props) {
     galveston_cruise_page && galveston_cruise_page.cityWeServe;
   const testimonial =
     galveston_cruise_page && galveston_cruise_page.testimonial;
-  console.log("GalvestonCruisesTransportation", data);
   return (
     <>
       <NextSeo

@@ -97,7 +97,6 @@ const Home = (props) => {
   useEffect(() => {
     dispatch(getContactDetailsPage());
   }, []);
-  console.log("cms.home_page.home[0]", cms.home_page.home[0])
   return (
     <>
       <Helmet>

@@ -25,9 +25,6 @@ function GeorgeBushAirport(props) {
   }, []);
   const cms = props.data1;
   const {george_bush_page} = cms;
-
-  console.log("GeorgeBushAirport", cms);
-
   const data = george_bush_page && george_bush_page.georgeBushAirport[0];
   const faqs = george_bush_page && george_bush_page.faqs;
   const fleet = george_bush_page && george_bush_page.fleet;
