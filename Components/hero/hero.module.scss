@@ -31,6 +31,20 @@
       font-size: 19px !important;
       font-family: ProximaNovaRegular !important;
       color: white !important;
+      p {
+        line-height: 200% !important;
+        font-size: 19px !important;
+        font-family: ProximaNovaRegular !important;
+        color: #fff !important;
+        a {
+          font-family: ProximaNovaRegular !important;
+          color: #fff !important;
+        }
+        img {
+          width: 4rem;
+          height: 4rem;
+        }
+      }
     }
     p {
       line-height: 200%;

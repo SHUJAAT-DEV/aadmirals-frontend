@@ -26,16 +26,6 @@ function GalvestonCruisesTransportation(props) {
   const router = useRouter();
 
   const dispatch = useDispatch();
-
-  // const cms = useSelector(state => state.galvestonCruise)
-  // const { galveston_cruise_page } = cms
-
-  // const data = galveston_cruise_page && galveston_cruise_page.galvestonCruiseTransfer[0]
-  // const faqs = galveston_cruise_page && galveston_cruise_page.faqs
-  // const fleet = galveston_cruise_page && galveston_cruise_page.fleet
-  // const cityWeServe = galveston_cruise_page && galveston_cruise_page.cityWeServe
-  // const testimonial = galveston_cruise_page && galveston_cruise_page.testimonial
-
   useEffect(() => {
     dispatch(getGalvestonCruisePage());
   }, []);
@@ -51,7 +41,7 @@ function GalvestonCruisesTransportation(props) {
     galveston_cruise_page && galveston_cruise_page.cityWeServe;
   const testimonial =
     galveston_cruise_page && galveston_cruise_page.testimonial;
-
+  console.log("GalvestonCruisesTransportation", data);
   return (
     <>
       <NextSeo
@@ -77,6 +67,7 @@ function GalvestonCruisesTransportation(props) {
               <Hero
                 Text={data.heroDescription}
                 Title={
+                  data.heroTitle ||
                   "Galveston Cruise Transfer & Shuttle | IAH/Hobby Airport to Glaveston"
                 }
                 img={data.heroImage}
@@ -111,7 +102,10 @@ function GalvestonCruisesTransportation(props) {
                     <h6>TRANSPORT SERVICE</h6>
                     <span></span>
                     <h3>Galveston Cruises</h3>
-                    <h6>{data.galvestonCruises}</h6>
+                    <h6
+                      dangerouslySetInnerHTML={{
+                        __html: data.galvestonCruises,
+                      }}></h6>
                   </Col>
                   <Col xl={6} xs={12} lg={6} className={styles.imageContainer}>
                     <Image

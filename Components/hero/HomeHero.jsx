@@ -33,11 +33,11 @@ const Hero = ({Text, Form, MotoHidden, img, Title}) => {
           </div>
           <h1 className={styles.home_h1}>{Title}</h1>
           {MotoHidden ? null : (
-            <p
+            <div
               className={styles.moto}
               dangerouslySetInnerHTML={{
                 __html: Text.replace(/<img .*?>/g, ""),
-              }}></p>
+              }}></div>
           )}
         </div>
         <Form />

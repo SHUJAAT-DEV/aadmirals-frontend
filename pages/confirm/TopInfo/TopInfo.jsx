@@ -37,19 +37,19 @@ function TopInfo({quotes}) {
             }}>
             <span
               style={{
-                padding: "5px 5px",
+                padding: "12px",
                 borderRadius: "10px",
-                fontSize: "14px !important",
+                fontSize: "8px !important",
                 border: "1px solid",
                 fontFamily:
                   "AvenirNext, Helvetica, Arial, Open Sans, sans-seri",
               }}>
               {quotes.otherDetails.from}
-            </span>{" "}
+            </span>
             <span className={styles.svgReplace}>&gt;&gt;</span>{" "}
             <span
               style={{
-                padding: "5px 5px",
+                padding: "12px",
                 borderRadius: "10px",
                 border: "1px solid",
                 fontSize: "14px !important",
@@ -62,7 +62,7 @@ function TopInfo({quotes}) {
             <span className={styles.svgReplace}>&gt;&gt;</span>{" "}
             <span
               style={{
-                padding: "5px 5px",
+                padding: "12px",
                 borderRadius: "10px",
                 fontSize: "14px !important",
                 border: "1px solid",
@@ -82,7 +82,7 @@ function TopInfo({quotes}) {
             <span className={styles.svgReplace}>&gt;&gt;</span>{" "}
             <span
               style={{
-                padding: "5px 5px",
+                padding: "12px",
                 borderRadius: "10px",
                 fontSize: "14px !important",
                 border: "1px solid",
@@ -94,7 +94,7 @@ function TopInfo({quotes}) {
             <span className={styles.svgReplace}>&gt;&gt;</span>{" "}
             <span
               style={{
-                padding: "5px 5px",
+                padding: "12px",
                 borderRadius: "10px",
                 fontFamily:
                   "AvenirNext, Helvetica, Arial, Open Sans, sans-seri",

@@ -1,7 +1,6 @@
 import React, {useState, useRef, useEffect} from "react";
 import styles from "./hero.module.scss";
 import {Container} from "reactstrap";
-import img1 from "../../Assets/20191028-180329-Astroscelebrategame5_74865.png";
 import Image from "next/image";
 const Hero = ({Text, Form, MotoHidden, img, Title}) => {
   return (
@@ -32,7 +31,13 @@ const Hero = ({Text, Form, MotoHidden, img, Title}) => {
             </p>
           </div>
           <h1 className={styles.home_h1}>{Title}</h1>
-          {MotoHidden ? null : <p className={styles.moto}>{Text}</p>}
+          {MotoHidden ? null : (
+            <div
+              className={styles.moto}
+              dangerouslySetInnerHTML={{
+                __html: Text,
+              }}></div>
+          )}
         </div>
         <Form />
       </Container>

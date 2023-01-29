@@ -26,11 +26,13 @@ function GeorgeBushAirport(props) {
   const cms = props.data1;
   const {george_bush_page} = cms;
 
+  console.log("GeorgeBushAirport", cms);
+
   const data = george_bush_page && george_bush_page.georgeBushAirport[0];
   const faqs = george_bush_page && george_bush_page.faqs;
   const fleet = george_bush_page && george_bush_page.fleet;
   const testimonial = george_bush_page && george_bush_page.testimonial;
-
+  console.log("data", data);
   return (
     <>
       {cms.loading || cms.error ? (
@@ -49,7 +51,10 @@ function GeorgeBushAirport(props) {
             <div className={styles.mainContainer} fluid>
               <Hero
                 Text={data.heroDescription}
-                Title={"IAH/George Bush Airport Car & Shuttle Service"}
+                Title={
+                  data.heroTitle ||
+                  "IAH/George Bush Airport Car & Shuttle Service"
+                }
                 img={data?.heroImage}
                 Form={HomeForm}
               />
@@ -75,7 +80,10 @@ function GeorgeBushAirport(props) {
                       Get first-class service to and from the airport with
                       AAdmirals
                     </h2>
-                    <h6>{data.getFirstClassService}</h6>
+                    <h6
+                      dangerouslySetInnerHTML={{
+                        __html: data.getFirstClassService,
+                      }}></h6>
                   </Col>
                   <Col xl={6} xs={12} className={styles.imageContainer}>
                     <Image
