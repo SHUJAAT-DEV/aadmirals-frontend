@@ -36,16 +36,14 @@ const Hero = ({Text, Form, MotoHidden, img, Title}) => {
               className={styles.moto}
               dangerouslySetInnerHTML={{
                 __html: Text,
-              }}></div>
+              }}
+              ></div>
           )}
         </div>
         <Form />
       </Container>
     </div>
 
-    // <div ref={box} >
-
-    // </div>
   );
 };
 

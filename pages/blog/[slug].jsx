@@ -78,7 +78,6 @@ const Blogsdetails = (props) => {
 
                     <div
                       className="mt-3"
-
                       dangerouslySetInnerHTML={{ __html: data.blogDescription }}>
                     </div>
                     {

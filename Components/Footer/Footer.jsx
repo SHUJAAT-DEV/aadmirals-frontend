@@ -106,69 +106,7 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
-            </div>
-            {/* {details.error && (
-              <Alert className="m-0" color="danger">
-                {details.error}
-              </Alert>
-            )}
-            <div className={styles.container_right}>
-              <div className={styles.overly}>
-                <img
-                  src="/Assets/logo-white.svg"
-                  className="img img-fluid mb-3"
-                  className={styles.upLogo}
-                />
-                <h2>Our Contact Details</h2>
-                <div className={styles.details_container}>
-                  <img src="/Assets/location.svg" className="img img-fluid" />
-                  <h6>Location</h6>
-                  <p>{det && det.location}</p>
-                </div>
-                <div className={styles.details_container}>
-                  <div className={styles.inner_container}>
-                    <div className={styles.details_container}>
-                      <a href={`tel:+1${det && det.phoneNumber}`}>
-                        <img
-                          src="/Assets/phone.svg"
-                          className={`${styles.phone} img img-fluid`}
-                        />
-                        <h6>Phone</h6>
-                        <p>+1{det && det.phoneNumber}</p>
-                      </a>
-                    </div>
-                    <div className={styles.details_container}>
-                      <a href={`https://wa.me/1${det && det.whatsapp}`}>
-                        <img
-                          src="/Assets/whatsapp.svg"
-                          className={`${styles.phone} img img-fluid`}
-                        />
-                        <h6>Whatsapp</h6>
-                        <p>+1{det && det.whatsapp}</p>
-                      </a>
-                    </div>
-                    <div className={styles.details_container}>
-                      <a href={`skype:+1${det && det.skype}-?chat`}>
-                        <img
-                          src="/Assets/skype.svg"
-                          className={`${styles.phone} img img-fluid`}
-                        />
-                        <h6>Skype</h6>
-                        <p>+1{det && det.skype}</p>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div className={styles.details_container}>
-                <a href={`mailto:${det && det.email}`}>
-                  <img src="/Assets/email.svg" className="img img-fluid" width="25px" />
-                  <h6>Support</h6>
-                  <p>{det && det.email}</p>
-                  </a>
-                </div>
-              </div>
-            </div> */}
+            </div>  
           </Col>
           <Col style={{margin: "auto"}} xs={11} md={6} className="add_overflow">
             <div className="custom_contactus">

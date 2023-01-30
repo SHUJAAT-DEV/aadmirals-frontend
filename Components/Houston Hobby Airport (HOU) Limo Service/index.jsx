@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import {Container, Row, Col} from "reactstrap";
+import React, { useState, useEffect } from "react";
+import { Container, Row, Col } from "reactstrap";
 import styles from "./HoustonHobbyAirport.module.scss";
 import Header from "../Header/Header";
 import Fleet from "../fleet/fleet";
@@ -12,10 +12,10 @@ import SideNav from "../Header/SideNav/SideNav";
 import PopularLocations from "../Popular Locations/PopularLocations";
 import HomeForm from "../Home Form/HomeForm";
 import Testinmonial from "../Testimonial/Testimonial";
-import {Alert} from "reactstrap";
+import { Alert } from "reactstrap";
 import Loader from "../Loader/Loader";
-import {useDispatch, useSelector} from "react-redux";
-import {getHobbyAirportPage} from "../../redux/Services/Houston_Airport/Hobby_airport/action";
+import { useDispatch, useSelector } from "react-redux";
+import { getHobbyAirportPage } from "../../redux/Services/Houston_Airport/Hobby_airport/action";
 import Image from "next/image";
 
 function HoustonHobbyAirport(props) {
@@ -33,7 +33,7 @@ function HoustonHobbyAirport(props) {
     dispatch(getHobbyAirportPage());
   }, []);
   const cms = props.data1;
-  const {hobby_airport_page} = cms;
+  const { hobby_airport_page } = cms;
 
   const data = hobby_airport_page && hobby_airport_page.hobbyAirport[0];
   const faqs = hobby_airport_page && hobby_airport_page.faqs;
@@ -45,7 +45,7 @@ function HoustonHobbyAirport(props) {
         <Loader />
       ) : (
         <>
-          <div style={{overflow: "hidden"}}>
+          <div style={{ overflow: "hidden" }}>
             <SideNav />
             <Floatingbutton />
             <Header />
@@ -80,7 +80,13 @@ function HoustonHobbyAirport(props) {
                     <h6>TRANSPORT SERVICE</h6>
                     <span></span>
                     <h3>Limousine Services In The Hobby Airport Area</h3>
-                    <h6>{data.limousineServicesInTheHobbyAirportArea}</h6>
+                    {/* <h6>{data.limousineServicesInTheHobbyAirportArea}</h6> */}
+                    <h6
+                      // className={styles.  }
+                      dangerouslySetInnerHTML={{
+                        __html: data.limousineServicesInTheHobbyAirportArea,
+                      }} 
+                    />
                   </Col>
 
                   <Col
@@ -150,7 +156,7 @@ function HoustonHobbyAirport(props) {
                     </Col>
                   </Row>
 
-                  <Row style={{marginTop: "30px", marginBottom: "25px"}}>
+                  <Row style={{ marginTop: "30px", marginBottom: "25px" }}>
                     <Col
                       xl={6}
                       xs={12}
@@ -170,16 +176,16 @@ function HoustonHobbyAirport(props) {
                       />
                     </Col>
                     <Col xl={6} md={6} xs={12} className={styles.discription}>
-                      <h6
-                        style={{
-                          fontSize: "17px",
-                          fontFamily: "ProximaNovaLight",
-                          color: "#727070",
-                          textAlign: "left",
-                        }}
-                        className={styles.HoustinHobby}>
-                        {data.bannerImageText} <br /> <br />
-                      </h6>
+                        <h6
+                          style={{
+                            fontSize: "17px",
+                            fontFamily: "ProximaNovaLight",
+                            color: "#727070",
+                            textAlign: "left",
+                          }} dangerouslySetInnerHTML={{
+                            __html: data.bannerImageText,
+                          }} 
+                        /> 
                       <h6
                         style={{
                           fontSize: "17px",
