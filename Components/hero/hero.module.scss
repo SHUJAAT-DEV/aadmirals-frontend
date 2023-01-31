@@ -1,4 +1,5 @@
 @media only screen and (min-width: 1000px) {
+
   //   // FOR DESKTOP AND TABLET
   .mainDiv {
     background-position: bottom;
@@ -26,26 +27,31 @@
     top: 50%;
     width: 48%;
     transform: translateY(-50%);
+
     .moto {
       line-height: 200% !important;
       font-size: 19px !important;
       font-family: ProximaNovaRegular !important;
       color: white !important;
+
       p {
         line-height: 200% !important;
         font-size: 19px !important;
         font-family: ProximaNovaRegular !important;
         color: #fff !important;
+
         a {
           font-family: ProximaNovaRegular !important;
           color: #fff !important;
         }
+
         img {
           width: 4rem;
           height: 4rem;
         }
       }
     }
+
     p {
       line-height: 200%;
       color: #ee405e;
@@ -75,6 +81,7 @@
 }
 
 @media only screen and (min-width: 768px) and (max-width: 999px) {
+
   //   /* phones */
   .mainDiv {
     background-size: cover;
@@ -106,12 +113,10 @@
     display: inline-block;
 
     p {
-      line-height: 200%;
-      color: #ee405e;
-      font-size: 1rem;
-      font-family: ProximaNovaBold;
-      //   font-weight: bold;
-      text-align: center;
+      line-height: 200% !important;
+      font-size: 19px !important;
+      font-family: ProximaNovaRegular !important;
+      color: #fff !important;
     }
 
     h1:nth-child(2) {
@@ -146,6 +151,7 @@
 }
 
 @media only screen and (max-width: 767px) {
+
   //   /* phones */
   .mainDiv {
     background-size: cover;
@@ -178,11 +184,10 @@
     display: inline-block;
 
     p {
-      line-height: 200%;
-      color: #ee405e;
-      font-size: 1rem;
-      font-family: ProximaNovaBold;
-      text-align: center;
+      line-height: 200% !important;
+      font-size: 19px !important;
+      font-family: ProximaNovaRegular !important;
+      color: #fff !important;
     }
 
     h1:nth-child(2) {
@@ -224,29 +229,34 @@
     font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
   }
 }
+
 @media screen and (max-width: 1088px) {
   .home_h1 {
     font-size: 32px !important;
     font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
   }
 }
+
 @media screen and (min-width: 1000px) and (max-width: 1055px) {
   .home_h1 {
     font-size: 25px !important;
     font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
   }
 }
+
 @media screen and (min-width: 1000px) and(max-width: 1022px) {
   .home_h1 {
-    font-size: 25px !important ;
+    font-size: 25px !important;
     font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
   }
 }
+
 @media screen and (min-width: 1000px) and(max-width: 1155px) {
   .moto {
     width: 41.6vw !important;
   }
 }
+
 @media screen and(max-width: 999px) {
   .headingsContainer {
     background-color: black;
@@ -256,4 +266,5 @@
     border-radius: 12px;
   }
 }
+
 //Hero home h1, p

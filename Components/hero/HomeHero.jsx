@@ -36,8 +36,9 @@ const Hero = ({Text, Form, MotoHidden, img, Title}) => {
             <div
               className={styles.moto}
               dangerouslySetInnerHTML={{
-                __html: Text.replace(/<img .*?>/g, ""),
-              }}></div>
+                __html: Text,
+              }}
+              ></div>
           )}
         </div>
         <Form />

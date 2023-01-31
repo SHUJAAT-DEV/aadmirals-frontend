@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import {Container, Row, Col} from "reactstrap";
+import React, { useState, useEffect } from "react";
+import { Container, Row, Col } from "reactstrap";
 import styles from "./PrivateJetLimoService.module.scss";
 import Header from "../Header/Header";
 import Fleet from "../fleet/fleet";
@@ -11,29 +11,20 @@ import Hero from "../hero/hero";
 import SideNav from "../Header/SideNav/SideNav";
 import logo from "../../Assets/Group 943.png";
 import Testinmonial from "../Testimonial/Testimonial";
-import {Alert} from "reactstrap";
+import { Alert } from "reactstrap";
 import Loader from "../Loader/Loader";
-import {useDispatch, useSelector} from "react-redux";
-import {getPrivateJetPage} from "../../redux/Services/Houston_Airport/Private_jet/action";
+import { useDispatch, useSelector } from "react-redux";
+import { getPrivateJetPage } from "../../redux/Services/Houston_Airport/Private_jet/action";
 import Head from "next/head";
 import Image from "next/image";
 function PrivateJetLimoService(props) {
   const dispatch = useDispatch();
 
-  // const cms = useSelector((state) => state.privateJet);
-  // const { private_jet_page } = cms;
-
-  // const data =
-  //   private_jet_page && private_jet_page.privateAviationAndRegional[0];
-  // const faqs = private_jet_page && private_jet_page.faqs;
-  // const fleet = private_jet_page && private_jet_page.fleet;
-  // const testimonial = private_jet_page && private_jet_page.testimonial;
-
   useEffect(() => {
     dispatch(getPrivateJetPage());
   }, []);
   const cms = props.data1;
-  const {private_jet_page} = cms;
+  const { private_jet_page } = cms;
 
   const data =
     private_jet_page && private_jet_page.privateAviationAndRegional[0];
@@ -87,7 +78,7 @@ function PrivateJetLimoService(props) {
                   </Col>
                 </Row>
 
-                <Row style={{marginTop: "30px", marginBottom: "25px"}}>
+                <Row style={{ marginTop: "30px", marginBottom: "25px" }}>
                   <Col xl={6} xs={12}>
                     <Image
                       width="100"
@@ -96,7 +87,7 @@ function PrivateJetLimoService(props) {
                       height={50}
                       layout="responsive"
                       quality={100}
-                      style={{borderRadius: "5px"}}
+                      style={{ borderRadius: "5px" }}
                     />
                   </Col>
                   <Col
@@ -107,7 +98,12 @@ function PrivateJetLimoService(props) {
                     style={{
                       textAlign: "left",
                     }}>
-                    <h6>{data.regionalAviationAirportTransfer}</h6>
+                    <h6
+                      className={styles.text}
+                      dangerouslySetInnerHTML={{
+                        __html: data.regionalAviationAirportTransfer,
+                      }}
+                    />
                   </Col>
                 </Row>
               </center>
@@ -124,7 +120,7 @@ function PrivateJetLimoService(props) {
                 </Col>
               </Row>
 
-              <Row style={{marginTop: "30px", marginBottom: "25px"}}>
+              <Row style={{ marginTop: "30px", marginBottom: "25px" }}>
                 <Col
                   xl={6}
                   md={6}
@@ -133,14 +129,16 @@ function PrivateJetLimoService(props) {
                   style={{
                     textAlign: "left",
                   }}>
+             
                   <h6
                     style={{
                       fontSize: "17px",
                       fontFamily: "ProximaNovaLight",
                       color: "#727070",
-                    }}>
-                    {data.bannerText}
-                  </h6>
+                    }} dangerouslySetInnerHTML={{
+                      __html: data.bannerText,
+                    }}
+                  />
                 </Col>
                 <Col xl={6} xs={12}>
                   <Image
@@ -150,7 +148,7 @@ function PrivateJetLimoService(props) {
                     height={50}
                     layout="responsive"
                     quality={100}
-                    style={{borderRadius: "5px"}}
+                    style={{ borderRadius: "5px" }}
                   />
                 </Col>
               </Row>
@@ -160,7 +158,7 @@ function PrivateJetLimoService(props) {
                   xs={12}
                   xl={12}
                   md={12}
-                  style={{paddingTop: "50px", textAlign: "center"}}>
+                  style={{ paddingTop: "50px", textAlign: "center" }}>
                   <h4
                     style={{
                       fontSize: "28px",
@@ -169,15 +167,17 @@ function PrivateJetLimoService(props) {
                     }}>
                     We Offer A Fleet Of Top-Tier Vehicles To Choose From
                   </h4>
+                 
                   <h6
                     style={{
                       fontSize: "17px",
                       fontFamily: "ProximaNovaLight",
                       color: "#727070",
-                    }}>
-                    {data.weOfferAFleet}
-                  </h6>
-                  <h4 style={{fontSize: "17px", fontFamily: "ProximaNovaBold"}}>
+                    }} dangerouslySetInnerHTML={{
+                      __html: data.weOfferAFleet,
+                    }}
+                  />
+                  <h4 style={{ fontSize: "17px", fontFamily: "ProximaNovaBold" }}>
                     Our Chauffeurs Will Meet You At The Private Aviation As You
                     Arrive.
                   </h4>
@@ -187,9 +187,10 @@ function PrivateJetLimoService(props) {
                       fontSize: "17px",
                       fontFamily: "ProximaNovaLight",
                       color: "#727070",
-                    }}>
-                    {data.ourChauffeursWillMeetYou}
-                  </h6>
+                    }} dangerouslySetInnerHTML={{
+                      __html: data.ourChauffeursWillMeetYou,
+                    }}
+                  />
                 </Col>
               </Row>
             </Container>
@@ -197,55 +198,111 @@ function PrivateJetLimoService(props) {
           <Fleet fleet={fleet} />
           <Container fluid>
             <Container>
-              <Row style={{paddingTop: "100px"}}>
+              <Row style={{ paddingTop: "100px" }}>
                 <Col xl={12} md={12} xs={12} className={styles.discription1}>
                   <ul>
                     <li>Private Aviation Limousine service</li>
-                    <h6>{data.privateAviationLimousineService}</h6>
+                    <h6
+                      dangerouslySetInnerHTML={{
+                        __html: data.privateAviationLimousineService,
+                      }}
+                    />
                     <li>First Class Terminal</li>
-                    <h6>{data.firstClassTerminal}</h6>
+                    <h6
+                      dangerouslySetInnerHTML={{
+                        __html: data.firstClassTerminal,
+                      }}
+                    />
                     <li>First Class Booking</li>
-                    <h6>{data.firstClassBooking}</h6>
+                    <h6
+                      dangerouslySetInnerHTML={{
+                        __html: data.firstClassBooking,
+                      }}
+                    />
                     <li>Reliability, Punctuality, and Comfort…</li>
-                    <h6>{data.reliabilityPunctualityComfort}</h6>
+                    <h6
+                      dangerouslySetInnerHTML={{
+                        __html: data.reliabilityPunctualityComfort,
+                      }}
+                    />
                     <li>Private Jet Chapter Flights</li>
-                    <h6>{data.privateJetChapterFlights}</h6>
+                    <h6
+                      dangerouslySetInnerHTML={{
+                        __html: data.privateJetChapterFlights,
+                      }}
+                    />
                   </ul>
                 </Col>
               </Row>
-              <Row style={{paddingTop: "100px"}}>
+              <Row style={{ paddingTop: "100px" }}>
                 <Col xl={12} md={12} xs={12} className={styles.discription1}>
                   <ul>
-                    <li style={{color: "#EE405E", fontSize: "22px"}}>
+                    <li style={{ color: "#EE405E", fontSize: "22px" }}>
                       Top Private Aviations within Houston Greater Area
                     </li>
                     <li>
                       Atlantic Aviation Hobby Airport, Atlantic Aviation IAH
                       Airport
                     </li>
-                    <h6>{data.atlanticAviationHobbyAirport}</h6>
+                    <h6
+                      dangerouslySetInnerHTML={{
+                        __html: data.atlanticAviationHobbyAirport,
+                      }}
+                    />
                     <li>Million Air Hobby Airport</li>
-                    <h6>{data.millionAirHobbyAirport}</h6>
+                    <h6
+                      dangerouslySetInnerHTML={{
+                        __html: data.millionAirHobbyAirport,
+                      }}
+                    />
                     <li>Wilson Air Center Houston</li>
-                    <h6>{data.wilsonAirCenterHouston}</h6>
+                    <h6
+                      dangerouslySetInnerHTML={{
+                        __html: data.wilsonAirCenterHouston,
+                      }}
+                    />
                     <li>Sugar Land Regional Airport</li>
-                    <h6>{data.sugarlandRegionalAirport}</h6>
+                    <h6
+                      dangerouslySetInnerHTML={{
+                        __html: data.sugarlandRegionalAirport,
+                      }}
+                    />
                     <li>Signature Flight Support</li>
-                    <h6>{data.signatureFlightSupport}</h6>
+                    <h6
+                      dangerouslySetInnerHTML={{
+                        __html: data.signatureFlightSupport,
+                      }}
+                    />
                     <li>David Wayne Hooks Memorial Airport</li>
-                    <h6>{data.davidWayneHooksMemorialAirport}</h6>
+                    <h6
+                      dangerouslySetInnerHTML={{
+                        __html: data.davidWayneHooksMemorialAirport,
+                      }}
+                    />
                     <li>Houston Executive Airport</li>
-                    <h6>{data.houstonExecutiveAirport}</h6>
+                    <h6
+                      dangerouslySetInnerHTML={{
+                        __html: data.houstonExecutiveAirport,
+                      }}
+                    />
                     <li>Texas Gulf Coast Regional Airport</li>
-                    <h6>{data.texasGulfCoastRegionalAirport}</h6>
+                    <h6
+                      dangerouslySetInnerHTML={{
+                        __html: data.texasGulfCoastRegionalAirport,
+                      }}
+                    />
                     <li>Baytown Airport</li>
-                    <h6>{data.baytownAirport}</h6>
+                    <h6
+                      dangerouslySetInnerHTML={{
+                        __html: data.baytownAirport,
+                      }}
+                    />
                   </ul>
                 </Col>
               </Row>
             </Container>
             <Container>
-              <Row style={{paddingTop: "100px"}}>
+              <Row style={{ paddingTop: "100px" }}>
                 <Col xl={12} md={12} xs={12} className={styles.discription2}>
                   <center>
                     <h4>AAdmirals for Private Aviation Houston Limo Service</h4>
@@ -253,7 +310,7 @@ function PrivateJetLimoService(props) {
                 </Col>
               </Row>
 
-              <Row style={{marginTop: "30px", marginBottom: "25px"}}>
+              <Row style={{ marginTop: "30px", marginBottom: "25px" }}>
                 <Col xl={6} xs={12}>
                   <Image
                     width="100"
@@ -261,7 +318,7 @@ function PrivateJetLimoService(props) {
                     alt="AAdmirals for Private Aviation Houston Limo Service"
                     height={50}
                     layout="responsive"
-                    style={{borderRadius: "5px"}}
+                    style={{ borderRadius: "5px" }}
                     quality={100}
                   />
                 </Col>

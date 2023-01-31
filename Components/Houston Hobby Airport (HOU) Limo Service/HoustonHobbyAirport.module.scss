@@ -247,13 +247,18 @@
     display: none;
   }
 }
-
+     
 @media only screen and (max-width: 992px) {
   .travel {
     margin-top: -266px;
   }
 }
 
+// @media only screen and (min-width: 1999px) and (max-width: 1200px) {
+//   .featuresContainer{
+//     border: 2px solid red; 
+//   }
+// }
 @media only screen and (max-width: 767px) {
   .mainContainer {
     background-image: url("../../Assets/airport\ transfer.jpg");

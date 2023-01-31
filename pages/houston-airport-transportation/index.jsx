@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import {Container, Row, Col} from "reactstrap";
+import React, { useState, useEffect } from "react";
+import { Container, Row, Col } from "reactstrap";
 import Header from "../../Components/Header/Header";
 import styles from "../home.module.scss";
 import Fleet from "../../Components/fleet/fleet";
@@ -12,18 +12,19 @@ import Testimonial from "../../Components/Testimonial/Testimonial";
 import SideNav from "../../Components/Header/SideNav/SideNav";
 import logo from "../../Assets/Group 943.png";
 import HomeForm from "../../Components/Home Form/HomeForm";
-import {Alert} from "reactstrap";
+import { Alert } from "reactstrap";
 import Loader from "../../Components/Loader/Loader";
-import {useDispatch, useSelector} from "react-redux";
-import {getGalvestonCruisePage} from "../../redux/Services/Galveston_cruise_transportation/action";
+import { useDispatch, useSelector } from "react-redux";
+import { getGalvestonCruisePage } from "../../redux/Services/Galveston_cruise_transportation/action";
 import Head from "next/head";
 import * as api from "../../api";
 import axios from "axios";
-import {URL} from "../../config/serverUrl";
+import { URL } from "../../config/serverUrl";
 import ReactHtmlParser from "react-html-parser";
 import Link from "next/link";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 import Image from "next/image";
+import ReactDOMServer from 'react-dom/server';
 
 import Testinmonial from "../../Components/Testimonial/Testimonial";
 
@@ -46,7 +47,7 @@ function AirportTransportationHouston(props) {
   }, []);
   const cms = props.data1;
   //
-  const {houstonAirportTransportation} = cms;
+  const { houstonAirportTransportation } = cms;
 
   const data =
     houstonAirportTransportation &&
@@ -62,7 +63,7 @@ function AirportTransportationHouston(props) {
 
   const rawMarkup = (data) => {
     var rawMarkup = data;
-    return {__html: rawMarkup};
+    return { __html: rawMarkup };
   };
   return (
     <>
@@ -91,12 +92,27 @@ function AirportTransportationHouston(props) {
       <div className="container mt-3 mb-3">
         {houstonAirportTransportation.houstonAirportTransportation.map(
           (data, key) => {
+
+            const originalValue = ReactDOMServer.renderToStaticMarkup(ReactHtmlParser(data.DescriptionAfterBanner));
+
             return (
               <div className="row" key={key}>
                 <div className="col-12">
-                  {<p>{ReactHtmlParser(data.DescriptionAfterBanner)}</p>}
-                  {/* <span>{data.metaTitle}</span> */}
-                  <Image
+                                                                                  
+                  {<p>{ReactHtmlParser(data.DescriptionAfterBanner)}</p>} 
+
+                  {/* <span>{data.metaTitle}</span> */} 
+
+                  {/* {
+                    <p
+                      className={styles.houstonLimoServiceDiscription}
+                      dangerouslySetInnerHTML={{
+                        __html: {data.DescriptionAfterBanner},
+                      }}
+                    /> 
+                  } */} 
+
+                  <Image 
                     priority={true}
                     src={data.ImageAfterBanner1st}
                     className="w-100 mb-4 mt-4"
@@ -105,8 +121,8 @@ function AirportTransportationHouston(props) {
                     layout="responsive"
                     height={500}
                     quality={100}
-                  />
-                  {
+                  /> 
+                  { 
                     <p>
                       {ReactHtmlParser(data.DescriptionAfterBannerafterImage)}
                     </p>
@@ -204,7 +220,7 @@ function AirportTransportationHouston(props) {
     </>
   );
 }
-export async function getStaticProps({query}) {
+export async function getStaticProps({ query }) {
   let res2 = await axios.get(
     `${URL}/website-content/airport-transportation-houston`
   );
@@ -215,6 +231,6 @@ export async function getStaticProps({query}) {
     error: null,
     houstonAirportTransportation: data2,
   };
-  return {props: {data1}};
+  return { props: { data1 } };
 }
 export default AirportTransportationHouston;

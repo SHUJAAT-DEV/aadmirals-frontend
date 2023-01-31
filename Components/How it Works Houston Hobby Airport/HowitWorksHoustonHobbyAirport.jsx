@@ -1,26 +1,44 @@
 import React from "react";
-import {Container, Row, Col} from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 import styles from "./HowitWorksHoustonHobbyAirport.module.scss";
 
 function HowitWorksHoustonHobbyAirport(props) {
   return (
     <Container>
-      <h2 style={{textAlign: "center"}}>HOW IT WORKS</h2>
+      <h2 style={{ textAlign: "center" }}>HOW IT WORKS</h2>
       <Row className={styles.featuresContainer}>
         <Col xs={12} xl={4} md={12} className={styles.features}>
           <h6>Selection</h6>
           <span></span>
-          <h6 style={{textAlign: "justify"}}>{props.selection}</h6>
+          <h6
+            style={{
+              textAlign: "justify",
+            }} dangerouslySetInnerHTML={{
+              __html: props.selection,
+            }}
+          />
         </Col>
         <Col xs={12} xl={4} md={12} className={styles.features}>
           <h6>Booking</h6>
           <span></span>
-          <h6 style={{textAlign: "justify"}}>{props.booking}</h6>
+          <h6
+            style={{
+              textAlign: "justify",
+            }} dangerouslySetInnerHTML={{
+              __html: props.booking,
+            }}
+          />
         </Col>
         <Col xs={12} xl={4} md={12} className={styles.features}>
           <h6>Payment</h6>
           <span></span>
-          <h6 style={{textAlign: "justify"}}>{props.payment}</h6>
+          <h6
+            style={{
+              textAlign: "justify",
+            }} dangerouslySetInnerHTML={{
+              __html: props.payment,
+            }}
+          />
         </Col>
         <Col
           xs={12}
