@@ -20,15 +20,6 @@ import Image from "next/image";
 
 function HoustonHobbyAirport(props) {
   const dispatch = useDispatch();
-
-  // const cms = useSelector(state => state.hobbyAiport)
-  // const { hobby_airport_page } = cms
-
-  // const data = hobby_airport_page && hobby_airport_page.hobbyAirport[0]
-  // const faqs = hobby_airport_page && hobby_airport_page.faqs
-  // const fleet = hobby_airport_page && hobby_airport_page.fleet
-  // const testimonial = hobby_airport_page && hobby_airport_page.testimonial
-
   useEffect(() => {
     dispatch(getHobbyAirportPage());
   }, []);
@@ -36,6 +27,7 @@ function HoustonHobbyAirport(props) {
   const {hobby_airport_page} = cms;
 
   const data = hobby_airport_page && hobby_airport_page.hobbyAirport[0];
+  console.log("HoustonHobbyAirport", data);
   const faqs = hobby_airport_page && hobby_airport_page.faqs;
   const fleet = hobby_airport_page && hobby_airport_page.fleet;
   const testimonial = hobby_airport_page && hobby_airport_page.testimonial;
@@ -57,7 +49,10 @@ function HoustonHobbyAirport(props) {
             <div className={styles.mainContainer} fluid>
               <Hero
                 Text={data.heroDescription}
-                Title={"HOU Hobby Airport Car Service & Airport Shuttle"}
+                Title={
+                  data.heroTitle ||
+                  "HOU Hobby Airport Car Service & Airport Shuttle"
+                }
                 img={data?.heroImage}
                 Form={HomeForm}
               />
