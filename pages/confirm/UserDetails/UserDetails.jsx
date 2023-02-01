@@ -93,14 +93,7 @@ function UserDetails({otherDetails, stepper, setStepper, router, onCheckRed}) {
       setError("");
       dispatch(setDirection({returnDate, returnTime, type}));
     }
-    if (
-      bookedByName &&
-      bookedByPhone &&
-      pickupSign &&
-      email &&
-      fullName &&
-      phoneNumber
-    ) {
+    if (email && phoneNumber) {
       dispatch(setAccountDetails(formData));
     } else {
       window.scrollTo(0, 0);
@@ -130,31 +123,28 @@ function UserDetails({otherDetails, stepper, setStepper, router, onCheckRed}) {
       ...formData,
       [e.target.name]: e.target.value,
     });
-    if (e.target.name === "email") {
-      const regExp =
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      const checkValidate = regExp.test(e.target.value);
-      checkValidate ? setMailValidate(false) : setMailValidate(true);
-    } else {
-    }
-    if (e.target.name === "phoneNumber") {
-      const regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-      const checkValidate = regex.test(e.target.value);
-      checkValidate
-        ? console.log("phone validated")
-        : console.log("phone not validate");
-      checkValidate ? setPhoneValidate(false) : setPhoneValidate(true);
-    } else {
-    }
-    if (e.target.name === "bookedByPhone") {
-      const regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-      const checkValidate = regex.test(e.target.value);
-      checkValidate
-        ? console.log("phone validated")
-        : console.log("phone not validate");
-      checkValidate ? setBookedByPhone(false) : setBookedByPhone(true);
-    } else {
-    }
+    // if (e.target.name === "email") {
+    //   const regExp =
+    //     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    //   const checkValidate = regExp.test(e.target.value);
+    //   checkValidate ? setMailValidate(false) : setMailValidate(true);
+    // }
+    // if (e.target.name === "phoneNumber") {
+    //   const regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    //   const checkValidate = regex.test(e.target.value);
+    //   checkValidate
+    //     ? console.log("phone validated")
+    //     : console.log("phone not validate");
+    //   checkValidate ? setPhoneValidate(false) : setPhoneValidate(true);
+    // }
+    // if (e.target.name === "bookedByPhone") {
+    //   const regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    //   const checkValidate = regex.test(e.target.value);
+    //   checkValidate
+    //     ? console.log("phone validated")
+    //     : console.log("phone not validate");
+    //   checkValidate ? setBookedByPhone(false) : setBookedByPhone(true);
+    // }
   };
 
   return (

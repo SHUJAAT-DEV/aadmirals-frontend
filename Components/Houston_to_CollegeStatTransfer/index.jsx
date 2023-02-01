@@ -55,7 +55,10 @@ const Houstontocollegestat = () => {
             <div className={styles.mainContainer}>
               <Hero
                 Text={data.heroDescription}
-                Title={"Houston to College Station Limo & Shuttle Service"}
+                Title={
+                  data.heroTitle ||
+                  "Houston to College Station Limo & Shuttle Service"
+                }
                 img={data.heroImage}
                 Form={HomeForm}
               />
