@@ -13,6 +13,7 @@ import Search from "../AirportTransfer/SearchMap";
 function ByTheHour() {
   const history = useRouter();
   const dispatch = useDispatch();
+  
   const [state, setState] = useState({
     from: false,
     date: false,
@@ -20,6 +21,7 @@ function ByTheHour() {
     to: false,
     duration: false,
   });
+
   const [from, setFrom] = useState();
   const [to, setTo] = useState();
   const [error, setError] = useState("");

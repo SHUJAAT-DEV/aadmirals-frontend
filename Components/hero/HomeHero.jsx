@@ -1,9 +1,15 @@
-import React, {useState, useRef, useEffect} from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styles from "./hero.module.scss";
-import {Container} from "reactstrap";
+import { Container } from "reactstrap";
 import Image from "next/image";
-const Hero = ({Text, Form, MotoHidden, img, Title}) => {
-  return (
+
+const sanitizeHTML = dummyContent => dummyContent.replace(/<script.*?<\/script>/g, '');
+
+const Hero = ({ Text, Form, MotoHidden, img, Title }) => {
+
+  const contentSanitized = sanitizeHTML(Text);
+
+  return (  
     <div>
       <div className={styles.mainDiv}>
         <Image
@@ -19,7 +25,7 @@ const Hero = ({Text, Form, MotoHidden, img, Title}) => {
       </div>
       <Container className={styles.mainContainer} fluid>
         <div className={styles.headingsContainer}>
-          <div style={{paddingInline: "10px", width: "100%"}}>
+          <div style={{ paddingInline: "10px", width: "100%" }}>
             <p>
               <span
                 style={{
@@ -36,9 +42,9 @@ const Hero = ({Text, Form, MotoHidden, img, Title}) => {
             <div
               className={styles.moto}
               dangerouslySetInnerHTML={{
-                __html: Text,
+                __html: contentSanitized,
               }}
-              ></div>
+            ></div>
           )}
         </div>
         <Form />
