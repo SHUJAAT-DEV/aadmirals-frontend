@@ -57,8 +57,8 @@ function CityToCity() {
     if (address.latLng === undefined) {
       setError("Location Not Valid");
     } else {
-      setFromLat(address.latLng.lat);
-      setFromLng(address.latLng.lng);
+      setToLat(address.latLng.lat);
+      setToLng(address.latLng.lng);
     }
   };
   const handleChangeFrom = (address) => {
@@ -147,11 +147,16 @@ function CityToCity() {
       setError("Please select date or time frist!");
     } else {
       setLoading(true);
+
       var origin = new window.google.maps.LatLng(fromLat, fromLng);
       var destination = new window.google.maps.LatLng(toLat, toLng);
       var service = new window.google.maps.DistanceMatrixService();
+
+       console.log('origin ', origin , destination);
+
       service.getDistanceMatrix(
-        {
+        { 
+
           origins: [origin],
           destinations: [destination],
           travelMode: "DRIVING",
@@ -160,22 +165,30 @@ function CityToCity() {
           unitSystem: window.google.maps.UnitSystem.IMPERIAL,
           avoidHighways: false,
           avoidTolls: false,
-        },
+        }, 
         callback
       );
+      
+      // console.log('callback ', callback);
 
       function callback(response, status) {
+
+        console.log('response ', response);
+        console.log('status ', status);
+
         setError("");
         if (response?.rows[0]?.elements[0]?.distance?.value / 1609 < 81) {
           setError(
             "Minimum distance for city to city is 81 miles, you can use Point To Point instead."
-          );
+          ); 
           setLoading(false);
           return;
         }
+        
         setLoading(false);
         if (response) {
           let data = {
+
             from: response?.originAddresses[0],
             to: response?.destinationAddresses[0],
             time: time,
@@ -190,7 +203,7 @@ function CityToCity() {
             setError("Please enter dropoff location");
           } else {
             dispatch(getQuoteCityToCity(data, history));
-          }
+          } 
         } else {
           setError("Something went wrong!");
         }
