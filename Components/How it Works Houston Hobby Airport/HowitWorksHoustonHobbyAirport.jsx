@@ -1,8 +1,14 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
 import styles from "./HowitWorksHoustonHobbyAirport.module.scss";
+import sanitizeHTML from "../hero/SanitizedReactUtils";
 
 function HowitWorksHoustonHobbyAirport(props) {
+
+  let sanitizedSelection = sanitizeHTML( props.selection );
+  let sanitizedBooking = sanitizeHTML( props.booking );
+  let sanitizedPayment = sanitizeHTML( props.payment );
+
   return (
     <Container>
       <h2 style={{ textAlign: "center" }}>HOW IT WORKS</h2>
@@ -13,19 +19,20 @@ function HowitWorksHoustonHobbyAirport(props) {
           <h6
             style={{
               textAlign: "justify",
-            }} dangerouslySetInnerHTML={{
-              __html: props.selection,
+            }} 
+            dangerouslySetInnerHTML={{
+              __html: sanitizedSelection,
             }}
           />
         </Col>
         <Col xs={12} xl={4} md={12} className={styles.features}>
           <h6>Booking</h6>
           <span></span>
-          <h6
+          <h6 
             style={{
               textAlign: "justify",
             }} dangerouslySetInnerHTML={{
-              __html: props.booking,
+              __html: sanitizedBooking,
             }}
           />
         </Col>
@@ -36,7 +43,7 @@ function HowitWorksHoustonHobbyAirport(props) {
             style={{
               textAlign: "justify",
             }} dangerouslySetInnerHTML={{
-              __html: props.payment,
+              __html: sanitizedPayment,
             }}
           />
         </Col>

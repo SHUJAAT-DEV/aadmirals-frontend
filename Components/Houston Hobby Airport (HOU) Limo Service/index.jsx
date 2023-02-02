@@ -17,6 +17,7 @@ import Loader from "../Loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { getHobbyAirportPage } from "../../redux/Services/Houston_Airport/Hobby_airport/action";
 import Image from "next/image";
+import sanitizeHTML from "../hero/SanitizedReactUtils";
 
 function HoustonHobbyAirport(props) {
   const dispatch = useDispatch();
@@ -31,6 +32,11 @@ function HoustonHobbyAirport(props) {
   const faqs = hobby_airport_page && hobby_airport_page.faqs;
   const fleet = hobby_airport_page && hobby_airport_page.fleet;
   const testimonial = hobby_airport_page && hobby_airport_page.testimonial;
+
+  let sanitizedLimousineServicesInTheHobbyAirportArea = sanitizeHTML(data.limousineServicesInTheHobbyAirportArea);
+  let sanitizedBannerImageText = sanitizeHTML(data.bannerImageText);
+
+
   return (
     <>
       {cms.loading || cms.error ? (
@@ -75,11 +81,9 @@ function HoustonHobbyAirport(props) {
                     <h6>TRANSPORT SERVICE</h6>
                     <span></span>
                     <h3>Limousine Services In The Hobby Airport Area</h3>
-                    {/* <h6>{data.limousineServicesInTheHobbyAirportArea}</h6> */}
                     <h6
-                      // className={styles.  }
                       dangerouslySetInnerHTML={{
-                        __html: data.limousineServicesInTheHobbyAirportArea,
+                        __html: sanitizedLimousineServicesInTheHobbyAirportArea,
                       }} 
                     />
                   </Col>
@@ -117,7 +121,7 @@ function HoustonHobbyAirport(props) {
                         quality={100}
                       />
                       <h6>24 Hours Service</h6>
-                    </Col>
+                    </Col> 
                     <Col xs={12} xl={4} md={12} className={styles.features}>
                       <Image
                         priority={true}
@@ -150,7 +154,6 @@ function HoustonHobbyAirport(props) {
                       <h6>All Inclusive Pricing</h6>
                     </Col>
                   </Row>
-
                   <Row style={{ marginTop: "30px", marginBottom: "25px" }}>
                     <Col
                       xl={6}
@@ -177,8 +180,9 @@ function HoustonHobbyAirport(props) {
                             fontFamily: "ProximaNovaLight",
                             color: "#727070",
                             textAlign: "left",
-                          }} dangerouslySetInnerHTML={{
-                            __html: data.bannerImageText,
+                          }} 
+                          dangerouslySetInnerHTML={{
+                            __html: sanitizedBannerImageText,
                           }} 
                         /> 
                       <h6

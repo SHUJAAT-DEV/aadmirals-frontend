@@ -24,29 +24,20 @@ import ReactHtmlParser from "react-html-parser";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import ReactDOMServer from 'react-dom/server';
-
 import Testinmonial from "../../Components/Testimonial/Testimonial";
+import sanitizeHTML from "../../Components/hero/SanitizedReactUtils";
 
 function AirportTransportationHouston(props) {
+  
   const router = useRouter();
 
   const dispatch = useDispatch();
-
-  // const cms = useSelector(state => state.galvestonCruise)
-  // const { galveston_cruise_page } = cms
-
-  // const data = galveston_cruise_page && galveston_cruise_page.galvestonCruiseTransfer[0]
-  // const faqs = galveston_cruise_page && galveston_cruise_page.faqs
-  // const fleet = galveston_cruise_page && galveston_cruise_page.fleet
-  // const cityWeServe = galveston_cruise_page && galveston_cruise_page.cityWeServe
-  // const testimonial = galveston_cruise_page && galveston_cruise_page.testimonial
 
   useEffect(() => {
     // dispatch(getGalvestonCruisePage())
   }, []);
   const cms = props.data1;
-  //
+  //s
   const { houstonAirportTransportation } = cms;
 
   const data =
@@ -59,7 +50,6 @@ function AirportTransportationHouston(props) {
   //   const cityWeServe = houstonAirportTransportation && houstonAirportTransportation.cityWeServe
   const testimonial =
     houstonAirportTransportation && houstonAirportTransportation.testimonial;
-  //
 
   const rawMarkup = (data) => {
     var rawMarkup = data;
@@ -92,27 +82,21 @@ function AirportTransportationHouston(props) {
       <div className="container mt-3 mb-3">
         {houstonAirportTransportation.houstonAirportTransportation.map(
           (data, key) => {
+            
+            let sanitizedContent1 = sanitizeHTML(data.DescriptionAfterBanner);
+            let sanitizedContent2 = sanitizeHTML(data.DescriptionAfterBannerafterImage);
+            let sanitizedContent3 = sanitizeHTML(data.DescriptionAfterAannerAfterImage2nd);
+            let sanitizedContent4 = sanitizeHTML(data.DescriptionAfterBannerAfterImage3rd);
 
-            const originalValue = ReactDOMServer.renderToStaticMarkup(ReactHtmlParser(data.DescriptionAfterBanner));
+            console.log('sanitizedContent1 ', sanitizedContent2);
 
             return (
               <div className="row" key={key}>
                 <div className="col-12">
-                                                                                  
-                  {<p>{ReactHtmlParser(data.DescriptionAfterBanner)}</p>} 
 
-                  {/* <span>{data.metaTitle}</span> */} 
+                  {<p>{ReactHtmlParser(sanitizedContent1)}</p>}
 
-                  {/* {
-                    <p
-                      className={styles.houstonLimoServiceDiscription}
-                      dangerouslySetInnerHTML={{
-                        __html: {data.DescriptionAfterBanner},
-                      }}
-                    /> 
-                  } */} 
-
-                  <Image 
+                  <Image
                     priority={true}
                     src={data.ImageAfterBanner1st}
                     className="w-100 mb-4 mt-4"
@@ -121,10 +105,10 @@ function AirportTransportationHouston(props) {
                     layout="responsive"
                     height={500}
                     quality={100}
-                  /> 
-                  { 
+                  />
+                  {
                     <p>
-                      {ReactHtmlParser(data.DescriptionAfterBannerafterImage)}
+                      {ReactHtmlParser(sanitizedContent2)}
                     </p>
                   }
                   <Image
@@ -140,7 +124,7 @@ function AirportTransportationHouston(props) {
                   {
                     <p>
                       {ReactHtmlParser(
-                        data.DescriptionAfterAannerAfterImage2nd
+                        sanitizedContent3
                       )}
                     </p>
                   }
@@ -158,7 +142,7 @@ function AirportTransportationHouston(props) {
                   {
                     <p>
                       {ReactHtmlParser(
-                        data.DescriptionAfterBannerAfterImage3rd
+                        sanitizedContent4
                       )}
                     </p>
                   }

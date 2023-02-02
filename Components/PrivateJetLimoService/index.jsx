@@ -17,12 +17,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPrivateJetPage } from "../../redux/Services/Houston_Airport/Private_jet/action";
 import Head from "next/head";
 import Image from "next/image";
+import sanitizeHTML from "../hero/SanitizedReactUtils";
+
 function PrivateJetLimoService(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getPrivateJetPage());
   }, []);
+
   const cms = props.data1;
   const { private_jet_page } = cms;
 
@@ -31,6 +34,13 @@ function PrivateJetLimoService(props) {
   const faqs = private_jet_page && private_jet_page.faqs;
   const fleet = private_jet_page && private_jet_page.fleet;
   const testimonial = private_jet_page && private_jet_page.testimonial;
+
+  let sanitizedContentRegionalAviationAirportTransfer = sanitizeHTML(data.regionalAviationAirportTransfer);
+  let sanitizedBannerText = sanitizeHTML(data.bannerText);
+  let sanitizedWeOfferAFleet = sanitizeHTML(data.weOfferAFleet);
+  let sanitizedOurChauffeursWillMeetYou = sanitizeHTML(data.ourChauffeursWillMeetYou);
+  let sanitizedPrivateAviationLimousineService = sanitizeHTML(data.privateAviationLimousineService);
+
   return (
     <>
       <Head>
@@ -79,7 +89,10 @@ function PrivateJetLimoService(props) {
                 </Row>
 
                 <Row style={{ marginTop: "30px", marginBottom: "25px" }}>
-                  <Col xl={6} xs={12}>
+                  <Col xl={6} xs={12} style={{
+                    position: "relative",
+                    top: "34px"
+                  }}>
                     <Image
                       width="100"
                       src={data.regionalAviationAirportTransferImage}
@@ -87,7 +100,7 @@ function PrivateJetLimoService(props) {
                       height={50}
                       layout="responsive"
                       quality={100}
-                      style={{ borderRadius: "5px" }}
+
                     />
                   </Col>
                   <Col
@@ -101,7 +114,7 @@ function PrivateJetLimoService(props) {
                     <h6
                       className={styles.text}
                       dangerouslySetInnerHTML={{
-                        __html: data.regionalAviationAirportTransfer,
+                        __html: sanitizedContentRegionalAviationAirportTransfer,
                       }}
                     />
                   </Col>
@@ -129,14 +142,15 @@ function PrivateJetLimoService(props) {
                   style={{
                     textAlign: "left",
                   }}>
-             
+
                   <h6
                     style={{
                       fontSize: "17px",
                       fontFamily: "ProximaNovaLight",
                       color: "#727070",
-                    }} dangerouslySetInnerHTML={{
-                      __html: data.bannerText,
+                    }}
+                    dangerouslySetInnerHTML={{
+                      __html: sanitizedBannerText,
                     }}
                   />
                 </Col>
@@ -167,14 +181,15 @@ function PrivateJetLimoService(props) {
                     }}>
                     We Offer A Fleet Of Top-Tier Vehicles To Choose From
                   </h4>
-                 
+
                   <h6
                     style={{
                       fontSize: "17px",
                       fontFamily: "ProximaNovaLight",
                       color: "#727070",
-                    }} dangerouslySetInnerHTML={{
-                      __html: data.weOfferAFleet,
+                    }}
+                    dangerouslySetInnerHTML={{
+                      __html: sanitizedWeOfferAFleet,
                     }}
                   />
                   <h4 style={{ fontSize: "17px", fontFamily: "ProximaNovaBold" }}>
@@ -187,8 +202,9 @@ function PrivateJetLimoService(props) {
                       fontSize: "17px",
                       fontFamily: "ProximaNovaLight",
                       color: "#727070",
-                    }} dangerouslySetInnerHTML={{
-                      __html: data.ourChauffeursWillMeetYou,
+                    }}
+                    dangerouslySetInnerHTML={{
+                      __html: sanitizedOurChauffeursWillMeetYou,
                     }}
                   />
                 </Col>
@@ -204,31 +220,31 @@ function PrivateJetLimoService(props) {
                     <li>Private Aviation Limousine service</li>
                     <h6
                       dangerouslySetInnerHTML={{
-                        __html: data.privateAviationLimousineService,
+                        __html: sanitizedPrivateAviationLimousineService,
                       }}
                     />
                     <li>First Class Terminal</li>
                     <h6
                       dangerouslySetInnerHTML={{
-                        __html: data.firstClassTerminal,
+                        __html: sanitizeHTML(data.firstClassTerminal),
                       }}
                     />
                     <li>First Class Booking</li>
                     <h6
                       dangerouslySetInnerHTML={{
-                        __html: data.firstClassBooking,
+                        __html: sanitizeHTML(data.firstClassBooking),
                       }}
                     />
                     <li>Reliability, Punctuality, and Comfort…</li>
                     <h6
                       dangerouslySetInnerHTML={{
-                        __html: data.reliabilityPunctualityComfort,
+                        __html: sanitizeHTML(data.reliabilityPunctualityComfort),
                       }}
                     />
                     <li>Private Jet Chapter Flights</li>
                     <h6
                       dangerouslySetInnerHTML={{
-                        __html: data.privateJetChapterFlights,
+                        __html: sanitizeHTML(data.privateJetChapterFlights),
                       }}
                     />
                   </ul>
@@ -246,55 +262,55 @@ function PrivateJetLimoService(props) {
                     </li>
                     <h6
                       dangerouslySetInnerHTML={{
-                        __html: data.atlanticAviationHobbyAirport,
+                        __html: sanitizeHTML(data.atlanticAviationHobbyAirport),
                       }}
                     />
                     <li>Million Air Hobby Airport</li>
                     <h6
                       dangerouslySetInnerHTML={{
-                        __html: data.millionAirHobbyAirport,
+                        __html: sanitizeHTML(data.millionAirHobbyAirport),
                       }}
                     />
                     <li>Wilson Air Center Houston</li>
                     <h6
                       dangerouslySetInnerHTML={{
-                        __html: data.wilsonAirCenterHouston,
+                        __html: sanitizeHTML(data.wilsonAirCenterHouston),
                       }}
                     />
                     <li>Sugar Land Regional Airport</li>
                     <h6
                       dangerouslySetInnerHTML={{
-                        __html: data.sugarlandRegionalAirport,
+                        __html: sanitizeHTML(data.sugarlandRegionalAirport),
                       }}
                     />
                     <li>Signature Flight Support</li>
                     <h6
                       dangerouslySetInnerHTML={{
-                        __html: data.signatureFlightSupport,
+                        __html: sanitizeHTML(data.signatureFlightSupport),
                       }}
                     />
                     <li>David Wayne Hooks Memorial Airport</li>
                     <h6
                       dangerouslySetInnerHTML={{
-                        __html: data.davidWayneHooksMemorialAirport,
+                        __html: sanitizeHTML(data.davidWayneHooksMemorialAirport),
                       }}
                     />
                     <li>Houston Executive Airport</li>
                     <h6
                       dangerouslySetInnerHTML={{
-                        __html: data.houstonExecutiveAirport,
+                        __html: sanitizeHTML(data.houstonExecutiveAirport),
                       }}
                     />
                     <li>Texas Gulf Coast Regional Airport</li>
                     <h6
                       dangerouslySetInnerHTML={{
-                        __html: data.texasGulfCoastRegionalAirport,
+                        __html: sanitizeHTML(data.texasGulfCoastRegionalAirport),
                       }}
                     />
                     <li>Baytown Airport</li>
                     <h6
                       dangerouslySetInnerHTML={{
-                        __html: data.baytownAirport,
+                        __html: sanitizeHTML(data.baytownAirport),
                       }}
                     />
                   </ul>

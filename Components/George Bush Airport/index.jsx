@@ -16,6 +16,7 @@ import Loader from "../Loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { getGeorgeBushPage } from "../../redux/Services/Houston_Airport/George_bush/action";
 import Image from "next/image";
+import sanitizeHTML from "../hero/SanitizedReactUtils";
 
 function GeorgeBushAirport(props) {
   const dispatch = useDispatch();
@@ -30,7 +31,14 @@ function GeorgeBushAirport(props) {
   const faqs = george_bush_page && george_bush_page.faqs;
   const fleet = george_bush_page && george_bush_page.fleet;
   const testimonial = george_bush_page && george_bush_page.testimonial;
-  console.log("data", data);
+
+  let sanitizedGetFirstClassService = sanitizeHTML(data.getFirstClassService);
+  let sanitizedIahAirportHeading = sanitizeHTML(data.iahAirportHeading);
+  let sanitizedMeetAndPickUpLocationInstructions = sanitizeHTML(data.meetAndPickUpLocationInstructions);
+  let sanitizedoOurFleet = sanitizeHTML(data.ourFleet);
+  let sanitizedHowToConnectToHoustonAirport = sanitizeHTML(data.howToConnectToHoustonAirport);
+
+  console.log('checking = ', sanitizedoOurFleet);
 
   return (
     <>
@@ -53,7 +61,7 @@ function GeorgeBushAirport(props) {
                 Title={
                   data.heroTitle ||
                   "IAH/George Bush Airport Car & Shuttle Service"
-                }
+                } 
                 img={data?.heroImage}
                 Form={HomeForm}
               />
@@ -81,7 +89,7 @@ function GeorgeBushAirport(props) {
                     </h2>
                     <h6
                       dangerouslySetInnerHTML={{
-                        __html: data.getFirstClassService,
+                        __html: sanitizedGetFirstClassService,
                       }}
                     ></h6>
                   </Col>
@@ -167,7 +175,6 @@ function GeorgeBushAirport(props) {
                     />
                   </Col>
                 </Row>
-
                 <Row>
                   <Col
                     xs={12}
@@ -220,9 +227,9 @@ function GeorgeBushAirport(props) {
                     <h6
                       className={styles.houstonLimoServiceDiscription}
                       dangerouslySetInnerHTML={{
-                        __html: data.iahAirportHeading,
-                      }}
-                    />
+                        __html: sanitizedIahAirportHeading,
+                      }} 
+                    /> 
                   </Col>
                 </Row>
                 <Row>
@@ -240,7 +247,7 @@ function GeorgeBushAirport(props) {
                     <h6
                       className={styles.houstonLimoServiceDiscription}
                       dangerouslySetInnerHTML={{
-                        __html: data.ourFleet,
+                        __html: sanitizedoOurFleet,
                       }}
                     />
                   </Col>
@@ -269,8 +276,8 @@ function GeorgeBushAirport(props) {
                     <h6
                       className={styles.houstonLimoServiceDiscription}
                       dangerouslySetInnerHTML={{
-                        __html: data.meetAndPickUpLocationInstructions,
-                      }}
+                        __html: sanitizedMeetAndPickUpLocationInstructions,
+                      }} 
                     />
                     <h3 style={{ fontFamily: "ProximaNovaBold" }}>
                       How to Connect to Houston Airport WiFi (IAH)
@@ -278,7 +285,7 @@ function GeorgeBushAirport(props) {
                     <h6
                       className={styles.houstonLimoServiceDiscription}
                       dangerouslySetInnerHTML={{
-                        __html: data.howToConnectToHoustonAirport,
+                        __html: sanitizedHowToConnectToHoustonAirport,
                       }}
                     />
                   </Col>

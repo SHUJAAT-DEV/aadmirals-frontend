@@ -3,8 +3,13 @@ import { Container, Row, Col } from "reactstrap";
 import Pic1 from "../../Assets/Rectangle 184.jpg";
 import Pic2 from "../../Assets/Rectangle 183.jpg";
 import styles from "./PopularLocations.module.scss";
+import sanitizeHTML from "../hero/SanitizedReactUtils";
 
 function PopularLocations(props) {
+
+  let sanitizedBannerImageText = sanitizeHTML(props.popularLocations);
+  let sanitizedHobbyAirportRates = sanitizeHTML(props.hobbyAirportRates);
+
   return (
     <>
       <Container style={{ marginTop: "-24px" }} className={styles.mainContainer}>
@@ -17,7 +22,7 @@ function PopularLocations(props) {
             <h6
             className={styles.text} style={{ textAlign: "justify" }}
              dangerouslySetInnerHTML={{
-                __html: props.popularLocations,
+                __html: sanitizedBannerImageText,
               }}
             />
           </Col>
@@ -58,7 +63,7 @@ function PopularLocations(props) {
             <h6
             className={styles.text} style={{ textAlign: "justify" }}
              dangerouslySetInnerHTML={{
-                __html: props.popularLocations,
+                __html: sanitizedHobbyAirportRates,
               }}
             />
           </Col>
