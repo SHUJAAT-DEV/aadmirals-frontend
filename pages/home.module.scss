@@ -99,6 +99,11 @@
     color: #e73f5e;
   }
 }
+
+.hoverEffect:hover{
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 767px) {
   .properties_Limo {
     width: 94vw !important;

@@ -2,8 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import styles from "./hero.module.scss";
 import { Container } from "reactstrap";
 import Image from "next/image";
-
-const sanitizeHTML = dummyContent => dummyContent.replace(/<script.*?<\/script>/g, '');
+import sanitizeHTML from "./SanitizedReactUtils";
 
 const Hero = ({ Text, Form, MotoHidden, img, Title }) => {
 
@@ -12,7 +11,7 @@ const Hero = ({ Text, Form, MotoHidden, img, Title }) => {
   return (  
     <div>
       <div className={styles.mainDiv}>
-        <Image
+        <Image 
           priority={true}
           blurDataURL="https://www.pexels.com/photo/dark-blur-blurred-gradient-1526/"
           placeholder={"blur"}

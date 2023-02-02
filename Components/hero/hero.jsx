@@ -29,8 +29,8 @@ const Hero = ({Text, Form, MotoHidden, img, Title}) => {
                 WORLD NO 1 AIRPORT TRANSPORT SERVICE
               </span>
             </p>
-          </div>
-          <h1 className={styles.home_h1}>{Title}</h1>
+          </div> 
+          <h1 className={styles.home_h1}>{Title}</h1> 
           {MotoHidden ? null : (
             <div
               className={styles.moto}
@@ -38,7 +38,7 @@ const Hero = ({Text, Form, MotoHidden, img, Title}) => {
                 __html: Text,
               }}
               ></div>
-          )}
+          )} 
         </div>
         <Form />
       </Container>

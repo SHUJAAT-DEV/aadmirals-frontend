@@ -1,19 +1,39 @@
-import React, {useState} from "react";
-import {Container, Col, Row} from "reactstrap";
+import React, { useState } from "react";
+import { Container, Col, Row } from "reactstrap";
 import styles from "../../pages/home.module.scss";
 import Image from "next/image";
+import sanitizeHTML from "../hero/SanitizedReactUtils";
+import fetchLimitedContent from "./LimitedReactUtils";
 
-function LimousineService({data}) {
+function LimousineService({ data }) {
+
   const [click, setClick] = useState(true);
+
+  let sanitizedContent = sanitizeHTML(data.uniqueLimousineExperienceInHouston)
+  console.log('sanitized content = ', sanitizedContent);
+  
+  let showLimitedContent = "";
+  
+  showLimitedContent = fetchLimitedContent(sanitizedContent);
+  console.log('returnedValue', showLimitedContent);
+
   const content = click
-    ? "AAdmirals Travel& Transportation has provided professional airport transfer solutions and limo service since 2013 to individual passengers, families, groups and to corporates. We do airport transportation to and from Houston airports, Galveston cruise terminals, hotels, and other hubs. Whether you depart or arrive at George Bush Airport, Hobby Airport, Galveston port, Sugar Land regional airport, Atlantic aviation, Millionaire aviation or any other private aviation or regional airport in the Houston greater area AAdmirals is the best choice for the transportation service you need."
-    : data.uniqueLimousineExperienceInHouston;
+    ? showLimitedContent
+    : sanitizedContent;
+
+  // const content = click 
+  // ? 'AAdmirals Travel& Transportation has provided professional airport transfer solutions and limo service since 2013 to individual passengers, families, groups and to corporates. We do airport transportation to and from Houston airports, Galveston cruise terminals, hotels, and other hubs. Whether you depart or arrive at George Bush Airport, Hobby Airport, Galveston port, Sugar Land regional airport, Atlantic aviation, Millionaire aviation or any other private aviation or regional airport in the Houston greater area AAdmirals is the best choice for the transportation service you need' 
+  // : data.uniqueLimousineExperienceInHouston; 
+
+  console.log('dynamic content', data.uniqueLimousineExperienceInHouston);
 
   const handleChange = () => setClick(false);
   const visible = () => {
     if (click) {
       return (
-        <span onClick={handleChange} style={{color: "blue"}}>
+        <span onClick={handleChange} style={{ color: "blue" }}
+          className={styles.hoverEffect}
+        >
           {" "}
           Read More
         </span>
@@ -28,8 +48,8 @@ function LimousineService({data}) {
           The Best Limousine Service in Houston
         </h2>
       </div>
-      <div style={{textAlign: "center", paddingTop: "50px"}}>
-        <div className={styles.featuresBox_Limo} style={{width: "100%"}}>
+      <div style={{ textAlign: "center", paddingTop: "50px" }}>
+        <div className={styles.featuresBox_Limo} style={{ width: "100%" }}>
           <div className={styles.propertiesBox_Limo}>
             <div className="custom_main_images">
               <Row>
@@ -132,7 +152,7 @@ function LimousineService({data}) {
           <h2 className={styles.heading_Limo}>
             Unique Limousine Experience in Houston
           </h2>
-          <p style={{textAlign: "justify"}} className={styles.paragraph_Limo}>
+          <p style={{ textAlign: "justify" }} className={styles.paragraph_Limo}>
             {content}
             {visible()}
           </p>
