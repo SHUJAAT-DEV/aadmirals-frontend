@@ -1,17 +1,13 @@
 import React from "react";
 import styles from "../Confirm.module.scss";
 
-import {
-  Col,
-  Row,
-  Container
-} from "reactstrap";
+import { Col, Row, Container } from "reactstrap";
 import { useSelector } from "react-redux";
 function Checkout({ RedSignal }) {
   const preBooking = useSelector((state) => state.PreBookingReducer);
-  // 
+  //
   return (
-    <Container> 
+    <Container>
       <Row>
         <Col sm={12} md={12} lg={9} xl={9}>
           <div className={styles.showcase}>
@@ -25,7 +21,12 @@ function Checkout({ RedSignal }) {
               </h6>
             </div>
             <div className={styles.imageContainer}>
-              <img src={preBooking.car.image} width="100%" alt="car2" />
+              <img
+                src={preBooking.car.image}
+                width={450}
+                height={250}
+                alt="car2"
+              />
             </div>
           </div>
         </Col>
@@ -37,20 +38,13 @@ function Checkout({ RedSignal }) {
             <div className={styles.dataContainer1}>
               <h3>Grand Total</h3>
               <h3>
-              {RedSignal ?
-              <>{`$ ${parseInt(preBooking.amount) }`}</>
-              :
-              <>
-              {`$ ${preBooking.amount}`}
-              </>
-            
-            }
-                
-                
-                </h3>
+                {RedSignal ? (
+                  <>{`$ ${parseInt(preBooking.amount)}`}</>
+                ) : (
+                  <>{`$ ${preBooking.amount}`}</>
+                )}
+              </h3>
             </div>
-
-            
 
             <div className={styles.bg}>
               <h3>Summary</h3>
@@ -66,13 +60,14 @@ function Checkout({ RedSignal }) {
             <hr />
             <div className={styles.dataContainer2}>
               <h3>Grand Total</h3>
-              <h3> {RedSignal ?
-              <>{`$ ${parseInt(preBooking.amount) }`}</>
-              :
-              <>
-              {`$ ${preBooking.amount}`}
-              </>
-}</h3>
+              <h3>
+                {" "}
+                {RedSignal ? (
+                  <>{`$ ${parseInt(preBooking.amount)}`}</>
+                ) : (
+                  <>{`$ ${preBooking.amount}`}</>
+                )}
+              </h3>
             </div>
           </div>
         </Col>

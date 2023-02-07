@@ -116,13 +116,10 @@
   }
   .showcase {
     margin-top: 70px;
-    padding: 50px 30px;
+    padding: 10px;
     border: 2px solid #212b36;
     display: flex;
-    align-items: center;
-    .imageContainer {
-      width: 20rem;
-    }
+    justify-content: space-between;
     .info {
       h6 {
         span {

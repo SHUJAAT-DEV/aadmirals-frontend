@@ -170,18 +170,20 @@ function Confirm({ router }) {
               <PaymentMethod />
             </div>
 
-            <div className={styles.buttonsContainer}>
-              {stepper == 1 ? null : (
-                <>
-                  {stepper > 0 ? (
-                    <button onClick={previousStepper}>Previous</button>
-                  ) : null}
-                </>
-              )}
+            <div style={{ width: "60vw", margin: "0 auto" }}>
+              <div className={styles.buttonsContainer}>
+                {stepper == 1 ? null : (
+                  <>
+                    {stepper > 0 ? (
+                      <button onClick={previousStepper}>Previous</button>
+                    ) : null}
+                  </>
+                )}
 
-              {stepper == 2 ? (
-                <button onClick={(e) => setModal(true)}>Checkout</button>
-              ) : null}
+                {stepper == 2 ? (
+                  <button onClick={(e) => setModal(true)}>Checkout</button>
+                ) : null}
+              </div>
             </div>
 
             {/* modal */}

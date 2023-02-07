@@ -50,7 +50,7 @@ function UserDetails({
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
+  } = useForm({ mode: "onChange" });
 
   // const { time, bookingTypes, date } = otherDetails
 
@@ -145,7 +145,33 @@ function UserDetails({
   //   }, 2000);
   // }
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+    const {
+      bookByEmail,
+      bookByName,
+      bookByPhone,
+      flightDetails,
+      notes,
+      passangerEmail,
+      passangerName,
+      passangerPhone,
+      pickupDate,
+      pickupTime,
+      pickupSign,
+    } = data;
+    if (type === "ROUND TRIP") {
+      dispatch(setDirection({ pickupDate, pickupTime, type }));
+    }
+    if (passangerEmail && passangerPhone) {
+      dispatch(setAccountDetails(data));
+    }
+    setStepper(stepper + 1);
+  };
+  const ErrorMessage = ({ field }) => (
+    <p style={{ color: "red" }}>{field?.message}</p>
+  );
+
   return (
     <div className={styles.detail}>
       <div className={styles.form_reDesign}>
@@ -175,8 +201,13 @@ function UserDetails({
                       type="text"
                       placeholder="e.g. John Doe"
                       className={styles.fields_reDesign}
-                      {...register("bookByName")}
+                      {...register("bookByName", {
+                        required: "Name is required.",
+                      })}
                     />
+                    {errors?.bookByName && (
+                      <ErrorMessage field={errors?.bookByName} />
+                    )}
                   </div>
                 </Col>
                 <Col xs={12} md={6} lg={4}>
@@ -186,8 +217,13 @@ function UserDetails({
                       type="text"
                       placeholder="e.g. johdoe@gmail.com"
                       className={styles.fields_reDesign}
-                      {...register("bookByEmail")}
+                      {...register("bookByEmail", {
+                        required: "Email is required!",
+                      })}
                     />
+                    {errors?.bookByEmail && (
+                      <ErrorMessage field={errors?.bookByEmail} />
+                    )}
                   </div>
                 </Col>
                 <Col xs={12} md={6} lg={4}>
@@ -197,8 +233,13 @@ function UserDetails({
                       type="text"
                       placeholder="e.g. +1-222-505-3023"
                       className={styles.fields_reDesign}
-                      {...register("bookByPhone")}
+                      {...register("bookByPhone", {
+                        required: "Phone is required!",
+                      })}
                     />
+                    {errors?.bookByPhone && (
+                      <ErrorMessage field={errors?.bookByPhone} />
+                    )}
                   </div>
                 </Col>
               </Row>
@@ -213,8 +254,13 @@ function UserDetails({
                       type="text"
                       placeholder="e.g. John Doe"
                       className={styles.fields_reDesign}
-                      {...register("passangerName")}
+                      {...register("passangerName", {
+                        required: "Name is required!",
+                      })}
                     />
+                    {errors?.passangerName && (
+                      <ErrorMessage field={errors?.passangerName} />
+                    )}
                   </div>
                 </Col>
                 <Col xs={12} md={6} lg={4}>
@@ -226,8 +272,13 @@ function UserDetails({
                       type="text"
                       placeholder="e.g. johdoe@gmail.com"
                       className={styles.fields_reDesign}
-                      {...register("passangerEmail")}
+                      {...register("passangerEmail", {
+                        required: "Email is required!",
+                      })}
                     />
+                    {errors?.passangerEmail && (
+                      <ErrorMessage field={errors?.passangerEmail} />
+                    )}
                   </div>
                 </Col>
                 <Col xs={12} md={6} lg={4}>
@@ -239,15 +290,22 @@ function UserDetails({
                       type="text"
                       placeholder="e.g. +1-222-505-3023"
                       className={styles.fields_reDesign}
-                      {...register("passangerPhone")}
+                      {...register("passangerPhone", {
+                        required: "Phone is required!",
+                      })}
                     />
+                    {errors?.passangerPhone && (
+                      <ErrorMessage field={errors?.passangerPhone} />
+                    )}
                   </div>
                 </Col>
               </Row>
               <Row style={{ marginTop: 10 }}>
                 <Col xs={12}>
                   <div className={styles.inputBox}>
-                    <h6 className={styles.formText_reDesign}>Notes</h6>
+                    <h6 className={styles.formText_reDesign}>
+                      Notes (optional)
+                    </h6>
                     <textarea
                       rows={4}
                       placeholder="Any special requests (child car seats) Please dont include any confidential information"
@@ -269,8 +327,13 @@ function UserDetails({
                       type="text"
                       placeholder="e.g. LH204"
                       className={styles.fields_reDesign}
-                      {...register("flightDetails")}
+                      {...register("flightDetails", {
+                        required: "Flight details are required!",
+                      })}
                     />
+                    {errors?.flightDetails && (
+                      <ErrorMessage field={errors?.flightDetails} />
+                    )}
                   </div>
                 </Col>
               </Row>
@@ -288,6 +351,7 @@ function UserDetails({
                           placeholder="e.g. John Doe"
                           className={styles.fields_reDesign}
                           {...register("pickupDate", {
+                            required: "Date is required!",
                             onChange: (e) => {
                               setDate(
                                 moment(e.target.value).format("MM-DD-YYYY")
@@ -295,6 +359,9 @@ function UserDetails({
                             },
                           })}
                         />
+                        {errors?.pickupDate && (
+                          <ErrorMessage field={errors?.pickupDate} />
+                        )}
                       </div>
                     </Col>
                     <Col xs={12} md={6} lg={4}>
@@ -307,10 +374,13 @@ function UserDetails({
                           placeholder="e.g. johdoe@gmail.com"
                           className={styles.fields_reDesign}
                           {...register("pickupTime", {
-                            required: "This Field is required!",
+                            required: "Time is required!",
                             onChange: (e) => setTime(e.target.value),
                           })}
                         />
+                        {errors?.pickupTime && (
+                          <ErrorMessage field={errors?.pickupTime} />
+                        )}
                       </div>
                     </Col>
                   </Row>
@@ -332,37 +402,44 @@ function UserDetails({
                       type="text"
                       placeholder="e.g. John Doe"
                       className={styles.fields_reDesign}
-                      {...register("pickupSign")}
+                      {...register("pickupSign", {
+                        required: "This field is required!",
+                      })}
                     />
-                  </div>
-                </Col>
-                <Col xs={12} md={6} lg={4}>
-                  <div className={styles.inputBox}>
-                    <h6 className={styles.formText_reDesign}>Booked By Name</h6>
-                    <input
-                      type="text"
-                      placeholder="e.g. John Doe"
-                      className={styles.fields_reDesign}
-                      {...register("bookByName")}
-                    />
-                    {errors.bookedByName && (
-                      <p role="alert">{errors.bookedByName?.message}</p>
+                    {errors?.pickupSign && (
+                      <ErrorMessage field={errors?.pickupSign} />
                     )}
                   </div>
                 </Col>
                 <Col xs={12} md={6} lg={4}>
                   <div className={styles.inputBox}>
-                    <h6 className={styles.formText_reDesign}>
-                      Booked By Phone
-                    </h6>
+                    <h6 className={styles.formText_reDesign}>Book By Name</h6>
+                    <input
+                      type="text"
+                      placeholder="e.g. John Doe"
+                      className={styles.fields_reDesign}
+                      {...register("bookByName", {
+                        required: "Name is required!",
+                      })}
+                    />
+                    {errors?.bookByName && (
+                      <ErrorMessage field={errors?.bookByName} />
+                    )}
+                  </div>
+                </Col>
+                <Col xs={12} md={6} lg={4}>
+                  <div className={styles.inputBox}>
+                    <h6 className={styles.formText_reDesign}>Book By Phone</h6>
                     <input
                       type="text"
                       placeholder="e.g. +1-111-202-3045"
                       className={styles.fields_reDesign}
-                      {...register("bookedByPhone")}
+                      {...register("bookByPhone", {
+                        required: "Phone is required!",
+                      })}
                     />
-                    {errors.bookedByPhone && (
-                      <p role="alert">{errors.bookedByPhone?.message}</p>
+                    {errors?.bookByPhone && (
+                      <ErrorMessage field={errors?.bookByPhone} />
                     )}
                   </div>
                 </Col>
@@ -382,8 +459,13 @@ function UserDetails({
                       type="text"
                       placeholder="e.g. John Doe"
                       className={styles.fields_reDesign}
-                      {...register("passangerName")}
+                      {...register("passangerName", {
+                        required: "Name is required!",
+                      })}
                     />
+                    {errors?.passangerName && (
+                      <ErrorMessage field={errors?.passangerName} />
+                    )}
                   </div>
                 </Col>
                 <Col xs={12} md={6} lg={4}>
@@ -395,8 +477,13 @@ function UserDetails({
                       type="text"
                       placeholder="e.g. johdoe@gmail.com"
                       className={styles.fields_reDesign}
-                      {...register("passangerEmail")}
+                      {...register("passangerEmail", {
+                        required: "Email is required!",
+                      })}
                     />
+                    {errors?.passangerEmail && (
+                      <ErrorMessage field={errors?.passangerEmail} />
+                    )}
                   </div>
                 </Col>
                 <Col xs={12} md={6} lg={4}>
@@ -408,15 +495,22 @@ function UserDetails({
                       type="text"
                       placeholder="e.g. +1-222-505-3023"
                       className={styles.fields_reDesign}
-                      {...register("passangerPhone")}
+                      {...register("passangerPhone", {
+                        required: "Phone is required!",
+                      })}
                     />
+                    {errors?.passangerPhone && (
+                      <ErrorMessage field={errors?.passangerPhone} />
+                    )}
                   </div>
                 </Col>
               </Row>
               <Row style={{ marginTop: 10 }}>
                 <Col xs={12}>
                   <div className={styles.inputBox}>
-                    <h6 className={styles.formText_reDesign}>Notes</h6>
+                    <h6 className={styles.formText_reDesign}>
+                      Notes (Optional)
+                    </h6>
                     <textarea
                       rows={4}
                       placeholder="Any special requests (child car seats) Please dont include any confidential information"
@@ -444,7 +538,7 @@ function UserDetails({
                           placeholder="e.g. John Doe"
                           className={styles.fields_reDesign}
                           {...register("pickupDate", {
-                            required: "This Field is required!",
+                            required: "Date is required!",
                             onChange: (e) => {
                               setDate(
                                 moment(e.target.value).format("MM-DD-YYYY")
@@ -452,6 +546,9 @@ function UserDetails({
                             },
                           })}
                         />
+                        {errors?.pickupDate && (
+                          <ErrorMessage field={errors?.pickupDate} />
+                        )}
                       </div>
                     </Col>
                     <Col xs={12} md={6} lg={4}>
@@ -464,10 +561,13 @@ function UserDetails({
                           placeholder="e.g. johdoe@gmail.com"
                           className={styles.fields_reDesign}
                           {...register("pickupTime", {
-                            required: "This Field is required!",
+                            required: "Time is required!",
                             onChange: (e) => setTime(e.target.value),
                           })}
                         />
+                        {errors?.pickupTime && (
+                          <ErrorMessage field={errors?.pickupTime} />
+                        )}
                       </div>
                     </Col>
                   </Row>
