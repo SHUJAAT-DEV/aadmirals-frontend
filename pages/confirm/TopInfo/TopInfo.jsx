@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styles from "../Confirm.module.scss";
 import {
   FaChevronRight,
@@ -17,7 +17,7 @@ import {
   ModalFooter,
 } from "reactstrap";
 
-function TopInfo({quotes}) {
+function TopInfo({ quotes }) {
   return (
     <Container
       fluid
@@ -25,16 +25,24 @@ function TopInfo({quotes}) {
       style={{
         backgroundColor: "transparent",
         color: "black",
-      }}>
+        marginBottom: 20,
+      }}
+    >
       <div
         style={{
           alignContent: "center",
-        }}>
+        }}
+      >
         {quotes ? (
           <div
             style={{
               textAlign: "center",
-            }}>
+              display: "flex",
+              justifyContent: "center",
+              flexWrap: "wrap",
+              gap: 5,
+            }}
+          >
             <span
               style={{
                 padding: "12px",
@@ -43,7 +51,8 @@ function TopInfo({quotes}) {
                 border: "1px solid",
                 fontFamily:
                   "AvenirNext, Helvetica, Arial, Open Sans, sans-seri",
-              }}>
+              }}
+            >
               {quotes.otherDetails.from}
             </span>
             <span className={styles.svgReplace}>&gt;&gt;</span>{" "}
@@ -56,7 +65,8 @@ function TopInfo({quotes}) {
                 marginRight: "4px",
                 fontFamily:
                   "AvenirNext, Helvetica, Arial, Open Sans, sans-seri",
-              }}>
+              }}
+            >
               {quotes.otherDetails.to}{" "}
             </span>
             <span className={styles.svgReplace}>&gt;&gt;</span>{" "}
@@ -68,7 +78,8 @@ function TopInfo({quotes}) {
                 border: "1px solid",
                 fontFamily:
                   "AvenirNext, Helvetica, Arial, Open Sans, sans-seri",
-              }}>
+              }}
+            >
               {`Duration: ${
                 quotes.otherDetails.duration
                   ? quotes.otherDetails.duration
@@ -88,7 +99,8 @@ function TopInfo({quotes}) {
                 border: "1px solid",
                 fontFamily:
                   "AvenirNext, Helvetica, Arial, Open Sans, sans-seri",
-              }}>
+              }}
+            >
               {quotes.otherDetails.date}
             </span>{" "}
             <span className={styles.svgReplace}>&gt;&gt;</span>{" "}
@@ -100,7 +112,8 @@ function TopInfo({quotes}) {
                   "AvenirNext, Helvetica, Arial, Open Sans, sans-seri",
                 fontSize: "14px !important",
                 border: "1px solid",
-              }}>
+              }}
+            >
               {quotes.otherDetails.time}
             </span>
           </div>

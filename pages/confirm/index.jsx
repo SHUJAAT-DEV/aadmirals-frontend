@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-key */
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../Components/Header/Header";
 import SideNav from "../../Components/Header/SideNav/SideNav";
 import styles from "./Confirm.module.scss";
@@ -14,7 +14,7 @@ import {
   ModalBody,
   ModalFooter,
 } from "reactstrap";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../Components/Loader/Loader";
 import Fleet from "../../Components/FleetComponent/Fleet";
 import TopInfo from "./TopInfo/TopInfo";
@@ -23,11 +23,11 @@ import PaymentMethod from "./PaymentMethod/PaymentMethod";
 import Floatingbutton from "../../Components/floaingbutton/floatingbutton";
 import Checkout from "./Checkout/Checkout";
 import TermsAndCondition from "./TermsAndCondition/TermsAndCondition";
-import {setBookingType} from "../../redux/Bookings/PreBooking/action";
-import Router, {withRouter, useRouter} from "next/router";
-import {useAlert} from "react-alert";
+import { setBookingType } from "../../redux/Bookings/PreBooking/action";
+import Router, { withRouter, useRouter } from "next/router";
+import { useAlert } from "react-alert";
 
-function Confirm({router}) {
+function Confirm({ router }) {
   const pathname = router.pathname;
   const dispatch = useDispatch();
   const history = useRouter();
@@ -91,10 +91,10 @@ function Confirm({router}) {
           <div className={styles.mainContainer}>
             <Stepper
               steps={[
-                {title: "Service Class"},
-                {title: "Options"},
-                {title: "Checkout"},
-                {title: "Payment"},
+                { title: "Service Class" },
+                { title: "Options" },
+                { title: "Checkout" },
+                { title: "Payment" },
               ]}
               activeStep={stepper}
               completeColor="#ee405e"
@@ -111,7 +111,11 @@ function Confirm({router}) {
             />
             <TopInfo quotes={quotes.quotes} />
             <div className={stepper == 0 ? "" : styles.service}>
-              <Container style={{overflow: "hidden"}}>
+              <Container
+                style={{
+                  overflow: "hidden",
+                }}
+              >
                 <Row sm={12} md={12} lg={12} xl={12}>
                   <Col sm={12} md={12} lg={12} xl={12}>
                     <div
@@ -119,11 +123,12 @@ function Confirm({router}) {
                         fontSize: "20px",
                         marginTop: "20px",
                         fontWeight: "bold",
-                      }}>
+                      }}
+                    >
                       Showing 1 - {quotes.quotes.quoteResponse.length} of{" "}
                       {quotes.quotes.quoteResponse.length}
                     </div>
-                    <div style={{fontSize: "20px", fontWeight: "bold"}}>
+                    <div style={{ fontSize: "20px", fontWeight: "bold" }}>
                       Scroll Down for more Choices
                     </div>
                   </Col>
@@ -165,18 +170,20 @@ function Confirm({router}) {
               <PaymentMethod />
             </div>
 
-            <div className={styles.buttonsContainer}>
-              {stepper == 1 ? null : (
-                <>
-                  {stepper > 0 ? (
-                    <button onClick={previousStepper}>Previous</button>
-                  ) : null}
-                </>
-              )}
+            <div style={{ width: "60vw", margin: "0 auto" }}>
+              <div className={styles.buttonsContainer}>
+                {stepper == 1 ? null : (
+                  <>
+                    {stepper > 0 ? (
+                      <button onClick={previousStepper}>Previous</button>
+                    ) : null}
+                  </>
+                )}
 
-              {stepper == 2 ? (
-                <button onClick={(e) => setModal(true)}>Checkout</button>
-              ) : null}
+                {stepper == 2 ? (
+                  <button onClick={(e) => setModal(true)}>Checkout</button>
+                ) : null}
+              </div>
             </div>
 
             {/* modal */}
@@ -185,7 +192,7 @@ function Confirm({router}) {
                 {Number(preBooking.amount) < preBooking.MinFair ? (
                   <>
                     <ModalHeader toggle={toggle}></ModalHeader>
-                    <p style={{padding: "33px"}}>
+                    <p style={{ padding: "33px" }}>
                       Calculated fare is less than minimum fare, please try
                       again!
                     </p>
@@ -205,7 +212,8 @@ function Confirm({router}) {
                       <Button
                         className={styles.confirmBtn}
                         onClick={(e) => modalConfirm()}
-                        disabled={!check}>
+                        disabled={!check}
+                      >
                         Confirm
                       </Button>{" "}
                       <Button color="secondary" onClick={toggle}>

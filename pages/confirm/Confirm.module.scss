@@ -116,13 +116,10 @@
   }
   .showcase {
     margin-top: 70px;
-    padding: 50px 30px;
+    padding: 10px;
     border: 2px solid #212b36;
     display: flex;
-    align-items: center;
-    .imageContainer {
-      width: 20rem;
-    }
+    justify-content: space-between;
     .info {
       h6 {
         span {
@@ -233,8 +230,8 @@
     }
   }
   .detail {
-    padding-left: 100px;
-    padding-right: 100px;
+    // padding-left: 100px;
+    // padding-right: 100px;
 
     h3 {
       font-family: ProximaNovaBold;
@@ -249,9 +246,13 @@
     overflow: hidden;
   }
   .inputBox {
+    text-align: start;
+    h6{
+      color: #4b4b4b;
+    }
     input {
-      width: 300px;
-      padding: 10px;
+      width: 100%;
+      padding: 5px 10px;
       &::placeholder {
         color: #b2b3b6;
       }
@@ -262,9 +263,8 @@
       }
     }
     textarea {
-      width: 300px;
-      padding: 10px;
-      height: 150px;
+      width: 100%;
+      padding: 5px;
       resize: none;
       &::placeholder {
         color: #b2b3b6;
@@ -325,7 +325,6 @@
   }
   .buttonsContainer {
     margin: 50px 0;
-    text-align: center;
     button {
       border-radius: 5px;
       color: white;
@@ -351,21 +350,20 @@
   }
 }
 .form_reDesign {
-  text-align: center;
-  max-width: 80vw;
+  max-width: 60vw;
   margin: auto;
   margin-top: 22px;
-  padding-bottom: 1px;
+  padding: 50px 100px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 0px 6px -2px black;
 }
 .fields_reDesign {
-  width: 380px;
+  width: 100%;
   padding: 11px;
   background-color: white;
   border: 1px solid #adadad;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 .svgReplace {
   font-size: 16px;
@@ -381,6 +379,7 @@
   font-size: 0.8rem;
   font-weight: bold;
 }
+
 @media only screen and (max-width: 767px) {
   .mainContainer {
     font-family: ProximaNovaRegular;
@@ -715,7 +714,6 @@
   }
   .buttonsContainer {
     margin: 50px 0;
-    text-align: center;
     button {
       border-radius: 5px;
       color: white;
