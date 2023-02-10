@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, {useRef, useState} from "react";
 import TopHeader from "./TopHeader/TopHeader";
 import styles from "./header.module.scss";
 import {
@@ -19,13 +19,11 @@ import {
   NavItem,
   NavLink,
 } from "reactstrap";
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import { useRouter } from "next/router";
+import {Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
+import {useRouter} from "next/router";
 import Link from "next/link";
-
-import {
-  ButtonDropdown,
-} from "reactstrap";
+import Image from "next/image";
+import {ButtonDropdown} from "reactstrap";
 import Logo from "../../Assets/logo-header.svg";
 
 const Header = () => {
@@ -37,7 +35,7 @@ const Header = () => {
   const toggle = () => setIsOpen(!isOpen);
   const toggle2 = () => setDropDownOpen(!dropDownOpen);
   const toggle3 = () => setDropDownOpen1(!dropDownOpen1);
-  const toggle4 = () => setDropdownOpen(prevState => !prevState);
+  const toggle4 = () => setDropdownOpen((prevState) => !prevState);
 
   const history = useRouter();
   const ref = useRef(null);
@@ -55,14 +53,14 @@ const Header = () => {
         <div className={styles.navbar_border}>
           <Navbar color="white" expand="md" className={styles.navbarset}>
             <NavbarBrand href="/">
-              <section style={{ display: "flex" }}>
-                <img
+              <section style={{display: "flex"}}>
+                <Image
                   className={styles.headerImage}
-                  src="/Assets/logo-header.svg"
+                  src={Logo}
                   alt="website logo"
                 />
                 <h4
-                  style={{ color: "white", fontSize: "22px" }}
+                  style={{color: "white", fontSize: "22px"}}
                   className={styles.logo_text}>
                   Travel & <br /> Transportation
                 </h4>
@@ -72,7 +70,10 @@ const Header = () => {
             <Collapse isOpen={isOpen} navbar>
               <Nav className="ml-auto headeR_nav_main_header" navbar>
                 <NavItem className={styles.NavItem}>
-                  <NavbarBrand className={styles.NavLink} href="/" style={{ fontFamily: "ProximaNovaRegular" }}>
+                  <NavbarBrand
+                    className={styles.NavLink}
+                    href="/"
+                    style={{fontFamily: "ProximaNovaRegular"}}>
                     Home
                   </NavbarBrand>
                 </NavItem>
@@ -81,21 +82,22 @@ const Header = () => {
                   className={`${styles.dropdown} button_dropdown `}
                   isOpen={dropDownOpen}
                   toggle={toggle2}
-                  onMouseLeave={() => setState("closed")}
-                >
-                  <div caret className={styles.NavItem} >
+                  onMouseLeave={() => setState("closed")}>
+                  <div caret className={styles.NavItem}>
                     <div
                       onClick={() => {
                         history.push("/");
                       }}
                       className={`${styles.NavLink} dropdown_Services`}
                       ref={ref}
-                      onMouseEnter={() => setState("open")}
-                    >
-                      <NavbarBrand href="/" style={{
-                        color: "white", marginRight: "0.5rem",
-                        fontFamily: "ProximaNovaRegular"
-                      }}>
+                      onMouseEnter={() => setState("open")}>
+                      <NavbarBrand
+                        href="/"
+                        style={{
+                          color: "white",
+                          marginRight: "0.5rem",
+                          fontFamily: "ProximaNovaRegular",
+                        }}>
                         Services
                       </NavbarBrand>
                     </div>
@@ -103,8 +105,7 @@ const Header = () => {
                   <ControlledMenu
                     state={state}
                     anchorRef={ref}
-                    onClose={() => setState("closed")}
-                  >
+                    onClose={() => setState("closed")}>
                     <div>
                       <li
                         onMouseEnter={() => {
@@ -114,8 +115,7 @@ const Header = () => {
                           setHoutson("closed");
                         }}
                         className="szh-menu__submenu"
-                        role="presentation"
-                      >
+                        role="presentation">
                         <div
                           onClick={(e) => {
                             history.push("/houston-airport-transportation");
@@ -124,13 +124,13 @@ const Header = () => {
                           aria-haspopup="true"
                           aria-expanded={Houtson == "show" ? "true" : "false"}
                           tabIndex={-1}
-                          className="szh-menu__item"
-                        >
+                          className="szh-menu__item">
                           <NavbarBrand href="/houston-airport-transportation">
-                            <div style={{
-                              fontSize: "14px",
-                              color: ""
-                            }}>
+                            <div
+                              style={{
+                                fontSize: "14px",
+                                color: "",
+                              }}>
                               Houston Airport Transportation
                             </div>
                           </NavbarBrand>
@@ -145,7 +145,8 @@ const Header = () => {
                               : "szh-menu szh-menu--state-closed szh-menu--dir-right"
                           }
                           style={{
-                            left: "246.109px", top: "4px"
+                            left: "246.109px",
+                            top: "4px",
                           }}>
                           <li
                             onClick={(e) =>
@@ -159,9 +160,8 @@ const Header = () => {
                             <NavbarBrand
                               href="/airport-transportation/george-bush-airport-transfer"
                               style={{
-                                fontSize: "14px"
-                              }}
-                            >
+                                fontSize: "14px",
+                              }}>
                               George Bush Airport Transfer
                             </NavbarBrand>
                           </li>
@@ -177,12 +177,10 @@ const Header = () => {
                             <NavbarBrand
                               href="/airport-transportation/hobby-airport-transfer"
                               style={{
-                                fontSize: "14px"
-                              }}
-                            >
+                                fontSize: "14px",
+                              }}>
                               Hobby Airport Transfer
                             </NavbarBrand>
-
                           </li>
                           <li
                             onClick={(e) =>
@@ -196,24 +194,23 @@ const Header = () => {
                             <NavbarBrand
                               href="/airport-transportation/private-jet-limo"
                               style={{
-                                fontSize: "14px"
-                              }}
-                            >
+                                fontSize: "14px",
+                              }}>
                               Private Aviation &amp; Regional Airports
                             </NavbarBrand>
                           </li>
                         </ul>
                       </li>
-
                     </div>
                     <MenuItem
                       onClick={(e) =>
                         history.push("/services/galveston-cruise-transfer")
                       }>
                       <NavbarBrand href="/services/galveston-cruise-transfer">
-                        <div style={{
-                          fontSize: "14px"
-                        }}>
+                        <div
+                          style={{
+                            fontSize: "14px",
+                          }}>
                           Galveston Cruise Transfer
                         </div>
                       </NavbarBrand>
@@ -235,9 +232,10 @@ const Header = () => {
                         tabIndex={-1}
                         className="szh-menu__item szh-menu__item--open szh-menu__item--hover">
                         <NavbarBrand href="/city-to-city-transfer">
-                          <div style={{
-                            fontSize: "14px"
-                          }}>
+                          <div
+                            style={{
+                              fontSize: "14px",
+                            }}>
                             City to City Transfer
                           </div>
                         </NavbarBrand>
@@ -251,7 +249,7 @@ const Header = () => {
                             ? "szh-menu szh-menu--state-open szh-menu--dir-right"
                             : "szh-menu szh-menu--state-closed szh-menu--dir-right"
                         }
-                        style={{ left: "246.109px", top: "4px" }}>
+                        style={{left: "246.109px", top: "4px"}}>
                         <li
                           onClick={(e) =>
                             history.push(
@@ -262,9 +260,10 @@ const Header = () => {
                           tabIndex={-1}
                           className="szh-menu__item">
                           <NavbarBrand href="/city-to-city-transfer/houston-to-college-station">
-                            <div style={{
-                              fontSize: "14px"
-                            }}>
+                            <div
+                              style={{
+                                fontSize: "14px",
+                              }}>
                               Houston To College Station
                             </div>
                           </NavbarBrand>
@@ -279,9 +278,10 @@ const Header = () => {
                           tabIndex={-1}
                           className="szh-menu__item">
                           <NavbarBrand href="/city-to-city-transfer/houston-to-lake-jackson">
-                            <div style={{
-                              fontSize: "14px"
-                            }}>
+                            <div
+                              style={{
+                                fontSize: "14px",
+                              }}>
                               Houston To Lake Jackson
                             </div>
                           </NavbarBrand>
@@ -296,9 +296,10 @@ const Header = () => {
                           tabIndex={-1}
                           className="szh-menu__item">
                           <NavbarBrand href="/city-to-city-transfer/houston-to-victoria">
-                            <div style={{
-                              fontSize: "14px"
-                            }}>
+                            <div
+                              style={{
+                                fontSize: "14px",
+                              }}>
                               Houston To Victoria
                             </div>
                           </NavbarBrand>
@@ -314,9 +315,10 @@ const Header = () => {
                           className="szh-menu__item">
                           {" "}
                           <NavbarBrand href="/city-to-city-transfer/houston-to-austin">
-                            <div style={{
-                              fontSize: "14px"
-                            }}>
+                            <div
+                              style={{
+                                fontSize: "14px",
+                              }}>
                               Houston To Austin
                             </div>
                           </NavbarBrand>
@@ -331,9 +333,10 @@ const Header = () => {
                           tabIndex={-1}
                           className="szh-menu__item">
                           <NavbarBrand href="/city-to-city-transfer/houston-to-dallas">
-                            <div style={{
-                              fontSize: "14px"
-                            }}>
+                            <div
+                              style={{
+                                fontSize: "14px",
+                              }}>
                               Houston To Dallas
                             </div>
                           </NavbarBrand>
@@ -348,9 +351,10 @@ const Header = () => {
                           tabIndex={-1}
                           className="szh-menu__item">
                           <NavbarBrand href="/city-to-city-transfer/houston-to-san-antonio">
-                            <div style={{
-                              fontSize: "14px"
-                            }}>
+                            <div
+                              style={{
+                                fontSize: "14px",
+                              }}>
                               Houston To San Antonio
                             </div>
                           </NavbarBrand>
@@ -365,9 +369,10 @@ const Header = () => {
                           tabIndex={-1}
                           className="szh-menu__item">
                           <NavbarBrand href="/city-to-city-transfer/houston-to-lakecharles">
-                            <div style={{
-                              fontSize: "14px"
-                            }}>
+                            <div
+                              style={{
+                                fontSize: "14px",
+                              }}>
                               Houston To Lake Charles
                             </div>
                           </NavbarBrand>
@@ -382,9 +387,10 @@ const Header = () => {
                           tabIndex={-1}
                           className="szh-menu__item">
                           <NavbarBrand href="/city-to-city-transfer/houston-to-lafayette">
-                            <div style={{
-                              fontSize: "14px"
-                            }}>
+                            <div
+                              style={{
+                                fontSize: "14px",
+                              }}>
                               Houston To Lafayette
                             </div>
                           </NavbarBrand>
@@ -408,9 +414,10 @@ const Header = () => {
                         tabIndex={-1}
                         className="szh-menu__item">
                         <NavbarBrand href="/events">
-                          <div style={{
-                            fontSize: "14px"
-                          }}>
+                          <div
+                            style={{
+                              fontSize: "14px",
+                            }}>
                             Events Transfer
                           </div>
                         </NavbarBrand>
@@ -424,7 +431,7 @@ const Header = () => {
                             ? "szh-menu szh-menu--state-open szh-menu--dir-right"
                             : "szh-menu szh-menu--state-closed szh-menu--dir-right"
                         }
-                        style={{ left: "246.109px", top: "4px" }}>
+                        style={{left: "246.109px", top: "4px"}}>
                         <li
                           onClick={(e) =>
                             history.push("/events/business-event-transfer")
@@ -433,9 +440,10 @@ const Header = () => {
                           tabIndex={-1}
                           className="szh-menu__item">
                           <NavbarBrand href="/events/business-event-transfer">
-                            <div style={{
-                              fontSize: "14px"
-                            }}>
+                            <div
+                              style={{
+                                fontSize: "14px",
+                              }}>
                               Business Conventions Transfer
                             </div>
                           </NavbarBrand>
@@ -448,9 +456,10 @@ const Header = () => {
                           tabIndex={-1}
                           className="szh-menu__item">
                           <NavbarBrand href="/events/sport-events-transfer">
-                            <div style={{
-                              fontSize: "14px"
-                            }}>
+                            <div
+                              style={{
+                                fontSize: "14px",
+                              }}>
                               Sports Events Transfer
                             </div>
                           </NavbarBrand>
@@ -463,9 +472,10 @@ const Header = () => {
                           tabIndex={-1}
                           className="szh-menu__item">
                           <NavbarBrand href="/events/concerts-transfer">
-                            <div style={{
-                              fontSize: "14px"
-                            }}>
+                            <div
+                              style={{
+                                fontSize: "14px",
+                              }}>
                               Concerts Transfer
                             </div>
                           </NavbarBrand>
@@ -479,9 +489,10 @@ const Header = () => {
                           className="szh-menu__item">
                           {" "}
                           <NavbarBrand href="/events/houston-rodeo-transfer">
-                            <div style={{
-                              fontSize: "14px"
-                            }}>
+                            <div
+                              style={{
+                                fontSize: "14px",
+                              }}>
                               Houston Rodeo Transfer
                             </div>
                           </NavbarBrand>
@@ -506,9 +517,10 @@ const Header = () => {
                         tabIndex={-1}
                         className="szh-menu__item szh-menu__item--open szh-menu__item--hover">
                         <NavbarBrand href="/celebrations">
-                          <div style={{
-                            fontSize: "14px"
-                          }}>
+                          <div
+                            style={{
+                              fontSize: "14px",
+                            }}>
                             Celebrations Transfer
                           </div>
                         </NavbarBrand>
@@ -522,7 +534,7 @@ const Header = () => {
                             ? "szh-menu szh-menu--state-open szh-menu--dir-right"
                             : "szh-menu szh-menu--state-closed szh-menu--dir-right"
                         }
-                        style={{ left: "246.109px", top: "4px" }}>
+                        style={{left: "246.109px", top: "4px"}}>
                         <li
                           onClick={() =>
                             history.push("/celebrations/party-transfer")
@@ -531,9 +543,10 @@ const Header = () => {
                           tabIndex={-1}
                           className="szh-menu__item">
                           <NavbarBrand href="/celebrations/party-transfer">
-                            <div style={{
-                              fontSize: "14px"
-                            }}>
+                            <div
+                              style={{
+                                fontSize: "14px",
+                              }}>
                               Party Transfer
                             </div>
                           </NavbarBrand>
@@ -546,9 +559,10 @@ const Header = () => {
                           tabIndex={-1}
                           className="szh-menu__item">
                           <NavbarBrand href="/celebrations/graduation-transfer">
-                            <div style={{
-                              fontSize: "14px"
-                            }}>
+                            <div
+                              style={{
+                                fontSize: "14px",
+                              }}>
                               Graduation Transfer
                             </div>
                           </NavbarBrand>
@@ -564,9 +578,10 @@ const Header = () => {
                           className="szh-menu__item">
                           {" "}
                           <NavbarBrand href="/celebrations/bachelor-party-transfer">
-                            <div style={{
-                              fontSize: "14px"
-                            }}>
+                            <div
+                              style={{
+                                fontSize: "14px",
+                              }}>
                               Bachelor Party Transfer
                             </div>
                           </NavbarBrand>
@@ -576,34 +591,36 @@ const Header = () => {
                   </ControlledMenu>
                 </ButtonDropdown>
 
-                <Dropdown isOpen={dropDownOpen1} toggle={toggle3}
+                <Dropdown
+                  isOpen={dropDownOpen1}
+                  toggle={toggle3}
                   onMouseEnter={toggle3}
                   onMouseLeave={() => setDropDownOpen1(false)}
-                  onClose={() => setState2("closed")}
-                >
-                  <DropdownToggle nav className={`${styles.NavLink}`}
+                  onClose={() => setState2("closed")}>
+                  <DropdownToggle
+                    nav
+                    className={`${styles.NavLink}`}
                     style={{
                       marginTop: "13px",
                       marginRight: "0.5rem",
-                      fontFamily: "ProximaNovaRegular"
-                    }}
-                  >
+                      fontFamily: "ProximaNovaRegular",
+                    }}>
                     CITIES
                   </DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem
                       onClick={(e) =>
-                        history.push("/cities/houston-limo-car-service")}
+                        history.push("/cities/houston-limo-car-service")
+                      }
                       style={{
-                        backgroundColor: "white"
-                      }}
-                    >
-                      <NavbarBrand href="/cities/houston-limo-car-service"
+                        backgroundColor: "white",
+                      }}>
+                      <NavbarBrand
+                        href="/cities/houston-limo-car-service"
                         style={{
                           fontSize: "14px",
-                          marginRight: "0.5rem"
-                        }}
-                      >
+                          marginRight: "0.5rem",
+                        }}>
                         Houston Limo Car Service{" "}
                       </NavbarBrand>
                     </DropdownItem>
@@ -612,29 +629,30 @@ const Header = () => {
                         history.push("/cities/spring-limo-car-service")
                       }
                       style={{
-                        backgroundColor: "white"
+                        backgroundColor: "white",
                       }}>
-                      <NavbarBrand href="/cities/spring-limo-car-service"
+                      <NavbarBrand
+                        href="/cities/spring-limo-car-service"
                         style={{
                           fontSize: "14px",
-                          marginRight: "0.5rem"
-                        }}
-                      >
+                          marginRight: "0.5rem",
+                        }}>
                         Spring Limo Car Service{" "}
                       </NavbarBrand>
                     </DropdownItem>
                     <DropdownItem
                       onClick={(e) =>
                         history.push("/cities/fulshear-limo-car-service")
-                      } style={{
-                        backgroundColor: "white"
+                      }
+                      style={{
+                        backgroundColor: "white",
                       }}>
-                      <NavbarBrand href="/cities/fulshear-limo-car-service"
+                      <NavbarBrand
+                        href="/cities/fulshear-limo-car-service"
                         style={{
                           fontSize: "14px",
-                          marginRight: "0.5rem"
-                        }}
-                      >
+                          marginRight: "0.5rem",
+                        }}>
                         Fulshear Limo Car Service{" "}
                       </NavbarBrand>
                     </DropdownItem>
@@ -642,129 +660,137 @@ const Header = () => {
                       onClick={(e) =>
                         history.push("/cities/galveston-limo-car-service")
                       }>
-                      <NavbarBrand href="/cities/galveston-limo-car-service"
+                      <NavbarBrand
+                        href="/cities/galveston-limo-car-service"
                         style={{
                           fontSize: "14px",
-                          marginRight: "0.5rem"
-                        }}
-                      >
+                          marginRight: "0.5rem",
+                        }}>
                         Galveston Limo Car Service{" "}
                       </NavbarBrand>
                     </DropdownItem>
                     <DropdownItem
                       onClick={(e) =>
                         history.push("/cities/montgomery-limo-car-service")
-                      } style={{
-                        backgroundColor: "white"
+                      }
+                      style={{
+                        backgroundColor: "white",
                       }}>
-                      <NavbarBrand href="/cities/montgomery-limo-car-service"
+                      <NavbarBrand
+                        href="/cities/montgomery-limo-car-service"
                         style={{
                           fontSize: "14px",
-                          marginRight: "0.5rem"
-                        }}
-                      >
+                          marginRight: "0.5rem",
+                        }}>
                         Montgomery Limo Service{" "}
                       </NavbarBrand>
                     </DropdownItem>
                     <DropdownItem
                       onClick={(e) =>
                         history.push("/cities/conroe-limo-car-service")
-                      } style={{
-                        backgroundColor: "white"
+                      }
+                      style={{
+                        backgroundColor: "white",
                       }}>
-                      <NavbarBrand href="/cities/conroe-limo-car-service"
+                      <NavbarBrand
+                        href="/cities/conroe-limo-car-service"
                         style={{
                           fontSize: "14px",
-                          marginRight: "0.5rem"
-                        }}
-                      >
+                          marginRight: "0.5rem",
+                        }}>
                         Conroe Limo Service{" "}
                       </NavbarBrand>
                     </DropdownItem>
                     <DropdownItem
                       onClick={(e) =>
                         history.push("/cities/tomball-limo-car-service")
-                      } style={{
-                        backgroundColor: "white"
+                      }
+                      style={{
+                        backgroundColor: "white",
                       }}>
-                      <NavbarBrand href="/cities/tomball-limo-car-service"
+                      <NavbarBrand
+                        href="/cities/tomball-limo-car-service"
                         style={{
                           fontSize: "14px",
-                          marginRight: "0.5rem"
-                        }}
-                      >
+                          marginRight: "0.5rem",
+                        }}>
                         Tomball Limo Service{" "}
                       </NavbarBrand>
                     </DropdownItem>
                     <DropdownItem
                       onClick={(e) =>
                         history.push("/cities/cypress-limo-car-service")
-                      } style={{
-                        backgroundColor: "white"
+                      }
+                      style={{
+                        backgroundColor: "white",
                       }}>
-                      <NavbarBrand href="/cities/cypress-limo-car-service"
+                      <NavbarBrand
+                        href="/cities/cypress-limo-car-service"
                         style={{
                           fontSize: "14px",
-                          marginRight: "0.5rem"
-                        }}
-                      >
+                          marginRight: "0.5rem",
+                        }}>
                         Cypress Limo Service{" "}
                       </NavbarBrand>
                     </DropdownItem>
-                    <DropdownItem 
+                    <DropdownItem
                       onClick={(e) =>
                         history.push("/cities/beaumont-limo-car-service")
-                      } style={{
-                        backgroundColor: "white"
+                      }
+                      style={{
+                        backgroundColor: "white",
                       }}>
-                      <NavbarBrand href="/cities/beaumont-limo-car-service"
-                        style={{ fontSize: "14px" }}
-                      >
+                      <NavbarBrand
+                        href="/cities/beaumont-limo-car-service"
+                        style={{fontSize: "14px"}}>
                         Beaumont Limo Service{" "}
                       </NavbarBrand>
                     </DropdownItem>
                     <DropdownItem
                       onClick={(e) =>
                         history.push("/cities/sugarland-limo-car-service")
-                      } style={{
-                        backgroundColor: "white"
+                      }
+                      style={{
+                        backgroundColor: "white",
                       }}>
-                      <NavbarBrand href="/cities/sugarland-limo-car-service"
+                      <NavbarBrand
+                        href="/cities/sugarland-limo-car-service"
                         style={{
                           fontSize: "14px",
-                          marginRight: "0.5rem"
-                        }}
-                      >
+                          marginRight: "0.5rem",
+                        }}>
                         Sugarland Limo Service{" "}
                       </NavbarBrand>
                     </DropdownItem>
                     <DropdownItem
                       onClick={(e) =>
                         history.push("/cities/richmond-limo-car-service")
-                      } style={{
-                        backgroundColor: "white"
+                      }
+                      style={{
+                        backgroundColor: "white",
                       }}>
-                      <NavbarBrand href="/cities/richmond-limo-car-service"
+                      <NavbarBrand
+                        href="/cities/richmond-limo-car-service"
                         style={{
                           fontSize: "14px",
-                          marginRight: "0.5rem"
-                        }}
-                      >
+                          marginRight: "0.5rem",
+                        }}>
                         Richmond Limo Service{" "}
                       </NavbarBrand>
                     </DropdownItem>
                     <DropdownItem
                       onClick={(e) =>
                         history.push("/cities/katy-limo-car-service")
-                      } style={{
-                        backgroundColor: "white"
+                      }
+                      style={{
+                        backgroundColor: "white",
                       }}>
-                      <NavbarBrand href="/cities/katy-limo-car-service"
+                      <NavbarBrand
+                        href="/cities/katy-limo-car-service"
                         style={{
                           fontSize: "14px",
-                          marginRight: "0.5rem"
-                        }}
-                      >
+                          marginRight: "0.5rem",
+                        }}>
                         Katy Limo Service
                       </NavbarBrand>
                     </DropdownItem>
@@ -777,11 +803,12 @@ const Header = () => {
                     onClick={() => {
                       history.push("/fleet");
                     }}>
-                    <NavbarBrand href="/fleet"
+                    <NavbarBrand
+                      href="/fleet"
                       style={{
                         color: "white",
                         marginRight: "0.5rem",
-                        fontFamily: "ProximaNovaRegular"
+                        fontFamily: "ProximaNovaRegular",
                       }}>
                       Fleet
                     </NavbarBrand>
@@ -793,11 +820,12 @@ const Header = () => {
                     onClick={() => {
                       history.push("/about-us");
                     }}>
-                    <NavbarBrand href="/about-us"
+                    <NavbarBrand
+                      href="/about-us"
                       style={{
                         color: "white",
                         marginRight: "0.5rem",
-                        fontFamily: "ProximaNovaRegular"
+                        fontFamily: "ProximaNovaRegular",
                       }}>
                       About
                     </NavbarBrand>
@@ -810,11 +838,12 @@ const Header = () => {
                     onClick={() => {
                       history.push("/FAQ");
                     }}>
-                    <NavbarBrand href="/FAQ"
+                    <NavbarBrand
+                      href="/FAQ"
                       style={{
                         color: "white",
                         marginRight: "0.5rem",
-                        fontFamily: "ProximaNovaRegular"
+                        fontFamily: "ProximaNovaRegular",
                       }}>
                       FAQ
                     </NavbarBrand>
@@ -827,11 +856,12 @@ const Header = () => {
                     onClick={() => {
                       history.push("/contact-us");
                     }}>
-                    <NavbarBrand href="/contact-us"
+                    <NavbarBrand
+                      href="/contact-us"
                       style={{
                         color: "white",
                         marginRight: "0.5rem",
-                        fontFamily: "ProximaNovaRegular"
+                        fontFamily: "ProximaNovaRegular",
                       }}>
                       Contact
                     </NavbarBrand>
@@ -844,11 +874,12 @@ const Header = () => {
                     onClick={() => {
                       history.push("/blogs");
                     }}>
-                    <NavbarBrand href="/blogs"
+                    <NavbarBrand
+                      href="/blogs"
                       style={{
                         color: "white",
                         marginRight: "0.5rem",
-                        fontFamily: "ProximaNovaRegular"
+                        fontFamily: "ProximaNovaRegular",
                       }}>
                       Blog
                     </NavbarBrand>

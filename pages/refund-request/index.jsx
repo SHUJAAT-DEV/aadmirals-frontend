@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import styles from "./Refund_Request.module.scss";
 import Floatingbutton from "../../Components/floaingbutton/floatingbutton";
 import SideNav from "../../Components/Header/SideNav/SideNav";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/BottomFooter/BottomFooter";
-import { Container, Col, Row, CardBody, Button, Card } from "reactstrap";
-import { useAlert } from "react-alert";
-import { useDispatch, useSelector } from "react-redux";
-import { RefundRequestAction } from "../../redux/Refund_Request/action";
+import {Container, Col, Row, CardBody, Button, Card} from "reactstrap";
+import {useAlert} from "react-alert";
+import {useDispatch, useSelector} from "react-redux";
+import {RefundRequestAction} from "../../redux/Refund_Request/action";
 import Head from "next/head";
 
 const RefundRequest = () => {
@@ -19,7 +19,7 @@ const RefundRequest = () => {
   const [accountNumber, setAccountNumber] = useState();
 
   const refund_req = useSelector((state) => state.RefundRequest);
-  const { loading, error,refund_request_success } = refund_req;
+  const {loading, error, refund_request_success} = refund_req;
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -35,7 +35,7 @@ const RefundRequest = () => {
   };
   return (
     <div>
-        <Head>
+      <Head>
         <meta charSet="utf-8" />
         <title>Refund Policy | AADMIRLAS Travel & Transportation </title>
       </Head>
@@ -60,7 +60,7 @@ const RefundRequest = () => {
                     </p>
 
                     <div className={styles.inputBoxwhite}>
-                      <label for="Email">Booking ID</label>
+                      <label htmlFor="Emai">Booking ID</label>
                       <div className={styles.input}>
                         <input
                           type="text"
@@ -73,7 +73,7 @@ const RefundRequest = () => {
                     </div>
 
                     <div className={styles.inputBoxwhite}>
-                      <label for="phoneNumber">phone number</label>
+                      <label htmlFor="phoneNumber">phone number</label>
                       <div className={styles.input}>
                         <input
                           type="number"
@@ -86,7 +86,7 @@ const RefundRequest = () => {
                     </div>
 
                     <div className={styles.inputBoxwhite}>
-                      <label for="accountNumber">Account Number</label>
+                      <label htmlFor="accountNumber">Account Number</label>
                       <div className={styles.input}>
                         <input
                           type="number"
@@ -102,8 +102,7 @@ const RefundRequest = () => {
                       <Col xs="12">
                         <Button
                           onClick={submitHandler}
-                          className={styles.buttonPayment}
-                        >
+                          className={styles.buttonPayment}>
                           {loading ? (
                             <span>Loading...</span>
                           ) : (

@@ -1,17 +1,16 @@
-import React, { useState, useRef, useEffect } from "react";
+/* eslint-disable react/display-name */
+import React, {useState, useRef, useEffect} from "react";
 import styles from "./hero.module.scss";
-import { Container } from "reactstrap";
+import {Container} from "reactstrap";
 import Image from "next/image";
 import sanitizeHTML from "./SanitizedReactUtils";
 
-const Hero = ({ Text, Form, MotoHidden, img, Title }) => {
-
+const Hero = React.memo(({Text, Form, MotoHidden, img, Title}) => {
   const contentSanitized = sanitizeHTML(Text);
-
-  return (  
+  return (
     <div>
       <div className={styles.mainDiv}>
-        <Image 
+        <Image
           priority={true}
           blurDataURL="https://www.pexels.com/photo/dark-blur-blurred-gradient-1526/"
           placeholder={"blur"}
@@ -24,7 +23,7 @@ const Hero = ({ Text, Form, MotoHidden, img, Title }) => {
       </div>
       <Container className={styles.mainContainer} fluid>
         <div className={styles.headingsContainer}>
-          <div style={{ paddingInline: "10px", width: "100%" }}>
+          <div style={{paddingInline: "10px", width: "100%"}}>
             <p>
               <span
                 style={{
@@ -42,18 +41,13 @@ const Hero = ({ Text, Form, MotoHidden, img, Title }) => {
               className={styles.moto}
               dangerouslySetInnerHTML={{
                 __html: contentSanitized,
-              }}
-            ></div>
+              }}></div>
           )}
         </div>
         <Form />
       </Container>
     </div>
-
-    // <div ref={box} >
-
-    // </div>
   );
-};
+});
 
 export default Hero;

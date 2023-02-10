@@ -18,13 +18,6 @@ import SwiperCore, {Pagination, Autoplay} from "swiper";
 SwiperCore.use([Pagination, Autoplay]);
 
 function OurServices({services}) {
-  const breakPoints = [
-    {width: 1, itemsToShow: 1},
-    {width: 550, itemsToShow: 1, itemsToScroll: 2},
-    {width: 768, itemsToShow: 3},
-    {width: 1200, itemsToShow: 4},
-  ];
-  //
   return (
     <>
       <Container fluid className={styles.mainContainer}>
@@ -37,10 +30,6 @@ function OurServices({services}) {
             <Swiper
               slidesPerView={1}
               spaceBetween={30}
-              // autoplay={{
-              //   delay: 2500,
-              //   disableOnInteraction: false,
-              // }}
               pagination={{
                 clickable: true,
               }}
@@ -60,8 +49,8 @@ function OurServices({services}) {
               }}
               className="mySwiper">
               {services
-                ? services.map((service) => (
-                    <SwiperSlide>
+                ? services.map((service, index) => (
+                    <SwiperSlide key={`${index}-${service.name}`}>
                       <ServicesCards
                         url={service.url}
                         image={service.image}
@@ -72,20 +61,6 @@ function OurServices({services}) {
                   ))
                 : null}
             </Swiper>
-            {/* <Carousel
-              autoPlaySpeed={4000}
-              showArrows={false}
-              breakPoints={breakPoints}
-              enableAutoPlay={false}
-              itemPadding={[0, 10]}
-            >
-              {
-                services ? services.map(service => (
-                  <ServicesCards url={service.url} image={service.image} description={service.description} title={service.name} />
-
-                )) : null
-              }
-            </Carousel> */}
           </Row>
         </center>
       </Container>

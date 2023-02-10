@@ -1,24 +1,24 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import styles from "./Cancel_Booking_Verify_Email.module.scss";
 import Floatingbutton from "../../Components/floaingbutton/floatingbutton";
 import SideNav from "../../Components/Header/SideNav/SideNav";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/BottomFooter/BottomFooter";
-import  Link  from "next/link";
-import { Container, Col, Row, CardBody, Button, Card, Alert } from "reactstrap";
-import { useAlert } from "react-alert";
+import Link from "next/link";
+import {Container, Col, Row, CardBody, Button, Card, Alert} from "reactstrap";
+import {useAlert} from "react-alert";
 
-import { useDispatch, useSelector } from "react-redux";
-import { cancelBookingVerifyEmailAction } from "../../redux/Cancel_Booking/Cancel_Booking_Verify_Email/action";
+import {useDispatch, useSelector} from "react-redux";
+import {cancelBookingVerifyEmailAction} from "../../redux/Cancel_Booking/Cancel_Booking_Verify_Email/action";
 
-const CancelBookingVerifyEmail = ({ history }) => {
+const CancelBookingVerifyEmail = ({history}) => {
   const alert = useAlert();
   const [email, setEmail] = useState();
   const [bookingId, setBookingId] = useState();
 
   const dispatch = useDispatch();
   const verifyEmail = useSelector((state) => state.cancelBookingVerifyEmail);
-  const { loading, error } = verifyEmail;
+  const {loading, error} = verifyEmail;
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -53,7 +53,7 @@ const CancelBookingVerifyEmail = ({ history }) => {
                     </p>
 
                     <div className={styles.inputBoxwhite}>
-                      <label for="Email">Email</label>
+                      <label htmlFor="Email">Email</label>
                       <div className={styles.input}>
                         <input
                           type="email"
@@ -66,7 +66,7 @@ const CancelBookingVerifyEmail = ({ history }) => {
                     </div>
 
                     <div className={styles.inputBoxwhite}>
-                      <label for="Email">Booking ID</label>
+                      <label htmlFor="Email">Booking ID</label>
                       <div className={styles.input}>
                         <input
                           type="text"
@@ -82,8 +82,7 @@ const CancelBookingVerifyEmail = ({ history }) => {
                       <Col xs="12">
                         <Button
                           onClick={submitHandler}
-                          className={styles.buttonPayment}
-                        >
+                          className={styles.buttonPayment}>
                           {loading ? (
                             <span>Loading...</span>
                           ) : (

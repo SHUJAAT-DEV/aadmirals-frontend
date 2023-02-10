@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import styles from "./login.module.scss";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/BottomFooter/BottomFooter";
@@ -14,28 +14,28 @@ import {
 } from "reactstrap";
 // import { Link } from "react-router-dom";
 
-import { useDispatch, useSelector } from "react-redux";
-import { confirmPasswordAction } from "../../redux/Auth2/ConfirmPassword/action/action";
+import {useDispatch, useSelector} from "react-redux";
+import {confirmPasswordAction} from "../../redux/Auth2/ConfirmPassword/action/action";
 
-const Forgot = ({ history }) => {
+const Forgot = ({history}) => {
   const [state, setState] = useState({
     pass: false,
     confirmpass: false,
   });
   const onFocusHandler = (event) => {
-    setState({ ...state, [event.target.name]: true });
+    setState({...state, [event.target.name]: true});
   };
   const onBlurHandler = (event) => {
-    setState({ ...state, [event.target.name]: false });
+    setState({...state, [event.target.name]: false});
   };
 
   const [password, setPassword] = useState();
   const [newPassword, setNewPassword] = useState();
 
-  const Id = typeof window!="undefined" && localStorage.getItem("clientId");
+  const Id = typeof window != "undefined" && localStorage.getItem("clientId");
   const dispatch = useDispatch();
   const conf = useSelector((state) => state.confirmPassword);
-  const { loading } = conf;
+  const {loading} = conf;
 
   const [error, setError] = useState(null);
 
@@ -69,9 +69,8 @@ const Forgot = ({ history }) => {
                         state.email
                           ? styles.inputBoxwhite1
                           : styles.inputBoxwhite
-                      }`}
-                    >
-                      <label for="Email">Password</label>
+                      }`}>
+                      <label htmlFor="Email">Password</label>
                       <div className={styles.input}>
                         <input
                           type="password"
@@ -90,9 +89,8 @@ const Forgot = ({ history }) => {
                         state.email
                           ? styles.inputBoxwhite1
                           : styles.inputBoxwhite
-                      }`}
-                    >
-                      <label for="Email">Confirm Password</label>
+                      }`}>
+                      <label htmlFor="Email">Confirm Password</label>
                       <div className={styles.input}>
                         <input
                           type="password"
@@ -110,8 +108,7 @@ const Forgot = ({ history }) => {
                       <Col xs="12">
                         <Button
                           onClick={submitHandler}
-                          className={styles.buttonPayment}
-                        >
+                          className={styles.buttonPayment}>
                           {loading ? (
                             <span>Loading...</span>
                           ) : (

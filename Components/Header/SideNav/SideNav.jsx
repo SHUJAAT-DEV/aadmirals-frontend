@@ -2,8 +2,9 @@ import React, {useState} from "react";
 import styles from "./SideNav.module.scss";
 import {useRouter} from "next/router";
 import Link from "next/link";
-
+import Image from "next/image";
 import NavHeaderLogo from "../../../Assets/Group1077.svg";
+import logoHeader from "../../../Assets/logo-header.svg";
 import {Collapse, Button} from "reactstrap";
 
 function SideNav() {
@@ -60,8 +61,8 @@ function SideNav() {
           </button>
         </div>
         <div className={styles.smLogo}>
-          <img
-            src="/Assets/logo-header.svg"
+          <Image
+            src={logoHeader}
             alt="1website logo"
             className={styles.logo1}
           />
@@ -70,11 +71,11 @@ function SideNav() {
       {SideNavOpen ? (
         <div className={styles.sideNav}>
           <div className={styles.sideNavUp}>
-            <img src="/Assets/logo-header.svg" alt="2website logo" />
+            <Image src={logoHeader} alt="2website logo" />
             <button onClick={(e) => setSideNavOpen(false)}>X</button>
           </div>
           <ul>
-            <Link href="/">
+            <Link href="/" passHref>
               <a>
                 <li>home</li>
               </a>
@@ -307,7 +308,7 @@ function SideNav() {
                   <li className={styles.liDropStyle}>cypress limo service</li>
                 </a>
               </Link>
-              <Link href="/cities/beaumont-limo-car-service">
+              <Link href="/cities/beaumont-limo-car-service" passHref>
                 <li className={styles.liDropStyle}>beaumont limo service</li>
               </Link>
               <Link href="/cities/sugarland-limo-car-service">
@@ -381,4 +382,4 @@ function SideNav() {
   );
 }
 
-export default SideNav;
+export default React.memo(SideNav);

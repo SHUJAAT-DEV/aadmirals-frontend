@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import styles from "./login.module.scss";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/BottomFooter/BottomFooter";
-import Router from "next/router"
+import Router from "next/router";
 import {
   Container,
   Col,
@@ -15,25 +15,23 @@ import {
 } from "reactstrap";
 // import { Link } from "react-router-dom";
 
-import { forgotEmailAction } from "../../redux/Auth2/ForgotEmail/Action/actions";
-import { useDispatch, useSelector } from "react-redux";
+import {forgotEmailAction} from "../../redux/Auth2/ForgotEmail/Action/actions";
+import {useDispatch, useSelector} from "react-redux";
 
-const Forgot = ({ history }) => {
+const Forgot = ({history}) => {
   const [state, setState] = useState({
     email: false,
   });
   const onFocusHandler = (event) => {
-    setState({ ...state, [event.target.name]: true });
-  
+    setState({...state, [event.target.name]: true});
   };
   const onBlurHandler = (event) => {
-    setState({ ...state, [event.target.name]: false });
-   
+    setState({...state, [event.target.name]: false});
   };
 
   const [emai, setEmai] = useState();
   const forgot = useSelector((state) => state.forgotEmail);
-  const { loading, error } = forgot;
+  const {loading, error} = forgot;
 
   const dispatch = useDispatch();
 
@@ -64,9 +62,8 @@ const Forgot = ({ history }) => {
                         state.email
                           ? styles.inputBoxwhite1
                           : styles.inputBoxwhite
-                      }`}
-                    >
-                      <label for="Email">Email</label>
+                      }`}>
+                      <label htmlFor="Emai">Email</label>
                       <div className={styles.input}>
                         <input
                           type="email"
@@ -85,8 +82,7 @@ const Forgot = ({ history }) => {
                         {/* <Link href="/forgot-otp"> */}
                         <Button
                           onClick={handleSubmit}
-                          className={styles.buttonPayment}
-                        >
+                          className={styles.buttonPayment}>
                           {loading ? (
                             <span>Loading...</span>
                           ) : (

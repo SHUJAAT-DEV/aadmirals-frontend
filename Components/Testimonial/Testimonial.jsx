@@ -52,8 +52,8 @@ function Testinmonial({testimonials}) {
             }}
             className="mySwiper">
             {testimonials
-              ? testimonials.map((testimonial) => (
-                  <SwiperSlide>
+              ? testimonials.map((testimonial, index) => (
+                  <SwiperSlide key={`${index}-${testimonial.name}`}>
                     <TestimonialCards
                       image={testimonial.image}
                       name={testimonial.name}

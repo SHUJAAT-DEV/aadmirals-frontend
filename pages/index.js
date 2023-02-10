@@ -57,7 +57,6 @@ const schema = Joi.object({
 });
 
 const Home = (props) => {
-  const router = useRouter()
   const alert = useAlert();
   const dispatch = useDispatch();
 
@@ -71,8 +70,12 @@ const Home = (props) => {
     resolver: joiResolver(schema),
   });
 
+  // useEffect(() => {
+  //   dispatch(getHomePage());
+  // }, []);
   useEffect(() => {
-    dispatch(getHomePage());
+    console.log("getContactDetailsPage")
+    dispatch(getContactDetailsPage());
   }, []);
 
   const breakPoints = [
@@ -91,8 +94,8 @@ const Home = (props) => {
   const cms = props.data1
   const [reqFields, setreqFields] = useState(false);
   const cms2 = useSelector((state) => state.contact);
-  const details = useSelector((state) => state.contactDetails);
 
+  const details = useSelector((state) => state.contactDetails);
   const { contact_us_page } = cms2;
   const { contact_details_page } = details;
 
@@ -103,9 +106,6 @@ const Home = (props) => {
     dispatch(getContactPage(email, phoneNumber, message));
   };
 
-  useEffect(() => {
-    dispatch(getContactDetailsPage());
-  }, []);
   return (
     <>
       <Helmet>
@@ -133,7 +133,7 @@ const Home = (props) => {
       ) : (
         <>
           <div style={{ overflow: "hidden" }}>
-            <SideNav />
+            {/* <SideNav /> */}
             <Floatingbutton />
             <Header />
             {cms.error ? (
@@ -152,10 +152,9 @@ const Home = (props) => {
             </div>
             <OurServices services={cms.home_page.services} />
             <div>
-              <Image priority={true} src={cms.home_page.home[0].serveYouLikeKingImage} alt="Airport Shuttle Houston" layout="responsive" width={50} height={20} priorit={true} quality={100} objectFit="fill" />
+              <Image priority={cms.home_page.home[0].serveYouLikeKingImage ? true : false} src={cms.home_page.home[0].serveYouLikeKingImage} alt="Airport Shuttle Houston" layout="responsive" width={50} height={20} priorit={true} quality={100} objectFit="fill" />
             </div>
             <Cities cities={cms.home_page.cityWeServe} />
-
             <div className={styles.mainContainer_Testimonial}>
               <center>
                 <Row>
@@ -188,9 +187,9 @@ const Home = (props) => {
                     className="mySwiper">
 
                     {
-                      cms?.home_page?.testimonial ? cms?.home_page?.testimonial?.map(testimonial => (
+                      cms?.home_page?.testimonial ? cms?.home_page?.testimonial?.map((testimonial, index) => (
                         // eslint-disable-next-line react/jsx-key
-                        <SwiperSlide>
+                        <SwiperSlide key={`${index}-${testimonial.name}`}>
                           <TestimonialCards image={testimonial.image} name={testimonial.name} msg={testimonial.message} />
                         </SwiperSlide>
                       )) : null
@@ -213,16 +212,13 @@ const Home = (props) => {
                       enableAutoPlay={true}
                     >
                       {
-                        cms?.home_page?.partner && cms?.home_page?.partner?.map(partner => (
-                          <>
-                            <a href={`${partner?.url}`} target="_blank" rel="noreferrer">
-                              <div className={styles.logos_container}>
-                                <Image priority={true} src={partner.image} className={styles.logo_container} alt={partner.name} width={100} height={100} objectFit="contain" />
-                                {/* <img src={image} className={styles.logo} alt="..1partnerimg" /> */}
-                                <h2>{partner.name}</h2>
-                              </div>
-                            </a>
-                          </>
+                        cms?.home_page?.partner && cms?.home_page?.partner?.map((partner, index) => (
+                          <a href={`${partner?.url}`} target="_blank" rel="noreferrer" key={index} >
+                            <div className={styles.logos_container}>
+                              <Image priority={!!partner.image} src={partner.image} className={styles.logo_container} alt={partner.name} width={100} height={100} objectFit="contain" />
+                              <h2>{partner.name}</h2>
+                            </div>
+                          </a>
                         ))
                       }
                     </Carousel>
@@ -531,60 +527,6 @@ const Home = (props) => {
                       </div>
                     </footer>
                   </div>
-                  {/* <div className={styles.nav_container}>
-          <div className={styles.nav_inner_container}>
-            <Container>
-              <Row>
-                <Col xs={12} md={4}>
-                  <p className={styles.copyright}>
-                    2013 - 2020 All Rights Reserved © AAdmirals Group,INC
-                  </p>
-                </Col>
-                <Col xs={12} md={4}>
-                  <div className={styles.contact_container}>
-                    <a onClick={()=>{Router.push("/")}}>Home</a>
-                    <a onClick={()=>{Router.push("/login")}}>Login</a>
-                    <a onClick={()=>{Router.push("/FAQ")}}>FAQs</a>
-                    <a onClick={()=>{Router.push("/about-us")}}>About</a>
-                    <a onClick={()=>{Router.push("/fleet")}}>fleet</a>
-                  </div>
-                </Col>
-                <Col xs={12} md={4}>
-                  <a href="https://www.facebook.com/AAdmirals">
-                    <img
-                      src="/Assets/facebook.svg"
-                      className={`${styles.icon} img img-fluid`}
-                    />
-                  </a>
-                  <a href="https://twitter.com/AAdmiralsTravel">
-                    <img
-                      src="/Assets/twitter.svg"
-                      className={`${styles.icon} img img-fluid`}
-                    />
-                  </a>
-                  <a href="https://wa.me/13468574294">
-                    <img
-                      src="/Assets/whatsapp-footer.svg"
-                      className={`${styles.icon} img img-fluid`}
-                    />
-                  </a>
-                  <a href="https://www.linkedin.com/company/aadmirals-group-inc">
-                    <img
-                      src="/Assets/linkedin.svg"
-                      className={`${styles.icon} img img-fluid`}
-                    />
-                  </a>
-                  <a href="https://www.yelp.com/biz/aadmirals-travel-and-transportation-houston-2">
-                    <img
-                      src="/Assets/shop.svg"
-                      className={`${styles.icon} img img-fluid`}
-                    />
-                  </a>
-                </Col>
-              </Row>
-            </Container>
-          </div>
-        </div> */}
                 </div>
                 <div className="sub-footer">
                   <div className="container">

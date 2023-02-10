@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import styles from "./signup.module.scss";
 import Header from "../../Components/Header/Header";
 import Floatingbutton from "../../Components/floaingbutton/floatingbutton";
 import SideNav from "../../Components/Header/SideNav/SideNav";
 import Footer from "../../Components/Footer/BottomFooter/BottomFooter";
-import Link  from "next/link";
-import Router  from "next/router";
+import Link from "next/link";
+import Router from "next/router";
 
-import { Container, Col, Row, CardBody, Button, Card, Alert } from "reactstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { registerAction } from "../../redux/Auth2/Register/action/action";
+import {Container, Col, Row, CardBody, Button, Card, Alert} from "reactstrap";
+import {useDispatch, useSelector} from "react-redux";
+import {registerAction} from "../../redux/Auth2/Register/action/action";
 import Head from "next/head";
 
-const Signup = ({ history }) => {
+const Signup = ({history}) => {
   const [state, setState] = useState({
     email: false,
     pass: false,
@@ -28,35 +28,41 @@ const Signup = ({ history }) => {
 
   const [reqFields, setReqFields] = useState(false);
 
-
-
   const onFocusHandler = (event) => {
-    setState({ ...state, [event.target.name]: true });
-   
+    setState({...state, [event.target.name]: true});
   };
   const onBlurHandler = (event) => {
-    setState({ ...state, [event.target.name]: false });
-   
+    setState({...state, [event.target.name]: false});
   };
 
   const dispatch = useDispatch();
   const regis = useSelector((state) => state.register);
-  const { loading, error, message } = regis;
+  const {loading, error, message} = regis;
 
   const submitHandler = (e) => {
     e.preventDefault();
-    setReqFields(false)
-    if(!emai || !password || !fullName || !phone_number ){
-      setReqFields(true)
-    }else{
-      
-      dispatch(registerAction(fullName, emai, password,homeAddress,bilingAddress,companyName,phone_number, Router));
+    setReqFields(false);
+    if (!emai || !password || !fullName || !phone_number) {
+      setReqFields(true);
+    } else {
+      dispatch(
+        registerAction(
+          fullName,
+          emai,
+          password,
+          homeAddress,
+          bilingAddress,
+          companyName,
+          phone_number,
+          Router
+        )
+      );
     }
   };
 
   return (
     <div>
-        <Head>
+      <Head>
         <meta charSet="utf-8" />
         <title>Sign Up | AADMIRLAS Travel & Transportation</title>
       </Head>
@@ -76,16 +82,21 @@ const Signup = ({ history }) => {
                       you off safe at where you want to go.
                     </p>
                     <div className="mt-4 mb-4">
-                    {reqFields ? <Alert color="danger">Email,Password And Phone Number Are Required</Alert>:""}
+                      {reqFields ? (
+                        <Alert color="danger">
+                          Email,Password And Phone Number Are Required
+                        </Alert>
+                      ) : (
+                        ""
+                      )}
                     </div>
                     <div
                       className={`${
                         state.email
                           ? styles.inputBoxwhite1
                           : styles.inputBoxwhite
-                      }`}
-                    >
-                      <label for="fullname">Full Name</label>
+                      }`}>
+                      <label htmlFor="fullname">Full Name</label>
                       <div className={styles.input}>
                         <input
                           type="text"
@@ -100,12 +111,11 @@ const Signup = ({ history }) => {
                     </div>
                     <div
                       className={`${
-                        state.email ? 
-                        styles.inputBoxwhite1
-                        : styles.inputBoxwhite
-                      }`}
-                    >
-                      <label for="Email">Email</label>
+                        state.email
+                          ? styles.inputBoxwhite1
+                          : styles.inputBoxwhite
+                      }`}>
+                      <label htmlFor="Emai">Email</label>
 
                       <div className={styles.input}>
                         <input
@@ -121,12 +131,11 @@ const Signup = ({ history }) => {
                     </div>
                     <div
                       className={`${
-                        state.pass ? 
-                        styles.inputBoxwhite1
-                        : styles.inputBoxwhite
-                      }`}
-                    >
-                      <label for="Password">Password</label>
+                        state.pass
+                          ? styles.inputBoxwhite1
+                          : styles.inputBoxwhite
+                      }`}>
+                      <label htmlFor="Password">Password</label>
 
                       <div className={styles.input}>
                         <input
@@ -142,12 +151,11 @@ const Signup = ({ history }) => {
                     </div>
                     <div
                       className={`${
-                        state.phone_number ? 
-                        styles.inputBoxwhite1
-                        : styles.inputBoxwhite
-                      }`}
-                    >
-                      <label for="homeAdress">Phone Number</label>
+                        state.phone_number
+                          ? styles.inputBoxwhite1
+                          : styles.inputBoxwhite
+                      }`}>
+                      <label htmlFor="homeAdress">Phone Number</label>
 
                       <div className={styles.input}>
                         <input
@@ -163,12 +171,11 @@ const Signup = ({ history }) => {
                     </div>
                     <div
                       className={`${
-                        state.homeAddress ? 
-                        styles.inputBoxwhite1
-                        : styles.inputBoxwhite
-                      }`}
-                    >
-                      <label for="homeAdress">Home Address</label>
+                        state.homeAddress
+                          ? styles.inputBoxwhite1
+                          : styles.inputBoxwhite
+                      }`}>
+                      <label htmlFor="homeAdress">Home Address</label>
 
                       <div className={styles.input}>
                         <input
@@ -184,12 +191,11 @@ const Signup = ({ history }) => {
                     </div>
                     <div
                       className={`${
-                        state.bilingAddress ? 
-                        styles.inputBoxwhite1
-                        : styles.inputBoxwhite
-                      }`}
-                    >
-                      <label for="homeAdress">Biling Address</label>
+                        state.bilingAddress
+                          ? styles.inputBoxwhite1
+                          : styles.inputBoxwhite
+                      }`}>
+                      <label htmlFor="homeAdress">Biling Address</label>
 
                       <div className={styles.input}>
                         <input
@@ -205,12 +211,11 @@ const Signup = ({ history }) => {
                     </div>
                     <div
                       className={`${
-                        state.companyName ? 
-                        styles.inputBoxwhite1
-                        : styles.inputBoxwhite
-                      }`}
-                    >
-                      <label for="homeAdress">Company Name</label>
+                        state.companyName
+                          ? styles.inputBoxwhite1
+                          : styles.inputBoxwhite
+                      }`}>
+                      <label htmlFor="homeAdress">Company Name</label>
 
                       <div className={styles.input}>
                         <input
@@ -228,15 +233,14 @@ const Signup = ({ history }) => {
                       <Col xs="12">
                         <Button
                           onClick={submitHandler}
-                          className={styles.buttonPayment}
-                        >
+                          className={styles.buttonPayment}>
                           Signup
                         </Button>
                         <p className={styles.text}>
                           Already you have account?
                           <Link href="/login">
                             <a>
-                            <span className={styles.textaccount}>Login</span>
+                              <span className={styles.textaccount}>Login</span>
                             </a>
                           </Link>
                         </p>
