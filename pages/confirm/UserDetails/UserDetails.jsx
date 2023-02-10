@@ -1,29 +1,30 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import styles from "../Confirm.module.scss";
-import { Col, Row } from "reactstrap";
-import { withRouter } from "next/router";
-import { setAmount } from "../../../redux/Bookings/PreBooking/action";
+import {Col, Row} from "reactstrap";
+import {withRouter} from "next/router";
+import {setAmount} from "../../../redux/Bookings/PreBooking/action";
 import {
   setAccountDetails,
   setDirection,
 } from "../../../redux/Bookings/PreBooking/action";
-import { useDispatch, useSelector } from "react-redux";
-import { Alert } from "reactstrap";
+import {useDispatch, useSelector} from "react-redux";
+import {Alert} from "reactstrap";
 import moment from "moment";
 import RED_EYE from "../../../red-eye-time";
 import Stepper from "react-stepper-horizontal";
-import { useForm } from "react-hook-form";
+import {useForm} from "react-hook-form";
 
-function UserDetails({
-  otherDetails,
-  stepper,
-  setStepper,
-  router,
-  onCheckRed,
-}) {
+const userDetailTitle = {
+  0: "Airport Transfer/Point-Point Booking Details",
+  1: "By The Hour Booking Details",
+  2: "City to City Booking Details",
+};
+
+function UserDetails({otherDetails, stepper, setStepper, router, onCheckRed}) {
+  console.log("otherDetails", otherDetails);
   const dispatch = useDispatch();
-  const { pathname } = router;
+  const {pathname} = router;
   const [formData, setFormData] = useState({
     pickupSign: "",
     noteForChauffeur: "Not provided",
@@ -42,15 +43,15 @@ function UserDetails({
   const loginReducer = useSelector((state) => state.login);
   const direction = useSelector((state) => state.PreBookingReducer.direction);
   const preammount = useSelector((state) => state?.PreBookingReducer?.amount);
-  const { type } = direction;
-  const { user } = loginReducer;
+  const {type} = direction;
+  const {user} = loginReducer;
 
   const {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
-  } = useForm({ mode: "onChange" });
+    formState: {errors},
+  } = useForm({mode: "onChange"});
 
   // const { time, bookingTypes, date } = otherDetails
 
@@ -105,7 +106,7 @@ function UserDetails({
         );
       }
       setError("");
-      dispatch(setDirection({ returnDate, returnTime, type }));
+      dispatch(setDirection({returnDate, returnTime, type}));
     }
     if (email && phoneNumber) {
       dispatch(setAccountDetails(formData));
@@ -161,15 +162,15 @@ function UserDetails({
       pickupSign,
     } = data;
     if (type === "ROUND TRIP") {
-      dispatch(setDirection({ pickupDate, pickupTime, type }));
+      dispatch(setDirection({pickupDate, pickupTime, type}));
     }
     if (passangerEmail && passangerPhone) {
       dispatch(setAccountDetails(data));
     }
     setStepper(stepper + 1);
   };
-  const ErrorMessage = ({ field }) => (
-    <p style={{ color: "red" }}>{field?.message}</p>
+  const ErrorMessage = ({field}) => (
+    <p style={{color: "red"}}>{field?.message}</p>
   );
 
   return (
@@ -181,19 +182,26 @@ function UserDetails({
           </Alert>
         ) : null}
         <form onSubmit={handleSubmit(onSubmit)}>
+          <Row>
+            <Col>
+              <h4>{userDetailTitle[otherDetails.bookingTypes]}</h4>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "2rem",
+                  fontSize: "small",
+                }}>
+                <input type="checkbox" />
+                <h6>
+                  Please check this box if the name on the card is different
+                  other than the passenger's name or you book for someone else.
+                </h6>
+              </div>
+            </Col>
+          </Row>
           {otherDetails && otherDetails.bookingTypes == 0 ? (
             <div>
-              <Row>
-                <Col>
-                  <h3>Airport Pickup Details (If any)</h3>
-                  <h6>
-                    Enter your flight number so our chauffeur can track the
-                    status of your flight and pick up when you arrive, even if
-                    your fligh is delayed.
-                  </h6>
-                </Col>
-              </Row>
-              <Row style={{ marginTop: 20 }}>
+              <Row style={{marginTop: 20}}>
                 <Col xs={12} md={6} lg={4}>
                   <div className={styles.inputBox}>
                     <h6 className={styles.formText_reDesign}>Book by Name</h6>
@@ -212,7 +220,9 @@ function UserDetails({
                 </Col>
                 <Col xs={12} md={6} lg={4}>
                   <div className={styles.inputBox}>
-                    <h6 className={styles.formText_reDesign}>Book by Email</h6>
+                    <h6 className={styles.formText_reDesign}>
+                      Booked by Email Addres
+                    </h6>
                     <input
                       type="text"
                       placeholder="e.g. johdoe@gmail.com"
@@ -243,12 +253,31 @@ function UserDetails({
                   </div>
                 </Col>
               </Row>
-              <h3 style={{ marginTop: 20 }}>Additional Info</h3>
-              <Row style={{ marginTop: 10 }}>
+              <Row style={{marginTop: 20}}>
+                <Col xs={4} md={4} lg={4}>
+                  <div className={styles.inputBox}>
+                    <h6 className={styles.formText_reDesign}>
+                      Name on Debit/ Credit Card
+                    </h6>
+                    <input
+                      type="text"
+                      placeholder="e.g. +1-222-505-3023"
+                      className={styles.fields_reDesign}
+                      {...register("bookByPhone", {
+                        required: "Phone is required!",
+                      })}
+                    />
+                    {errors?.bookByPhone && (
+                      <ErrorMessage field={errors?.bookByPhone} />
+                    )}
+                  </div>
+                </Col>
+              </Row>
+              <Row style={{marginTop: 20}}>
                 <Col xs={12} md={6} lg={4}>
                   <div className={styles.inputBox}>
                     <h6 className={styles.formText_reDesign}>
-                      Passanger's Name
+                      Passenger/ Group’s leader travel Name
                     </h6>
                     <input
                       type="text"
@@ -266,7 +295,7 @@ function UserDetails({
                 <Col xs={12} md={6} lg={4}>
                   <div className={styles.inputBox}>
                     <h6 className={styles.formText_reDesign}>
-                      Passanger's Email
+                      Passenger’s Email Address
                     </h6>
                     <input
                       type="text"
@@ -300,7 +329,44 @@ function UserDetails({
                   </div>
                 </Col>
               </Row>
-              <Row style={{ marginTop: 10 }}>
+              {/* flight detail */}
+              <Row style={{marginTop: 20}}>
+                <Col xs={12} md={6} lg={4}>
+                  <div className={styles.inputBox}>
+                    <h6 className={styles.formText_reDesign}>
+                      Flight’s/ Cruise Ship Details if any
+                    </h6>
+                    <input
+                      type="text"
+                      placeholder="e.g. John Doe"
+                      className={styles.fields_reDesign}
+                      {...register("passangerName", {
+                        required: "Name is required!",
+                      })}
+                    />
+                    {errors?.passangerName && (
+                      <ErrorMessage field={errors?.passangerName} />
+                    )}
+                  </div>
+                </Col>
+                <Col xs={12} md={6} lg={4}>
+                  <div className={styles.inputBox}>
+                    <h7 className={styles.formText_reDesign}>Pick-Up Sign</h7>
+                    <input
+                      type="text"
+                      placeholder="e.g. johdoe@gmail.com"
+                      className={styles.fields_reDesign}
+                      {...register("passangerEmail", {
+                        required: "Email is required!",
+                      })}
+                    />
+                    {errors?.passangerEmail && (
+                      <ErrorMessage field={errors?.passangerEmail} />
+                    )}
+                  </div>
+                </Col>
+              </Row>
+              <Row style={{marginTop: 20}}>
                 <Col xs={12}>
                   <div className={styles.inputBox}>
                     <h6 className={styles.formText_reDesign}>
@@ -312,35 +378,17 @@ function UserDetails({
                       className={styles.fields_reDesign}
                       {...register("notes")}
                     />
-                    <h6 style={{ color: "gray" }}>
+                    <h6 style={{color: "gray"}}>
                       Help us provide you with a better service and add any
                       special requests
                     </h6>
                   </div>
                 </Col>
               </Row>
-              <Row style={{ marginTop: 10 }}>
-                <Col xs={12} md={6}>
-                  <div className={styles.inputBox}>
-                    <h6 className={styles.formText_reDesign}>Flight Details</h6>
-                    <input
-                      type="text"
-                      placeholder="e.g. LH204"
-                      className={styles.fields_reDesign}
-                      {...register("flightDetails", {
-                        required: "Flight details are required!",
-                      })}
-                    />
-                    {errors?.flightDetails && (
-                      <ErrorMessage field={errors?.flightDetails} />
-                    )}
-                  </div>
-                </Col>
-              </Row>
               {type === "ROUND TRIP" && (
                 <>
-                  <h3 style={{ marginTop: 20 }}>Return Trip Information</h3>
-                  <Row style={{ marginTop: 20 }}>
+                  <h6 style={{marginTop: 20}}>Return Trip Information</h6>
+                  <Row style={{marginTop: 20}}>
                     <Col xs={12} md={6} lg={4}>
                       <div className={styles.inputBox}>
                         <h6 className={styles.formText_reDesign}>
@@ -389,12 +437,7 @@ function UserDetails({
             </div>
           ) : (
             <>
-              <Row>
-                <Col>
-                  <h3>Pickup Details</h3>
-                </Col>
-              </Row>
-              <Row style={{ marginTop: 10 }}>
+              <Row style={{marginTop: 10}}>
                 <Col xs={12} md={6} lg={4}>
                   <div className={styles.inputBox}>
                     <h6 className={styles.formText_reDesign}>Pickup Sign</h6>
@@ -444,12 +487,12 @@ function UserDetails({
                   </div>
                 </Col>
               </Row>
-              <Row style={{ marginTop: 30 }}>
+              <Row style={{marginTop: 30}}>
                 <Col>
                   <h3>Additonal Info</h3>
                 </Col>
               </Row>
-              <Row style={{ marginTop: 10 }}>
+              <Row style={{marginTop: 10}}>
                 <Col xs={12} md={6} lg={4}>
                   <div className={styles.inputBox}>
                     <h6 className={styles.formText_reDesign}>
@@ -505,7 +548,7 @@ function UserDetails({
                   </div>
                 </Col>
               </Row>
-              <Row style={{ marginTop: 10 }}>
+              <Row style={{marginTop: 10}}>
                 <Col xs={12}>
                   <div className={styles.inputBox}>
                     <h6 className={styles.formText_reDesign}>
@@ -517,7 +560,7 @@ function UserDetails({
                       className={styles.fields_reDesign}
                       {...register("notes")}
                     />
-                    <h6 style={{ color: "gray" }}>
+                    <h6 style={{color: "gray"}}>
                       Help us provide you with a better service and add any
                       special requests
                     </h6>
@@ -526,8 +569,8 @@ function UserDetails({
               </Row>
               {type === "ROUND TRIP" && (
                 <>
-                  <h3 style={{ marginTop: 20 }}>Return Trip Information</h3>
-                  <Row style={{ marginTop: 20 }}>
+                  <h3 style={{marginTop: 20}}>Return Trip Information</h3>
+                  <Row style={{marginTop: 20}}>
                     <Col xs={12} md={6} lg={4}>
                       <div className={styles.inputBox}>
                         <h6 className={styles.formText_reDesign}>
