@@ -1,19 +1,19 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../Confirm.module.scss";
-import {Col, Row} from "reactstrap";
-import {withRouter} from "next/router";
-import {setAmount} from "../../../redux/Bookings/PreBooking/action";
+import { Col, Row } from "reactstrap";
+import { withRouter } from "next/router";
+import { setAmount } from "../../../redux/Bookings/PreBooking/action";
 import {
   setAccountDetails,
   setDirection,
 } from "../../../redux/Bookings/PreBooking/action";
-import {useDispatch, useSelector} from "react-redux";
-import {Alert} from "reactstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Alert } from "reactstrap";
 import moment from "moment";
 import RED_EYE from "../../../red-eye-time";
 import Stepper from "react-stepper-horizontal";
-import {useForm} from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 const userDetailTitle = {
   0: "Airport Transfer/Point-Point Booking Details",
@@ -35,22 +35,28 @@ const initialValue = {
   returnPickUpdate: "",
   returnPickUpTime: "",
 };
-const ErrorMessage = ({field}) => (
-  <p style={{color: "red", fontSize: "0.75rem"}}>{field?.message}</p>
+const ErrorMessage = ({ field }) => (
+  <p style={{ color: "red", fontSize: "0.75rem" }}>{field?.message}</p>
 );
-function UserDetails({otherDetails, stepper, setStepper, router, onCheckRed}) {
+function UserDetails({
+  otherDetails,
+  stepper,
+  setStepper,
+  router,
+  onCheckRed,
+}) {
   const [returnDate, setDate] = useState("N/A");
   const [returnTime, setTime] = useState("N/A");
   const dispatch = useDispatch();
-  const {pathname} = router;
+  const { pathname } = router;
   const [error, setError] = useState("");
   const direction = useSelector((state) => state.PreBookingReducer.direction);
-  const {type} = direction;
+  const { type } = direction;
   const {
     register,
     handleSubmit,
-    formState: {errors},
-  } = useForm({mode: "onChange"});
+    formState: { errors },
+  } = useForm({ mode: "onChange" });
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -58,8 +64,8 @@ function UserDetails({otherDetails, stepper, setStepper, router, onCheckRed}) {
 
   const onSubmit = (data) => {
     if (type === "ROUND TRIP") {
-      const {returnPickUpdate, returnPickUpTime} = data;
-      dispatch(setDirection({returnPickUpdate, returnPickUpTime, type}));
+      const { returnPickUpdate, returnPickUpTime } = data;
+      dispatch(setDirection({ returnPickUpdate, returnPickUpTime, type }));
     }
     dispatch(setAccountDetails(data));
     setStepper(stepper + 1);
@@ -76,7 +82,7 @@ function UserDetails({otherDetails, stepper, setStepper, router, onCheckRed}) {
         <form onSubmit={handleSubmit(onSubmit)}>
           <Row>
             <Col>
-              <h4>{userDetailTitle[otherDetails.bookingTypes]}</h4>
+              <h4>{userDetailTitle[otherDetails?.bookingTypes]}</h4>
               <div
                 style={{
                   display: "flex",
@@ -92,7 +98,7 @@ function UserDetails({otherDetails, stepper, setStepper, router, onCheckRed}) {
             </Col>
           </Row>
           <div>
-            <Row style={{marginTop: 20}}>
+            <Row style={{ marginTop: 20 }}>
               <Col xs={12} md={6} lg={4}>
                 <div className={styles.inputBox}>
                   <h6 className={styles.formText_reDesign}>Book by Name</h6>
@@ -144,7 +150,7 @@ function UserDetails({otherDetails, stepper, setStepper, router, onCheckRed}) {
                 </div>
               </Col>
             </Row>
-            <Row style={{marginTop: 20}}>
+            <Row style={{ marginTop: 20 }}>
               <Col xs={4} md={4} lg={4}>
                 <div className={styles.inputBox}>
                   <h6 className={styles.formText_reDesign}>
@@ -164,7 +170,7 @@ function UserDetails({otherDetails, stepper, setStepper, router, onCheckRed}) {
                 </div>
               </Col>
             </Row>
-            <Row style={{marginTop: 20}}>
+            <Row style={{ marginTop: 20 }}>
               <Col xs={12} md={6} lg={4}>
                 <div className={styles.inputBox}>
                   <h6 className={styles.formText_reDesign}>
@@ -221,7 +227,7 @@ function UserDetails({otherDetails, stepper, setStepper, router, onCheckRed}) {
               </Col>
             </Row>
             {/* flight detail */}
-            <Row style={{marginTop: 20}}>
+            <Row style={{ marginTop: 20 }}>
               <Col xs={12} md={6} lg={4}>
                 <div className={styles.inputBox}>
                   <h6 className={styles.formText_reDesign}>
@@ -257,7 +263,7 @@ function UserDetails({otherDetails, stepper, setStepper, router, onCheckRed}) {
                 </div>
               </Col>
             </Row>
-            <Row style={{marginTop: 20}}>
+            <Row style={{ marginTop: 20 }}>
               <Col xs={12}>
                 <div className={styles.inputBox}>
                   <h6 className={styles.formText_reDesign}>
@@ -270,7 +276,7 @@ function UserDetails({otherDetails, stepper, setStepper, router, onCheckRed}) {
                     className={styles.fields_reDesign}
                     {...register("notes")}
                   />
-                  <h6 style={{color: "gray", fontSize: ".7rem"}}>
+                  <h6 style={{ color: "gray", fontSize: ".7rem" }}>
                     Help us provide you with a better service and add any
                     special requests
                   </h6>
@@ -279,10 +285,10 @@ function UserDetails({otherDetails, stepper, setStepper, router, onCheckRed}) {
             </Row>
             {type === "ROUND TRIP" && (
               <>
-                <h6 style={{marginTop: 20, color: "black"}}>
+                <h6 style={{ marginTop: 20, color: "black" }}>
                   Enter Your Return Trip Information:
                 </h6>
-                <Row style={{marginTop: 20}}>
+                <Row style={{ marginTop: 20 }}>
                   <Col xs={12} md={6} lg={4}>
                     <div className={styles.inputBox}>
                       <h6 className={styles.formText_reDesign}>
