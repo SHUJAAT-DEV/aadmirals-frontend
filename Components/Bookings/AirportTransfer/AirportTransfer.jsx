@@ -1,19 +1,17 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./airportTransfer.module.scss";
 import Autocomplete from "react-google-autocomplete";
-import {useRouter} from "next/router";
-import {Alert} from "reactstrap";
-import {Spinner} from "reactstrap";
-import {getQuoteAirportTransfer} from "../../../redux/Bookings/Quote/action";
-import {useDispatch} from "react-redux";
-import {Input} from "reactstrap";
+import { useRouter } from "next/router";
+import { Alert } from "reactstrap";
+import { Spinner } from "reactstrap";
+import { getQuoteAirportTransfer } from "../../../redux/Bookings/Quote/action";
+import { useDispatch } from "react-redux";
+import { Input } from "reactstrap";
 import moment from "moment";
 import Search from "./SearchMap";
 
 function AirportTransfer() {
   const history = useRouter();
-  const [value, onChange] = useState(new Date());
-
   const [state, setState] = useState({
     from: false,
     to: false,
@@ -120,14 +118,14 @@ function AirportTransfer() {
       setToLng(address.latLng.lng);
     }
   };
-  
+
   const handleChangeFrom = (address) => {
     setError("");
-    if (address.latLng===undefined) {
+    if (address.latLng === undefined) {
       setError("Location Not Valid");
-    } else { 
+    } else {
       setFromLat(address.latLng.lat);
-      setFromLng(address.latLng.lng); 
+      setFromLng(address.latLng.lng);
     }
   };
 
@@ -157,7 +155,6 @@ function AirportTransfer() {
         },
         callback
       );
-
       function callback(response, status) {
         setError("");
         if (response?.rows[0]?.elements[0]?.distance?.value / 1609 > 80) {
@@ -167,7 +164,6 @@ function AirportTransfer() {
           setLoading(false);
           return;
         }
-        setLoading(false);
         if (response) {
           let data = {
             from: response?.originAddresses[0],
@@ -178,9 +174,11 @@ function AirportTransfer() {
             duration: response?.rows[0]?.elements[0]?.duration,
             bookingType: 0,
           };
-
           dispatch(getQuoteAirportTransfer(data, history));
+          history.push("/confirm");
+          setLoading(false);
         } else {
+          setLoading(false);
           setError("Something went wrong!");
         }
       }
@@ -188,11 +186,11 @@ function AirportTransfer() {
   };
 
   const onFocusHandler = (event) => {
-    setState({...state, [event.target.name]: true});
+    setState({ ...state, [event.target.name]: true });
   };
 
   const onBlurHandler = (event) => {
-    setState({...state, [event.target.name]: false});
+    setState({ ...state, [event.target.name]: false });
   };
 
   return (
@@ -200,7 +198,7 @@ function AirportTransfer() {
       {error ? <Alert color="danger">{error}</Alert> : null}
       <div className={`${state.from ? styles.inputBox1 : styles.inputBox}`}>
         <label htmlFor="from">Pickup Address</label>
-        <div className={styles.input} style={{cursor: "pointer"}}>
+        <div className={styles.input} style={{ cursor: "pointer" }}>
           <img
             src="/Assets/Icon awesome-map-marker-alt.svg"
             alt="Map"
@@ -224,7 +222,7 @@ function AirportTransfer() {
       </div>
       <div className={`${state.to ? styles.inputBox1 : styles.inputBox}`}>
         <label htmlFor="to">Drop off Address</label>
-        <div className={styles.input} style={{cursor: "pointer"}}>
+        <div className={styles.input} style={{ cursor: "pointer" }}>
           <img
             src="/Assets/Icon awesome-map-marker-alt.svg"
             alt="Map"
@@ -248,14 +246,14 @@ function AirportTransfer() {
       </div>
       <div className={`${state.date ? styles.inputBox1 : styles.inputBox}`}>
         <label htmlFor="date">Pickup Date</label>
-        <div className={styles.input} style={{cursor: "pointer"}}>
+        <div className={styles.input} style={{ cursor: "pointer" }}>
           <img
             src="/Assets/Icon awesome-calendar-alt.svg"
             alt="Map1"
             loading="lazy"
           />
           <Input
-            style={{cursor: "pointer"}}
+            style={{ cursor: "pointer" }}
             type="date"
             name="date"
             id="exampleDate"
@@ -269,10 +267,10 @@ function AirportTransfer() {
       </div>
       <div className={`${state.time ? styles.inputBox1 : styles.inputBox}`}>
         <label htmlFor="time">Pickup Time</label>
-        <div className={styles.input} style={{cursor: "pointer"}}>
+        <div className={styles.input} style={{ cursor: "pointer" }}>
           <img src="/Assets/Icon awesome-clock.svg" alt="Map2" loading="lazy" />
           <Input
-            style={{cursor: "pointer"}}
+            style={{ cursor: "pointer" }}
             type="time"
             name="time"
             id="exampleTime"

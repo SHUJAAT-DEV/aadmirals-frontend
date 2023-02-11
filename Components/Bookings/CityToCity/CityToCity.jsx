@@ -1,13 +1,13 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./cityToCity.module.scss";
 import Autocomplete from "react-google-autocomplete";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 
-import {Alert} from "reactstrap";
-import {Spinner} from "reactstrap";
-import {getQuoteCityToCity} from "../../../redux/Bookings/Quote/action";
-import {useDispatch} from "react-redux";
-import {Input} from "reactstrap";
+import { Alert } from "reactstrap";
+import { Spinner } from "reactstrap";
+import { getQuoteCityToCity } from "../../../redux/Bookings/Quote/action";
+import { useDispatch } from "react-redux";
+import { Input } from "reactstrap";
 import moment from "moment";
 import Search from "../AirportTransfer/SearchMap";
 
@@ -182,8 +182,6 @@ function CityToCity() {
           setLoading(false);
           return;
         }
-
-        setLoading(false);
         if (response) {
           let data = {
             from: response?.originAddresses[0],
@@ -200,8 +198,12 @@ function CityToCity() {
             setError("Please enter dropoff location");
           } else {
             dispatch(getQuoteCityToCity(data, history));
+            history.push("/confirm");
           }
+          setLoading(false);
+          return;
         } else {
+          setLoading(false);
           setError("Something went wrong!");
         }
       }
@@ -209,10 +211,10 @@ function CityToCity() {
   };
 
   const onFocusHandler = (event) => {
-    setState({...state, [event.target.name]: true});
+    setState({ ...state, [event.target.name]: true });
   };
   const onBlurHandler = (event) => {
-    setState({...state, [event.target.name]: false});
+    setState({ ...state, [event.target.name]: false });
   };
   return (
     <div>
@@ -261,14 +263,14 @@ function CityToCity() {
       </div>
       <div className={`${state.date ? styles.inputBox1 : styles.inputBox}`}>
         <label htmlFor="date">Pickup Date</label>
-        <div className={styles.input} style={{cursor: "pointer"}}>
+        <div className={styles.input} style={{ cursor: "pointer" }}>
           <img
             src="/Assets/Icon awesome-calendar-alt.svg"
             alt="Map14"
             loading="lazy"
           />
           <Input
-            style={{cursor: "pointer"}}
+            style={{ cursor: "pointer" }}
             type="date"
             name="date"
             id="exampleDate"
@@ -282,7 +284,7 @@ function CityToCity() {
       </div>
       <div className={`${state.time ? styles.inputBox1 : styles.inputBox}`}>
         <label htmlFor="time">Pickup Time</label>
-        <div className={styles.input} style={{cursor: "pointer"}}>
+        <div className={styles.input} style={{ cursor: "pointer" }}>
           <img
             src="/Assets/Icon awesome-clock.svg"
             alt="Map15"
@@ -290,7 +292,7 @@ function CityToCity() {
           />
           <Input
             type="time"
-            style={{cursor: "pointer"}}
+            style={{ cursor: "pointer" }}
             name="time"
             id="exampleTime"
             onChange={(e) => ChangeTime(e.target.value)}

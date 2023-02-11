@@ -1,12 +1,12 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./byTheHour.module.scss";
 import Autocomplete from "react-google-autocomplete";
-import {useRouter} from "next/router";
-import {Alert} from "reactstrap";
-import {Spinner} from "reactstrap";
-import {getQuoteHourly} from "../../../redux/Bookings/Quote/action";
-import {useDispatch} from "react-redux";
-import {Input} from "reactstrap";
+import { useRouter } from "next/router";
+import { Alert } from "reactstrap";
+import { Spinner } from "reactstrap";
+import { getQuoteHourly } from "../../../redux/Bookings/Quote/action";
+import { useDispatch } from "react-redux";
+import { Input } from "reactstrap";
 import moment from "moment";
 import Search from "../AirportTransfer/SearchMap";
 
@@ -160,7 +160,7 @@ function ByTheHour() {
         from: from,
         time: time,
         date: moment(date).format("MM-DD-YYYY"),
-        duration: {text: `${duration} hours`, value: duration * 3600},
+        duration: { text: `${duration} hours`, value: duration * 3600 },
         bookingType: 1,
       };
       if (data?.from === undefined) {
@@ -169,17 +169,16 @@ function ByTheHour() {
         setError("Please enter dropoff location");
       } else {
         dispatch(getQuoteHourly(data, history));
+        history.push("/confirm");
       }
-      // console.log(data)
-
       setLoading(false);
     }
   };
   const onFocusHandler = (event) => {
-    setState({...state, [event.target.name]: true});
+    setState({ ...state, [event.target.name]: true });
   };
   const onBlurHandler = (event) => {
-    setState({...state, [event.target.name]: false});
+    setState({ ...state, [event.target.name]: false });
   };
   function Hou(e) {
     if (e < 3) {
@@ -247,7 +246,7 @@ function ByTheHour() {
             loading="lazy"
           />
           <input
-            style={{letterSpacing: "0px", color: "#6B6F75", height: "30px"}}
+            style={{ letterSpacing: "0px", color: "#6B6F75", height: "30px" }}
             type="number"
             name="duration"
             value={duration}
@@ -259,14 +258,14 @@ function ByTheHour() {
       </div>
       <div className={`${state.date ? styles.inputBox1 : styles.inputBox}`}>
         <label htmlFor="date">Pickup Date</label>
-        <div className={styles.input} style={{cursor: "pointer"}}>
+        <div className={styles.input} style={{ cursor: "pointer" }}>
           <img
             src="/Assets/Icon awesome-calendar-alt.svg"
             alt="Map10"
             loading="lazy"
           />
           <Input
-            style={{cursor: "pointer"}}
+            style={{ cursor: "pointer" }}
             type="date"
             name="date"
             id="exampleDate"
@@ -280,14 +279,14 @@ function ByTheHour() {
       </div>
       <div className={`${state.time ? styles.inputBox1 : styles.inputBox}`}>
         <label htmlFor="time">Pickup Time</label>
-        <div className={styles.input} style={{cursor: "pointer"}}>
+        <div className={styles.input} style={{ cursor: "pointer" }}>
           <img
             src="/Assets/Icon awesome-clock.svg"
             alt="Map11"
             loading="lazy"
           />
           <Input
-            style={{cursor: "pointer"}}
+            style={{ cursor: "pointer" }}
             type="time"
             name="time"
             id="exampleTime"
