@@ -349,6 +349,31 @@
     display: none;
   }
 }
+.passangerCheckbox {
+  border-radius: 15px;
+  border: double 2px #ee405e;
+  background-color: #ee405e !important;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 26px;
+  height: 26px;
+  &:checked {
+    background-color: #fff;
+    accent-color: #ee405e;
+  }
+}
+.passangerAction {
+  display: flex;
+  gap: 1.6rem;
+  place-items: center;
+  margin-top: 1.7rem;
+  & h6 {
+    color: #000000;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+  }
+}
 .form_reDesign {
   max-width: 60vw;
   margin: auto;
@@ -381,8 +406,8 @@
 .formText_reDesign {
   margin-top: 3px;
   color: #707070 !important;
-  font-size: 0.8rem;
-  font-weight: bold;
+  font-size: 0.65rem;
+  font-weight: 600;
 }
 
 @media only screen and (max-width: 767px) {

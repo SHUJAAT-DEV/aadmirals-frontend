@@ -47,6 +47,8 @@ function UserDetails({
 }) {
   const [returnDate, setDate] = useState("N/A");
   const [returnTime, setTime] = useState("N/A");
+  const [isPassengerNBookedPersonSame, setIsPassengerNBookedPersonSame] =
+    useState(false);
   const dispatch = useDispatch();
   const { pathname } = router;
   const [error, setError] = useState("");
@@ -80,16 +82,17 @@ function UserDetails({
           </Alert>
         ) : null}
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Row>
+          <Row style={{ marginTop: 20 }}>
             <Col>
               <h4>{userDetailTitle[otherDetails?.bookingTypes]}</h4>
-              <div
-                style={{
-                  display: "flex",
-                  gap: "2rem",
-                  fontSize: "small",
-                }}>
-                <input type="checkbox" />
+              <div className={styles.passangerAction}>
+                <input
+                  type="checkbox"
+                  className={styles.passangerCheckbox}
+                  onClick={(e) => {
+                    setIsPassengerNBookedPersonSame(e.target.checked);
+                  }}
+                />
                 <h6>
                   Please check this box if the name on the card is different
                   other than the passenger's name or you book for someone else.
@@ -98,78 +101,84 @@ function UserDetails({
             </Col>
           </Row>
           <div>
-            <Row style={{ marginTop: 20 }}>
-              <Col xs={12} md={6} lg={4}>
-                <div className={styles.inputBox}>
-                  <h6 className={styles.formText_reDesign}>Book by Name</h6>
-                  <input
-                    type="text"
-                    placeholder="e.g. John Doe"
-                    className={styles.fields_reDesign}
-                    {...register("bookByName", {
-                      required: "Name is required.",
-                    })}
-                  />
-                  {errors?.bookByName && (
-                    <ErrorMessage field={errors?.bookByName} />
-                  )}
-                </div>
-              </Col>
-              <Col xs={12} md={6} lg={4}>
-                <div className={styles.inputBox}>
-                  <h6 className={styles.formText_reDesign}>
-                    Booked by Email Addres
-                  </h6>
-                  <input
-                    type="text"
-                    placeholder="e.g. johdoe@gmail.com"
-                    className={styles.fields_reDesign}
-                    {...register("bookByEmail", {
-                      required: "Email is required!",
-                    })}
-                  />
-                  {errors?.bookByEmail && (
-                    <ErrorMessage field={errors?.bookByEmail} />
-                  )}
-                </div>
-              </Col>
-              <Col xs={12} md={6} lg={4}>
-                <div className={styles.inputBox}>
-                  <h6 className={styles.formText_reDesign}>Book by Phone</h6>
-                  <input
-                    type="text"
-                    placeholder="e.g. +1-222-505-3023"
-                    className={styles.fields_reDesign}
-                    {...register("bookByPhone", {
-                      required: "Phone is required!",
-                    })}
-                  />
-                  {errors?.bookByPhone && (
-                    <ErrorMessage field={errors?.bookByPhone} />
-                  )}
-                </div>
-              </Col>
-            </Row>
-            <Row style={{ marginTop: 20 }}>
-              <Col xs={4} md={4} lg={4}>
-                <div className={styles.inputBox}>
-                  <h6 className={styles.formText_reDesign}>
-                    Name on Debit/ Credit Card
-                  </h6>
-                  <input
-                    type="text"
-                    placeholder="e.g. +1-222-505-3023"
-                    className={styles.fields_reDesign}
-                    {...register("cardHolderName", {
-                      required: "Card holder name is required!",
-                    })}
-                  />
-                  {errors?.cardHolderName && (
-                    <ErrorMessage field={errors?.cardHolderName} />
-                  )}
-                </div>
-              </Col>
-            </Row>
+            {isPassengerNBookedPersonSame && (
+              <>
+                <Row style={{ marginTop: 20 }}>
+                  <Col xs={12} md={6} lg={4}>
+                    <div className={styles.inputBox}>
+                      <h6 className={styles.formText_reDesign}>Book by Name</h6>
+                      <input
+                        type="text"
+                        placeholder="e.g. John Doe"
+                        className={styles.fields_reDesign}
+                        {...register("bookByName", {
+                          required: "Name is required.",
+                        })}
+                      />
+                      {errors?.bookByName && (
+                        <ErrorMessage field={errors?.bookByName} />
+                      )}
+                    </div>
+                  </Col>
+                  <Col xs={12} md={6} lg={4}>
+                    <div className={styles.inputBox}>
+                      <h6 className={styles.formText_reDesign}>
+                        Booked by Email Addres
+                      </h6>
+                      <input
+                        type="text"
+                        placeholder="e.g. johdoe@gmail.com"
+                        className={styles.fields_reDesign}
+                        {...register("bookByEmail", {
+                          required: "Email is required!",
+                        })}
+                      />
+                      {errors?.bookByEmail && (
+                        <ErrorMessage field={errors?.bookByEmail} />
+                      )}
+                    </div>
+                  </Col>
+                  <Col xs={12} md={6} lg={4}>
+                    <div className={styles.inputBox}>
+                      <h6 className={styles.formText_reDesign}>
+                        Book by Phone
+                      </h6>
+                      <input
+                        type="text"
+                        placeholder="e.g. +1-222-505-3023"
+                        className={styles.fields_reDesign}
+                        {...register("bookByPhone", {
+                          required: "Phone is required!",
+                        })}
+                      />
+                      {errors?.bookByPhone && (
+                        <ErrorMessage field={errors?.bookByPhone} />
+                      )}
+                    </div>
+                  </Col>
+                </Row>
+                <Row style={{ marginTop: 20 }}>
+                  <Col xs={4} md={4} lg={4}>
+                    <div className={styles.inputBox}>
+                      <h6 className={styles.formText_reDesign}>
+                        Name on Debit/ Credit Card
+                      </h6>
+                      <input
+                        type="text"
+                        placeholder="e.g. +1-222-505-3023"
+                        className={styles.fields_reDesign}
+                        {...register("cardHolderName", {
+                          required: "Card holder name is required!",
+                        })}
+                      />
+                      {errors?.cardHolderName && (
+                        <ErrorMessage field={errors?.cardHolderName} />
+                      )}
+                    </div>
+                  </Col>
+                </Row>
+              </>
+            )}
             <Row style={{ marginTop: 20 }}>
               <Col xs={12} md={6} lg={4}>
                 <div className={styles.inputBox}>
@@ -237,13 +246,8 @@ function UserDetails({
                     type="text"
                     placeholder="e.g. John Doe"
                     className={styles.fields_reDesign}
-                    {...register("flightNCuriseDetail", {
-                      required: "Flight/Curise detail is required!",
-                    })}
+                    {...register("flightNCuriseDetail")}
                   />
-                  {errors?.flightNCuriseDetail && (
-                    <ErrorMessage field={errors?.flightNCuriseDetail} />
-                  )}
                 </div>
               </Col>
               <Col xs={12} md={6} lg={4}>
@@ -329,6 +333,21 @@ function UserDetails({
                       {errors?.returnPickUpTime && (
                         <ErrorMessage field={errors?.returnPickUpTime} />
                       )}
+                    </div>
+                  </Col>
+                </Row>
+                <Row style={{ marginTop: 20 }}>
+                  <Col xs={12} md={6} lg={4}>
+                    <div className={styles.inputBox}>
+                      <h6 className={styles.formText_reDesign}>
+                        Flight’s/ Cruise Ship Details if any
+                      </h6>
+                      <input
+                        type="text"
+                        placeholder=""
+                        className={styles.fields_reDesign}
+                        {...register("returnFlightNCuriseDetail")}
+                      />
                     </div>
                   </Col>
                 </Row>
