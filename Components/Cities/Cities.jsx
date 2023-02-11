@@ -3,30 +3,24 @@ import styles from "./cities.module.scss";
 import {Container} from "reactstrap";
 import Link from "next/link";
 import Image from "next/image";
+import leftArrow from "../../Assets/left-arrow.svg";
+import carImage from "../../Assets/car.svg";
 
 function Cities({cities}) {
   return (
     <Container fluid className={`${styles.mainContainer} add_bottom_mrgin`}>
       <h2 className={styles.heading}>Cities We Serve</h2>
       <div className={styles.designContainer}>
-        <img
-          src="/Assets/left-arrow.svg"
-          alt="AAdmirals-Arrow-right"
-          loading="lazy"
-        />
+        <Image src={leftArrow} alt="AAdmirals-Arrow-right" loading="lazy" />
         <span></span>
-        <img src="/Assets/car.svg" alt="AAdmirals-Car" loading="lazy" />
+        <Image src={carImage} alt="AAdmirals-Car" loading="lazy" />
         <span></span>
-        <img
-          src="/Assets/left-arrow.svg"
-          alt="AAdmirals-Arrow-Left"
-          loading="lazy"
-        />
+        <Image src={leftArrow} alt="AAdmirals-Arrow-Left" loading="lazy" />
       </div>
       <div className={styles.imagesContainer}>
         {cities
           ? cities.map((city) => (
-              <Link href={`/${city.url ? city.url : ""}`}>
+              <Link href={`/${city.url ? city.url : ""}`} key={city.name}>
                 <a>
                   <div className={styles.images}>
                     <Image

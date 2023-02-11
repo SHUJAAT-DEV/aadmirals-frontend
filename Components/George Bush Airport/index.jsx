@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Container, Row, Col } from "reactstrap";
+import React, {useState, useEffect} from "react";
+import {Container, Row, Col} from "reactstrap";
 import styles from "./GeorgeBushAirport.module.scss";
 import Header from "../Header/Header";
 import Fleet from "../fleet/fleet";
@@ -11,10 +11,10 @@ import SideNav from "../Header/SideNav/SideNav";
 import Testimonial from "../Testimonial/Testimonial";
 import Floatingbutton from "../floaingbutton/floatingbutton";
 import HomeForm from "../Home Form/HomeForm";
-import { Alert } from "reactstrap";
+import {Alert} from "reactstrap";
 import Loader from "../Loader/Loader";
-import { useDispatch, useSelector } from "react-redux";
-import { getGeorgeBushPage } from "../../redux/Services/Houston_Airport/George_bush/action";
+import {useDispatch, useSelector} from "react-redux";
+import {getGeorgeBushPage} from "../../redux/Services/Houston_Airport/George_bush/action";
 import Image from "next/image";
 import sanitizeHTML from "../hero/SanitizedReactUtils";
 
@@ -26,7 +26,7 @@ function GeorgeBushAirport(props) {
   }, []);
 
   const cms = props.data1;
-  const { george_bush_page } = cms;
+  const {george_bush_page} = cms;
   const data = george_bush_page && george_bush_page.georgeBushAirport[0];
   const faqs = george_bush_page && george_bush_page.faqs;
   const fleet = george_bush_page && george_bush_page.fleet;
@@ -34,11 +34,15 @@ function GeorgeBushAirport(props) {
 
   let sanitizedGetFirstClassService = sanitizeHTML(data.getFirstClassService);
   let sanitizedIahAirportHeading = sanitizeHTML(data.iahAirportHeading);
-  let sanitizedMeetAndPickUpLocationInstructions = sanitizeHTML(data.meetAndPickUpLocationInstructions);
+  let sanitizedMeetAndPickUpLocationInstructions = sanitizeHTML(
+    data.meetAndPickUpLocationInstructions
+  );
   let sanitizedoOurFleet = sanitizeHTML(data.ourFleet);
-  let sanitizedHowToConnectToHoustonAirport = sanitizeHTML(data.howToConnectToHoustonAirport);
+  let sanitizedHowToConnectToHoustonAirport = sanitizeHTML(
+    data.howToConnectToHoustonAirport
+  );
 
-  console.log('checking = ', sanitizedoOurFleet);
+  console.log("checking = ", sanitizedoOurFleet);
 
   return (
     <>
@@ -46,7 +50,7 @@ function GeorgeBushAirport(props) {
         <Loader />
       ) : (
         <>
-          <div style={{ overflow: "hidden" }}>
+          <div style={{overflow: "hidden"}}>
             <SideNav />
             <Floatingbutton />
             <Header />
@@ -61,12 +65,12 @@ function GeorgeBushAirport(props) {
                 Title={
                   data.heroTitle ||
                   "IAH/George Bush Airport Car & Shuttle Service"
-                } 
+                }
                 img={data?.heroImage}
                 Form={HomeForm}
               />
             </div>
-            <Container fluid style={{ padding: "100px 0" }}>
+            <Container fluid style={{padding: "100px 0"}}>
               <Container>
                 <Row className={styles.logoContainer}>
                   <Col xs={12} xl={12} md={12} className={styles.heading1}>
@@ -90,12 +94,11 @@ function GeorgeBushAirport(props) {
                     <h6
                       dangerouslySetInnerHTML={{
                         __html: sanitizedGetFirstClassService,
-                      }}
-                    ></h6>
+                      }}></h6>
                   </Col>
                   <Col xl={6} xs={12} className={styles.imageContainer}>
                     <Image
-                      priority={true}
+                      // priority={!!data.getFirstClassServiceImage}
                       src={data.getFirstClassServiceImage}
                       alt="STRESS-FREE IAH AIRPORT TRANSPORTATION"
                       layout="responsive"
@@ -111,7 +114,6 @@ function GeorgeBushAirport(props) {
                   <Col xs={12} xl={4} md={12}>
                     <div className={`${styles.features} main_images_feature`}>
                       <Image
-                        priority={true}
                         src="/Assets/Icon awesome-clock.png"
                         alt="clock"
                         objectFit="contain"
@@ -130,7 +132,6 @@ function GeorgeBushAirport(props) {
                   <Col xs={12} xl={4} md={12}>
                     <div className={`${styles.features} main_images_feature`}>
                       <Image
-                        priority={true}
                         width="80"
                         src="/Assets/13-car.png"
                         alt="..1clock"
@@ -148,7 +149,6 @@ function GeorgeBushAirport(props) {
                   <Col xs={12} xl={4} md={12}>
                     <div className={`${styles.features} main_images_feature`}>
                       <Image
-                        priority={true}
                         width="45"
                         src="/Assets/Layer_5_58_.png"
                         alt="..2clock"
@@ -164,7 +164,7 @@ function GeorgeBushAirport(props) {
                 <Row>
                   <Col xs={12} xl={12} md={12}>
                     <Image
-                      priority={true}
+                      // priority={!!data.bannerImage}
                       alt="Car Service from IAH Airport"
                       src={data.bannerImage}
                       width={100}
@@ -180,14 +180,14 @@ function GeorgeBushAirport(props) {
                     xs={12}
                     xl={12}
                     md={12}
-                    style={{ textAlign: "center", paddingTop: "100px" }}>
+                    style={{textAlign: "center", paddingTop: "100px"}}>
                     <h6
                       style={{
                         color: "#020101",
                         fontSize: "27px",
                         fontFamily: "ProximaNovaBold",
                         fontWeight: "bold",
-                      }}> 
+                      }}>
                       AAdmirals Travel & Transportation fleet at IAH Airport
                       area , call for houston Airport car service
                     </h6>
@@ -196,9 +196,9 @@ function GeorgeBushAirport(props) {
                     xs={12}
                     xl={6}
                     md={12}
-                    style={{ paddingTop: "50px", marginTop: "40px" }}>
+                    style={{paddingTop: "50px", marginTop: "40px"}}>
                     <Image
-                      priority={true}
+                      // priority={!!data.IahairportImage}
                       src={data.IahairportImage}
                       alt="George Bush Limo Service"
                       width={980}
@@ -228,8 +228,8 @@ function GeorgeBushAirport(props) {
                       className={styles.houstonLimoServiceDiscription}
                       dangerouslySetInnerHTML={{
                         __html: sanitizedIahAirportHeading,
-                      }} 
-                    /> 
+                      }}
+                    />
                   </Col>
                 </Row>
                 <Row>
@@ -253,7 +253,7 @@ function GeorgeBushAirport(props) {
                   </Col>
                   <Col xl={6} xs={12} className={styles.imageContainer1}>
                     <Image
-                      priority={true}
+                      // priority={!!data.ourFleetImage}
                       src={data.ourFleetImage}
                       alt="George Bush Limo Service"
                       width={800}
@@ -265,21 +265,21 @@ function GeorgeBushAirport(props) {
                   </Col>
                 </Row>
 
-                <Row style={{ paddingTop: "47px" }}>
+                <Row style={{paddingTop: "47px"}}>
                   <Col xl={6} md={12} xs={12} className={styles.discription1}>
-                    <h2 style={{ fontSize: " 27px" }}>
+                    <h2 style={{fontSize: " 27px"}}>
                       IAH Airport useful travel information:-
                     </h2>
-                    <h3 style={{ fontFamily: "ProximaNovaBold" }}>
+                    <h3 style={{fontFamily: "ProximaNovaBold"}}>
                       Meet and Pick-Up Location Instructions:
                     </h3>
                     <h6
                       className={styles.houstonLimoServiceDiscription}
                       dangerouslySetInnerHTML={{
                         __html: sanitizedMeetAndPickUpLocationInstructions,
-                      }} 
+                      }}
                     />
-                    <h3 style={{ fontFamily: "ProximaNovaBold" }}>
+                    <h3 style={{fontFamily: "ProximaNovaBold"}}>
                       How to Connect to Houston Airport WiFi (IAH)
                     </h3>
                     <h6
@@ -291,7 +291,7 @@ function GeorgeBushAirport(props) {
                   </Col>
                   <Col xl={6} xs={12} className={styles.imageContainer1}>
                     <Image
-                      priority={true}
+                      // priority={!!data.IahairportinfoImage}
                       src={data.IahairportinfoImage}
                       alt="George Bush Airport View"
                       width={800}

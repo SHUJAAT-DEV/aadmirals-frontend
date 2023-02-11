@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import styles from "./login.module.scss";
 import Floatingbutton from "../../Components/floaingbutton/floatingbutton";
 import SideNav from "../../Components/Header/SideNav/SideNav";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/BottomFooter/BottomFooter";
-import  Link  from "next/link";
-import  Router  from "next/router";
+import Link from "next/link";
+import Router from "next/router";
 
-import { Container, Col, Row, CardBody, Button, Card, Alert } from "reactstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { loginAction } from "../../redux/Auth2/Login/Action/actions";
+import {Container, Col, Row, CardBody, Button, Card, Alert} from "reactstrap";
+import {useDispatch, useSelector} from "react-redux";
+import {loginAction} from "../../redux/Auth2/Login/Action/actions";
 import Head from "next/head";
 
-const Login = ({ history }) => {
+const Login = ({history}) => {
   const [state, setState] = useState({
     email: false,
     pass: false,
@@ -21,17 +21,15 @@ const Login = ({ history }) => {
   const [password, setPassword] = useState();
 
   const onFocusHandler = (event) => {
-    setState({ ...state, [event.target.name]: true });
-  
+    setState({...state, [event.target.name]: true});
   };
   const onBlurHandler = (event) => {
-    setState({ ...state, [event.target.name]: false });
-   
+    setState({...state, [event.target.name]: false});
   };
 
   const dispatch = useDispatch();
   const loginReducer = useSelector((state) => state.login);
-  const { loading, error, user } = loginReducer;
+  const {loading, error, user} = loginReducer;
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -41,7 +39,7 @@ const Login = ({ history }) => {
 
   return (
     <div>
-        <Head>
+      <Head>
         <meta charSet="utf-8" />
         <title>Login | AADMIRLAS Travel & Transportation </title>
       </Head>
@@ -66,9 +64,8 @@ const Login = ({ history }) => {
                         state.email
                           ? styles.inputBoxwhite1
                           : styles.inputBoxwhite
-                      }`}
-                    >
-                      <label for="Email">Email</label>
+                      }`}>
+                      <label htmlFor="Emai">Email</label>
                       <div className={styles.input}>
                         <input
                           type="email"
@@ -83,13 +80,12 @@ const Login = ({ history }) => {
                     </div>
                     <div
                       className={`${
-                        state.pass ? 
-                         styles.inputBoxwhite1
-                        : styles.inputBoxwhite
-                      }`}
-                    >
-                      <label for="Password">Password</label>
-                      
+                        state.pass
+                          ? styles.inputBoxwhite1
+                          : styles.inputBoxwhite
+                      }`}>
+                      <label htmlFor="Password">Password</label>
+
                       <div className={styles.input}>
                         <input
                           type="password"
@@ -105,7 +101,7 @@ const Login = ({ history }) => {
 
                     <Link href="/forgot-email">
                       <a>
-                      <p className={styles.textlink}>Forgot password?</p>
+                        <p className={styles.textlink}>Forgot password?</p>
                       </a>
                     </Link>
 
@@ -113,8 +109,7 @@ const Login = ({ history }) => {
                       <Col xs="12">
                         <Button
                           onClick={submitHandler}
-                          className={styles.buttonPayment}
-                        >
+                          className={styles.buttonPayment}>
                           {loading ? (
                             <span>Loading...</span>
                           ) : (
@@ -123,7 +118,7 @@ const Login = ({ history }) => {
                         </Button>
                         <Link href="/signup">
                           <a>
-                          <p className={styles.textaccount}>Create Account</p>
+                            <p className={styles.textaccount}>Create Account</p>
                           </a>
                         </Link>
                       </Col>

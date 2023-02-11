@@ -106,7 +106,7 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
-            </div>  
+            </div>
           </Col>
           <Col style={{margin: "auto"}} xs={11} md={6} className="add_overflow">
             <div className="custom_contactus">
@@ -128,7 +128,9 @@ const Footer = () => {
               </Row>
               <Card className={`${styles.cardPayment}`}>
                 <div className="form-group icon">
-                  <label for="exampleInputPassword1" className={styles.label}>
+                  <label
+                    htmlFor="exampleInputPassword1"
+                    className={styles.label}>
                     Email
                   </label>
                   <input
@@ -141,7 +143,7 @@ const Footer = () => {
                 </div>
 
                 <div className="form-group">
-                  <label className={styles.label} for="exampleInputEmail1">
+                  <label className={styles.label} htmlFor="exampleInputEmail1">
                     Phone
                   </label>
                   <input
@@ -153,7 +155,7 @@ const Footer = () => {
                   />
                 </div>
                 <div className="form-group">
-                  <label className={styles.label} for="exampleInputEmail1">
+                  <label className={styles.label} htmlFor="exampleInputEmail1">
                     Message
                   </label>
                   <textarea

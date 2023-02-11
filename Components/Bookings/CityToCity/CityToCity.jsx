@@ -152,11 +152,10 @@ function CityToCity() {
       var destination = new window.google.maps.LatLng(toLat, toLng);
       var service = new window.google.maps.DistanceMatrixService();
 
-       console.log('origin ', origin , destination);
+      console.log("origin ", origin, destination);
 
       service.getDistanceMatrix(
-        { 
-
+        {
           origins: [origin],
           destinations: [destination],
           travelMode: "DRIVING",
@@ -165,30 +164,28 @@ function CityToCity() {
           unitSystem: window.google.maps.UnitSystem.IMPERIAL,
           avoidHighways: false,
           avoidTolls: false,
-        }, 
+        },
         callback
       );
-      
+
       // console.log('callback ', callback);
 
       function callback(response, status) {
-
-        console.log('response ', response);
-        console.log('status ', status);
+        console.log("response ", response);
+        console.log("status ", status);
 
         setError("");
         if (response?.rows[0]?.elements[0]?.distance?.value / 1609 < 81) {
           setError(
             "Minimum distance for city to city is 81 miles, you can use Point To Point instead."
-          ); 
+          );
           setLoading(false);
           return;
         }
-        
+
         setLoading(false);
         if (response) {
           let data = {
-
             from: response?.originAddresses[0],
             to: response?.destinationAddresses[0],
             time: time,
@@ -203,7 +200,7 @@ function CityToCity() {
             setError("Please enter dropoff location");
           } else {
             dispatch(getQuoteCityToCity(data, history));
-          } 
+          }
         } else {
           setError("Something went wrong!");
         }
@@ -221,7 +218,7 @@ function CityToCity() {
     <div>
       {error ? <Alert color="danger">{error}</Alert> : null}
       <div className={`${state.from ? styles.inputBox1 : styles.inputBox}`}>
-        <label for="from">Pickup Address</label>
+        <label htmlFor="from">Pickup Address</label>
         <div className={styles.input}>
           <img
             src="/Assets/Icon awesome-map-marker-alt.svg"
@@ -242,7 +239,7 @@ function CityToCity() {
         </div>
       </div>
       <div className={`${state.to ? styles.inputBox1 : styles.inputBox}`}>
-        <label for="to">Drop off Address</label>
+        <label htmlFor="to">Drop off Address</label>
         <div className={styles.input}>
           <img
             src="/Assets/Icon awesome-map-marker-alt.svg"
@@ -263,7 +260,7 @@ function CityToCity() {
         </div>
       </div>
       <div className={`${state.date ? styles.inputBox1 : styles.inputBox}`}>
-        <label for="date">Pickup Date</label>
+        <label htmlFor="date">Pickup Date</label>
         <div className={styles.input} style={{cursor: "pointer"}}>
           <img
             src="/Assets/Icon awesome-calendar-alt.svg"
@@ -284,7 +281,7 @@ function CityToCity() {
         </div>
       </div>
       <div className={`${state.time ? styles.inputBox1 : styles.inputBox}`}>
-        <label for="time">Pickup Time</label>
+        <label htmlFor="time">Pickup Time</label>
         <div className={styles.input} style={{cursor: "pointer"}}>
           <img
             src="/Assets/Icon awesome-clock.svg"

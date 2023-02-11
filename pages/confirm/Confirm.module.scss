@@ -247,7 +247,7 @@
   }
   .inputBox {
     text-align: start;
-    h6{
+    h6 {
       color: #4b4b4b;
     }
     input {
@@ -364,6 +364,10 @@
   background-color: white;
   border: 1px solid #adadad;
   border-radius: 5px;
+  font-size: 0.7rem;
+  &:placeholder {
+    font-size: 8px;
+  }
 }
 .svgReplace {
   font-size: 16px;
@@ -371,6 +375,7 @@
   position: relative;
   color: #000000;
   padding: 4px 4px;
+  align-self: center;
 }
 
 .formText_reDesign {

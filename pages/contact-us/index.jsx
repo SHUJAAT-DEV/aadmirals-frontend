@@ -88,7 +88,7 @@ const Contact = () => {
                   <CardBody className=" pt-0">
                     <div className="form-group icon">
                       <label
-                        for="exampleInputPassword1"
+                        htmlFor="exampleInputPassword1"
                         className={styles.label}>
                         Email
                       </label>
@@ -102,7 +102,9 @@ const Contact = () => {
                     </div>
 
                     <div className="form-group">
-                      <label className={styles.label} for="exampleInputEmail1">
+                      <label
+                        className={styles.label}
+                        htmlFor="exampleInputEmail1">
                         Phone
                       </label>
                       <input
@@ -114,7 +116,9 @@ const Contact = () => {
                       />
                     </div>
                     <div className="form-group">
-                      <label className={styles.label} for="exampleInputEmail1">
+                      <label
+                        className={styles.label}
+                        htmlFor="exampleInputEmail1">
                         Message
                       </label>
                       <textarea

@@ -1,18 +1,17 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import styles from "./MyAccount.module.scss";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/BottomFooter/BottomFooter";
 import SideNav from "../../Components/Header/SideNav/SideNav";
 import Floatingbutton from "../../Components/floaingbutton/floatingbutton";
-import { useRouter, withRouter } from "next/router";
+import {useRouter, withRouter} from "next/router";
 
-
-import { useDispatch, useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {
   accountDetailUpdateAction,
   accountPasswordUpdateAction,
 } from "../../redux/Account_update/action";
-import { Alert, Spinner } from "reactstrap";
+import {Alert, Spinner} from "reactstrap";
 import FormData from "form-data";
 
 const MyAccount = () => {
@@ -24,32 +23,35 @@ const MyAccount = () => {
     address1: false,
     newPassword: false,
     currentPassword: false,
-    phoneNumber:false,
-    billingAddress:false,
-    homeAddress:false,
-    companyName:false,
+    phoneNumber: false,
+    billingAddress: false,
+    homeAddress: false,
+    companyName: false,
   });
   const history = useRouter();
 
   const acc = useSelector((state) => state.updateAccountDetails);
-  const { loading, error, success } = acc;
+  const {loading, error, success} = acc;
 
   const pass = useSelector((state) => state.updateAccountPassword);
   const loginReducer = useSelector((state) => state.login);
-  const { user } = loginReducer;
+  const {user} = loginReducer;
 
-  const { loading: loadingPass, error: errorPass, success: successPass } = pass;
+  const {loading: loadingPass, error: errorPass, success: successPass} = pass;
 
   const dispatch = useDispatch();
 
-  const useEmai = typeof window!= "undefined" ? localStorage.getItem("userEmail"):""
-  const useFull = typeof window!= "undefined" ? localStorage.getItem("userFullName"):""
-  const useAva = typeof window!= "undefined" ? localStorage.getItem("userAvatar"):""
- const  usephoneNo= user ? user.phoneNumber:""
- const usehomeAdrr=user ? user.address:""
-  const usebillingAdrr= user ? user.billing_address:""
- const  usecmpName= user ? user.companyName:""
- const  useImage= user ? user.avatar:null
+  const useEmai =
+    typeof window != "undefined" ? localStorage.getItem("userEmail") : "";
+  const useFull =
+    typeof window != "undefined" ? localStorage.getItem("userFullName") : "";
+  const useAva =
+    typeof window != "undefined" ? localStorage.getItem("userAvatar") : "";
+  const usephoneNo = user ? user.phoneNumber : "";
+  const usehomeAdrr = user ? user.address : "";
+  const usebillingAdrr = user ? user.billing_address : "";
+  const usecmpName = user ? user.companyName : "";
+  const useImage = user ? user.avatar : null;
   // const [full, setFull] = useState(useFull);
   // const [emai, setEmai] = useState(useEmai);
 
@@ -60,8 +62,10 @@ const MyAccount = () => {
   const [billingAdrr, setbillingAdrr] = useState(usebillingAdrr);
   const [cmpName, setcmpName] = useState(usecmpName);
 
-  const id = typeof window!= "undefined" ? localStorage.getItem("senderId"):""
-  const token = typeof window!= "undefined" ? localStorage.getItem("token"):""
+  const id =
+    typeof window != "undefined" ? localStorage.getItem("senderId") : "";
+  const token =
+    typeof window != "undefined" ? localStorage.getItem("token") : "";
 
   const [form, setForm] = useState({
     fullName: `${useFull}`,
@@ -81,7 +85,6 @@ const MyAccount = () => {
     formData.append("billing_address", billingAdrr);
     formData.append("companyName", cmpName);
 
-
     dispatch(accountDetailUpdateAction(token, formData));
 
     if (oldPass && newPass) {
@@ -96,19 +99,31 @@ const MyAccount = () => {
       <Header />
       <div className={styles.mainContainer}>
         <div className={styles.container}>
-          <div style={{ padding: "30px 0", textAlign: "center" }}>
-            <div  className={styles.formContainer}>
-            <i onClick={()=>{history.push("/")}} style={{ cursor:"pointer", position: "absolute",right: "0",background: "#e03d5a",padding: "11px",color: "#ffff"}} className={`fa fa-times ${styles.crossicon}`} aria-hidden="true"></i>
+          <div style={{padding: "30px 0", textAlign: "center"}}>
+            <div className={styles.formContainer}>
+              <i
+                onClick={() => {
+                  history.push("/");
+                }}
+                style={{
+                  cursor: "pointer",
+                  position: "absolute",
+                  right: "0",
+                  background: "#e03d5a",
+                  padding: "11px",
+                  color: "#ffff",
+                }}
+                className={`fa fa-times ${styles.crossicon}`}
+                aria-hidden="true"></i>
 
               <div className={styles.form}>
                 <div className={styles.profileContainer}>
                   <div className={styles.profile}>
-                    {
-                      img ?
+                    {img ? (
                       <img src={URL.createObjectURL(img)} alt="profile img" />
-                      :
+                    ) : (
                       <img src={useAva && useAva} alt="profile img" />
-                    }
+                    )}
                   </div>
                   <section className={styles.section2}>
                     <label>
@@ -125,9 +140,8 @@ const MyAccount = () => {
                 <div
                   className={`${
                     state.fullname ? styles.inputBox1 : styles.inputBox
-                  }`}
-                >
-                  <label for="fullname">Full Name</label>
+                  }`}>
+                  <label htmlFor="fullname">Full Name</label>
                   <div className={styles.input}>
                     <input
                       type="text"
@@ -141,9 +155,8 @@ const MyAccount = () => {
                 <div
                   className={`${
                     state.email ? styles.inputBox1 : styles.inputBox
-                  }`}
-                >
-                  <label for="email"></label>
+                  }`}>
+                  <label htmlFor="email"></label>
                   <div className={styles.input}>
                     <input
                       type="email"
@@ -161,17 +174,15 @@ const MyAccount = () => {
                       fontSize: "12px",
                       textAlign: "left",
                       padding: "10px 0",
-                    }}
-                  >
+                    }}>
                     Would you like to change your password?
                   </h6>
                 </div>
                 <div
                   className={`${
                     state.currentPassword ? styles.inputBox1 : styles.inputBox
-                  }`}
-                >
-                  <label for="currentPassword"></label>
+                  }`}>
+                  <label htmlFor="currentPassword"></label>
                   <div className={styles.input}>
                     <input
                       type="password"
@@ -185,9 +196,8 @@ const MyAccount = () => {
                 <div
                   className={`${
                     state.newPassword ? styles.inputBox1 : styles.inputBox
-                  }`}
-                >
-                  <label for="newPassword"></label>
+                  }`}>
+                  <label htmlFor="newPassword"></label>
                   <div className={styles.input}>
                     <input
                       type="password"
@@ -201,14 +211,13 @@ const MyAccount = () => {
                 <div
                   className={`${
                     state.phoneNumber ? styles.inputBox1 : styles.inputBox
-                  }`}
-                >
-                  <label for="phoneNumber"></label>
+                  }`}>
+                  <label htmlFor="phoneNumber"></label>
                   <div className={styles.input}>
                     <input
                       type="text"
                       name="phoneNumber"
-                      value={ phoneNo}
+                      value={phoneNo}
                       onChange={(e) => setphoneNo(e.target.value)}
                       placeholder="Phone Number"
                     />
@@ -217,9 +226,8 @@ const MyAccount = () => {
                 <div
                   className={`${
                     state.billingAddress ? styles.inputBox1 : styles.inputBox
-                  }`}
-                >
-                  <label for="billingAddress"></label>
+                  }`}>
+                  <label htmlFor="billingAddress"></label>
                   <div className={styles.input}>
                     <input
                       type="text"
@@ -233,9 +241,8 @@ const MyAccount = () => {
                 <div
                   className={`${
                     state.homeAddress ? styles.inputBox1 : styles.inputBox
-                  }`}
-                >
-                  <label for="homeAddress"></label>
+                  }`}>
+                  <label htmlFor="homeAddress"></label>
                   <div className={styles.input}>
                     <input
                       type="text"
@@ -249,9 +256,8 @@ const MyAccount = () => {
                 <div
                   className={`${
                     state.companyName ? styles.inputBox1 : styles.inputBox
-                  }`}
-                >
-                  <label for="companyName"></label>
+                  }`}>
+                  <label htmlFor="companyName"></label>
                   <div className={styles.input}>
                     <input
                       type="text"
