@@ -69,12 +69,7 @@ const Home = (props) => {
     },
     resolver: joiResolver(schema),
   });
-
-  // useEffect(() => {
-  //   dispatch(getHomePage());
-  // }, []);
   useEffect(() => {
-    console.log("getContactDetailsPage")
     dispatch(getContactDetailsPage());
   }, []);
 
