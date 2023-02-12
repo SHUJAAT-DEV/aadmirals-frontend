@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import styles from "../Confirm.module.scss";
 import { Col, Row } from "reactstrap";
 import { withRouter } from "next/router";
+import { useForm } from "react-hook-form";
+import { joiResolver } from "@hookform/resolvers/joi";
 import { setAmount } from "../../../redux/Bookings/PreBooking/action";
 import {
   setAccountDetails,
@@ -12,8 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Alert } from "reactstrap";
 import moment from "moment";
 import RED_EYE from "../../../red-eye-time";
-import Stepper from "react-stepper-horizontal";
-import { useForm } from "react-hook-form";
+import { userDetailValidation } from "./validations";
 
 const userDetailTitle = {
   0: "Airport Transfer/Point-Point Booking Details",
@@ -21,7 +22,7 @@ const userDetailTitle = {
   2: "City to City Booking Details",
 };
 
-const initialValue = {
+const initialValues = {
   bookByName: "",
   bookByEmail: "",
   bookByPhone: "",
@@ -34,6 +35,9 @@ const initialValue = {
   notes: "",
   returnPickUpdate: "",
   returnPickUpTime: "",
+  numberOfPassangers: "",
+  returnFlightNCuriseDetail: "",
+  isPassengerNBookedPersonSame: true,
 };
 const ErrorMessage = ({ field }) => (
   <p style={{ color: "red", fontSize: "0.75rem" }}>{field?.message}</p>
@@ -45,6 +49,7 @@ function UserDetails({
   router,
   onCheckRed,
 }) {
+  const [redEye, setRedEye] = useState(true);
   const [returnDate, setDate] = useState("N/A");
   const [returnTime, setTime] = useState("N/A");
   const [isPassengerNBookedPersonSame, setIsPassengerNBookedPersonSame] =
@@ -53,25 +58,78 @@ function UserDetails({
   const { pathname } = router;
   const [error, setError] = useState("");
   const direction = useSelector((state) => state.PreBookingReducer.direction);
+  const preammount = useSelector((state) => state?.PreBookingReducer?.amount);
   const { type } = direction;
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
-  } = useForm({ mode: "onChange" });
+  } = useForm({
+    resolver: joiResolver(userDetailValidation),
+    defaultValues: initialValues,
+    mode: "onChange",
+  });
+
+  const redEyeBeginningTime = moment(RED_EYE.STARTING_TIME, "hh:mm");
+  const redEyeEndingTime = moment(RED_EYE.ENDING_TIME, "hh:mm");
+  const returnTimeConverted = moment(returnTime, "hh:mm");
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
   const onSubmit = (data) => {
+    console.log("onSubmit", data);
     if (type === "ROUND TRIP") {
       const { returnPickUpdate, returnPickUpTime } = data;
+
+      var Date = moment(returnPickUpdate);
+      if (!Date.isValid() || returnPickUpTime == "N/A") {
+        window.scrollTo(0, 0);
+        return setError("Return trip details required");
+      }
+      if (
+        returnPickUpTime < otherDetails.time &&
+        moment(returnPickUpdate).isSame(otherDetails.date && otherDetails.date)
+      ) {
+        window.scrollTo(0, 0);
+
+        return setError(
+          "You can't select a time that is behind innitial pickup time."
+        );
+      }
+      if (
+        moment(returnPickUpdate).isBefore(
+          otherDetails.date && otherDetails.date
+        )
+      ) {
+        window.scrollTo(0, 0);
+
+        return setError(
+          "You can't select a date that is behind innitial pickup date."
+        );
+      }
+      setError("");
       dispatch(setDirection({ returnPickUpdate, returnPickUpTime, type }));
     }
     dispatch(setAccountDetails(data));
     setStepper(stepper + 1);
   };
+
+  useEffect(() => {
+    if (
+      returnTimeConverted > redEyeBeginningTime &&
+      returnTimeConverted < redEyeEndingTime
+    ) {
+      setRedEye(true);
+      onCheckRed(true);
+      dispatch(setAmount(parseInt(preammount) + parseInt(30)));
+    } else {
+      setRedEye(false);
+      onCheckRed(false);
+    }
+  }, [returnTime]);
 
   return (
     <div className={styles.detail}>
@@ -88,8 +146,12 @@ function UserDetails({
               <div className={styles.passangerAction}>
                 <input
                   type="checkbox"
+                  name="isPassengerNBookedPersonSame"
+                  checked={isPassengerNBookedPersonSame}
+                  defaultChecked={isPassengerNBookedPersonSame}
                   className={styles.passangerCheckbox}
                   onClick={(e) => {
+                    setValue("isPassengerNBookedPersonSame", e.target.checked);
                     setIsPassengerNBookedPersonSame(e.target.checked);
                   }}
                 />
@@ -109,6 +171,7 @@ function UserDetails({
                       <h6 className={styles.formText_reDesign}>Book by Name</h6>
                       <input
                         type="text"
+                        name="bookByName"
                         placeholder="e.g. John Doe"
                         className={styles.fields_reDesign}
                         {...register("bookByName", {
@@ -145,6 +208,7 @@ function UserDetails({
                       </h6>
                       <input
                         type="text"
+                        name="bookByPhone"
                         placeholder="e.g. +1-222-505-3023"
                         className={styles.fields_reDesign}
                         {...register("bookByPhone", {
@@ -165,6 +229,7 @@ function UserDetails({
                       </h6>
                       <input
                         type="text"
+                        name="cardHolderName"
                         placeholder="e.g. +1-222-505-3023"
                         className={styles.fields_reDesign}
                         {...register("cardHolderName", {
@@ -187,6 +252,7 @@ function UserDetails({
                   </h6>
                   <input
                     type="text"
+                    name="passangerName"
                     placeholder="e.g. John Doe"
                     className={styles.fields_reDesign}
                     {...register("passangerName", {
@@ -205,6 +271,7 @@ function UserDetails({
                   </h6>
                   <input
                     type="text"
+                    name="passangerEmail"
                     placeholder="e.g. johdoe@gmail.com"
                     className={styles.fields_reDesign}
                     {...register("passangerEmail", {
@@ -223,6 +290,7 @@ function UserDetails({
                   </h6>
                   <input
                     type="text"
+                    name="passangerPhone"
                     placeholder="e.g. +1-222-505-3023"
                     className={styles.fields_reDesign}
                     {...register("passangerPhone", {
@@ -240,11 +308,26 @@ function UserDetails({
               <Col xs={12} md={6} lg={4}>
                 <div className={styles.inputBox}>
                   <h6 className={styles.formText_reDesign}>
+                    Number of passangers
+                  </h6>
+                  <input
+                    type="text"
+                    name="numberOfPassangers"
+                    placeholder="e.g. 4 adults and one infant"
+                    className={styles.fields_reDesign}
+                    {...register("numberOfPassangers")}
+                  />
+                </div>
+              </Col>
+              <Col xs={12} md={6} lg={4}>
+                <div className={styles.inputBox}>
+                  <h6 className={styles.formText_reDesign}>
                     Flight’s/ Cruise Ship Details if any
                   </h6>
                   <input
                     type="text"
-                    placeholder="e.g. John Doe"
+                    name="flightNCuriseDetail"
+                    placeholder="e.g. UA 4"
                     className={styles.fields_reDesign}
                     {...register("flightNCuriseDetail")}
                   />
@@ -255,7 +338,8 @@ function UserDetails({
                   <h7 className={styles.formText_reDesign}>Pick-Up Sign</h7>
                   <input
                     type="text"
-                    placeholder="e.g. johdoe@gmail.com"
+                    name="pickUpSign"
+                    placeholder="Enter pick up sign"
                     className={styles.fields_reDesign}
                     {...register("pickUpSign", {
                       required: "pick-up sign is required!",
@@ -293,13 +377,14 @@ function UserDetails({
                   Enter Your Return Trip Information:
                 </h6>
                 <Row style={{ marginTop: 20 }}>
-                  <Col xs={12} md={6} lg={4}>
+                  <Col xs={12} md={6} lg={6}>
                     <div className={styles.inputBox}>
                       <h6 className={styles.formText_reDesign}>
                         Return Pick-Up Date
                       </h6>
                       <input
                         type="date"
+                        name="returnPickUpdate"
                         placeholder="e.g. John Doe"
                         className={styles.fields_reDesign}
                         {...register("returnPickUpdate", {
@@ -316,13 +401,14 @@ function UserDetails({
                       )}
                     </div>
                   </Col>
-                  <Col xs={12} md={6} lg={4}>
+                  <Col xs={12} md={6} lg={6}>
                     <div className={styles.inputBox}>
                       <h6 className={styles.formText_reDesign}>
                         Return Pick- Up Time
                       </h6>
                       <input
                         type="time"
+                        name="returnPickUpTime"
                         placeholder="e.g. johdoe@gmail.com"
                         className={styles.fields_reDesign}
                         {...register("returnPickUpTime", {
@@ -330,6 +416,12 @@ function UserDetails({
                           onChange: (e) => setTime(e.target.value),
                         })}
                       />
+                      {otherDetails?.bookingTypes === 0 && redEye ? (
+                        <p className={styles.danger}>
+                          Pickup between 12AM and 6AM costs 30$ Red Eye charges
+                          that will be add on total bill during booking.
+                        </p>
+                      ) : null}
                       {errors?.returnPickUpTime && (
                         <ErrorMessage field={errors?.returnPickUpTime} />
                       )}
@@ -344,7 +436,8 @@ function UserDetails({
                       </h6>
                       <input
                         type="text"
-                        placeholder=""
+                        name="returnFlightNCuriseDetail"
+                        placeholder="e.g UA 5"
                         className={styles.fields_reDesign}
                         {...register("returnFlightNCuriseDetail")}
                       />
