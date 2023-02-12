@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Alert } from "reactstrap";
 import moment from "moment";
 import RED_EYE from "../../../red-eye-time";
-import { userDetailValidation } from "./validations";
+import { userDetailValidation } from "../../../utils/validations";
 
 const userDetailTitle = {
   0: "Airport Transfer/Point-Point Booking Details",
