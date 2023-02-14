@@ -2,11 +2,12 @@ import Joi from "joi";
 
 export const userDetailValidation = Joi.object({
   isPassengerNBookedPersonSame: Joi.boolean().optional(),
+  type:Joi.boolean().optional(),
   bookByName: Joi.string()
     .when("isPassengerNBookedPersonSame", {
-      is: false,
-      then: Joi.string().allow("").optional(),
-      otherwise: Joi.required(),
+      is: true,
+      then: Joi.string().required(),
+      otherwise: Joi.string().allow("").optional(),
     })
     .messages({
       "string.empty": "Booked by name is required",
@@ -14,9 +15,9 @@ export const userDetailValidation = Joi.object({
     }),
   bookByEmail: Joi.string()
     .when("isPassengerNBookedPersonSame", {
-      is: false,
-      then: Joi.string().allow("").optional(),
-      otherwise: Joi.required(),
+      is: true,
+      then: Joi.string().required(),
+      otherwise: Joi.string().allow("").optional(),
     })
     .email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } })
     .messages({
@@ -26,9 +27,9 @@ export const userDetailValidation = Joi.object({
     }),
   bookByPhone: Joi.string()
     .when("isPassengerNBookedPersonSame", {
-      is: false,
-      then: Joi.string().allow("").optional(),
-      otherwise: Joi.required(),
+      is: true,
+      then: Joi.string().required(),
+      otherwise: Joi.string().allow("").optional(),
     })
     .messages({
       "string.empty": "Phone number is required",
@@ -37,9 +38,9 @@ export const userDetailValidation = Joi.object({
     }),
   cardHolderName: Joi.string()
     .when("isPassengerNBookedPersonSame", {
-      is: false,
-      then: Joi.string().allow("").optional(),
-      otherwise: Joi.required(),
+      is: true,
+      then: Joi.string().required(),
+      otherwise: Joi.string().allow("").optional(),
     })
     .messages({
       "string.empty": "Card holder name is required",
@@ -69,11 +70,22 @@ export const userDetailValidation = Joi.object({
   }),
   notes: Joi.string().allow("").optional(),
   numberOfPassangers: Joi.string().allow("").optional(),
-  returnPickUpdate: Joi.string().required().messages({
+  returnPickUpdate: Joi.string()
+  .when("type", {
+    is: false,
+    then: Joi.string().allow("").optional(),
+    otherwise: Joi.string().required(),
+  })
+  .messages({
     "string.empty": "return pick up date is required",
     "string.required": "return pick up date is required",
   }),
-  returnPickUpTime: Joi.string().required().messages({
+  returnPickUpTime: Joi.string()
+  .when("type", {
+    is: false,
+    then: Joi.string().allow("").optional(),
+    otherwise: Joi.string().required(),
+  }).messages({
     "string.empty": "return pick up time is required",
     "string.required": "return pick up time is required",
   }),
