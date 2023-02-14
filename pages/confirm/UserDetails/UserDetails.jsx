@@ -37,7 +37,8 @@ const initialValues = {
   returnPickUpTime: "",
   numberOfPassangers: "",
   returnFlightNCuriseDetail: "",
-  isPassengerNBookedPersonSame: true,
+  isPassengerNBookedPersonSame: false,
+  type:false
 };
 const ErrorMessage = ({ field }) => (
   <p style={{ color: "red", fontSize: "0.75rem" }}>{field?.message}</p>
@@ -52,14 +53,15 @@ function UserDetails({
   const [redEye, setRedEye] = useState(true);
   const [returnDate, setDate] = useState("N/A");
   const [returnTime, setTime] = useState("N/A");
-  const [isPassengerNBookedPersonSame, setIsPassengerNBookedPersonSame] =
-    useState(false);
+  const [isPassengerNBookedPersonSame, setIsPassengerNBookedPersonSame] = useState(false);
   const dispatch = useDispatch();
   const { pathname } = router;
   const [error, setError] = useState("");
   const direction = useSelector((state) => state.PreBookingReducer.direction);
   const preammount = useSelector((state) => state?.PreBookingReducer?.amount);
   const { type } = direction;
+ 
+
   const {
     register,
     handleSubmit,
@@ -70,6 +72,12 @@ function UserDetails({
     defaultValues: initialValues,
     mode: "onChange",
   });
+
+  useEffect(()=>{
+    if (type === "ROUND TRIP") {
+      setValue('type',true);
+    }
+  },[type])
 
   const redEyeBeginningTime = moment(RED_EYE.STARTING_TIME, "hh:mm");
   const redEyeEndingTime = moment(RED_EYE.ENDING_TIME, "hh:mm");
@@ -148,7 +156,7 @@ function UserDetails({
                   type="checkbox"
                   name="isPassengerNBookedPersonSame"
                   checked={isPassengerNBookedPersonSame}
-                  defaultChecked={isPassengerNBookedPersonSame}
+                  defaultChecked={false}
                   className={styles.passangerCheckbox}
                   onClick={(e) => {
                     setValue("isPassengerNBookedPersonSame", e.target.checked);
