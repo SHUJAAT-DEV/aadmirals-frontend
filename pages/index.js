@@ -1,49 +1,38 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState, useEffect } from "react";
-import dynamic from 'next/dynamic'
-import { useDispatch, useSelector } from "react-redux";
-import { Alert, } from "reactstrap";
-import { useAlert } from "react-alert";
-import axios from "axios"
-import { URL } from "../config/serverUrl";
-import { useRouter } from 'next/router'
+import { ErrorMessage } from "@hookform/error-message";
+import { joiResolver } from "@hookform/resolvers/joi";
+import axios from "axios";
+import Joi from "joi";
 import { NextSeo } from 'next-seo';
+import dynamic from 'next/dynamic';
 import Image from "next/image";
-import { Spinner } from "reactstrap";
-import Link from 'next/link'
-import { Container, Row, Col } from "reactstrap";
-import { Card, Button } from "reactstrap";
+import Link from 'next/link';
+import React, { useEffect, useState } from "react";
+import { useAlert } from "react-alert";
 import Carousel from "react-elastic-carousel";
-const styles = dynamic(() => import('./home.module.scss'))
-import { getHomePage } from "../redux/CMS/action";
-const TestimonialCards = dynamic(() => import('../Components/Testimonial/Testimonial Cards/TestimonialCards'))
+import { Controller, useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { Alert, Button, Card, Col, Container, Row, Spinner } from "reactstrap";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { URL } from "../config/serverUrl";
+import { getContactPage } from "../redux/Contact_us/action";
+import { Helmet } from "react-helmet";
 
+const styles = dynamic(() => import('./home.module.scss'))
+const TestimonialCards = dynamic(() => import('../Components/Testimonial/Testimonial Cards/TestimonialCards'))
 const SideNav = dynamic(() => import('../Components/Header/SideNav/SideNav'))
 const Hero = dynamic(() => import('../Components/hero/HomeHero'))
 const Floatingbutton = dynamic(() => import('../Components/floaingbutton/floatingbutton'))
 const Cities = dynamic(() => import('../Components/Cities/Cities'))
-
 const Header = dynamic(() => import('../Components/Header/Header'))
 const LimousineService = dynamic(() => import('../Components/Limousine Service/LimousineService'))
 const HomeForm = dynamic(() => import('../Components/Home Form/HomeForm'))
 const OurServices = dynamic(() => import('../Components/Our Services/OurServices'))
-import { getContactPage } from "../redux/Contact_us/action";
-import { getContactDetailsPage } from "../redux/Contact_details/action";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { ErrorMessage } from "@hookform/error-message";
-import { useForm, Controller } from "react-hook-form";
-import { joiResolver } from "@hookform/resolvers/joi";
-import Joi from "joi";
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/pagination"
-
+import "swiper/css/pagination";
 // import Swiper core and required modules
-import SwiperCore, {
-  Pagination, Autoplay
-} from 'swiper';
-import { Helmet } from "react-helmet";
-
+import SwiperCore, { Autoplay, Pagination } from 'swiper';
 // install Swiper modules
 SwiperCore.use([Pagination, Autoplay]);
 
@@ -69,9 +58,9 @@ const Home = (props) => {
     },
     resolver: joiResolver(schema),
   });
-  useEffect(() => {
-    dispatch(getContactDetailsPage());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getContactDetailsPage());
+  // }, [dispatch]);
 
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -89,12 +78,12 @@ const Home = (props) => {
   const [reqFields, setreqFields] = useState(false);
   const cms2 = useSelector((state) => state.contact);
 
-  const details = useSelector((state) => state.contactDetails);
+  // const details = useSelector((state) => state.contactDetails);
   const { contact_us_page } = cms2;
-  const { contact_details_page } = details;
+  // const { contact_details_page } = details;
 
-  const det = contact_details_page && contact_details_page.contactDetails[0];
-
+  // const det = contact_details_page && contact_details_page.contactDetails[0];
+  const det = props.contactDetails && props.contactDetails?.contactDetails[0];
   const onSubmit = (event) => {
     const { email, phoneNumber, message } = event;
     dispatch(getContactPage(email, phoneNumber, message));
@@ -227,7 +216,6 @@ const Home = (props) => {
               </center>
             </Container>
           </>
-
           <LimousineService data={cms.home_page.home[0]} />
           <div className="main_section_bg">
             <Container className={`${styles.main_container_footer} mb-5 p-0`}>
@@ -552,13 +540,15 @@ export async function getServerSideProps({ req, res }) {
     'public, s-maxage=10, stale-while-revalidate=59,immutable'
   )
   let respo = await axios.get(`${URL}/website-content/home`);
+  const contactData = await axios.get(`${URL}/website-content/contact-details`);
+  let contactDetails = contactData.data;
   let data = respo.data.modifiedResponse
   let data1 = {
     loading: false,
     error: null,
     home_page: data,
   }
-  return { props: { data1 } }
+  return { props: { data1, contactDetails } }
 }
 
 export default Home;

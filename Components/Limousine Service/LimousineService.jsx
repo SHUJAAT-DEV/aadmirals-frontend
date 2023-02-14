@@ -1,11 +1,11 @@
-import React, {useState} from "react";
-import {Container, Col, Row} from "reactstrap";
-import styles from "../../pages/home.module.scss";
 import Image from "next/image";
+import React, { useState } from "react";
+import { Col, Container, Row } from "reactstrap";
+import styles from "../../pages/home.module.scss";
 import sanitizeHTML from "../hero/SanitizedReactUtils";
 import fetchLimitedContent from "./LimitedReactUtils";
 
-function LimousineService({data}) {
+function LimousineService({ data }) {
   const [click, setClick] = useState(true);
 
   let sanitizedContent = sanitizeHTML(data.uniqueLimousineExperienceInHouston);
@@ -19,7 +19,7 @@ function LimousineService({data}) {
       return (
         <span
           onClick={handleChange}
-          style={{color: "blue"}}
+          style={{ color: "blue" }}
           className={styles.hoverEffect}>
           Read More
         </span>
@@ -35,8 +35,8 @@ function LimousineService({data}) {
           The Best Limousine Service in Houston
         </h2>
       </div>
-      <div style={{textAlign: "center", paddingTop: "50px"}}>
-        <div className={styles.featuresBox_Limo} style={{width: "100%"}}>
+      <div style={{ textAlign: "center", paddingTop: "50px" }}>
+        <div className={styles.featuresBox_Limo} style={{ width: "100%" }}>
           <div className={styles.propertiesBox_Limo}>
             <div className="custom_main_images">
               <Row>
@@ -139,7 +139,7 @@ function LimousineService({data}) {
           <h2 className={styles.heading_Limo}>
             Unique Limousine Experience in Houston
           </h2>
-          <p style={{textAlign: "justify"}} className={styles.paragraph_Limo}>
+          <p style={{ textAlign: "justify" }} className={styles.paragraph_Limo}>
             {content}
             {visible()}
           </p>
