@@ -411,6 +411,12 @@
 }
 
 @media only screen and (max-width: 767px) {
+  .form_reDesign {
+    max-width: 67vw;
+    margin: auto;
+    margin-top: 22px;
+    padding: 50px 10vw;
+  }
   .mainContainer {
     font-family: ProximaNovaRegular;
     overflow: hidden;
@@ -649,7 +655,8 @@
   .detail {
     padding-left: 10px;
     padding-right: 10px;
-
+    display: flex;
+    justify-content: space-evenly
     h3 {
       font-family: ProximaNovaBold;
     }
@@ -745,6 +752,7 @@
   .buttonsContainer {
     margin: 50px 0;
     button {
+      margin: 5px 0;
       border-radius: 5px;
       color: white;
       background-color: #ee405e;
@@ -786,5 +794,12 @@
         font-weight: 800;
       }
     }
+  }
+}
+@media only screen and (max-width: 542px) {
+  .form_reDesign {
+    max-width: 90vw;
+    margin: 10px;
+    padding: 30px 7vw;
   }
 }
