@@ -43,8 +43,9 @@ function Search({handleSelectedAddress, name}) {
       onChange={handleChange}
       onSelect={handleSelect}>
       {({getInputProps, suggestions, getSuggestionItemProps, loading}) => (
-        <div>
+        <div style={{width:'100%'}}>
           <input
+            style={{width:'97%'}}
             name={name}
             {...getInputProps({
               placeholder: "Address, airport, hotel, ...",
