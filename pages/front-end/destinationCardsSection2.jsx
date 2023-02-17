@@ -1,6 +1,9 @@
 import React from 'react';
 // import "./style.scss"
+import Image from 'next/image';
 
+import star from "../../Assets/Polygon 20.png";
+import car from "../../Assets/Rectangle 200.png";
 const CardsSection2 = () => {
     const cardsStyle = {
         marginTop: "2px",
@@ -14,10 +17,10 @@ const CardsSection2 = () => {
     return (
         <div className="cards">
             <div className="image-container">
-                <img src="car pics.svg" style={{
+                <Image src={car} style={{
                     height: 'fit-content',
                     width: '24vw',
-                    marginTop:'2%'
+                    margin:'2%'
                 }}
                 />
             </div>
@@ -27,11 +30,11 @@ const CardsSection2 = () => {
                 <div className='card-inner'>
                     <h5>From $75 Per Hour</h5>
                     <div className="stars">
-                        <img src="star 1.svg" style={starsStyle} />
-                        <img src="star 1.svg" style={starsStyle} />
-                        <img src="star 1.svg" style={starsStyle} />
-                        <img src="star 1.svg" style={starsStyle} />
-                        <img src="star 1.svg" style={starsStyle} />
+                        <Image src={star} style={starsStyle} />
+                        <Image src={star} style={starsStyle} />
+                        <Image src={star} style={starsStyle} />
+                        <Image src={star} style={starsStyle} />
+                        <Image src={star} style={starsStyle} />
                     </div>
                     <button>BOOK NOW</button>
                 </div>

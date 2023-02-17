@@ -36,7 +36,7 @@ function Home() {
                 </div>
             </section>
             <section className="section02">
-                <div className="container">
+                <div className="section02-container">
                     <div className="content-container1">
                         <div>
                             <h5>STRESS-FREE IAH AIRPORT TRANSPORTATION</h5>
@@ -93,7 +93,7 @@ function Home() {
                 </div>
             </section>
             <section className="section3">
-                <div className="container">
+                <div className="section3-container">
                     <div className="content-container1">
                         <div>
                             <h5>STRESS-FREE IAH AIRPORT TRANSPORTATION</h5>
