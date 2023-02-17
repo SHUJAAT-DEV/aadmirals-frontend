@@ -5,9 +5,14 @@ import CardsSection2 from "./destinationCardsSection2";
 import CardsSection1 from "./destinationCardsSection1";
 import CarSlider from "./CarSilder";
 import car from '../../Assets/Rectangle 136.png';
-import '../../Assets/logo1.png';
-function Home() {
+// import './Assets/logo1.png';
+import logo1 from "./Assets/logo1.png";
+import logo2 from "./Assets/logo2.png";
+import logo3 from "./Assets/logo3.png";
+import Image from 'next/image';
 
+function Home() {
+    // D:\Aadmirals\Aadmirals-frontend-oldV\aadmirals-frontend\pages\front-end\Assets\logo1.png
     return (
         <>
             <section className="home-section">
@@ -22,15 +27,15 @@ function Home() {
                 </div>
                 <div className="home-logo-section">
                     <div className="logo-area">
-                        <img src="logo1.png" />
+                        <Image src={logo1} alt="My Image" width={500} height={500} />
                         <span>Always on time for your pick-Up, and free of charge wait time</span>
                     </div>
                     <div className="logo-area">
-                        <img src="logo2.png" />
+                        <Image src={logo2} alt="My Image" width={500} height={500} />
                         <span>Always on time for your pick-Up, and free of charge wait time</span>
                     </div>
                     <div className="logo-area">
-                        <img src="logo3.png" />
+                        <Image src={logo3} alt="My Image" width={500} height={500} />
                         <span>Always on time for your pick-Up, and free of charge wait time</span>
                     </div>
                 </div>
@@ -57,9 +62,13 @@ function Home() {
                     </div>
                     <div className="image-container1">
                         <div className="img-left">
-                            <img src={car} style={{ height: '60vh', width: '40vw',borderRadius:'3%' }} />
-                            </div>
-                            <div className="img-back-right">
+                                <Image src={car}
+                                    alt="Aadmirals service image"
+                                    width="410vh"
+                                    height="500vw"
+                                />
+                        </div>
+                        <div className="img-back-right">
                         </div>
                     </div>
                 </div>
@@ -68,9 +77,9 @@ function Home() {
                 <div className="container2">
                     <div className="image-container22">
                         <div className="img-right">
-                            <img src="Rectangle 136.png" style={{ height: '60vh', width: '40vw',borderRadius:'3%' }} />
-                            </div>
-                            <div className="img-back-left">
+                            <img src="Rectangle 136.png" style={{ height: '60vh', width: '40vw', borderRadius: '3%' }} />
+                        </div>
+                        <div className="img-back-left">
                         </div>
                     </div>
                     <div className="content-container22">
@@ -114,9 +123,9 @@ function Home() {
                     </div>
                     <div className="image-container1">
                         <div className="img-left">
-                            <img src="group-2372@2x.png" style={{ height: '60vh', width: '40vw',borderRadius:'3%' }} />
-                            </div>
-                            <div className="img-back-right">
+                            <img src="group-2372@2x.png" style={{ height: '60vh', width: '40vw', borderRadius: '3%' }} />
+                        </div>
+                        <div className="img-back-right">
                         </div>
                     </div>
                 </div>
@@ -174,7 +183,7 @@ function Home() {
                     <CustomerFeedBack />
                 </div>
             </section>
-            <section style={{padding:'3% 5%'}} >
+            <section style={{ padding: '3% 5%' }} >
                 <div className="faqs">
                     <h2>Frequently Ask Questions</h2>
                     <p>
