@@ -77,7 +77,8 @@ function GalvestonCruisesTransportation(props) {
                 Form={HomeForm}
               />
             </Container>
-            <Container fluid>
+            <Home/>
+            {/* <Container fluid>
               <Container>
                 <Row
                   className={styles.logoContainer}
@@ -290,13 +291,12 @@ function GalvestonCruisesTransportation(props) {
               </Container>
             </Container>
             <Fleet fleet={fleet} />
-            <Testimonial testimonials={testimonial} />
-            <Askquestion faqs={faqs} />
+            <Testimonial testimonials={testimonial} /> */}
+            {/* <Askquestion faqs={faqs} /> */}
             <Footer />
           </div>
         </>
       )}
-              <Home/>
 
     </>
   );

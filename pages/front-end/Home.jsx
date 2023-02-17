@@ -5,6 +5,8 @@ import CardsSection2 from "./destinationCardsSection2";
 import CardsSection1 from "./destinationCardsSection1";
 import CarSlider from "./CarSilder";
 import car from '../../Assets/Rectangle 136.png';
+import car2 from '../../Assets/Mask Group 24.png';
+
 // import './Assets/logo1.png';
 import logo1 from "./Assets/logo1.png";
 import logo2 from "./Assets/logo2.png";
@@ -64,8 +66,8 @@ function Home() {
                         <div className="img-left">
                                 <Image src={car}
                                     alt="Aadmirals service image"
-                                    width="410vh"
-                                    height="500vw"
+                                    width="500vw"
+                                    height="400vh"
                                 />
                         </div>
                         <div className="img-back-right">
@@ -77,7 +79,11 @@ function Home() {
                 <div className="container2">
                     <div className="image-container22">
                         <div className="img-right">
-                            <img src="Rectangle 136.png" style={{ height: '60vh', width: '40vw', borderRadius: '3%' }} />
+                                <Image src={car2}
+                                    alt="Aadmirals service image"
+                                    width="500vw"
+                                    height="400vh"
+                                />
                         </div>
                         <div className="img-back-left">
                         </div>
@@ -123,7 +129,11 @@ function Home() {
                     </div>
                     <div className="image-container1">
                         <div className="img-left">
-                            <img src="group-2372@2x.png" style={{ height: '60vh', width: '40vw', borderRadius: '3%' }} />
+                            <Image src={car}
+                                    alt="Aadmirals service image"
+                                    width="500vw"
+                                    height="400vh"
+                                />
                         </div>
                         <div className="img-back-right">
                         </div>

@@ -527,12 +527,15 @@ button {
     width: 40vh;
     border-radius: 16px;
     background-color: #EF4A67;
+    
 }
 .img-left {
     position: absolute;
     margin: 2.5%;
     img{
         border-radius: 20px;
+        // width: 40vw;
+        // height: 60vh;
     }
 }
 .img-back-left {
@@ -544,4 +547,6 @@ button {
 .img-right {
     position: absolute;
     margin: 2.5%;
+    img{
+        border-radius: 20px;}
 }
