@@ -7,6 +7,7 @@ import "../styles/reactstrap.css"
 import "../styles/Testimonial.css"
 import "react-alice-carousel/lib/alice-carousel.css";
 
+import "../pages/front-end/style.scss";
 
 import { positions, Provider as AlertProvider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";

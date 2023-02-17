@@ -22,6 +22,7 @@ import * as api from "../../api";
 import {useRouter} from "next/router";
 import Image from "next/image";
 import {NextSeo} from "next-seo";
+import Home from "../front-end/Home";
 function GalvestonCruisesTransportation(props) {
   const router = useRouter();
 
@@ -43,6 +44,7 @@ function GalvestonCruisesTransportation(props) {
     galveston_cruise_page && galveston_cruise_page.testimonial;
   return (
     <>
+
       <NextSeo
         title={data?.metaTitle}
         description={data?.metaDescription}
@@ -53,6 +55,7 @@ function GalvestonCruisesTransportation(props) {
         <Loader />
       ) : (
         <>
+
           <div style={{overflow: "hidden"}}>
             <SideNav />
             <Floatingbutton />
@@ -63,6 +66,7 @@ function GalvestonCruisesTransportation(props) {
               </Alert>
             ) : null}
             <Container className={`${styles.mainContainer} p-0`} fluid>
+              
               <Hero
                 Text={data.heroDescription}
                 Title={
@@ -292,6 +296,8 @@ function GalvestonCruisesTransportation(props) {
           </div>
         </>
       )}
+              <Home/>
+
     </>
   );
 }
