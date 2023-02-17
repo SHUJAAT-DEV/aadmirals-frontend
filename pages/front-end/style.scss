@@ -1,6 +1,6 @@
 section {
     padding: 3%;
-    padding-bottom: 12%;
+    padding-bottom: 2%;
     overflow: hidden;
     height: fit-content;
     
@@ -9,7 +9,6 @@ section {
 .home-section {
     background-color: #EF4A67;
     color: white;
-}
 
 .home-container {
     display: flex;
@@ -38,8 +37,8 @@ section {
     display: flex;
     justify-content: space-between;
 }
-
-.section02 .container {
+}
+.section02 .container, .section3 .container  {
     display: flex;
 }
 
@@ -407,9 +406,6 @@ button {
     height: 50px;
     border-radius: 50%;
 }
-img {
-    width: 100%;
-}
 .feedbacks p{
     font-family: 'Roboto';
     font-style: normal;
@@ -489,9 +485,6 @@ img {
 }
 .Question span img{
     width: 60%;
-}
-.section8{
-    height: 30vh !important;
 }
 .carSlider {
     margin-left: 3%;
