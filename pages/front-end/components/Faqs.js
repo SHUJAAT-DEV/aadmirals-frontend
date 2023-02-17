@@ -1,4 +1,8 @@
 import { useState } from "react";
+import Image from 'next/image';
+import v from "../../../Assets/openv.svg";
+import v1 from "../../../Assets/closev.svg";
+
 // import "../style.scss";
 const faqsQs = [
     {
@@ -31,7 +35,7 @@ function Faqs(){
               <div className="Question" onClick={() => handleClick(index)}>
                 <h6>{faq.no}: {faq.question}</h6>
                 <span>
-                {(activeIndex === index)? <img src="vector.svg" /> :(<img src="vector open.svg" />)}</span>
+                {(activeIndex === index)? <Image src={v1} /> :(<Image src={v}  />)}</span>
               </div>
               {activeIndex === index && (
                 <div className="Answer">

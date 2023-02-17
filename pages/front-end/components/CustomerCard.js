@@ -1,10 +1,11 @@
 // import "../style.scss";
-
+import Image from 'next/image';
+import imgs from '../../../Assets/3cfd3316b9c6139ccfddb63b33895610.png';
 function CustomerCard(){
  return(
         <div className="card-container">
             <div className="customer-img">
-                <img src="mask-group@2x.png"/>
+                <Image src={imgs}/>
             </div>
             <div className="feedbacks">
                 <p>
