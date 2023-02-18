@@ -9,9 +9,9 @@ import car1 from '../../Assets/car1.svg';
 import car2 from '../../Assets/car2.svg';
 
 // import './Assets/logo1.png';
-import logo1 from "./Assets/logo1.png";
-import logo2 from "./Assets/logo2.png";
-import logo3 from "./Assets/logo3.png";
+import logo1 from "../../Assets/logo1.png";
+import logo2 from "../../Assets/logo2.png";
+import logo3 from "../../Assets/logo3.png";
 import Image from 'next/image';
 
 function Home() {
