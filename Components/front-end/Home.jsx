@@ -25,15 +25,15 @@ function Home() {
                 </div>
                 <div className="home-logo-section">
                     <div className="logo-area">
-                        <Image src={logo1} alt="My Image" width={500} height={500} />
+                        <Image src={logo1} alt="My Image" width='100%' height="100%" />
                         <span>Always on time for your pick-Up, and free of charge wait time</span>
                     </div>
                     <div className="logo-area">
-                        <Image src={logo2} alt="My Image" width={500} height={500} />
+                        <Image src={logo2} alt="My Image" width='100%' height="100%"/>
                         <span>Always on time for your pick-Up, and free of charge wait time</span>
                     </div>
                     <div className="logo-area">
-                        <Image src={logo3} alt="My Image" width={500} height={500} />
+                        <Image src={logo3} alt="My Image" width='100%' height="100%" />
                         <span>Always on time for your pick-Up, and free of charge wait time</span>
                     </div>
                 </div>

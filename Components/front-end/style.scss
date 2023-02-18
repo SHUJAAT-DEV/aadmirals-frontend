@@ -570,3 +570,65 @@ section {
 .swiper{
     padding: 0 0 3% 0 !important;
 }
+
+@media screen and(max-width:768px) {
+    section {
+        padding-bottom: 5%;
+        padding-top: 5%;
+    }
+    .logo-area 
+    {
+        width: 30vw;
+        img {
+        width: 9vh !important;
+        }
+        span{
+            font-size: 12px;
+            line-height: normal;
+        }
+    }
+    .section02 .section02-container,.section3 .section3-container
+    {
+        flex-direction: column-reverse !important;
+    }
+    .section02 .section02-container, .section3 .section3-container, .section2 .container2, .cardsParentContainer  {
+        flex-direction: column;
+        .content-container1, .image-container22, .content-container22{
+            width: 100%;
+            margin: 2% 0px;
+        }
+        .image-container1{
+            width: 100%;
+            margin: 2%;
+            .img-left 
+            {
+                margin: 4%;
+                img{
+                    width: 80vw !important;
+                    height: 44vh !important;
+                }
+            }
+            .img-back-right{
+                height: 50vh;
+                width: 30vh;
+            }
+        }
+        .image-container22{
+            .img-right{
+                margin: 4%;
+                img{
+                    width: 80vw !important;
+                    height: 44vh !important;
+                }
+            }
+            .img-back-left{
+                height: 50vh;
+                width: 30vh;
+            }
+        }
+    }
+    .section4 .cards1, .section5 .cards1 {
+    margin: 5%;
+    }
+    
+}
