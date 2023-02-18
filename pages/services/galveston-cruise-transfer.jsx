@@ -22,7 +22,7 @@ import * as api from "../../api";
 import {useRouter} from "next/router";
 import Image from "next/image";
 import {NextSeo} from "next-seo";
-import Home from "../front-end/Home";
+import Home from "../../Components/front-end/Home";
 function GalvestonCruisesTransportation(props) {
   const router = useRouter();
 

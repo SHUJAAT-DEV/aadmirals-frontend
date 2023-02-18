@@ -1,21 +1,16 @@
 import Faqs from "./components/Faqs";
 import CustomerFeedBack from "./CustomerFeedBack";
-// import "./style.scss";
 import CardsSection2 from "./destinationCardsSection2";
 import CardsSection1 from "./destinationCardsSection1";
 import CarSlider from "./CarSilder";
-// import car2 from '../../Assets/Mask Group 24.png';
 import car1 from '../../Assets/car1.svg';
 import car2 from '../../Assets/car2.svg';
-
-// import './Assets/logo1.png';
 import logo1 from "../../Assets/logo1.png";
 import logo2 from "../../Assets/logo2.png";
 import logo3 from "../../Assets/logo3.png";
 import Image from 'next/image';
 
 function Home() {
-    // D:\Aadmirals\Aadmirals-frontend-oldV\aadmirals-frontend\pages\front-end\Assets\logo1.png
     return (
         <>
             <section className="home-section">
