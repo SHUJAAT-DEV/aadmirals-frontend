@@ -96,7 +96,7 @@ section {
     font-size: 18px;
 }
 
-.cards {
+.cardsParentContainer2 .cards {
     width: 25vw;
     /* height: 255px; */
     background: white;
@@ -105,7 +105,13 @@ section {
     border-radius: 5px;
     padding: 1%;
 }
-
+.cards {
+    background: white;
+    box-shadow: 0px 0px 10px 3px rgb(0 0 0 / 25%);
+    margin: 2%;
+    border-radius: 5px;
+    padding: 1%;
+}
 .cards-heading,
 .cards-content {
     color: black;
@@ -313,14 +319,7 @@ section {
     font-weight: 400;
     font-size: 14px;
 }
-.card-footer h4{
-    
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
 
-    color: #EF4A67;
-}
 /* faqs */
 .faqs h2{
     
@@ -427,13 +426,13 @@ section {
     font-weight: 400;
     font-size: 14px;
 }
-.card-footer h4{
-    
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-
-    color: #EF4A67;
+.card-container {
+    .card-footers h4{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        color: #EF4A67;
+    }
 }
 /* faqs */
 .faqs h2{
@@ -502,7 +501,7 @@ section {
     width: 60%;
 }
 .carSlider {
-    margin-left: 3%;
+    margin:0 5%;
 }
 .logo-area img {
     width: 15vh;
@@ -554,4 +553,20 @@ section {
         width: 40vw;
         height: 60vh;
     }
+}
+.customer-container{
+    .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
+        padding-top: 1%;
+    }
+}
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
+    top:90%;
+    padding-top: 2%;
+}
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    width: 1rem;
+    height: 1rem;
+}
+.swiper{
+    padding: 0 0 3% 0 !important;
 }
