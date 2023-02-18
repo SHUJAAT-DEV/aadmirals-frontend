@@ -21,12 +21,11 @@ section {
 
     .home-container h3 {
         font-size: 30px;
-        font-family: 'Oswald';
         margin: 5px 0;
     }
 
     .home-container p {
-        font-family: 'Roboto';
+        
         font-weight: 400;
         font-size: 18px;
         line-height: 21px;
@@ -60,17 +59,17 @@ section {
 }
 
 .content-container1 h5 {
-    font-family: 'Roboto';
+    
     font-size: 18px;
 }
 
 .content-container1 h3 {
-    font-family: 'Oswald';
+    
     font-size: 30px;
 }
 
 .content-container1 p {
-    font-family: 'Roboto';
+    
     font-size: 18px;
 }
 
@@ -79,21 +78,21 @@ section {
     width: 45vw;
 }
 .content-container h3{
-    font-family: 'Oswald';
+    
     font-size: 30px;
     color:#EF4A67;
 }
 .content-container p {
-    font-family: 'Roboto';
+    
     font-size: 18px;
     color:#EF4A67;
 }
 .content-container3 h3{
-    font-family: 'Oswald';
+    
     font-size: 30px;
 }
 .content-container3 p {
-    font-family: 'Roboto';
+    
     font-size: 18px;
 }
 
@@ -112,8 +111,7 @@ section {
     color: black;
 }
 
-.cards h4 {
-    font-family: 'Oswald';
+.cards1 h4 {
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -122,8 +120,7 @@ section {
 }
 
 .cards p {
-    margin-top: -24px;
-    font-family: 'Roboto';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -137,7 +134,7 @@ button {
     width: 136px;
     height: 47px;
     border-color: white;
-    margin-top: 9%;
+    margin-top: 4%;
     color: #EF4A67;
 }
 
@@ -157,9 +154,16 @@ button {
     border-radius: 5px;
     height: fit-content;
 }
+.cards-details h4{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: left;
+    color: #EF4A67;
 
+}
 .cards-details h5 {
-    font-family: 'Oswald';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -168,7 +172,7 @@ button {
     margin-top: 2px;
 }
 .cards-details{
-    padding: 4%;    
+    padding: 0 4% 1% 4%;    
 }
 .stars {
     display: flex;
@@ -186,7 +190,7 @@ button {
 }
 
 .cardsParentContainer2 p {
-    font-family: 'Roboto';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -226,7 +230,6 @@ button {
             color: white;
     }
     .cards1 h4{
-        font-family: 'Oswald';
         font-style: normal;
         font-weight: 700;
         font-size: 17px;
@@ -235,7 +238,6 @@ button {
         color: white;
     }
     .cards1 p {
-        font-family: Roboto;
         color: white;
         line-height: 6px;
     }
@@ -251,7 +253,7 @@ button {
 
 .content-container22 {
     margin-left: 3%;
-    font-family: 'Roboto';
+    
     font-weight: 400;
     font-size: 18px;
     line-height: 21px;
@@ -286,7 +288,7 @@ button {
     width: 100%;
 }
 .customer-card h2{
-    font-family: 'Oswald';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 30px;
@@ -306,13 +308,13 @@ button {
     }
 }
 .feedbacks p{
-    font-family: 'Roboto';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
 }
 .card-footer h4{
-    font-family: 'Oswald';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
@@ -321,7 +323,7 @@ button {
 }
 /* faqs */
 .faqs h2{
-    font-family: 'Oswald';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 30px;
@@ -330,7 +332,7 @@ button {
     color: #EF4A67;
 }
 .faqs p{
-    font-family: 'Roboto';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -340,7 +342,7 @@ button {
 }
 
 .Question h6{
-    font-family: 'Oswald';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
@@ -349,14 +351,14 @@ button {
 }
 
 .faqs-container h6{
-    font-family: 'Oswald';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
     float: left;
 }
 .Answer span{
-    font-family: 'Roboto';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -402,7 +404,7 @@ button {
     width: 100%;
 }
 .customer-card h2{
-    font-family: 'Oswald';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 30px;
@@ -420,13 +422,13 @@ button {
     border-radius: 50%;
 }
 .feedbacks p{
-    font-family: 'Roboto';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
 }
 .card-footer h4{
-    font-family: 'Oswald';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
@@ -435,7 +437,7 @@ button {
 }
 /* faqs */
 .faqs h2{
-    font-family: 'Oswald';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 30px;
@@ -444,7 +446,7 @@ button {
     color: #EF4A67;
 }
 .faqs p{
-    font-family: 'Roboto';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -454,7 +456,7 @@ button {
 }
 
 .Question h6{
-    font-family: 'Oswald';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
@@ -463,14 +465,14 @@ button {
 }
 
 .faqs-container h6{
-    font-family: 'Oswald';
+    
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
     float: left;
 }
 .Answer span{
-    font-family: 'Roboto';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -513,7 +515,7 @@ button {
     width: 20vw;
 }
 .logo-area span{
-    font-family: 'Oswald';
+    
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -534,8 +536,8 @@ button {
     margin: 2.5%;
     img{
         border-radius: 20px;
-        // width: 40vw;
-        // height: 60vh;
+        width: 40vw;
+        height: 60vh;
     }
 }
 .img-back-left {
@@ -548,5 +550,8 @@ button {
     position: absolute;
     margin: 2.5%;
     img{
-        border-radius: 20px;}
+        border-radius: 20px;
+        width: 40vw;
+        height: 60vh;
+    }
 }

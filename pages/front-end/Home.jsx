@@ -66,8 +66,8 @@ function Home() {
                         <div className="img-left">
                                 <Image src={car}
                                     alt="Aadmirals service image"
-                                    width="500vw"
-                                    height="400vh"
+                                    width="100%"
+                                    height="100%"
                                 />
                         </div>
                         <div className="img-back-right">
@@ -81,8 +81,8 @@ function Home() {
                         <div className="img-right">
                                 <Image src={car2}
                                     alt="Aadmirals service image"
-                                    width="500vw"
-                                    height="400vh"
+                                    width="100%"
+                                    height="100%"
                                 />
                         </div>
                         <div className="img-back-left">
@@ -131,8 +131,8 @@ function Home() {
                         <div className="img-left">
                             <Image src={car}
                                     alt="Aadmirals service image"
-                                    width="500vw"
-                                    height="400vh"
+                                    width="100%"
+                                    height="100%"
                                 />
                         </div>
                         <div className="img-back-right">

@@ -5,10 +5,6 @@ import Image from 'next/image';
 import star from "../../Assets/Polygon 20.png";
 import car from "../../Assets/Rectangle 200.png";
 const CardsSection2 = () => {
-    const cardsStyle = {
-        marginTop: "2px",
-        display: "flex"
-    }
     const starsStyle = { 
         height: 'fit-content', 
         marginLeft: "-4%", 
@@ -25,7 +21,7 @@ const CardsSection2 = () => {
                 />
             </div>
             <div className="cards-details">
-                <h4 style={cardsStyle}>Standard Sedan Lincoln MKS, MKZ</h4>
+                <h4 >Standard Sedan Lincoln MKS, MKZ</h4>
                 <p style={{color: "#EF4A67"}}>Clean in and out 4 doors, 2 rows of seats clean Sedan car fit for 2 people with 2 check-in bags and 2 carry-ons.</p>
                 <div className='card-inner'>
                     <h5>From $75 Per Hour</h5>
