@@ -1,6 +1,7 @@
 // import "../style.scss";
 import Image from 'next/image';
-import imgs from '../../../Assets/3cfd3316b9c6139ccfddb63b33895610.png';
+import imgs from '../../../Assets/client pics.svg';
+
 function CustomerCard(){
  return(
         <div className="card-container">

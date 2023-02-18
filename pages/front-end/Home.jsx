@@ -4,8 +4,9 @@ import CustomerFeedBack from "./CustomerFeedBack";
 import CardsSection2 from "./destinationCardsSection2";
 import CardsSection1 from "./destinationCardsSection1";
 import CarSlider from "./CarSilder";
-import car from '../../Assets/Rectangle 136.png';
-import car2 from '../../Assets/Mask Group 24.png';
+// import car2 from '../../Assets/Mask Group 24.png';
+import car1 from '../../Assets/car1.svg';
+import car2 from '../../Assets/car2.svg';
 
 // import './Assets/logo1.png';
 import logo1 from "./Assets/logo1.png";
@@ -64,7 +65,7 @@ function Home() {
                     </div>
                     <div className="image-container1">
                         <div className="img-left">
-                                <Image src={car}
+                                <Image src={car1}
                                     alt="Aadmirals service image"
                                     width="100%"
                                     height="100%"
@@ -129,7 +130,7 @@ function Home() {
                     </div>
                     <div className="image-container1">
                         <div className="img-left">
-                            <Image src={car}
+                            <Image src={car1}
                                     alt="Aadmirals service image"
                                     width="100%"
                                     height="100%"

@@ -1,9 +1,9 @@
 import React from 'react';
 // import "./style.scss"
 import Image from 'next/image';
-
 import star from "../../Assets/Polygon 20.png";
-import car from "../../Assets/Rectangle 200.png";
+import car from "../../Assets/card image.svg";
+
 const CardsSection2 = () => {
     const starsStyle = { 
         height: 'fit-content', 
