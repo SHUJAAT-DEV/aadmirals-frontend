@@ -7,18 +7,23 @@ import v1 from "../../../Assets/closev.svg";
 const faqsQs = [
     {
       no:1,
-      question: 'What is React?',
-      answer: 'React is a JavaScript library for building user interfaces.'
+      question: 'What is meant by a “one way trip”?',
+      answer: 'It is a one time trip, Pick-Up from point A and Drop - of at point B.'
     },
     {
       no:2,
-      question: 'What is JSX?',
-      answer: 'JSX is a syntax extension for JavaScript that allows you to write HTML-like code in your JavaScript files.'
+      question: 'What is meant by a “return trip”?',
+      answer: 'The trip back from a destination,'
     },
     {
       no:3,
-      question: 'What is a component?',
-      answer: 'A component is a reusable piece of code that can be used to build a user interface.'
+      question: 'What if I need more drop-offs and/or pick-ups?',
+      answer: 'We can do that , Please book “By the Hour” service, so the chauffeur will stay with you based on your instructions for multi stops, if your multi stops in a diffrent days, simply book several bookings based on your scheduled days and stop locations, For more information contact Us by phone call or by email.'
+    },
+    {
+      no:4,
+      question: 'What is meant by a “round trip”?',
+      answer: 'it is a two way trip, going from point A to point B and then back from point B to point A again.'
     }
   ];
 function Faqs(){
