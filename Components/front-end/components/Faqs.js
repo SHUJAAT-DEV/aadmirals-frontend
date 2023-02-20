@@ -39,8 +39,11 @@ function Faqs(){
             <div key={index} className="faq">
               <div className="Question" onClick={() => handleClick(index)}>
                 <h6>{faq.no}: {faq.question}</h6>
-                <span>
-                {(activeIndex === index)? <Image src={v1} /> :(<Image src={v}  />)}</span>
+                <div className="icons-dropdown">
+                  <span>
+                  {(activeIndex === index)? <Image src={v1} /> :(<Image src={v}  />)}</span>
+                </div>
+               
               </div>
               {activeIndex === index && (
                 <div className="Answer">

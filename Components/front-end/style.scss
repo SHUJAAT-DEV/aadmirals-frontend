@@ -563,23 +563,30 @@ section {
         padding-top: 1%;
     }
 }
-.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
-    top:90%;
-    padding-top: 2%;
+.carSlider{
+    .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
+        padding-top: 2%;
+    }
 }
-.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
-    width: 1rem;
-    height: 1rem;
+.section8, .carSlider{
+    .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
+        top:90%;
+    }
+    .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+        width: 1rem;
+        height: 1rem;
+    }
+    .swiper{
+        padding: 0 0 3% 0 !important;
+    }
 }
-.swiper{
-    padding: 0 0 3% 0 !important;
+
+.icons-dropdown {
+    width: 5%;
 }
 @media screen and(max-width:1024px) {
     .swiper {
         padding: 0 0 5% 0 !important;
-    }
-    .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
-        padding-top: 3%;
     }
     .section4 .cards1, .section5 .cards1 {
         margin: 2.5%;
@@ -605,15 +612,41 @@ section {
             line-height: normal;
         }
     }
+    .home-section{
+        .home-container 
+        {
+            h3 {
+            font-size: 20px;
+            }
+            p{
+                font-size: 16px;
+            }
+        }
+    }
+   
     .section02 .section02-container,.section3 .section3-container
     {
         flex-direction: column-reverse !important;
+    }
+    .section8, .carSlider{
+        .swiper {
+            padding: 0 0 8% 0 !important;
+        }
     }
     .section02 .section02-container, .section3 .section3-container, .section2 .container2, .cardsParentContainer  {
         flex-direction: column;
         .content-container1, .image-container22, .content-container22{
             width: 100%;
             margin: 2% 0px;
+            h5 {
+                font-size: 17px;
+                }
+            h3 {
+                font-size: 20px;
+                }
+             p {
+                font-size: 16px;
+            }
         }
         .image-container1{
             width: 95%;
@@ -646,7 +679,31 @@ section {
                 width: 50%;
             }
         }
+        
     }
+    .content-container, .content-container3, .customer-container ,.faqs , .faq{
+        h2 {
+            font-size: 20px;
+        }
+        h3{
+            font-size: 20px;
+        }
+        h4 {
+            font-size: 17px;
+        }
+        p{
+            font-size: 16px;
+        }
+        .Question{
+            h6{
+            font-size: 16px;
+            }
+        }
+        .Answer span {
+            font-size: 14px;
+        }
+    }
+
     .section4 .cards1, .section5 .cards1 {
     margin: 5%;
     }
@@ -663,13 +720,12 @@ section {
         }
        
     }
-    .swiper {
-        padding: 0 0 8% 0 !important;
-    }
+   
     .inner-text {
         height: 30vh;
         overflow: hidden;
     }
+
 }
 @media screen and(max-width:550px) {
     .section5 {
@@ -679,7 +735,9 @@ section {
                 width: 90%;
             }
         }
-       
+    }
+    .logo-area img {
+        width: 6vh !important;
     }
     .swiper {
         padding: 0 0 10% 0 !important;
