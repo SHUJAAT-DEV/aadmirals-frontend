@@ -153,6 +153,7 @@ section {
 .cardsParentContainer2 {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .cardsParentContainer2 .cards {
@@ -227,12 +228,12 @@ section {
         text-align: center;
     }
     .cards1{
-            width: 275px;
+            width: 30vw;
             height: fit-content;
             background: #EF4A67;
             box-shadow: 0px 0px 27px 3px rgb(0 0 0 / 25%);
-            margin: 33px;
-            padding: 4%;
+            margin: 5%;
+            padding: 3%;
             color: white;
     }
     .cards1 h4{
@@ -524,8 +525,8 @@ section {
     color: #F8FAFF;
 }
 .img-back-right {
-    height: 70vh;
-    width: 40vh;
+    height: 40vw;
+    width: 50%;
     border-radius: 16px;
     background-color: #EF4A67;
     
@@ -533,25 +534,28 @@ section {
 .img-left {
     position: absolute;
     margin: 2.5%;
+    margin-top: 0%;
     img{
         border-radius: 20px;
-        width: 40vw;
-        height: 60vh;
+        width: 100%;
+        height: 40vw;
     }
 }
 .img-back-left {
-    height: 70vh;
-    width: 40vh;
+    height: 40vw;
+    width: 50%;
     border-radius: 16px;
     background-color: #ffffff;
 }
 .img-right {
     position: absolute;
     margin: 2.5%;
+    margin-top: 0%;
+
     img{
         border-radius: 20px;
-        width: 40vw;
-        height: 60vh;
+        width: 100%;
+        height: 40vw;
     }
 }
 .customer-container{
@@ -570,7 +574,21 @@ section {
 .swiper{
     padding: 0 0 3% 0 !important;
 }
-
+@media screen and(max-width:1024px) {
+    .swiper {
+        padding: 0 0 5% 0 !important;
+    }
+    .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+        padding-top: 3%;
+    }
+    .section4 .cards1, .section5 .cards1 {
+        margin: 2.5%;
+        }
+    .inner-text {
+        height: 30vh;
+        overflow: hidden;
+    }
+}
 @media screen and(max-width:768px) {
     section {
         padding-bottom: 5%;
@@ -598,37 +616,81 @@ section {
             margin: 2% 0px;
         }
         .image-container1{
-            width: 100%;
-            margin: 2%;
+            width: 95%;
+            margin: 0% 1% 1% 3%;
             .img-left 
             {
-                margin: 4%;
+                margin: 4% 0 4% 6%;
                 img{
-                    width: 80vw !important;
-                    height: 44vh !important;
+                    width: 100vw !important;
+                    height: 65vw!important;
                 }
             }
             .img-back-right{
-                height: 50vh;
-                width: 30vh;
+                height: 73vw;
+                width: 50%;
             }
         }
         .image-container22{
+            width: 95%;
+            margin: 0% 1% 1% 0%;
             .img-right{
-                margin: 4%;
+                margin:4% 6% 4% 0%;
                 img{
-                    width: 80vw !important;
-                    height: 44vh !important;
+                    width: 100vw !important;
+                    height: 65vw!important;
                 }
             }
             .img-back-left{
-                height: 50vh;
-                width: 30vh;
+                height: 73vw;
+                width: 50%;
             }
         }
     }
     .section4 .cards1, .section5 .cards1 {
     margin: 5%;
     }
-    
+    .section4 .cards1{
+        width: 50vw;
+        padding: 6%;
+    }
+    .section5 {
+        .cardsParentContainer2 {
+            flex-direction: column;
+            .cards{
+                width: 60%;
+            }
+        }
+       
+    }
+    .swiper {
+        padding: 0 0 8% 0 !important;
+    }
+    .inner-text {
+        height: 30vh;
+        overflow: hidden;
+    }
+}
+@media screen and(max-width:550px) {
+    .section5 {
+        .cardsParentContainer2 {
+            flex-direction: column;
+            .cards{
+                width: 90%;
+            }
+        }
+       
+    }
+    .swiper {
+        padding: 0 0 10% 0 !important;
+    }
+    .section4 .cards1{
+        width: 85vw;
+        margin: 3% 0;
+    }
+}
+
+// footer
+.card{
+    border: none !important;
 }
