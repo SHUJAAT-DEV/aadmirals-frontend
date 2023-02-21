@@ -41,6 +41,9 @@ export const fetchKatyLimoPage = () =>
 export const fetchGalvestonCruisePage = () =>
   axios.get(`${URL}/website-content/galveston-cruise-transfer`);
 
+export const fetchServicePageDetail = (id) =>
+  axios.get(`${URL}/admin/services/${id}`);
+
 export const fetchHoustonToCollegePage = () =>
   axios.get(`${URL}/website-content/houston-to-college-station`);
 
@@ -100,14 +103,14 @@ export const fetchBlogPage = () => axios.get(`${URL}/website-content/blogs`);
 export const fetchNews = () => axios.get(`${URL}/website-content/getnews/news`);
 
 export const postContactPage = (email, phoneNumber, message, config) => (
- axios.post(`${URL}/website-content/contact-us`,{
+  axios.post(`${URL}/website-content/contact-us`, {
     email, phoneNumber, message
   },
-  {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  }
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
   )
 )
 // export const postContactPage = (email, phoneNumber, message, config) =>
@@ -133,13 +136,13 @@ export const getQuoteCityToCity = (data) =>
       "content-type": "application/json",
     },
   });
-  export const getQuoteAirportTransfer = (data) =>
+export const getQuoteAirportTransfer = (data) =>
   axios.post(`${URL}/booking/quote/airport-transfer`, data, {
     headers: {
       "content-type": "application/json",
     },
   });
-  export const getQuoteHourly = (data) =>
+export const getQuoteHourly = (data) =>
   axios.post(`${URL}/booking/quote/hourly`, data, {
     headers: {
       "content-type": "application/json",
@@ -177,10 +180,10 @@ export const login = (email, password) =>
   );
 
 // Register
-export const register = (fullName, email, password,home_address,billing_address,companyName,phone_number) =>
+export const register = (fullName, email, password, home_address, billing_address, companyName, phone_number) =>
   axios.post(
     `${URL}/auth/register`,
-    { fullName, email, password,home_address,billing_address,companyName,phone_number },
+    { fullName, email, password, home_address, billing_address, companyName, phone_number },
     {
       headers: {
         "content-type": "application/json",
