@@ -176,12 +176,10 @@ function Home({ serviceDetail }) {
               <CardsSection2 />
               <CardsSection2 />
               <CardsSection2 />
+              <CardsSection2 />
+              <CardsSection2 />
+              <CardsSection2 />
             </div>
-          </div>
-          <br />
-          <br />
-          <div className="carSlider">
-            <CarSlider />
           </div>
         </div>
       </section>
