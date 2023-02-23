@@ -9,8 +9,8 @@ import logo2 from "../../Assets/logo2.png";
 import logo3 from "../../Assets/logo3.png";
 import Image from "next/image";
 
-function Home({ serviceDetail }) { 
-  return ( 
+function Home({ serviceDetail }) {
+  return (
     <>
       <section className="home-section">
         <div className="home-container">
@@ -39,12 +39,12 @@ function Home({ serviceDetail }) {
           </div>
           <div className="logo-area">
             <Image src={logo3} alt="My Image" width="100%" height="100%" />
-            <span> 
+            <span>
               Always on time for your pick-Up, and free of charge wait time
             </span>
           </div>
         </div>
-      </section> 
+      </section>
       <section className="section02">
         <div className="section02-container">
           <div className="content-container1">
@@ -138,7 +138,9 @@ function Home({ serviceDetail }) {
       <section className="section4">
         <div className="cardsContainer">
           <div className="content-container">
-            <div className="cardContent">
+            <div className="cardContent" style={{
+              paddingBottom: "1%"
+            }}>
               <div>
                 <h3 className="cards-heading">Popular Destnations</h3>
               </div>
@@ -160,7 +162,9 @@ function Home({ serviceDetail }) {
         <div className="cardsContainer">
           <div className="destinations">
             <div className="content-container3">
-              <div className="cardContent">
+              <div className="cardContent"  style={{
+              paddingBottom: "1%"
+            }}>
                 <div>
                   <h3 className="cards-heading">Popular Destnations</h3>
                 </div>
@@ -169,7 +173,7 @@ function Home({ serviceDetail }) {
                     STRESS-FREE IAH AIRPORT TRANSPORTATION
                   </p>
                 </div>
-              </div> 
+              </div>
             </div>
             <div className="cardsParentContainer2">
               <CardsSection2 />
@@ -184,13 +188,15 @@ function Home({ serviceDetail }) {
       </section>
       <section className="section8">
         <div className="customer-container">
-          <center>
+          <center  style={{
+              paddingBottom: "1%"
+            }}>
             <h2>WHAT OUR CUSTOMERS ARE SAYING</h2>
           </center>
           <CustomerFeedBack />
         </div>
       </section>
-      <section style={{ padding: "3% 5%" }}>
+      <section style={{ padding: "3%" }}>
         <div className="faqs">
           <h2>Frequently Ask Questions</h2>
           <p>
