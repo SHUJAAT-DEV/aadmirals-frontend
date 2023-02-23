@@ -78,7 +78,6 @@ section {
     width: 45vw;
 }
 .content-container h3{
-    
     font-size: 30px;
     color:#EF4A67;
 }
@@ -422,7 +421,6 @@ section {
     border-radius: 50%;
 }
 .feedbacks p{
-    
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -505,7 +503,7 @@ section {
     margin:0 5%;
 }
 .logo-area img {
-    width: 13vh;
+    width: 13vh !important;
 }
 .logo-area {
     display: flex;
@@ -580,7 +578,12 @@ section {
         padding: 0 0 3% 0 !important;
     }
 }
-
+.section4 > .cardsContainer > .cardsParentContainer, .section5 > .cardsContainer > .destinations > .cardsParentContainer2{
+    gap: 3.7rem;
+   .cards1 {
+    border-radius: 10px;
+    }
+}
 .icons-dropdown {
     width: 5%;
 }
@@ -638,16 +641,16 @@ section {
         .content-container1, .image-container22, .content-container22{
             width: 100%;
             margin: 2% 0px;
-            h5 {
+            h5 { 
                 font-size: 17px;
-                }
-            h3 {
+                } 
+            h3 { 
                 font-size: 20px;
                 }
              p {
                 font-size: 16px;
             }
-        }
+        } 
         .image-container1{
             width: 95%;
             margin: 0% 1% 1% 3%;

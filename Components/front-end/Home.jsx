@@ -9,8 +9,8 @@ import logo2 from "../../Assets/logo2.png";
 import logo3 from "../../Assets/logo3.png";
 import Image from "next/image";
 
-function Home({ serviceDetail }) {
-  return (
+function Home({ serviceDetail }) { 
+  return ( 
     <>
       <section className="home-section">
         <div className="home-container">
@@ -44,7 +44,7 @@ function Home({ serviceDetail }) {
             </span>
           </div>
         </div>
-      </section>
+      </section> 
       <section className="section02">
         <div className="section02-container">
           <div className="content-container1">
@@ -169,7 +169,7 @@ function Home({ serviceDetail }) {
                     STRESS-FREE IAH AIRPORT TRANSPORTATION
                   </p>
                 </div>
-              </div>
+              </div> 
             </div>
             <div className="cardsParentContainer2">
               <CardsSection2 />
