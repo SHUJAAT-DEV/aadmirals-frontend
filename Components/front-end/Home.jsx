@@ -2,7 +2,6 @@ import Faqs from "./components/Faqs";
 import CustomerFeedBack from "./CustomerFeedBack";
 import CardsSection2 from "./destinationCardsSection2";
 import CardsSection1 from "./destinationCardsSection1";
-import CarSlider from "./CarSilder";
 import car1 from "../../Assets/car1.svg";
 import car2 from "../../Assets/car2.svg";
 import logo1 from "../../Assets/logo1.png";
