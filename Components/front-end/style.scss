@@ -476,7 +476,7 @@ section {
   margin: 0 5%;
 }
 .logo-area img {
-  width: 15vh;
+  width: 13vh !important;
 }
 .logo-area {
   display: flex;
@@ -554,7 +554,13 @@ section {
     padding: 0 0 3% 0 !important;
   }
 }
-
+.section4 > .cardsContainer > .cardsParentContainer,
+.section5 > .cardsContainer > .destinations > .cardsParentContainer2 {
+  gap: 3.7rem;
+  .cards1 {
+    border-radius: 10px;
+  }
+}
 .icons-dropdown {
   width: 5%;
 }

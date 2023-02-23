@@ -113,19 +113,21 @@
     display: inline-block;
 
     p {
-      line-height: 200% !important;
+      line-height: normal !important;
       font-size: 19px !important;
       font-family: ProximaNovaRegular !important;
       color: #fff !important;
+      text-align: left;
+      padding: 0 0.5rem;
     }
 
     h1:nth-child(2) {
       line-height: 90%;
       font-size: 2.3rem;
       font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
-      text-align: center;
+      text-align: left;
+      padding: 0 0.5rem;
     }
-
     h1:nth-child(3) {
       line-height: 90%;
       font-size: 2.3rem;
