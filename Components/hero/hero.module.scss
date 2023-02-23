@@ -29,13 +29,13 @@
     transform: translateY(-50%);
 
     .moto {
-      line-height: 200% !important;
+      line-height: normal !important;
       font-size: 19px !important;
       font-family: ProximaNovaRegular !important;
       color: white !important;
 
       p {
-        line-height: 200% !important;
+        line-height: normal !important;
         font-size: 19px !important;
         font-family: ProximaNovaRegular !important;
         color: #fff !important;
@@ -53,7 +53,7 @@
     }
 
     p {
-      line-height: 200%;
+      line-height: normal;
       color: #ee405e;
       font-size: 15px;
       font-family: ProximaNovaBold;
@@ -227,6 +227,7 @@
 
 @media screen and (max-width: 1124px) {
   .home_h1 {
+    padding-bottom: 1%;
     font-size: 36px !important;
     font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
   }
@@ -234,6 +235,7 @@
 
 @media screen and (max-width: 1088px) {
   .home_h1 {
+    padding-bottom: 1%;
     font-size: 32px !important;
     font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
   }
@@ -242,6 +244,8 @@
 @media screen and (min-width: 1000px) and (max-width: 1055px) {
   .home_h1 {
     font-size: 25px !important;
+    padding-bottom: 1%;
+
     font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
   }
 }
@@ -249,6 +253,8 @@
 @media screen and (min-width: 1000px) and(max-width: 1022px) {
   .home_h1 {
     font-size: 25px !important;
+    padding-bottom: 1%;
+
     font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
   }
 }

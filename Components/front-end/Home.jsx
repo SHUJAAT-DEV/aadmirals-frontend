@@ -146,7 +146,9 @@ function Home({ serviceDetail }) {
       <section className="section4">
         <div className="cardsContainer">
           <div className="content-container">
-            <div className="cardContent">
+            <div className="cardContent" style={{
+              paddingBottom: "1%"
+            }}>
               <div>
                 <h3 className="cards-heading">Popular Destnations</h3>
               </div>
@@ -168,7 +170,9 @@ function Home({ serviceDetail }) {
         <div className="cardsContainer">
           <div className="destinations">
             <div className="content-container3">
-              <div className="cardContent">
+              <div className="cardContent"  style={{
+              paddingBottom: "1%"
+            }}>
                 <div>
                   <h3 className="cards-heading">Popular Destnations</h3>
                 </div>
@@ -192,13 +196,15 @@ function Home({ serviceDetail }) {
       </section>
       <section className="section8">
         <div className="customer-container">
-          <center>
+          <center  style={{
+              paddingBottom: "1%"
+            }}>
             <h2>WHAT OUR CUSTOMERS ARE SAYING</h2>
           </center>
           <CustomerFeedBack />
         </div>
       </section>
-      <section style={{ padding: "3% 5%" }}>
+      <section style={{ padding: "3%" }}>
         <div className="faqs">
           <h2>Frequently Ask Questions</h2>
           <p>
