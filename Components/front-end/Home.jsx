@@ -39,7 +39,7 @@ function Home({ serviceDetail }) {
           </div>
           <div className="logo-area">
             <Image src={logo3} alt="My Image" width="100%" height="100%" />
-            <span>
+            <span> 
               Always on time for your pick-Up, and free of charge wait time
             </span>
           </div>
