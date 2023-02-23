@@ -2,13 +2,12 @@ import Faqs from "./components/Faqs";
 import CustomerFeedBack from "./CustomerFeedBack";
 import CardsSection2 from "./destinationCardsSection2";
 import CardsSection1 from "./destinationCardsSection1";
-import CarSlider from "./CarSilder";
+import Image from "next/image";
 import car1 from "../../Assets/car1.svg";
 import car2 from "../../Assets/car2.svg";
 import logo1 from "../../Assets/logo1.png";
 import logo2 from "../../Assets/logo2.png";
 import logo3 from "../../Assets/logo3.png";
-import Image from "next/image";
 
 function Home({ serviceDetail }) {
   return (
@@ -21,9 +20,11 @@ function Home({ serviceDetail }) {
                 "AAdmirals Travel & Transportation Houston Limo Service"}
             </h3>
           </div>
-          <div className="inner-text">
-            <p>{serviceDetail.metaDescription}</p>
-          </div>
+          <div
+            className="inner-text"
+            dangerouslySetInnerHTML={{
+              __html: serviceDetail.metaDescription,
+            }}></div>
         </div>
         <div className="home-logo-section">
           <div className="logo-area">
@@ -58,9 +59,11 @@ function Home({ serviceDetail }) {
                 Get first-class service to and from the airport with AAdmirals
               </h3>
             </div>
-            <div className="inner-text">
-              <p>{serviceDetail.firstSectionsDescription}</p>
-            </div>
+            <div
+              className="inner-text"
+              dangerouslySetInnerHTML={{
+                __html: serviceDetail.firstSectionsDescription,
+              }}></div>
             <br />
             <div className="button-container">
               <button>Read More</button>
@@ -96,9 +99,11 @@ function Home({ serviceDetail }) {
             <div>
               <h3>{serviceDetail.secondSectionTitle}</h3>
             </div>
-            <div className="inner-text">
-              <p>{serviceDetail.secondSectionDescription}</p>
-            </div>
+            <div
+              className="inner-text"
+              dangerouslySetInnerHTML={{
+                __html: serviceDetail.secondSectionDescription,
+              }}></div>
             <br />
             <div className="button-container2">
               <button>Read More</button>
@@ -115,9 +120,11 @@ function Home({ serviceDetail }) {
             <div>
               <h3>{serviceDetail.thirdSectionTitle}</h3>
             </div>
-            <div className="inner-text">
-              <p>{serviceDetail.thirdSectionDescription}</p>
-            </div>
+            <div
+              className="inner-text"
+              dangerouslySetInnerHTML={{
+                __html: serviceDetail.thirdSectionDescription,
+              }}></div>
             <br />
             <div className="button-container">
               <button>Read More</button>
