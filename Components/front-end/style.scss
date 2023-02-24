@@ -470,8 +470,8 @@ section {
     border-radius: 20px;
     width: 35vw !important;
     height: 35vw !important;
-    object-fit: "contain";
-    image-rendering: pixelated;
+    object-fit: "cover";
+    // image-rendering: pixelated;
   }
 }
 .img-back-left {
@@ -487,8 +487,9 @@ section {
     border-radius: 20px;
     width: 35vw !important;
     height: 35vw !important;
-    object-fit: "contain";
-    image-rendering: crisp-edges;
+    // object-fit: "cover";
+    // image-rendering: pixelated;
+    // image-rendering: crisp-edges;
   }
 }
 

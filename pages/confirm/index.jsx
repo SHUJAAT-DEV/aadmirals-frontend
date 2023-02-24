@@ -133,8 +133,6 @@ function Confirm({ router }) {
                   </Col>
                 </Row>
               </Container>
-              {console.log("line128", quotes)}
-
               {quotes.quotes.quoteResponse.map((quote) => {
                 return (
                   <Fleet

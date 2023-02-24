@@ -152,8 +152,6 @@ function CityToCity() {
       var destination = new window.google.maps.LatLng(toLat, toLng);
       var service = new window.google.maps.DistanceMatrixService();
 
-      console.log("origin ", origin, destination);
-
       service.getDistanceMatrix(
         {
           origins: [origin],
@@ -168,12 +166,7 @@ function CityToCity() {
         callback
       );
 
-      // console.log('callback ', callback);
-
       function callback(response, status) {
-        console.log("response ", response);
-        console.log("status ", status);
-
         setError("");
         if (response?.rows[0]?.elements[0]?.distance?.value / 1609 < 81) {
           setError(

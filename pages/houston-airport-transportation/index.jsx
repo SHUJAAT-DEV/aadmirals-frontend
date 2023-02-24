@@ -28,7 +28,6 @@ import Testinmonial from "../../Components/Testimonial/Testimonial";
 import sanitizeHTML from "../../Components/hero/SanitizedReactUtils";
 
 function AirportTransportationHouston(props) {
-  
   const router = useRouter();
 
   const dispatch = useDispatch();
@@ -82,18 +81,20 @@ function AirportTransportationHouston(props) {
       <div className="container mt-3 mb-3">
         {houstonAirportTransportation.houstonAirportTransportation.map(
           (data, key) => {
-            
             let sanitizedContent1 = sanitizeHTML(data.DescriptionAfterBanner);
-            let sanitizedContent2 = sanitizeHTML(data.DescriptionAfterBannerafterImage);
-            let sanitizedContent3 = sanitizeHTML(data.DescriptionAfterAannerAfterImage2nd);
-            let sanitizedContent4 = sanitizeHTML(data.DescriptionAfterBannerAfterImage3rd);
-
-            console.log('sanitizedContent1 ', sanitizedContent2);
+            let sanitizedContent2 = sanitizeHTML(
+              data.DescriptionAfterBannerafterImage
+            );
+            let sanitizedContent3 = sanitizeHTML(
+              data.DescriptionAfterAannerAfterImage2nd
+            );
+            let sanitizedContent4 = sanitizeHTML(
+              data.DescriptionAfterBannerAfterImage3rd
+            );
 
             return (
               <div className="row" key={key}>
                 <div className="col-12">
-
                   {<p>{ReactHtmlParser(sanitizedContent1)}</p>}
 
                   <Image
@@ -106,11 +107,7 @@ function AirportTransportationHouston(props) {
                     height={500}
                     quality={100}
                   />
-                  {
-                    <p>
-                      {ReactHtmlParser(sanitizedContent2)}
-                    </p>
-                  }
+                  {<p>{ReactHtmlParser(sanitizedContent2)}</p>}
                   <Image
                     priority={true}
                     src={data.ImageAfterBanner2nd}
@@ -121,13 +118,7 @@ function AirportTransportationHouston(props) {
                     height={400}
                     quality={100}
                   />
-                  {
-                    <p>
-                      {ReactHtmlParser(
-                        sanitizedContent3
-                      )}
-                    </p>
-                  }
+                  {<p>{ReactHtmlParser(sanitizedContent3)}</p>}
 
                   <Image
                     priority={true}
@@ -139,13 +130,7 @@ function AirportTransportationHouston(props) {
                     height={400}
                     quality={100}
                   />
-                  {
-                    <p>
-                      {ReactHtmlParser(
-                        sanitizedContent4
-                      )}
-                    </p>
-                  }
+                  {<p>{ReactHtmlParser(sanitizedContent4)}</p>}
                   {/* <img src={data.ImageAfterBanner4th} className='w-100 mb-4 mt-4' alt="664" />
                 { <p>{ ReactHtmlParser ( data.DescriptionAfterBannerAfterImage4th  ) }</p>}                         */}
                 </div>

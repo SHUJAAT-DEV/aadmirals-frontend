@@ -57,7 +57,6 @@ function ByTheHour() {
   }, []);
 
   const handleChangeFrom = (address) => {
-    console.log(address);
     setError("");
     if (address.formatedAddress === undefined) {
       setError("Location Not Valid");

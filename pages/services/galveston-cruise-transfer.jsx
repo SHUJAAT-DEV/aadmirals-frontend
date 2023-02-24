@@ -32,7 +32,6 @@ function GalvestonCruisesTransportation(props) {
   }, []);
 
   const cms = props.data1;
-  console.log("galveston_cruise_page", props.data1.service_detail);
   const serviceDetail = props.data1.service_detail;
   const { galveston_cruise_page } = cms;
 

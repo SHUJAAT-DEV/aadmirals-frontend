@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import {Container, Row, Col} from "reactstrap";
+import React, { useState, useEffect } from "react";
+import { Container, Row, Col } from "reactstrap";
 import styles from "./GeorgeBushAirport.module.scss";
 import Header from "../Header/Header";
 import Fleet from "../fleet/fleet";
@@ -11,10 +11,10 @@ import SideNav from "../Header/SideNav/SideNav";
 import Testimonial from "../Testimonial/Testimonial";
 import Floatingbutton from "../floaingbutton/floatingbutton";
 import HomeForm from "../Home Form/HomeForm";
-import {Alert} from "reactstrap";
+import { Alert } from "reactstrap";
 import Loader from "../Loader/Loader";
-import {useDispatch, useSelector} from "react-redux";
-import {getGeorgeBushPage} from "../../redux/Services/Houston_Airport/George_bush/action";
+import { useDispatch, useSelector } from "react-redux";
+import { getGeorgeBushPage } from "../../redux/Services/Houston_Airport/George_bush/action";
 import Image from "next/image";
 import sanitizeHTML from "../hero/SanitizedReactUtils";
 
@@ -26,7 +26,7 @@ function GeorgeBushAirport(props) {
   }, []);
 
   const cms = props.data1;
-  const {george_bush_page} = cms;
+  const { george_bush_page } = cms;
   const data = george_bush_page && george_bush_page.georgeBushAirport[0];
   const faqs = george_bush_page && george_bush_page.faqs;
   const fleet = george_bush_page && george_bush_page.fleet;
@@ -42,15 +42,13 @@ function GeorgeBushAirport(props) {
     data.howToConnectToHoustonAirport
   );
 
-  console.log("checking = ", sanitizedoOurFleet);
-
   return (
     <>
       {cms.loading || cms.error ? (
         <Loader />
       ) : (
         <>
-          <div style={{overflow: "hidden"}}>
+          <div style={{ overflow: "hidden" }}>
             <SideNav />
             <Floatingbutton />
             <Header />
@@ -70,7 +68,7 @@ function GeorgeBushAirport(props) {
                 Form={HomeForm}
               />
             </div>
-            <Container fluid style={{padding: "100px 0"}}>
+            <Container fluid style={{ padding: "100px 0" }}>
               <Container>
                 <Row className={styles.logoContainer}>
                   <Col xs={12} xl={12} md={12} className={styles.heading1}>
@@ -180,7 +178,7 @@ function GeorgeBushAirport(props) {
                     xs={12}
                     xl={12}
                     md={12}
-                    style={{textAlign: "center", paddingTop: "100px"}}>
+                    style={{ textAlign: "center", paddingTop: "100px" }}>
                     <h6
                       style={{
                         color: "#020101",
@@ -196,7 +194,7 @@ function GeorgeBushAirport(props) {
                     xs={12}
                     xl={6}
                     md={12}
-                    style={{paddingTop: "50px", marginTop: "40px"}}>
+                    style={{ paddingTop: "50px", marginTop: "40px" }}>
                     <Image
                       // priority={!!data.IahairportImage}
                       src={data.IahairportImage}
@@ -265,12 +263,12 @@ function GeorgeBushAirport(props) {
                   </Col>
                 </Row>
 
-                <Row style={{paddingTop: "47px"}}>
+                <Row style={{ paddingTop: "47px" }}>
                   <Col xl={6} md={12} xs={12} className={styles.discription1}>
-                    <h2 style={{fontSize: " 27px"}}>
+                    <h2 style={{ fontSize: " 27px" }}>
                       IAH Airport useful travel information:-
                     </h2>
-                    <h3 style={{fontFamily: "ProximaNovaBold"}}>
+                    <h3 style={{ fontFamily: "ProximaNovaBold" }}>
                       Meet and Pick-Up Location Instructions:
                     </h3>
                     <h6
@@ -279,7 +277,7 @@ function GeorgeBushAirport(props) {
                         __html: sanitizedMeetAndPickUpLocationInstructions,
                       }}
                     />
-                    <h3 style={{fontFamily: "ProximaNovaBold"}}>
+                    <h3 style={{ fontFamily: "ProximaNovaBold" }}>
                       How to Connect to Houston Airport WiFi (IAH)
                     </h3>
                     <h6

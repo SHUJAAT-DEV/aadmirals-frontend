@@ -28,14 +28,14 @@ function HoustonHobbyAirport(props) {
   const { hobby_airport_page } = cms;
 
   const data = hobby_airport_page && hobby_airport_page.hobbyAirport[0];
-  console.log("HoustonHobbyAirport", data);
   const faqs = hobby_airport_page && hobby_airport_page.faqs;
   const fleet = hobby_airport_page && hobby_airport_page.fleet;
   const testimonial = hobby_airport_page && hobby_airport_page.testimonial;
 
-  let sanitizedLimousineServicesInTheHobbyAirportArea = sanitizeHTML(data.limousineServicesInTheHobbyAirportArea);
+  let sanitizedLimousineServicesInTheHobbyAirportArea = sanitizeHTML(
+    data.limousineServicesInTheHobbyAirportArea
+  );
   let sanitizedBannerImageText = sanitizeHTML(data.bannerImageText);
-
 
   return (
     <>
@@ -84,7 +84,7 @@ function HoustonHobbyAirport(props) {
                     <h6
                       dangerouslySetInnerHTML={{
                         __html: sanitizedLimousineServicesInTheHobbyAirportArea,
-                      }} 
+                      }}
                     />
                   </Col>
 
@@ -121,7 +121,7 @@ function HoustonHobbyAirport(props) {
                         quality={100}
                       />
                       <h6>24 Hours Service</h6>
-                    </Col> 
+                    </Col>
                     <Col xs={12} xl={4} md={12} className={styles.features}>
                       <Image
                         priority={true}
@@ -174,17 +174,17 @@ function HoustonHobbyAirport(props) {
                       />
                     </Col>
                     <Col xl={6} md={6} xs={12} className={styles.discription}>
-                        <h6
-                          style={{
-                            fontSize: "17px",
-                            fontFamily: "ProximaNovaLight",
-                            color: "#727070",
-                            textAlign: "left",
-                          }} 
-                          dangerouslySetInnerHTML={{
-                            __html: sanitizedBannerImageText,
-                          }} 
-                        /> 
+                      <h6
+                        style={{
+                          fontSize: "17px",
+                          fontFamily: "ProximaNovaLight",
+                          color: "#727070",
+                          textAlign: "left",
+                        }}
+                        dangerouslySetInnerHTML={{
+                          __html: sanitizedBannerImageText,
+                        }}
+                      />
                       <h6
                         style={{
                           fontSize: "17px",
