@@ -63,7 +63,7 @@ function LimousineService({ data }) {
                           "AvenirNext, Helvetica, Arial, Open Sans, sans-serif",
                         padding: "12px 12px",
                       }}>
-                      {data.paragraphOne}
+                      {data?.paragraphOne}
                     </p>
                   </div>
                 </Col>
@@ -93,7 +93,7 @@ function LimousineService({ data }) {
                           "AvenirNext, Helvetica, Arial, Open Sans, sans-serif",
                         padding: "12px 12px",
                       }}>
-                      {data.paragraphTwo}
+                      {data?.paragraphTwo}
                     </p>
                   </div>
                 </Col>
@@ -122,7 +122,7 @@ function LimousineService({ data }) {
                         padding: "12px 12px",
                       }}>
                       {" "}
-                      {data.paragraphThree}
+                      {data?.paragraphThree}
                     </p>
                   </div>
                 </Col>

@@ -18,9 +18,9 @@ import Loader from "../Loader/Loader";
 import { getSugarlandLimoPage } from "../../redux/Cities/Sugarland_Limo_Service/action";
 import { useDispatch, useSelector } from "react-redux";
 import { Alert } from "reactstrap";
-import {NextSeo} from 'next-seo'
+import { NextSeo } from "next-seo";
 
-import Image from 'next/image'
+import Image from "next/image";
 const Sugarlandcarservice = (props) => {
   const dispatch = useDispatch();
 
@@ -43,13 +43,11 @@ const Sugarlandcarservice = (props) => {
   const faqs = cms.sugarland_limo_page && cms.sugarland_limo_page.faqs;
   return (
     <>
-    <NextSeo
-            title={data?.metaTitle}
-            description={data?.metaDescription}
-            canonical={`https://aadmirals.com/cities/${props?.slug}`}
-           
-            
-        />
+      <NextSeo
+        title={data?.metaTitle}
+        description={data?.metaDescription}
+        canonical={`https://aadmirals.com/cities/${props?.slug}`}
+      />
       {cms.loading || cms.error ? (
         <Loader />
       ) : (
@@ -65,9 +63,9 @@ const Sugarlandcarservice = (props) => {
             ) : null}
             <div className={styles.mainContainer}>
               <Hero
-                Text={data.heroDescription}
-                Title={data.heroTitle}
-                img={data.heroImage}
+                Text={data?.heroDescription}
+                Title={data?.heroTitle}
+                img={data?.heroImage}
                 Form={HomeForm}
               />
             </div>
@@ -82,9 +80,9 @@ const Sugarlandcarservice = (props) => {
                   </div>
                 </Col>
               </Row>
-              <Limo bannerImage={data.bannerImage} title={''} />
+              <Limo bannerImage={data.bannerImage} title={""} />
 
-              <BestService text1={data.paragraph} pageTitle={data.heroTitle} />
+              <BestService text1={data?.paragraph} pageTitle={data.heroTitle} />
 
               <div className={styles.aligncontent}>
                 <p className={styles.text}>
@@ -107,13 +105,13 @@ const Sugarlandcarservice = (props) => {
                 </p>
               </div>
 
-               <ImageSection
-              alt1=''
-              alt2=''
-              alt3=''
-              alt4=''
-              alt5=''
-              alt6=''
+              <ImageSection
+                alt1=""
+                alt2=""
+                alt3=""
+                alt4=""
+                alt5=""
+                alt6=""
                 img1={data.imageOne}
                 img2={data.imageTwo}
                 img3={data.imageThree}
@@ -136,7 +134,7 @@ const Sugarlandcarservice = (props) => {
               <Bookandpay
                 youCanGetASuperiorRide={data.youCanGetASuperiorRide}
               />
-                 <Imagetitle />
+              <Imagetitle />
               <br />
               <div className={styles.aligncontent}>
                 <p className={styles.text1}>

@@ -15,11 +15,9 @@ import HomeForm from "../../Components/Home Form/HomeForm";
 import SideNav from "../../Components/Header/SideNav/SideNav";
 import { Alert } from "reactstrap";
 import Loader from "../../Components/Loader/Loader";
-import { useDispatch, useSelector } from "react-redux";
-import { getHoustonTLakecharlesPage } from "../../redux/Services/City_To_City/Houston_to_lakecharles/action";
-import Head from "next/head";
 
 const Houstontovictoria = (props) => {
+  const cms = props?.data1;
   const { HoustonToVictoria } = props.data1;
   const data = HoustonToVictoria && HoustonToVictoria.HoustonToVictoria[0];
   const faqs = HoustonToVictoria && HoustonToVictoria.faqs;
@@ -56,7 +54,7 @@ const Houstontovictoria = (props) => {
               <Row>
                 <Col xs={12}>
                   <center>
-                    <p className={styles.para}>{data.paragraph}</p>
+                    <p className={styles.para}>{data?.paragraph}</p>
 
                     <p className={styles.parabottom}>
                       Request a ride up to one hour before you need it, last
@@ -80,7 +78,7 @@ const Houstontovictoria = (props) => {
                   <center>
                     <p className={styles.parahead}>We Pick you up from</p>
 
-                    <p className={styles.para}>{data.wePickYouUpFrom}</p>
+                    <p className={styles.para}>{data?.wePickYouUpFrom}</p>
                   </center>
                 </Col>
               </Row>

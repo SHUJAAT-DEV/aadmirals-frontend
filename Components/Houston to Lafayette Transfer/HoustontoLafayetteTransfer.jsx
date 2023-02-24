@@ -37,7 +37,6 @@ const Houstontolafaylette = () => {
 
   return (
     <>
-     
       {cms.loading || cms.error ? (
         <Loader />
       ) : (
@@ -53,9 +52,9 @@ const Houstontolafaylette = () => {
             ) : null}
             <div className={styles.mainContainer}>
               <Hero
-                Text={data.heroDescription}
-                Title={data.heroTitle}
-                img={data.heroImage}
+                Text={data?.heroDescription}
+                Title={data?.heroTitle}
+                img={data?.heroImage}
                 Form={HomeForm}
               />
             </div>
@@ -65,7 +64,7 @@ const Houstontolafaylette = () => {
               <Row>
                 <Col xs={12}>
                   <center>
-                    <p className={styles.para}>{data.paragraph}</p>
+                    <p className={styles.para}>{data?.paragraph}</p>
 
                     <p className={styles.parabottom}>
                       Request a ride up to one hour before you need it, last

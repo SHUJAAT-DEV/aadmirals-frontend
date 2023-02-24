@@ -18,8 +18,8 @@ import Loader from "../Loader/Loader";
 import { getKatyLimoPage } from "../../redux/Cities/Katy_Limo_Service/action";
 import { useDispatch, useSelector } from "react-redux";
 import { Alert } from "reactstrap";
-import {NextSeo} from 'next-seo'
-import Image from 'next/image'
+import { NextSeo } from "next-seo";
+import Image from "next/image";
 const FulshearCarService = (props) => {
   const dispatch = useDispatch();
 
@@ -39,18 +39,16 @@ const FulshearCarService = (props) => {
   const faqs = cms.fulshearCarService && cms.fulshearCarService.faqs;
   return (
     <>
-     <NextSeo
-            title={data?.metaTitle}
-            description={data?.metaDescription}
-            canonical={`https://aadmirals.com/cities/${props?.slug}`}
-           
-            
-        />
+      <NextSeo
+        title={data?.metaTitle}
+        description={data?.metaDescription}
+        canonical={`https://aadmirals.com/cities/${props?.slug}`}
+      />
       {cms.loading || cms.error ? (
         <Loader />
       ) : (
         <>
-         <div style={{ overflow: "hidden" }}>
+          <div style={{ overflow: "hidden" }}>
             <SideNav />
             <Floatingbutton />
             <Header />
@@ -62,7 +60,7 @@ const FulshearCarService = (props) => {
             <div className={styles.mainContainer}>
               <Hero
                 Text={data.heroDescription}
-                Title={'Fulshear Car & Shuttle Service'}
+                Title={"Fulshear Car & Shuttle Service"}
                 img={data.heroImage}
                 Form={HomeForm}
               />
@@ -78,9 +76,9 @@ const FulshearCarService = (props) => {
                   </div>
                 </Col>
               </Row>
-              <Limo bannerImage={data.bannerImage}  title={''}/>
+              <Limo bannerImage={data.bannerImage} title={""} />
 
-              <BestService text1={data.paragraph} pageTitle={data.heroTitle} />
+              <BestService text1={data?.paragraph} pageTitle={data.heroTitle} />
 
               <div className={styles.aligncontent}>
                 <p className={styles.text}>
@@ -103,13 +101,13 @@ const FulshearCarService = (props) => {
                 </p>
               </div>
 
-               <ImageSection
-              alt1=''
-              alt2=''
-              alt3=''
-              alt4=''
-              alt5=''
-              alt6=''
+              <ImageSection
+                alt1=""
+                alt2=""
+                alt3=""
+                alt4=""
+                alt5=""
+                alt6=""
                 img1={data.imageOne}
                 img2={data.imageTwo}
                 img3={data.imageThree}
@@ -132,7 +130,7 @@ const FulshearCarService = (props) => {
               <Bookandpay
                 youCanGetASuperiorRide={data.youCanGetASuperiorRide}
               />
-                 <Imagetitle />
+              <Imagetitle />
               <br />
               <div className={styles.aligncontent}>
                 <p className={styles.text1}>

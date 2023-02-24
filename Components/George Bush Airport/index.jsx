@@ -59,9 +59,9 @@ function GeorgeBushAirport(props) {
             ) : null}
             <div className={styles.mainContainer} fluid>
               <Hero
-                Text={data.heroDescription}
+                Text={data?.heroDescription}
                 Title={
-                  data.heroTitle ||
+                  data?.heroTitle ||
                   "IAH/George Bush Airport Car & Shuttle Service"
                 }
                 img={data?.heroImage}

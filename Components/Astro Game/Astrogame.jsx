@@ -33,7 +33,6 @@ const Astrogame = () => {
 
   return (
     <>
-      
       {cms.loading || cms.error ? (
         <Loader />
       ) : (
@@ -49,9 +48,9 @@ const Astrogame = () => {
             ) : null}
             <div className={styles.mainContainer}>
               <Hero
-                Text={data.heroDescription}
-                Title={data.heroTitle}
-                img={data.heroImage}
+                Text={data?.heroDescription}
+                Title={data?.heroTitle}
+                img={data?.heroImage}
                 Form={HomeForm}
               />
             </div>
@@ -70,7 +69,7 @@ const Astrogame = () => {
                 alt="image2"
               />
             </Container>
-            <Limo bannerImage={data.bannerImage} title={''}/>
+            <Limo bannerImage={data.bannerImage} title={""} />
 
             <Container>
               <div className={styles.aligncontent}>

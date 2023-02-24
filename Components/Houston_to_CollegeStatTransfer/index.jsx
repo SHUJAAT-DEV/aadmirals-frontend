@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Houston_to_CollegeStatTransfer.module.scss";
 import Cities from "../Cities/Cities";
 import HowWorks from "../howworks/howworks";
@@ -8,22 +8,22 @@ import Instant from "../instantupdates/instantupdates";
 import Floatingbutton from "../floaingbutton/floatingbutton";
 import Hero from "../hero/hero";
 import SideNav from "../Header/SideNav/SideNav";
-import {Col, Container, Row} from "reactstrap";
+import { Col, Container, Row } from "reactstrap";
 import Fleet from "../fleet/fleet";
 import Footer from "../Footer/Footer";
 import HomeForm from "../Home Form/HomeForm";
 import Header from "../Header/Header";
-import {Alert} from "reactstrap";
+import { Alert } from "reactstrap";
 import Loader from "../Loader/Loader";
-import {useDispatch, useSelector} from "react-redux";
-import {getHoustonToCollegePage} from "../../redux/Services/City_To_City/Houston_to_College/action";
-import {Helmet} from "react-helmet";
+import { useDispatch, useSelector } from "react-redux";
+import { getHoustonToCollegePage } from "../../redux/Services/City_To_City/Houston_to_College/action";
+import { Helmet } from "react-helmet";
 
 const Houstontocollegestat = () => {
   const dispatch = useDispatch();
 
   const cms = useSelector((state) => state.houstonToCollege);
-  const {houston_to_college_page} = cms;
+  const { houston_to_college_page } = cms;
 
   const data =
     houston_to_college_page &&
@@ -43,7 +43,7 @@ const Houstontocollegestat = () => {
         <Loader />
       ) : (
         <>
-          <div style={{overflow: "hidden"}}>
+          <div style={{ overflow: "hidden" }}>
             <SideNav />
             <Floatingbutton />
             <Header />
@@ -81,7 +81,7 @@ const Houstontocollegestat = () => {
                         style={{
                           textAlign: "left",
                         }}>
-                        {data.paragraph}
+                        {data?.paragraph}
                       </p>
                     </div>
                   </center>

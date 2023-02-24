@@ -1,6 +1,5 @@
-
 function sanitizeHTML(dummyContent) {
-    return dummyContent.replace(/<script.*?<\/script>/g, '');
-  }
+  return dummyContent?.replace(/<script.*?<\/script>/g, "");
+}
 
 export default sanitizeHTML;

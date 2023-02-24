@@ -18,8 +18,8 @@ import Loader from "../Loader/Loader";
 import { getMontgomeryLimoPage } from "../../redux/Cities/Montgomery_Limo_Service/action";
 import { useDispatch, useSelector } from "react-redux";
 import { Alert } from "reactstrap";
-import {NextSeo} from 'next-seo';
-import Image from 'next/image'
+import { NextSeo } from "next-seo";
+import Image from "next/image";
 const Montgomerycarservice = (props) => {
   const dispatch = useDispatch();
 
@@ -35,17 +35,16 @@ const Montgomerycarservice = (props) => {
   const cms = props.data1;
   const { montgomery_limo_page } = cms;
 
-  const data = montgomery_limo_page && montgomery_limo_page.montgomaryLimoService[0];
+  const data =
+    montgomery_limo_page && montgomery_limo_page.montgomaryLimoService[0];
   const faqs = cms.montgomery_limo_page && cms.montgomery_limo_page.faqs;
   return (
     <>
-    <NextSeo
-            title={data?.metaTitle}
-            description={data?.metaDescription}
-            canonical={`https://aadmirals.com/cities/${props?.slug}`}
-           
-            
-        />
+      <NextSeo
+        title={data?.metaTitle}
+        description={data?.metaDescription}
+        canonical={`https://aadmirals.com/cities/${props?.slug}`}
+      />
       {cms.loading || cms.error ? (
         <Loader />
       ) : (
@@ -61,9 +60,9 @@ const Montgomerycarservice = (props) => {
             ) : null}
             <div className={styles.mainContainer}>
               <Hero
-                Text={data.heroDescription}
-                Title={data.heroTitle}
-                img={data.heroImage}
+                Text={data?.heroDescription}
+                Title={data?.heroTitle}
+                img={data?.heroImage}
                 Form={HomeForm}
               />
             </div>
@@ -78,9 +77,9 @@ const Montgomerycarservice = (props) => {
                   </div>
                 </Col>
               </Row>
-              <Limo bannerImage={data.bannerImage} title={''} />
+              <Limo bannerImage={data.bannerImage} title={""} />
 
-              <BestService text1={data.paragraph} pageTitle={data.heroTitle} />
+              <BestService text1={data?.paragraph} pageTitle={data.heroTitle} />
 
               <div className={styles.aligncontent}>
                 <p className={styles.text}>
@@ -102,13 +101,13 @@ const Montgomerycarservice = (props) => {
                   </span>
                 </p>
               </div>
-               <ImageSection
-              alt1=''
-              alt2=''
-              alt3=''
-              alt4=''
-              alt5=''
-              alt6=''
+              <ImageSection
+                alt1=""
+                alt2=""
+                alt3=""
+                alt4=""
+                alt5=""
+                alt6=""
                 img1={data.imageOne}
                 img2={data.imageTwo}
                 img3={data.imageThree}
@@ -130,7 +129,7 @@ const Montgomerycarservice = (props) => {
               <Bookandpay
                 youCanGetASuperiorRide={data.youCanGetASuperiorRide}
               />
-                 <Imagetitle />
+              <Imagetitle />
               <br />
               <div className={styles.aligncontent}>
                 <p className={styles.text1}>

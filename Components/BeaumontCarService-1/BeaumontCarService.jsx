@@ -18,8 +18,8 @@ import Loader from "../Loader/Loader";
 import { getBeamountLimoPage } from "../../redux/Cities/Beamount_Limo_Service/action";
 import { useDispatch, useSelector } from "react-redux";
 import { Alert } from "reactstrap";
-import {NextSeo} from 'next-seo'
-import Image from 'next/image'
+import { NextSeo } from "next-seo";
+import Image from "next/image";
 const Beaumontcarservice = (props) => {
   const dispatch = useDispatch();
   // const cms = useSelector((state) => state.beamountLimo);
@@ -37,13 +37,11 @@ const Beaumontcarservice = (props) => {
 
   return (
     <>
-   <NextSeo
-            title={data?.metaTitle}
-            description={data?.metaDescription}
-            canonical={`https://aadmirals.com/cities/${props?.slug}`}
-           
-            
-        />
+      <NextSeo
+        title={data?.metaTitle}
+        description={data?.metaDescription}
+        canonical={`https://aadmirals.com/cities/${props?.slug}`}
+      />
       {cms.loading || cms.error ? (
         <Loader />
       ) : (
@@ -59,9 +57,9 @@ const Beaumontcarservice = (props) => {
             ) : null}
             <div className={styles.mainContainer}>
               <Hero
-                Text={data.heroDescription}
-                Title={data.heroTitle}
-                img={data.heroImage}
+                Text={data?.heroDescription}
+                Title={data?.heroTitle}
+                img={data?.heroImage}
                 Form={HomeForm}
               />
             </div>
@@ -77,7 +75,7 @@ const Beaumontcarservice = (props) => {
                   </div>
                 </Col>
               </Row>
-              <Limo bannerImage={data.bannerImage} title={''} />
+              <Limo bannerImage={data.bannerImage} title={""} />
 
               {/* <Fleet
           heading="Select Your Professional Car"
@@ -85,7 +83,7 @@ const Beaumontcarservice = (props) => {
           Terminal Transportation – has a fleet of vehicles that are perfect for getting you, your family and your friends to the ship promptly and safely"
         /> */}
 
-              <BestService text1={data.paragraph} pageTitle={data.heroTitle} />
+              <BestService text1={data?.paragraph} pageTitle={data.heroTitle} />
 
               {/* <div className={styles.aligncenter}>
           <p className={styles.heading}>
@@ -124,13 +122,13 @@ const Beaumontcarservice = (props) => {
                 </p>
               </div>
 
-               <ImageSection
-              alt1=''
-              alt2=''
-              alt3=''
-              alt4=''
-              alt5=''
-              alt6=''
+              <ImageSection
+                alt1=""
+                alt2=""
+                alt3=""
+                alt4=""
+                alt5=""
+                alt6=""
                 img1={data.imageOne}
                 img2={data.imageTwo}
                 img3={data.imageThree}
@@ -152,7 +150,7 @@ const Beaumontcarservice = (props) => {
               <Bookandpay
                 youCanGetASuperiorRide={data.youCanGetASuperiorRide}
               />
-                 <Imagetitle />
+              <Imagetitle />
               <br />
               <div className={styles.aligncontent}>
                 <p className={styles.text}>

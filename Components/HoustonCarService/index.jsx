@@ -21,13 +21,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { Alert } from "reactstrap";
 import { Helmet } from "react-helmet";
 import Head from "next/head";
-import {NextSeo} from 'next-seo'
-import Image from 'next/image'
-import { useRouter } from 'next/router'
-
+import { NextSeo } from "next-seo";
+import Image from "next/image";
+import { useRouter } from "next/router";
 
 const Houstoncarservice = (props) => {
-  const router = useRouter()
+  const router = useRouter();
   const [load, setLoad] = useState(false);
 
   const dispatch = useDispatch();
@@ -41,22 +40,20 @@ const Houstoncarservice = (props) => {
   useEffect(() => {
     dispatch(getHoustonLimoPage());
   }, []);
-    
+
   const cms = props.data1;
   const { houston_limo_page } = cms;
 
   const data = houston_limo_page && houston_limo_page?.houstanLimoService[0];
   const faqs = cms.houston_limo_page && cms.houston_limo_page.faqs;
-    
+
   return (
     <>
-     <NextSeo
-            title={data?.metaTitle}
-            description={data?.metaDescription}
-            canonical={`https://aadmirals.com/cities/${props?.slug}`}
-           
-            
-        />
+      <NextSeo
+        title={data?.metaTitle}
+        description={data?.metaDescription}
+        canonical={`https://aadmirals.com/cities/${props?.slug}`}
+      />
       {cms.loading || cms.error ? (
         <Loader />
       ) : (
@@ -74,7 +71,7 @@ const Houstoncarservice = (props) => {
             <div className={styles.mainContainer}>
               <Hero
                 Text={data.heroDescription}
-                Title={'Houston Limo Car Service & Airport Transfer'}
+                Title={"Houston Limo Car Service & Airport Transfer"}
                 img={data.heroImage}
                 Form={HomeForm}
               />
@@ -90,9 +87,12 @@ const Houstoncarservice = (props) => {
                   </div>
                 </Col>
               </Row>
-              <Limo bannerImage={data.bannerImage} title={'Car to Airport Houston'} />
+              <Limo
+                bannerImage={data.bannerImage}
+                title={"Car to Airport Houston"}
+              />
 
-              <BestService text1={data.paragraph} pageTitle={data.heroTitle} />
+              <BestService text1={data?.paragraph} pageTitle={data.heroTitle} />
 
               <div className={styles.aligncontent}>
                 <p className={styles.text}>
@@ -114,7 +114,7 @@ const Houstoncarservice = (props) => {
                   </span>
                 </p>
               </div>
-               <ImageSection
+              <ImageSection
                 alt1="Car from Houston Airport"
                 alt2="Limo Service Houston"
                 alt3="Houston Limo Services"
@@ -142,7 +142,7 @@ const Houstoncarservice = (props) => {
               <Bookandpay
                 youCanGetASuperiorRide={data.youCanGetASuperiorRide}
               />
-                 <Imagetitle />
+              <Imagetitle />
               <br />
               <div className={styles.aligncontent}>
                 <p className={styles.text1}>
@@ -160,7 +160,6 @@ const Houstoncarservice = (props) => {
               />
 
               <AskQuestion faqs={faqs} />
-
             </Container>
 
             <Footer />

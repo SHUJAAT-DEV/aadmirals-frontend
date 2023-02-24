@@ -1,9 +1,8 @@
-import React, {useState, useEffect} from "react";
-import Head from "next/head";
+import React from "react";
 import GeorgeBushAirport from "../../Components/George Bush Airport";
 import * as api from "../../api";
-import {useRouter} from "next/router";
-import {NextSeo} from "next-seo";
+import { useRouter } from "next/router";
+import { NextSeo } from "next-seo";
 function GeorgeBushAirportPage(props) {
   const router = useRouter();
 
@@ -17,11 +16,11 @@ function GeorgeBushAirportPage(props) {
         canonical={`https://aadmirals.com${router?.pathname}`}
       />
 
-      <GeorgeBushAirport data1={props.data1} />
+      <GeorgeBushAirport data1={props?.data1} />
     </>
   );
 }
-export async function getStaticProps({query}) {
+export async function getStaticProps({ query }) {
   const res = await api.fetchGeorgeBushPage();
   let data = res.data.modifiedResponse;
   let data1 = {
@@ -29,6 +28,6 @@ export async function getStaticProps({query}) {
     error: null,
     george_bush_page: data,
   };
-  return {props: {data1}};
+  return { props: { data1 } };
 }
 export default GeorgeBushAirportPage;

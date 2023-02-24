@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./HoustontoLakeCharlesTransfer.module.scss";
 import HowitWorks from "../../Components/howworks/howworks";
 import RequestSection from "../../Components/recentrequest/recentrequest";
 import Askquestion from "../../Components/askquestions/askquestion";
 import Cities from "../../Components/Cities/Cities";
 import Instant from "../../Components/instantupdates/instantupdates";
-import {Col, Container, Row} from "reactstrap";
+import { Col, Container, Row } from "reactstrap";
 import Fleet from "../../Components/fleet/fleet";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
@@ -13,12 +13,12 @@ import Floatingbutton from "../../Components/floaingbutton/floatingbutton";
 import Hero from "../../Components/hero/hero";
 import HomeForm from "../../Components/Home Form/HomeForm";
 import SideNav from "../../Components/Header/SideNav/SideNav";
-import {Alert} from "reactstrap";
+import { Alert } from "reactstrap";
 import Loader from "../../Components/Loader/Loader";
 
 const Houstontolakejackson = (props) => {
-  const cms = props.data1;
-  const {HoustonToLakeJackson} = cms;
+  const cms = props?.data1;
+  const { HoustonToLakeJackson } = cms;
   const data =
     HoustonToLakeJackson && HoustonToLakeJackson.HoustonToLakeJackson[0];
   const faqs = HoustonToLakeJackson && HoustonToLakeJackson.faqs;
@@ -30,7 +30,7 @@ const Houstontolakejackson = (props) => {
         <Loader />
       ) : (
         <>
-          <div style={{overflow: "hidden"}}>
+          <div style={{ overflow: "hidden" }}>
             <SideNav />
             <Floatingbutton />
             <Header />
@@ -41,9 +41,9 @@ const Houstontolakejackson = (props) => {
             ) : null}
             <div className={styles.mainContainer}>
               <Hero
-                Text={data.heroDescription}
-                Title={data.heroTitle}
-                img={data.heroImage}
+                Text={data?.heroDescription}
+                Title={data?.heroTitle}
+                img={data?.heroImage}
                 Form={HomeForm}
               />
             </div>
@@ -54,7 +54,7 @@ const Houstontolakejackson = (props) => {
               <Row>
                 <Col xs={12}>
                   <center>
-                    <p className={styles.para}>{data.paragraph}</p>
+                    <p className={styles.para}>{data?.paragraph}</p>
 
                     <p className={styles.parabottom}>
                       Request a ride up to one hour before you need it, last
@@ -78,7 +78,7 @@ const Houstontolakejackson = (props) => {
                   <center>
                     <p className={styles.parahead}>We Pick you up from</p>
 
-                    <p className={styles.para}>{data.wePickYouUpFrom}</p>
+                    <p className={styles.para}>{data?.wePickYouUpFrom}</p>
                   </center>
                 </Col>
               </Row>
