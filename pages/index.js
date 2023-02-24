@@ -65,7 +65,7 @@ const Home = () => {
         canonical="https://www.aadmirals.com"
       />
       {isError || isLoading ? (
-        <div className={styles.loader}>
+        <div className={styles.loader} style={{ textAlignLast: 'center' }}>
           <section>
             <img
               src="/Assets/Loader-Logo.svg"
