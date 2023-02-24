@@ -2,6 +2,7 @@
   "name": "admiral-react-dashboard-next",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://aadmiralapi-env.eba-2bmqy7kt.us-east-2.elasticbeanstalk.com",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
