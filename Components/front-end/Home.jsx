@@ -72,11 +72,12 @@ function Home({ serviceDetail }) {
           </div>
           <div className="image-container1">
             <div className="img-left">
-              <Image
+              <img
                 src={serviceDetail.firstImage || car1}
                 alt="Aadmirals service image"
                 width="100%"
                 height="100%"
+                loading="lazy"
               />
             </div>
             <div className="img-back-right"></div>
@@ -87,11 +88,12 @@ function Home({ serviceDetail }) {
         <div className="container2">
           <div className="image-container22">
             <div className="img-right">
-              <Image
+              <img
                 src={serviceDetail.secondImage || car2}
                 alt="Aadmirals service image"
                 width="100%"
                 height="100%"
+                loading="lazy"
               />
             </div>
             <div className="img-back-left" style={{backgroundColor: "#ef4a67"}}></div>
@@ -133,11 +135,12 @@ function Home({ serviceDetail }) {
           </div>
           <div className="image-container1">
             <div className="img-left">
-              <Image
+              <img
                 src={serviceDetail.thirdImage || car1}
                 alt="Aadmirals service image"
                 width="100%"
                 height="100%"
+                loading="lazy"
               />
             </div>
             <div className="img-back-right"></div>
