@@ -100,7 +100,7 @@ const Home = () => {
           </div>
           <OurServices services={homeContent?.services} />
 
-          <div>
+          {/* <div>
             <Image
               priority={!!heroContent.serveYouLikeKingImage}
               src={heroContent.serveYouLikeKingImage}
@@ -110,7 +110,7 @@ const Home = () => {
               quality={100}
               objectFit="fill"
             />
-          </div>
+          </div> */}
 
           <Cities cities={homeContent?.cityWeServe} />
           {/* testimonial */}
