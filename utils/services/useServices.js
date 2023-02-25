@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getServiceContentById } from './serviceApi';
+import getServiceContentById from './serviceApi';
 
 const useService = (pageId) => {
   const {
