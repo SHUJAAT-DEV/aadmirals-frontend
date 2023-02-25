@@ -12,10 +12,9 @@ import SideNav from "../../Components/Header/SideNav/SideNav";
 import Hero from "../../Components/hero/hero";
 import HomeForm from "../../Components/Home Form/HomeForm";
 import Loader from "./../../Components/Loader/Loader";
-import styles from "./../services/service.module.scss";
-import { getServiceContentById } from "./../services/util/serviceApi";
-import useService from "./../services/util/useServices";
-
+import styles from "../../utils/services/service.module.scss";
+import getServiceContentById  from "../../utils/services/serviceApi" ;
+import useService from "../../utils/services/useServices";
 function BachelorettePartyPage() {
   const router = useRouter();
   const {serviceContent ,isLoading, isError,error}= useService("63f225ab74e668584c122b85")
