@@ -12,7 +12,7 @@ function Cities({cities}) {
       <h2 className={styles.heading}>Cities We Serve</h2>
       <div className={styles.designContainer}>
         <Image src={leftArrow} alt="AAdmirals-Arrow-right" loading="lazy" />
-        <span></span>
+        <span></span> 
         <Image src={carImage} alt="AAdmirals-Car" loading="lazy" />
         <span></span>
         <Image src={leftArrow} alt="AAdmirals-Arrow-Left" loading="lazy" />

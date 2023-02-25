@@ -10,6 +10,7 @@ import logo2 from "../../Assets/logo2.png";
 import logo3 from "../../Assets/logo3.png";
 
 function Home({ serviceDetail }) {
+  
   return (
     <>
       <section className="home-section">
@@ -24,7 +25,7 @@ function Home({ serviceDetail }) {
             className="inner-text"
             dangerouslySetInnerHTML={{
               __html: serviceDetail.metaDescription,
-            }}></div>
+            }}></div> 
         </div>
         <div className="home-logo-section">
           <div className="logo-area">
@@ -93,7 +94,7 @@ function Home({ serviceDetail }) {
                 height="100%"
               />
             </div>
-            <div className="img-back-left"></div>
+            <div className="img-back-left" style={{backgroundColor: "#ef4a67"}}></div>
           </div>
           <div className="content-container22">
             <div>
@@ -204,7 +205,7 @@ function Home({ serviceDetail }) {
           <CustomerFeedBack />
         </div>
       </section>
-      <section style={{ padding: "3%" }}>
+      <section className="faqs-section">
         <div className="faqs">
           <h2>Frequently Ask Questions</h2>
           <p>
