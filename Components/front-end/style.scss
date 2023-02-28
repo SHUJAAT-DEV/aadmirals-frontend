@@ -114,7 +114,9 @@ section {
 .cards-content {
   color: black;
 }
-
+.cards-heading{
+  display: flex;
+justify-content: center;}
 .cards1 h4 {
   font-style: normal;
   font-weight: 700;
@@ -186,8 +188,13 @@ section {
 
 .stars {
   display: flex;
-  justify-content: center;
-  gap: 0.7rem;
+
+  img {
+    width: 16px !important;
+  }
+
+  // justify-content: center;
+  // gap: 0.7rem;
 }
 
 .swiper-slide {
@@ -625,9 +632,11 @@ section {
     padding: 0 0 3% 0 !important;
   }
 }
-.section4{
+
+.section4 {
   background-color: white;
 }
+
 .section4>.cardsContainer>.cardsParentContainer,
 .section5>.cardsContainer>.destinations>.cardsParentContainer2 {
   gap: 3.7rem;
@@ -640,10 +649,12 @@ section {
 .section4>.cardsContainer>.cardsParentContainer {
   gap: 6rem;
 }
-.faqs-section{
+
+.faqs-section {
   background-color: white;
   padding: 3%;
 }
+
 .icons-dropdown {
   width: 5%;
   text-align: -webkit-right;
@@ -858,4 +869,146 @@ section {
 // footer
 .card {
   border: none !important;
+}
+
+.update-section5 {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.updatecard-container {
+  font-weight: 400;
+  font-size: 16px;
+  position: relative;
+  min-height: 1px;
+  margin: auto;
+  max-width: 100%;
+  position: relative;
+  min-height: 1px;
+  display: flex;
+  gap: 3rem;
+
+  .updatechild-container {
+    background-color: white;
+    padding-top: 10px;
+    padding: 20px;
+    text-align: start;
+    border: 2px dashed rgba(0, 0, 0, 0.1);
+    display: flex;
+    padding-top: 31px;
+    display: inline-block;
+    padding-left: 46px;
+    padding-right: 46px;
+
+    .image-container {
+      padding-bottom: 20px;
+      padding-top: 15px;
+
+      div {
+        p {
+          height: 6rem;
+          overflow: hidden;
+        }
+      }
+
+      img {
+        transition: transform 0.3s;
+      }
+
+      img:hover {
+        transform: scale(1.03);
+      }
+    }
+
+    img {
+      width: 31vw;
+      max-width: 320px;
+      margin: auto;
+    }
+
+    div {
+      max-width: 260px;
+      margin: auto;
+
+      h5 {
+        font-size: 24px;
+        font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+      }
+
+      p {
+        margin-bottom: 30px;
+        height: 6rem;
+        overflow: hidden;
+        font-family: 'ProximaNovaLight';
+      }
+    }
+  }
+
+  ul {
+    display: flex;
+    gap: 12px;
+
+    li {
+      font-weight: bold;
+      border: 1px solid #0000002b;
+      font-size: 14px;
+      padding: 7px 0;
+      padding-top: 0px;
+      max-width: 130px;
+      display: block;
+      margin: 0 0 0 0px;
+      float: left;
+      width: 33.3%;
+      text-align: center;
+      font-family: 'ProximaNovaBold';
+      color: #000000c4;
+
+      img {
+        top: 10px !important;
+      }
+    }
+  }
+}
+
+.card-inner {
+  span {
+    font-size: 16px;
+    color: black;
+  }
+
+  button {
+    width: 262px;
+    height: 61px;
+    border-radius: 0px;
+    color: white;
+    border: 1px solid white;
+    background-color: #ef4a67;
+    border-radius: 0px;
+    padding: 18px 36px;
+    display: inline-block;
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    -webkit-transition: ease-out 0.6s;
+    -moz-transition: ease-out 0.6s;
+    transition: ease-out 0.6s;
+  }
+
+  .right-arrow {
+    color: white;
+  }
+
+  button:hover {
+    box-shadow: inset 400px 0 0 0 black;
+    color: white;
+
+    .right-arrow {
+      color: white;
+    }
+  }
+
 }
