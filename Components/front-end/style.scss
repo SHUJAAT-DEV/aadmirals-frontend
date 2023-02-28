@@ -6,16 +6,23 @@ section {
 }
 
 .home-section {
-  background-color: white;
   color: black;
-
+  background-image: url(http://limme.like-themes.com/wp-content/uploads/2020/11/about-map.png);
+  background-position: center left;
+  background-repeat: no-repeat;
   .home-container {
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    .content {
+      width: 38vw;
+      height: 42vh;
+      overflow: hidden;
+    }
+    .images img{
+      width: 55vw;
+      height: 50vh;
+    }
   }
 
   .home-container h3 {
@@ -40,12 +47,16 @@ section {
 .section02 {
   .section02-container {
     display: flex;
+    align-items: center;
   }
 }
-
+section.section02, .section3 {
+  background-color: #dee2e694;
+}
 .section3 {
   .section3-container {
     display: flex;
+    align-items: center;
   }
 }
 
@@ -74,6 +85,11 @@ section {
 .content-container1 {
   margin-right: 2%;
   width: 50vw;
+  height: 30vw;
+  overflow: hidden;
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .content-container h3 {
@@ -264,6 +280,7 @@ section {
 
 .container2 {
   display: flex;
+  align-items: center;
 }
 
 .content-container22 {
@@ -272,6 +289,11 @@ section {
   font-size: 17px;
   line-height: 21px;
   width: 50vw;
+  height: 34vw;
+  overflow: hidden;
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .content-container22 div>h3 {
@@ -293,8 +315,8 @@ section {
   }
 }
 
-.section02>.section02-container>.content-container1>.inner-text {
-  height: 48vh;
+.section02>.section02-container>.content-container1>.inner-text,  .section3-container .inner-text, .section2 .inner-text  {
+  height: 16vw;
   overflow: hidden;
 }
 
@@ -648,8 +670,24 @@ section {
   width: 5%;
   text-align: -webkit-right;
 }
+.faq {
+  width: 48%;
+  height: fit-content;
+  border: 1px solid #dee2e6;
+    margin: 0.5rem;
+    border-radius: 4px;
+    padding: 0.5rem;
+}
 
+.faq-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 @media screen and(max-width:1024px) {
+  .faq {
+    width: 100%;
+  }
   .swiper {
     padding: 0 0 5% 0 !important;
   }
