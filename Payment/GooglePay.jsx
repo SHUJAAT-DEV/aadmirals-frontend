@@ -1,7 +1,10 @@
 import React from 'react';
 import GooglePayButton from "@google-pay/button-react";
-    
+import { useSelector } from "react-redux";
+
 export default function GooglePay() {
+  const PreBookingReducer = useSelector((state) => state.PreBookingReducer);
+  console.log(PreBookingReducer.amount);
     return (
         <GooglePayButton
             environment="TEST"
@@ -25,20 +28,27 @@ export default function GooglePay() {
                     },
                 ],
                 merchantInfo: {
-                    merchantId: '12345678901234567890',
-                    merchantName: 'Demo Merchant',
+                    merchantId: 'BCR2DN4TUTLJPAJ6',
+                    merchantName: 'AAdmirals Travel& Transportation',
                 },
                 transactionInfo: {
                     totalPriceStatus: 'FINAL',
                     totalPriceLabel: 'Total',
-                    totalPrice: '0.00',
+                    totalPrice: PreBookingReducer.amount,
                     currencyCode: 'USD',
                     countryCode: 'US',
                 },
+                shippingAddressRequired:false,
+                callbackIntents:['PAYMENT_AUTHORIZATION']
             }}
             onLoadPaymentData={paymentRequest => {
                 console.log('load payment data', paymentRequest);
             }}
+            onPaymentAuthorized={
+                paymentdata=>{
+                    console.log("payment athorzied success", paymentdata)
+                }
+            }
         />
     )
 }

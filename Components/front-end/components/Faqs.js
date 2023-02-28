@@ -17,7 +17,7 @@ const faqsQs = [
     },
     {
       no:3,
-      question: 'What if I need more drop-offs and/or pick-ups?',
+      question: 'What if I need more drop-offs and/or pick-ups? ',
       answer: 'We can do that , Please book “By the Hour” service, so the chauffeur will stay with you based on your instructions for multi stops, if your multi stops in a diffrent days, simply book several bookings based on your scheduled days and stop locations, For more information contact Us by phone call or by email.'
     },
     {
@@ -38,10 +38,10 @@ function Faqs(){
           {faqsQs.map((faq, index) => (
             <div key={index} className="faq">
               <div className="Question" onClick={() => handleClick(index)}>
-                <h6>{faq.no}: {faq.question}</h6>
+                <h6>{faq.question}</h6>
                 <div className="icons-dropdown">
                   <span>
-                  {(activeIndex === index)? <Image src={v1} /> :(<Image src={v}  />)}</span>
+                  {(activeIndex === index)? <Image src={v1} /> :(<Image src={v} />)}</span>
                 </div>
                
               </div>
@@ -52,7 +52,6 @@ function Faqs(){
                   </span>
                 </div>
               )}
-              <hr/>
             </div>
           ))}
         </div>

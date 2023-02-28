@@ -5,6 +5,7 @@ import CardsSection1 from "./destinationCardsSection1";
 import Image from "next/image";
 import car1 from "../../Assets/car1.svg";
 import car2 from "../../Assets/car2.svg";
+import limo from "../../Assets/about-limmo.png";
 import logo1 from "../../Assets/logo1.png";
 import logo2 from "../../Assets/logo2.png";
 import logo3 from "../../Assets/logo3.png";
@@ -33,39 +34,32 @@ function Home({ serviceDetail }) {
   return (
     <>
       <section className="home-section">
+
         <div className="home-container">
-          <div>
-            <h3>
-              {serviceDetail.metaTitle ||
-                "AAdmirals Travel & Transportation Houston Limo Service"}
-            </h3>
+          <div className="content">
+            <div>
+              <h3>
+                {serviceDetail.metaTitle ||
+                  "AAdmirals Travel & Transportation Houston Limo Service"}
+              </h3>
+            </div>
+            <div
+              className="inner-text"
+              dangerouslySetInnerHTML={{
+                __html: serviceDetail.metaDescription,
+              }}>
+            </div> 
           </div>
-          <div
-            className="inner-text"
-            dangerouslySetInnerHTML={{
-              __html: serviceDetail.metaDescription,
-            }}></div>
-        </div>
-        <div className="home-logo-section">
-          <div className="logo-area">
-            <Image src={logo1} alt="My Image" width="100%" height="100%" />
-            <span>
-              Always on time for your pick-Up, and free of charge wait time
-            </span>
-          </div>
-          <div className="logo-area">
-            <Image src={logo2} alt="My Image" width="100%" height="100%" />
-            <span>
-              Always on time for your pick-Up, and free of charge wait time
-            </span>
-          </div>
-          <div className="logo-area">
-            <Image src={logo3} alt="My Image" width="100%" height="100%" />
-            <span>
-              Always on time for your pick-Up, and free of charge wait time
-            </span>
+          <div className="images">
+              <Image
+                src={ limo}
+                alt="Aadmirals service image"
+                quality={100}
+                placeholder="empty"
+              />
           </div>
         </div>
+        
       </section>
       <section className="section02">
         <div className="section02-container">
