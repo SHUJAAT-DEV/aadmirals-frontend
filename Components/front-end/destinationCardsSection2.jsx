@@ -1,54 +1,14 @@
 import React from "react";
-// import "./style.scss"
 import Image from "next/image";
 import star from "../../Assets/Polygon 20.png";
 import car from "../../Assets/card image.svg";
-// import imageCap1 from "../../Assets/cardTitle.png";
-// import imageCap2 from "../../Assets/cardTitle2.jpg";
-// import imageCap3 from "../../Assets/cardTitle3.jpg";
 import seatIcon from "../../Assets/seat.svg";
 import dieselIcon from "../../Assets/desel.svg";
 import mechanicIcon from "../../Assets/mechanic.svg";
 
 const CardsSection2 = ({data, imageSrc}) => {
-  const starsStyle = {
-    // height: "fit-content",
-    // marginLeft: "-4%",
-    // width: "1vw",
-  };
-  // cardImage = props.card2Image;
 
   return (
-    // <div className="cards"> 
-    //   <div className="image-container">
-    //     <Image 
-    //       src={car}
-    //       style={{
-    //         height: "fit-content",
-    //         width: "24vw",
-    //         borderRadius: "0px"
-    //       }} 
-    //     />
-    //   </div>
-    //   <div className="cards-details">
-    //     <h4>Standard Sedan Lincoln MKS, MKZ</h4>
-    //     <p style={{ color: "#EF4A67" }}>
-    //       Clean in and out 4 doors, 2 rows of seats clean Sedan car fit for 2
-    //       people with 2 check-in bags and 2 carry-ons.
-    //     </p>
-    //     <div className="card-inner">
-    //       <h5>From $75 Per Hour</h5>
-    //       <div className="stars">
-    //         <Image src={star} style={starsStyle} />
-    //         <Image src={star} style={starsStyle} />
-    //         <Image src={star} style={starsStyle} />
-    //         <Image src={star} style={starsStyle} />
-    //         <Image src={star} style={starsStyle} />
-    //       </div>
-    //       <button>BOOK NOW</button>
-    //     </div>
-    //   </div>
-    // </div>
     <>
       <div className="updatechild-container">
         <div className="image-container">
@@ -84,10 +44,6 @@ const CardsSection2 = ({data, imageSrc}) => {
                 <img src="../../Assets/Polygon 20.png" />
                 <img src="../../Assets/Polygon 20.png" />
                 <img src="../../Assets/Polygon 20.png" />
-                {/* <Image src={star} style={starsStyle} />
-                <Image src={star} style={starsStyle} />
-                <Image src={star} style={starsStyle} />
-                <Image src={star} style={starsStyle} /> */}
               </span>
             </span>
             <button>Book Now

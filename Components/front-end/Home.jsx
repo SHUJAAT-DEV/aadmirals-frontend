@@ -48,19 +48,20 @@ function Home({ serviceDetail }) {
               dangerouslySetInnerHTML={{
                 __html: serviceDetail.metaDescription,
               }}>
-            </div> 
+            </div>
           </div>
           <div className="images">
-              <Image
-                src={ limo}
-                alt="Aadmirals service image"
-                quality={100}
-                placeholder="empty"
-              />
+            <Image
+              src={limo}
+              alt="Aadmirals service image"
+              quality={100}
+              placeholder="empty"
+            />
           </div>
         </div>
-        
+
       </section>
+
       <section className="section02">
         <div className="section02-container">
           <div className="content-container1">
@@ -97,6 +98,7 @@ function Home({ serviceDetail }) {
           </div>
         </div>
       </section>
+
       <section className="section2">
         <div className="container2">
           <div className="image-container22">
@@ -127,6 +129,7 @@ function Home({ serviceDetail }) {
           </div>
         </div>
       </section>
+
       <section className="section3">
         <div className="section3-container">
           <div className="content-container1">
@@ -160,7 +163,8 @@ function Home({ serviceDetail }) {
           </div>
         </div>
       </section>
-      {/* <section className="section4">
+
+      <section className="section4">
         <div className="cardsContainer">
           <div className="content-container">
             <div className="cardContent" style={{
@@ -180,57 +184,38 @@ function Home({ serviceDetail }) {
             <CardsSection1 />
             <CardsSection1 />
             <CardsSection1 />
+            <CardsSection1 />
           </div>
         </div>
-      </section> */}
+      </section>
+
       <section className="update-section5">
-        {/* <div className="cardsContainer">
-          <div className="destinations">
-            <div className="content-container3">
-              <div className="cardContent"  style={{
-              paddingBottom: "1%"
-            }}>
-                <div>
-                  <h3 className="cards-heading">Popular Destnations</h3>
-                </div>
-                <div>
-                  <p className="cards-content">
-                    STRESS-FREE IAH AIRPORT TRANSPORTATION
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="cardsParentContainer2"> */}
-              <div className="cardContent"  style={{
-              paddingBottom: "1%",
-              margin: "auto"
-            }}>
-                <div>
-                  <h3 className="cards-heading">Popular Destnations</h3>
-                </div>
-                <div>
-                  <p className="cards-content">
-                    STRESS-FREE IAH AIRPORT TRANSPORTATION
-                  </p>
-                </div>
-              </div>
-        <div className="updatecard-container">
-          <CardsSection2 imageSrc={imageCap1} data={card1} />
-          <CardsSection2 imageSrc={imageCap2}  data={card2} />
-          <CardsSection2 imageSrc={imageCap1}  data={card3} />
-          <CardsSection2 imageSrc={imageCap1} data={card1} />
-          <CardsSection2 imageSrc={imageCap2}  data={card2} />
-          <CardsSection2 imageSrc={imageCap1}  data={card3} />
-          
+        <div className="cardContent" style={{
+          margin: "auto"
+        }}>
+          <div>
+            <h3 className="cards-heading">Popular Destnations</h3>
+          </div>
+          <div>
+            <p className="cards-content">
+              STRESS-FREE IAH AIRPORT TRANSPORTATION
+            </p>
+          </div>
         </div>
         <div className="updatecard-container">
-          
+          <CardsSection2 imageSrc={imageCap1} data={card1} />
+          <CardsSection2 imageSrc={imageCap2}  data={card2} />
+          <CardsSection2 imageSrc={imageCap1}  data={card3} />
+          <CardsSection2 imageSrc={imageCap1} data={card1} />
+          <CardsSection2 imageSrc={imageCap2}  data={card2} />
+          <CardsSection2 imageSrc={imageCap1}  data={card3} />
           
         </div>
         {/* </div>
           </div>
         </div> */}
       </section>
+
       <section className="section8">
         <div className="customer-container">
           <center style={{
@@ -241,6 +226,7 @@ function Home({ serviceDetail }) {
           <CustomerFeedBack />
         </div>
       </section>
+
       <section className="faqs-section">
         <div className="faqs">
           <h2>Frequently Ask Questions</h2>
