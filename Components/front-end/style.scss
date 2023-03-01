@@ -15,12 +15,12 @@ section {
     align-items: center;
     justify-content: space-between;
     .content {
-      width: 38vw;
+      width: 30vw;
       height: 42vh;
       overflow: hidden;
     }
     .images img{
-      width: 55vw;
+      width: 65vw !important;
       height: 50vh;
     }
   }
@@ -695,219 +695,6 @@ justify-content: center;}
   flex-wrap: wrap;
   justify-content: space-between;
 }
-@media screen and(max-width:1024px) {
-  .faq {
-    width: 100%;
-  }
-  .swiper {
-    padding: 0 0 5% 0 !important;
-  }
-
-  .section4 .cards1,
-  .section5 .cards1 {
-    margin: 2.5%;
-  }
-
-  .inner-text {
-    height: 30vh;
-    overflow: hidden;
-  }
-}
-
-@media screen and(max-width:768px) {
-  section {
-    padding-bottom: 5%;
-    padding-top: 5%;
-  }
-
-  .logo-area {
-    width: 30vw;
-
-    img {
-      width: 9vh !important;
-    }
-
-    span {
-      font-size: 12px;
-      line-height: normal;
-    }
-  }
-
-  .home-section {
-    .home-container {
-      h3 {
-        font-size: 20px;
-      }
-
-      p {
-        font-size: 16px;
-      }
-    }
-  }
-
-  .section02 .section02-container,
-  .section3 .section3-container {
-    flex-direction: column-reverse !important;
-  }
-
-  .section8,
-  .carSlider {
-    .swiper {
-      padding: 0 0 8% 0 !important;
-    }
-  }
-
-  .section02 .section02-container,
-  .section3 .section3-container,
-  .section2 .container2,
-  .cardsParentContainer {
-    flex-direction: column;
-
-    .content-container1,
-    .image-container22,
-    .content-container22 {
-      width: 100%;
-      margin: 2% 0px;
-
-      h5 {
-        font-size: 17px;
-      }
-
-      h3 {
-        font-size: 20px;
-      }
-
-      p {
-        font-size: 16px;
-      }
-    }
-
-    .image-container1 {
-      width: 95%;
-      margin: 0% 1% 1% 3%;
-
-      .img-left {
-        margin: 4% 0 4% 6%;
-
-        img {
-          width: 100vw !important;
-          height: 65vw !important;
-        }
-      }
-
-      .img-back-right {
-        height: 73vw;
-        width: 50%;
-      }
-    }
-
-    .image-container22 {
-      width: 95%;
-      margin: 0% 1% 1% 0%;
-
-      .img-right {
-        margin: 4% 6% 4% 0%;
-
-        img {
-          width: 100vw !important;
-          height: 65vw !important;
-        }
-      }
-
-      .img-back-left {
-        height: 73vw;
-        width: 50%;
-      }
-    }
-  }
-
-  .content-container,
-  .content-container3,
-  .customer-container,
-  .faqs,
-  .faq {
-    h2 {
-      font-size: 20px;
-    }
-
-    h3 {
-      font-size: 20px;
-    }
-
-    h4 {
-      font-size: 17px;
-    }
-
-    p {
-      font-size: 16px;
-    }
-
-    .Question {
-      h6 {
-        font-size: 16px;
-      }
-    }
-
-    .Answer span {
-      font-size: 14px;
-    }
-  }
-
-  .section4 .cards1,
-  .section5 .cards1 {
-    margin: 5%;
-  }
-
-  .section4 .cards1 {
-    width: 50vw;
-    padding: 6%;
-  }
-
-  .section5 {
-    .cardsParentContainer2 {
-      flex-direction: column;
-
-      .cards {
-        width: 60%;
-      }
-    }
-  }
-
-  .inner-text {
-    height: 30vh;
-    overflow: hidden;
-  }
-}
-
-@media screen and(max-width:550px) {
-  .section5 {
-    .cardsParentContainer2 {
-      flex-direction: column;
-
-      .cards {
-        width: 90%;
-      }
-    }
-  }
-
-  .logo-area img {
-    width: 6vh !important;
-  }
-
-  .swiper {
-    padding: 0 0 10% 0 !important;
-  }
-
-  .section4 .cards1 {
-    width: 85vw;
-    margin: 3% 0;
-  }
-}
-
-// footer
-.card {
-  border: none !important;
-}
 
 .update-section5 {
   width: 100%;
@@ -916,6 +703,7 @@ justify-content: center;}
   flex-direction: column;
   justify-content: center;
   gap: 3rem;
+
 }
 
 .updatecard-container {
@@ -929,18 +717,17 @@ justify-content: center;}
   min-height: 1px;
   display: flex;
   gap: 3rem;
-
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
   .updatechild-container {
     background-color: white;
-    padding-top: 10px;
-    padding: 20px;
+    padding: 26px 46px ;
     text-align: start;
     border: 2px dashed rgba(0, 0, 0, 0.1);
     display: flex;
-    padding-top: 31px;
     display: inline-block;
-    padding-left: 46px;
-    padding-right: 46px;
+ 
 
     .image-container {
       padding-bottom: 20px;
@@ -974,6 +761,8 @@ justify-content: center;}
 
       h5 {
         font-size: 24px;
+        height: 3.5rem;
+        overflow: hidden;
         font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
       }
 
@@ -1050,3 +839,233 @@ justify-content: center;}
   }
 
 }
+@media screen and(max-width:1024px) {
+
+  .updatecard-container .updatechild-container
+  {
+    padding: 14px 24px;
+  }
+  .updatechild-container .image-container {
+    text-align: center;
+    }
+  .faq {
+    width: 100%;
+  }
+  .swiper {
+    padding: 0 0 5% 0 !important;
+  }
+
+  .section4 .cards1,
+  .section5 .cards1 {
+    margin: 2.5%;
+  }
+
+  .inner-text {
+    height: 30vh;
+    overflow: hidden;
+  }
+}
+
+@media screen and(max-width:768px) {
+  .section02>.section02-container>.content-container1>.inner-text,  .section3-container .inner-text, .section2 .inner-text  {
+    height: 16vh;
+    overflow: hidden;
+  }
+  section {
+    padding-bottom: 5%;
+    padding-top: 5%;
+  }
+
+  .logo-area {
+    width: 30vw;
+
+    img {
+      width: 9vh !important;
+    }
+
+    span {
+      font-size: 12px;
+      line-height: normal;
+    }
+  }
+
+  .home-section {
+    .home-container {
+      h3 {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .section02 .section02-container,
+  .section3 .section3-container {
+    flex-direction: column-reverse !important;
+  }
+
+  .section8,
+  .carSlider {
+    .swiper {
+      padding: 0 0 8% 0 !important;
+    }
+  }
+
+  .section02 .section02-container,
+  .section3 .section3-container,
+  .section2 .container2,
+  .cardsParentContainer {
+    flex-direction: column;
+    .content-container22 {
+      height: 34vh;
+    }
+    .content-container1,
+    .image-container22,
+    .content-container22 {
+      width: 95%;
+      margin: 2% 0px;
+      height: fit-content;
+
+      h5 {
+        font-size: 17px;
+      }
+
+      h3 {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+    }
+
+    .image-container1 {
+      width: 95%;
+      margin: 0% 1% 1% 3%;
+
+      .img-left {
+        margin: 4% 4% 4% 6%;
+
+        img {
+          width: 85vw !important;
+          height: 65vw !important;
+        }
+      }
+
+      .img-back-right {
+        height: 73vw;
+        width: 50%;
+      }
+    }
+
+    .image-container22 {
+      width: 95%;
+      margin: 0% 1% 1% 0%;
+
+      .img-right {
+        margin: 4% 6% 4% 4%;
+
+        img {
+          width: 85vw !important;
+          height: 65vw !important;
+        }
+      }
+
+      .img-back-left {
+        height: 73vw;
+        width: 50%;
+      }
+    }
+  }
+
+  .content-container,
+  .content-container3,
+  .customer-container,
+  .faqs,
+  .faq {
+    h2 {
+      font-size: 20px;
+    }
+
+    h3 {
+      font-size: 20px;
+    }
+
+    h4 {
+      font-size: 17px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    .Question {
+      h6 {
+        font-size: 16px;
+      }
+    }
+
+    .Answer span {
+      font-size: 14px;
+    }
+  }
+
+  .section4 .cards1,
+  .section5 .cards1 {
+    margin: 5%;
+  }
+
+  .section4 .cards1 {
+    width: 50vw;
+    padding: 6%;
+  }
+
+  .section5 {
+    .cardsParentContainer2 {
+      flex-direction: column;
+
+      .cards {
+        width: 60%;
+      }
+    }
+  }
+
+  .inner-text {
+    height: 30vh;
+    overflow: hidden;
+  }
+  
+}
+
+@media screen and(max-width:550px) {
+  .section5 {
+    .cardsParentContainer2 {
+      flex-direction: column;
+
+      .cards {
+        width: 90%;
+      }
+    }
+  }
+
+  .logo-area img {
+    width: 6vh !important;
+  }
+
+  .swiper {
+    padding: 0 0 10% 0 !important;
+  }
+
+  .section4 .cards1 {
+    width: 85vw;
+    margin: 3% 0;
+  }
+}
+
+// footer
+.card {
+  border: none !important;
+}
+
