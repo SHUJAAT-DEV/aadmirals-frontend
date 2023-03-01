@@ -74,14 +74,11 @@ function Confirm({ router }) {
   // modal
 
   const toggle = () => setModal(!modal);
-
   return (
     <>
-      {quotes.loading
-        ? typeof window !== "undefined"
-          ? (window.location.href = "/error-confirm")
-          : ""
-        : null}
+      {/* {
+      // quotes.loading ? typeof window !== "undefined"? (window.location.href = "/error-confirm"): "": null
+        } */}
       {quotes.loading ? (
         <Loader />
       ) : (
