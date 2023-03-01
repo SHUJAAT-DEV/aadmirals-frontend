@@ -191,7 +191,6 @@ function Home({ serviceDetail }) {
 
       <section className="update-section5">
         <div className="cardContent" style={{
-          paddingBottom: "1%",
           margin: "auto"
         }}>
           <div>
@@ -205,15 +204,12 @@ function Home({ serviceDetail }) {
         </div>
         <div className="updatecard-container">
           <CardsSection2 imageSrc={imageCap1} data={card1} />
-          <CardsSection2 imageSrc={imageCap2} data={card2} />
-          <CardsSection2 imageSrc={imageCap1} data={card3} />
-
-        </div>
-        <div className="updatecard-container">
+          <CardsSection2 imageSrc={imageCap2}  data={card2} />
+          <CardsSection2 imageSrc={imageCap1}  data={card3} />
           <CardsSection2 imageSrc={imageCap1} data={card1} />
-          <CardsSection2 imageSrc={imageCap2} data={card2} />
-          <CardsSection2 imageSrc={imageCap1} data={card3} />
-
+          <CardsSection2 imageSrc={imageCap2}  data={card2} />
+          <CardsSection2 imageSrc={imageCap1}  data={card3} />
+          
         </div>
         {/* </div>
           </div>
