@@ -10,6 +10,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {useRouter} from "next/router";
 import {Alert} from "reactstrap";
 import GooglePay from "../../../Payment/GooglePay";
+import Image from "next/image";
+import google from "../../../Assets/googlepay.svg";
 
 function PaymentMethod() {
   const dispatch = useDispatch();
@@ -67,14 +69,15 @@ function PaymentMethod() {
             <ListGroupItem
               className={styles.list_option}
               onClick={(e) => toggle3()}>
-              <span style={{color:"#3A81F1"}}>
-                <b>G-PAY &nbsp;</b>
-                {/* <img
-                  src="../../../Assets/give.svg"
-                  width="32px"
-                  className="img img fluid mr-2"
-                  alt="GooglePay img"
-                /> */}
+              <span>
+                <Image
+                src={google}
+                alt="Aadmirals service image"
+                width="45px"
+                height="32px"
+                quality={100}
+                placeholder="empty"
+              />
               </span>
               GooglePay
             </ListGroupItem>

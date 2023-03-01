@@ -63,6 +63,8 @@
       margin: 2rem !important;
       .list_option {
         cursor: pointer;
+        display:flex;
+        align-items: center;
       }
     }
   }
