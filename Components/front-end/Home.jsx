@@ -12,6 +12,8 @@ import logo3 from "../../Assets/logo3.png";
 import imageCap1 from "../../Assets/cardTitle.png";
 import imageCap2 from "../../Assets/cardTitle2.jpg";
 import imageCap3 from "../../Assets/cardTitle3.jpg";
+import { useSelector } from "react-redux";
+
 const card1 = {
   title: "Standard Sedan Lincoln MKS, MKZ",
   description: "Clean in and out 4 doors, 2 rows of seats clean Sedan car fit for 2 people with 2 check-in bags and 2 carry-ons",
@@ -27,10 +29,35 @@ const card3 = {
   description: "Clean in and out luxury 4 doors, 2 rows of seats clean Sedan car of the top brands and models fit for 2 people with 2 check-in bags and 2 carry-ons.",
   price: "$85"
 }
-
+const airportCard1 ={
+  title: "George Bush Airport",
+  description: "Galveston Cruise",
+  distance: "Approx. 70 mile",
+  link: "/airport-transportation/george-bush-airport-transfer"
+}
+const airportCard2 ={
+  title: "George Bush Airport",
+  description: "Downtown Houston",
+  distance: "Approx. 24 mile",
+  link: "/airport-transportation/hobby-airport-transfer"
+}
+const airportCard3 ={
+  title: "George Bush Airport",
+  description: "The Woodlands",
+  distance: "Approx. 24 mile",
+  link: "/airport-transportation/private-jet-limo"
+}
+const airportCard4 ={
+  title: "George Bush Airport",
+  description: "Katy",
+  distance: "Approx. 44 mile",
+  link: "/services/galveston-cruise-transfer"
+}
 
 function Home({ serviceDetail }) {
-
+  const details = useSelector((state) => state.contactDetails);
+  const { contact_details_page } = details;
+  const det = contact_details_page && contact_details_page.contactDetails[0];
   return (
     <>
       <section className="home-section">
@@ -80,8 +107,19 @@ function Home({ serviceDetail }) {
                 __html: serviceDetail.firstSectionsDescription,
               }}></div>
             <br />
-            <div className="button-container">
-              <button>Read More</button>
+            <div className="number-container2">
+              <a href={`tel:+1${det && det.phoneNumber}`}>
+                <span>
+                  <img src="/Assets/phone.svg" alt="phone" />
+                </span>
+                +1 {det && det.phoneNumber}
+              </a>
+              <a href={`https://wa.me/1${det && det.whatsapp}`}>
+                <span>
+                  <img src="/Assets/whatsapp.svg" alt="phone" />
+                </span>
+                +1 {det && det.whatsapp}
+              </a>
             </div>
           </div>
           <div className="image-container1">
@@ -123,8 +161,19 @@ function Home({ serviceDetail }) {
                 __html: serviceDetail.secondSectionDescription,
               }}></div>
             <br />
-            <div className="button-container2">
-              <button>Read More</button>
+            <div className="number-container2">
+              <a href={`tel:+1${det && det.phoneNumber}`}>
+                <span>
+                  <img src="/Assets/phone.svg" alt="phone" />
+                </span>
+                +1 {det && det.phoneNumber}
+              </a>
+              <a href={`https://wa.me/1${det && det.whatsapp}`}>
+                <span>
+                  <img src="/Assets/whatsapp.svg" alt="phone" />
+                </span>
+                +1 {det && det.whatsapp}
+              </a>
             </div>
           </div>
         </div>
@@ -145,8 +194,19 @@ function Home({ serviceDetail }) {
                 __html: serviceDetail.thirdSectionDescription,
               }}></div>
             <br />
-            <div className="button-container">
-              <button>Read More</button>
+            <div className="number-container2">
+              <a href={`tel:+1${det && det.phoneNumber}`}>
+                <span>
+                  <img src="/Assets/phone.svg" alt="phone" />
+                </span>
+                +1 {det && det.phoneNumber}
+              </a>
+              <a href={`https://wa.me/1${det && det.whatsapp}`}>
+                <span>
+                  <img src="/Assets/whatsapp.svg" alt="phone" />
+                </span>
+                +1 {det && det.whatsapp}
+              </a>
             </div>
           </div>
           <div className="image-container1">
@@ -181,10 +241,10 @@ function Home({ serviceDetail }) {
             </div>
           </div>
           <div className="cardsParentContainer">
-            <CardsSection1 />
-            <CardsSection1 />
-            <CardsSection1 />
-            <CardsSection1 />
+            <CardsSection1 data={airportCard1}/>
+            <CardsSection1 data={airportCard2} />
+            <CardsSection1 data={airportCard3} />
+            <CardsSection1 data={airportCard4} />
           </div>
         </div>
       </section>
