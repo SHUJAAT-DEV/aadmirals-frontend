@@ -37,12 +37,19 @@ section {
   }
 
   .icons-container {
+    margin-top: 1rem;
     display: flex;
     gap: 5vw;
     justify-content: center;
-    div{
+    .icons{
       display: flex;
       align-items: center;
+      .text{
+        width: 13vw;
+        p{
+          margin: 0;
+        }
+      }
     }
   }
 
@@ -937,7 +944,13 @@ section.section02,
   }
 
 }
-
+.content-top h5
+{
+  color:white;
+  background-color: #ef4a67;
+  width: fit-content;
+  padding: 2px;
+}
 @media screen and(max-width:1512px) {
 
   .updatecard-container .updatechild-container div,
@@ -1140,6 +1153,9 @@ section.section02,
   .inner-text {
     height: 30vh;
     overflow: hidden;
+  }
+  .contact .info-box{
+    text-align-last: center;
   }
 
 }

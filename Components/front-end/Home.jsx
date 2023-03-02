@@ -30,7 +30,6 @@ const card3 = {
   price: "$85"
 }
 const pStyle = {
-  width: "13vw",
   fontFamily: 'ProximaNovaLight'
 }
 const airportCard1 ={
@@ -83,36 +82,36 @@ function Home({ serviceDetail }) {
           </div>
         </div>
         <div className="icons-container">
-          <div>
+          <div className="icons">
             <Image
               src={logo1}
               alt="Aadmirals dollar icon"
-              width={95}
-              height={90}
+              width={80}
+              height={75}
             />
-            <div>
+            <div className="text">
               <p style={pStyle}>Always on time for your pick-Up, and free of charge wait time</p>
             </div>
           </div>
-          <div>
+          <div className="icons">
             <Image
               src={logo2}
               alt="Aadmirals clock icon"
-              width={95}
-              height={90}
+              width={80}
+              height={75}
             />
-            <div>
+            <div className="text">
               <p style={pStyle}>Always on time for your pick-Up, and free of charge wait time</p>
             </div>
           </div>
-          <div>
+          <div className="icons">
             <Image
               src={logo3}
               alt="Aadmirals car icon"
-              width={95}
-              height={90}
+              width={80}
+              height={75}
             />
-            <div>
+            <div className="text">
               <p style={pStyle}>Always on time for your pick-Up, and free of charge wait time</p>
             </div>
           </div>
@@ -123,7 +122,7 @@ function Home({ serviceDetail }) {
       <section className="section02">
         <div className="section02-container">
           <div className="content-container1">
-            <div>
+            <div className="content-top">
               <h5>STRESS-FREE IAH AIRPORT TRANSPORTATION</h5>
             </div>
             <div>
@@ -213,7 +212,7 @@ function Home({ serviceDetail }) {
       <section className="section3">
         <div className="section3-container">
           <div className="content-container1">
-            <div>
+            <div className="content-top">
               <h5>airport with AAdmirals</h5>
             </div>
             <div>
