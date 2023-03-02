@@ -991,7 +991,12 @@ section.section02,
 }
 
 @media screen and(max-width:768px) {
-
+  .icons-container{
+    flex-direction: column;
+  }
+  .home-section .icons-container .icons .text{
+    width: 100%;
+  }
   .section02>.section02-container>.content-container1>.inner-text,
   .section3-container .inner-text,
   .section2 .inner-text {
