@@ -6,9 +6,9 @@ import Image from "next/image";
 import car1 from "../../Assets/car1.svg";
 import car2 from "../../Assets/car2.svg";
 import limo from "../../Assets/about-limmo.png";
-import logo1 from "../../Assets/logo1.png";
-import logo2 from "../../Assets/logo2.png";
-import logo3 from "../../Assets/logo3.png";
+import logo1 from "../../Assets/logo1.svg";
+import logo2 from "../../Assets/logo2.svg";
+import logo3 from "../../Assets/logo3.svg";
 import imageCap1 from "../../Assets/cardTitle.png";
 import imageCap2 from "../../Assets/cardTitle2.jpg";
 import imageCap3 from "../../Assets/cardTitle3.jpg";
@@ -27,7 +27,10 @@ const card3 = {
   description: "Clean in and out luxury 4 doors, 2 rows of seats clean Sedan car of the top brands and models fit for 2 people with 2 check-in bags and 2 carry-ons.",
   price: "$85"
 }
-
+const pStyle = {
+  width: "13vw",
+  fontFamily: 'ProximaNovaLight'
+}
 
 function Home({ serviceDetail }) {
 
@@ -50,13 +53,40 @@ function Home({ serviceDetail }) {
               }}>
             </div>
           </div>
-          <div className="images">
+        </div>
+        <div className="icons-container">
+          <div>
             <Image
-              src={limo}
-              alt="Aadmirals service image"
-              quality={100}
-              placeholder="empty"
+              src={logo1}
+              alt="Aadmirals dollar icon"
+              width={95}
+              height={90}
             />
+            <div>
+              <p style={pStyle}>Always on time for your pick-Up, and free of charge wait time</p>
+            </div>
+          </div>
+          <div>
+            <Image
+              src={logo2}
+              alt="Aadmirals clock icon"
+              width={95}
+              height={90}
+            />
+            <div>
+              <p style={pStyle}>Always on time for your pick-Up, and free of charge wait time</p>
+            </div>
+          </div>
+          <div>
+            <Image
+              src={logo3}
+              alt="Aadmirals car icon"
+              width={95}
+              height={90}
+            />
+            <div>
+              <p style={pStyle}>Always on time for your pick-Up, and free of charge wait time</p>
+            </div>
           </div>
         </div>
 
@@ -175,7 +205,7 @@ function Home({ serviceDetail }) {
               </div>
               <div>
                 <p className="cards-content">
-                  STRESS-FREE IAH AIRPORT TRANSPORTATION
+                  TO & FROM THE AIRPORT
                 </p>
               </div>
             </div>
@@ -190,26 +220,13 @@ function Home({ serviceDetail }) {
       </section>
 
       <section className="update-section5">
-        <div className="cardContent" style={{
-          margin: "auto"
-        }}>
-          <div>
-            <h3 className="cards-heading">Popular Destnations</h3>
-          </div>
-          <div>
-            <p className="cards-content">
-              STRESS-FREE IAH AIRPORT TRANSPORTATION
-            </p>
-          </div>
-        </div>
         <div className="updatecard-container">
           <CardsSection2 imageSrc={imageCap1} data={card1} />
-          <CardsSection2 imageSrc={imageCap2}  data={card2} />
-          <CardsSection2 imageSrc={imageCap1}  data={card3} />
+          <CardsSection2 imageSrc={imageCap2} data={card2} />
+          <CardsSection2 imageSrc={imageCap1} data={card3} />
           <CardsSection2 imageSrc={imageCap1} data={card1} />
-          <CardsSection2 imageSrc={imageCap2}  data={card2} />
-          <CardsSection2 imageSrc={imageCap1}  data={card3} />
-          
+          <CardsSection2 imageSrc={imageCap2} data={card2} />
+          <CardsSection2 imageSrc={imageCap1} data={card3} />
         </div>
         {/* </div>
           </div>

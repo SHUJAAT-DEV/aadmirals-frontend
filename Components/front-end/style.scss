@@ -17,14 +17,32 @@ section {
     justify-content: space-between;
 
     .content {
-      width: 35vw;
-      height: 42vh;
       overflow: hidden;
     }
 
     .images img {
       width: 60vw !important;
       height: 50vh;
+    }
+  }
+
+  .home-container {
+    h3 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+
+  .icons-container {
+    display: flex;
+    gap: 5vw;
+    justify-content: center;
+    div{
+      display: flex;
+      align-items: center;
     }
   }
 
@@ -37,7 +55,6 @@ section {
   .home-container p {
     font-weight: 400;
     font-size: 17px;
-    line-height: 21px;
   }
 
   .home-logo-section {
@@ -250,13 +267,17 @@ section.section02,
   color: black;
   background-color: white;
 }
-.section4 > .cardsContainer > .content-container > .cardContent{
-  div{
-    h3, p{
+
+.section4>.cardsContainer>.content-container>.cardContent {
+  div {
+
+    h3,
+    p {
       color: black;
     }
   }
 }
+
 .section4,
 .section5 {
   .cardsContainer {
@@ -694,11 +715,13 @@ section.section02,
       font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
       color: black;
     }
+
     p {
       color: black;
       line-height: 6px;
       font-family: 'ProximaNovaLight';
     }
+
     button {
       width: 220px;
       height: 61px;
@@ -781,19 +804,19 @@ section.section02,
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
+
   .updatechild-container {
     background-color: white;
-    padding: 26px 46px ;
+    padding: 26px 46px;
     text-align: start;
     border: 2px dashed rgba(0, 0, 0, 0.1);
     display: flex;
     display: inline-block;
- 
 
     .image-container {
       padding-bottom: 20px;
       padding-top: 15px;
-
+      height: 189px;
       div {
         p {
           height: 6rem;
@@ -900,23 +923,27 @@ section.section02,
   }
 
 }
+
 @media screen and(max-width:1512px) {
-  .updatecard-container .updatechild-container div,.card-inner button{
+
+  .updatecard-container .updatechild-container div,
+  .card-inner button {
     max-width: 16rem;
   }
-  
+
 
 }
 
 @media screen and(max-width:1024px) {
 
-  .updatecard-container .updatechild-container
-  {
+  .updatecard-container .updatechild-container {
     padding: 14px 24px;
   }
+
   .updatechild-container .image-container {
     text-align: center;
-    }
+  }
+
   .faq {
     width: 100%;
   }
@@ -937,10 +964,14 @@ section.section02,
 }
 
 @media screen and(max-width:768px) {
-  .section02>.section02-container>.content-container1>.inner-text,  .section3-container .inner-text, .section2 .inner-text  {
+
+  .section02>.section02-container>.content-container1>.inner-text,
+  .section3-container .inner-text,
+  .section2 .inner-text {
     height: 16vh;
     overflow: hidden;
   }
+
   section {
     padding-bottom: 5%;
     padding-top: 5%;
@@ -956,18 +987,6 @@ section.section02,
     span {
       font-size: 12px;
       line-height: normal;
-    }
-  }
-
-  .home-section {
-    .home-container {
-      h3 {
-        font-size: 20px;
-      }
-
-      p {
-        font-size: 16px;
-      }
     }
   }
 
@@ -988,9 +1007,11 @@ section.section02,
   .section2 .container2,
   .cardsParentContainer {
     flex-direction: column;
+
     .content-container22 {
       height: 34vh;
     }
+
     .content-container1,
     .image-container22,
     .content-container22 {
@@ -1106,7 +1127,7 @@ section.section02,
     height: 30vh;
     overflow: hidden;
   }
-  
+
 }
 
 @media screen and(max-width:550px) {
@@ -1138,5 +1159,3 @@ section.section02,
 .card {
   border: none !important;
 }
-
-
