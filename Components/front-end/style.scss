@@ -63,7 +63,21 @@ section {
     justify-content: center;
   }
 }
-
+.number-container2 {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  a{
+    padding-top: 2rem;
+  }
+  span{
+    img{
+      padding-right: 0.3rem;
+      width: 1.5rem;
+    }
+  }
+  
+}
 .section02 {
   .section02-container {
     display: flex;
