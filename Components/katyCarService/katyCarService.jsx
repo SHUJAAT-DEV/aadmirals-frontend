@@ -20,6 +20,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Alert } from "reactstrap";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
+import limo from "../../Assets/about-limmo.png";
+
 const Katycarservice = (props) => {
   const dispatch = useDispatch();
 
@@ -41,7 +43,7 @@ const Katycarservice = (props) => {
     <>
       <NextSeo
         title={data?.metaTitle}
-        description={data?.metaDescription}
+        description={data?.metaDescription} 
         canonical={`https://aadmirals.com/cities/${props?.slug}`}
       />
       {cms.loading || cms.error ? (
@@ -49,7 +51,7 @@ const Katycarservice = (props) => {
       ) : (
         <>
           <div style={{ overflow: "hidden" }}>
-            <SideNav />
+            <SideNav /> 
             <Floatingbutton />
             <Header />
             {cms.error ? (
@@ -59,12 +61,12 @@ const Katycarservice = (props) => {
             ) : null}
             <div className={styles.mainContainer}>
               <Hero
-                Text={data.heroDescription}
-                Title={"Katy Limo Service - Best Pricing | AAdmirals"}
-                img={data.heroImage}
-                Form={HomeForm}
-              />
-            </div>
+                Text={data?.heroDescription} 
+                Title={"Katy Limo Service - Best Pricing | AAdmirals"} 
+                img={data?.heroImage || limo} 
+                Form={HomeForm}   
+              /> 
+            </div> 
             <Container>
               <Row>
                 <Col xs={12}>
@@ -76,9 +78,9 @@ const Katycarservice = (props) => {
                   </div>
                 </Col>
               </Row>
-              <Limo bannerImage={data.bannerImage} title={""} />
+              <Limo bannerImage={data?.bannerImage} title={""} />
 
-              <BestService text1={data?.paragraph} pageTitle={data.heroTitle} />
+              <BestService text1={data?.paragraph} pageTitle={data?.heroTitle} />
 
               <div className={styles.aligncontent}>
                 <p className={styles.text}>
@@ -93,7 +95,7 @@ const Katycarservice = (props) => {
                   you provide AAdmirals with an email of a friend or a family
                   member, even more
                   <span className={styles.textdark}>
-                    {" "}
+                    {" "} 
                     our online quotes and reservation system already includes a
                     5% discounted price, so book online to save money with
                     AAdmirals Travel & Transportation, Houston Limo Service.{" "}
@@ -108,13 +110,13 @@ const Katycarservice = (props) => {
                 alt4=""
                 alt5=""
                 alt6=""
-                img1={data.imageOne}
-                img2={data.imageTwo}
-                img3={data.imageThree}
-                img4={data.imageFour}
-                img5={data.imageFive}
-                img6={data.imageSix}
-              />
+                img1={data?.imageOne}
+                img2={data?.imageTwo}
+                img3={data?.imageThree}
+                img4={data?.imageFour}
+                img5={data?.imageFive}
+                img6={data?.imageSix}
+              /> 
               <div className={styles.aligncontent}>
                 <p className={styles.text}>
                   AAdmirals Travel& Transportation Houston Limo Service offers
@@ -127,9 +129,9 @@ const Katycarservice = (props) => {
                 </p>
               </div>
 
-              <Bookandpay
-                youCanGetASuperiorRide={data.youCanGetASuperiorRide}
-              />
+              <Bookandpay 
+                youCanGetASuperiorRide={data?.youCanGetASuperiorRide}
+              /> 
               <Imagetitle />
               <br />
               <div className={styles.aligncontent}>
@@ -141,10 +143,10 @@ const Katycarservice = (props) => {
               </div>
 
               <PersonalService
-                airportTransfers={data.airportTransfers}
-                airportTransfersImage={data.airportTransfersImage}
-                carporateTransportation={data.carporateTransportation}
-                professionalCarServices={data.professionalCarServices}
+                airportTransfers={data?.airportTransfers}
+                airportTransfersImage={data?.airportTransfersImage}
+                carporateTransportation={data?.carporateTransportation}
+                professionalCarServices={data?.professionalCarServices}
               />
 
               <AskQuestion faqs={faqs} />
