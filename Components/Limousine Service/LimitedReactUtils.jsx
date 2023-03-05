@@ -1,12 +1,9 @@
-
 function fetchLimitedContent(sanitizedContent) {
+  let limitContent = "";
 
-    let limitContent = "";
+  limitContent = Array.from(sanitizedContent).slice(0, 600).join("");
 
-    limitContent = Array.from(sanitizedContent).slice(0, 60).join("");
-
-    return limitContent;
-
-  }
+  return limitContent;
+}
 
 export default fetchLimitedContent;

@@ -19,7 +19,7 @@ function LimousineService({ data }) {
       return (
         <span
           onClick={handleChange}
-          style={{ color: "blue" }}
+          style={{ color: "blue", marginLeft: "1rem" }}
           className={styles.hoverEffect}>
           Read More
         </span>
