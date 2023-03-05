@@ -24,13 +24,6 @@ import limo from "../../Assets/about-limmo.png";
 
 const Katycarservice = (props) => {
   const dispatch = useDispatch();
-
-  // const cms = useSelector((state) => state.katyLimo);
-  // const { katy_limo_page } = cms;
-
-  // const data = katy_limo_page && katy_limo_page.katyLimoService[0];
-  // const faqs = cms.katy_limo_page && cms.katy_limo_page.faqs;
-
   useEffect(() => {
     dispatch(getKatyLimoPage());
   }, []);
@@ -43,7 +36,7 @@ const Katycarservice = (props) => {
     <>
       <NextSeo
         title={data?.metaTitle}
-        description={data?.metaDescription} 
+        description={data?.metaDescription}
         canonical={`https://aadmirals.com/cities/${props?.slug}`}
       />
       {cms.loading || cms.error ? (
@@ -51,7 +44,7 @@ const Katycarservice = (props) => {
       ) : (
         <>
           <div style={{ overflow: "hidden" }}>
-            <SideNav /> 
+            <SideNav />
             <Floatingbutton />
             <Header />
             {cms.error ? (
@@ -61,12 +54,12 @@ const Katycarservice = (props) => {
             ) : null}
             <div className={styles.mainContainer}>
               <Hero
-                Text={data?.heroDescription} 
-                Title={"Katy Limo Service - Best Pricing | AAdmirals"} 
-                img={data?.heroImage || limo} 
-                Form={HomeForm}   
-              /> 
-            </div> 
+                Text={data?.heroDescription}
+                Title={"Katy Limo Service - Best Pricing | AAdmirals"}
+                img={data?.heroImage || limo}
+                Form={HomeForm}
+              />
+            </div>
             <Container>
               <Row>
                 <Col xs={12}>
@@ -80,7 +73,10 @@ const Katycarservice = (props) => {
               </Row>
               <Limo bannerImage={data?.bannerImage} title={""} />
 
-              <BestService text1={data?.paragraph} pageTitle={data?.heroTitle} />
+              <BestService
+                text1={data?.paragraph}
+                pageTitle={data?.heroTitle}
+              />
 
               <div className={styles.aligncontent}>
                 <p className={styles.text}>
@@ -95,7 +91,7 @@ const Katycarservice = (props) => {
                   you provide AAdmirals with an email of a friend or a family
                   member, even more
                   <span className={styles.textdark}>
-                    {" "} 
+                    {" "}
                     our online quotes and reservation system already includes a
                     5% discounted price, so book online to save money with
                     AAdmirals Travel & Transportation, Houston Limo Service.{" "}
@@ -116,7 +112,7 @@ const Katycarservice = (props) => {
                 img4={data?.imageFour}
                 img5={data?.imageFive}
                 img6={data?.imageSix}
-              /> 
+              />
               <div className={styles.aligncontent}>
                 <p className={styles.text}>
                   AAdmirals Travel& Transportation Houston Limo Service offers
@@ -129,9 +125,9 @@ const Katycarservice = (props) => {
                 </p>
               </div>
 
-              <Bookandpay 
+              <Bookandpay
                 youCanGetASuperiorRide={data?.youCanGetASuperiorRide}
-              /> 
+              />
               <Imagetitle />
               <br />
               <div className={styles.aligncontent}>

@@ -112,12 +112,12 @@ const Sugarlandcarservice = (props) => {
                 alt4=""
                 alt5=""
                 alt6=""
-                img1={data.imageOne}
-                img2={data.imageTwo}
-                img3={data.imageThree}
-                img4={data.imageFour}
-                img5={data.imageFive}
-                img6={data.imageSix}
+                img1={data?.imageOne}
+                img2={data?.imageTwo}
+                img3={data?.imageThree}
+                img4={data?.imageFour}
+                img5={data?.imageFive}
+                img6={data?.imageSix}
               />
               <div className={styles.aligncontent}>
                 <p className={styles.text}>
@@ -132,7 +132,7 @@ const Sugarlandcarservice = (props) => {
               </div>
 
               <Bookandpay
-                youCanGetASuperiorRide={data.youCanGetASuperiorRide}
+                youCanGetASuperiorRide={data?.youCanGetASuperiorRide}
               />
               <Imagetitle />
               <br />

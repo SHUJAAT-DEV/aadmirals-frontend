@@ -20,15 +20,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getGalvestonLimoPage } from "../../redux/Cities/Galveston_Limo_Service/action";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
+import limo from "../../Assets/about-limmo.png";
+
 const Galvestoncarservice = (props) => {
   const dispatch = useDispatch();
-
-  // const cms = useSelector((state) => state.galvestonLimo);
-  // const { galveston_limo_page } = cms;
-
-  // const data =galveston_limo_page && galveston_limo_page.galvestonLimoService[0];
-  // const faqs = cms.galveston_limo_page && cms.galveston_limo_page.faqs;
-
   useEffect(() => {
     dispatch(getGalvestonLimoPage());
   }, []);
@@ -64,7 +59,7 @@ const Galvestoncarservice = (props) => {
               <Hero
                 Text={data?.heroDescription}
                 Title={data?.heroTitle}
-                img={data?.heroImage}
+                img={data?.heroImage || limo}
                 Form={HomeForm}
               />
             </div>
@@ -79,16 +74,12 @@ const Galvestoncarservice = (props) => {
                   </div>
                 </Col>
               </Row>
-              <Limo bannerImage={data.bannerImage} title={""} />
+              <Limo bannerImage={data?.bannerImage} title={""} />
 
-              <BestService text1={data?.paragraph} pageTitle={data.heroTitle} />
-
-              {/* <div className={styles.aligncenter}>
-          <p className={styles.heading}>
-            Discounts for New and Regular Customers{" "}
-          </p>
-        </div> */}
-
+              <BestService
+                text1={data?.paragraph}
+                pageTitle={data?.heroTitle}
+              />
               <div className={styles.aligncontent}>
                 <p className={styles.text}>
                   %10 off on all your transfer services when you complete 15
@@ -116,12 +107,12 @@ const Galvestoncarservice = (props) => {
                 alt4=""
                 alt5=""
                 alt6=""
-                img1={data.imageOne}
-                img2={data.imageTwo}
-                img3={data.imageThree}
-                img4={data.imageFour}
-                img5={data.imageFive}
-                img6={data.imageSix}
+                img1={data?.imageOne}
+                img2={data?.imageTwo}
+                img3={data?.imageThree}
+                img4={data?.imageFour}
+                img5={data?.imageFive}
+                img6={data?.imageSix}
               />
               <div className={styles.aligncontent}>
                 <p className={styles.text}>
@@ -135,7 +126,7 @@ const Galvestoncarservice = (props) => {
                 </p>
               </div>
               <Bookandpay
-                youCanGetASuperiorRide={data.youCanGetASuperiorRide}
+                youCanGetASuperiorRide={data?.youCanGetASuperiorRide}
               />
               <Imagetitle />
               <br />
@@ -147,10 +138,10 @@ const Galvestoncarservice = (props) => {
                 </p>
               </div>
               <PersonalService
-                airportTransfers={data.airportTransfers}
-                airportTransfersImage={data.airportTransfersImage}
-                carporateTransportation={data.carporateTransportation}
-                professionalCarServices={data.professionalCarServices}
+                airportTransfers={data?.airportTransfers}
+                airportTransfersImage={data?.airportTransfersImage}
+                carporateTransportation={data?.carporateTransportation}
+                professionalCarServices={data?.professionalCarServices}
               />
 
               <AskQuestion faqs={faqs} />

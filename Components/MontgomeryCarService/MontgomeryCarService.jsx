@@ -20,6 +20,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Alert } from "reactstrap";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
+import limo from "../../Assets/about-limmo.png";
+
 const Montgomerycarservice = (props) => {
   const dispatch = useDispatch();
 
@@ -62,7 +64,7 @@ const Montgomerycarservice = (props) => {
               <Hero
                 Text={data?.heroDescription}
                 Title={data?.heroTitle}
-                img={data?.heroImage}
+                img={data?.heroImage || limo}
                 Form={HomeForm}
               />
             </div>
@@ -77,9 +79,12 @@ const Montgomerycarservice = (props) => {
                   </div>
                 </Col>
               </Row>
-              <Limo bannerImage={data.bannerImage} title={""} />
+              <Limo bannerImage={data?.bannerImage} title={""} />
 
-              <BestService text1={data?.paragraph} pageTitle={data.heroTitle} />
+              <BestService
+                text1={data?.paragraph}
+                pageTitle={data?.heroTitle}
+              />
 
               <div className={styles.aligncontent}>
                 <p className={styles.text}>
@@ -108,12 +113,12 @@ const Montgomerycarservice = (props) => {
                 alt4=""
                 alt5=""
                 alt6=""
-                img1={data.imageOne}
-                img2={data.imageTwo}
-                img3={data.imageThree}
-                img4={data.imageFour}
-                img5={data.imageFive}
-                img6={data.imageSix}
+                img1={data?.imageOne}
+                img2={data?.imageTwo}
+                img3={data?.imageThree}
+                img4={data?.imageFour}
+                img5={data?.imageFive}
+                img6={data?.imageSix}
               />
               <div className={styles.aligncontent}>
                 <p className={styles.text}>
@@ -127,7 +132,7 @@ const Montgomerycarservice = (props) => {
                 </p>
               </div>
               <Bookandpay
-                youCanGetASuperiorRide={data.youCanGetASuperiorRide}
+                youCanGetASuperiorRide={data?.youCanGetASuperiorRide}
               />
               <Imagetitle />
               <br />
@@ -139,10 +144,10 @@ const Montgomerycarservice = (props) => {
                 </p>
               </div>
               <PersonalService
-                airportTransfers={data.airportTransfers}
-                airportTransfersImage={data.airportTransfersImage}
-                carporateTransportation={data.carporateTransportation}
-                professionalCarServices={data.professionalCarServices}
+                airportTransfers={data?.airportTransfers}
+                airportTransfersImage={data?.airportTransfersImage}
+                carporateTransportation={data?.carporateTransportation}
+                professionalCarServices={data?.professionalCarServices}
               />
 
               <AskQuestion faqs={faqs} />
