@@ -355,6 +355,7 @@ span.displayed-text .read-more-button {
 
 .terminate_newline {
   display: inline-flex;
+  align-items: center;
 }
 
 .add_overflow {

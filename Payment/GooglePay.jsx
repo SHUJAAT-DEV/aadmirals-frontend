@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 
 export default function GooglePay() {
   const PreBookingReducer = useSelector((state) => state.PreBookingReducer);
-  console.log(PreBookingReducer.amount);
     return (
         <GooglePayButton
             environment="TEST"
@@ -34,7 +33,7 @@ export default function GooglePay() {
                 transactionInfo: {
                     totalPriceStatus: 'FINAL',
                     totalPriceLabel: 'Total',
-                    totalPrice: PreBookingReducer.amount,
+                    totalPrice: String(PreBookingReducer.amount) ,
                     currencyCode: 'USD',
                     countryCode: 'US',
                 },
