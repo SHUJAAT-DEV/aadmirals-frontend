@@ -18,7 +18,7 @@ import useService from "../../utils/services/useServices";
 
 function GraduationPage() {
   const router = useRouter();
-  const {serviceContent ,isLoading, isError,error}= useService("64019e6389f32d0dc4772a4b")
+  const {serviceContent ,isLoading, isError,error}= useService("64019e6389f32d0dc4772a4c")
   return (
     <>
       <NextSeo
@@ -60,7 +60,7 @@ function GraduationPage() {
 }
 export async function getStaticProps({ query }) {
   const queryClient = new QueryClient()
-  await queryClient.prefetchQuery(['service-page', "64019e6389f32d0dc4772a4b"], getServiceContentById("64019e6389f32d0dc4772a4b"))
+  await queryClient.prefetchQuery(['service-page', "64019e6389f32d0dc4772a4c"], getServiceContentById("64019e6389f32d0dc4772a4c"))
   return {
     props: {
       dehydratedState: dehydrate(queryClient),

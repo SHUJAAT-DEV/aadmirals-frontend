@@ -96,7 +96,7 @@ const Header = () => {
                     ref={ref}
                     onMouseEnter={() => setState("open")}>
                     <NavbarBrand
-                      href="/"
+                      href="/services"
                       style={{
                         color: "white",
                         marginRight: "0.5rem",
