@@ -1,6 +1,12 @@
 @media only screen and (min-width: 1000px) {
 
   //   // FOR DESKTOP AND TABLET
+  .heroDesc {
+    display: none;
+  }
+  .heroDescHd{
+    display: block;
+  }
   .mainDiv {
     background-position: bottom;
     background-repeat: no-repeat;
@@ -83,6 +89,22 @@
 @media only screen and (min-width: 768px) and (max-width: 999px) {
 
   //   /* phones */
+
+  .heroDesc {
+    color: white;
+    background: transparent;
+    background-color: black;
+    margin: 3%;
+    padding: 3% 1%;
+    border-radius: 1rem;
+    line-height: normal;
+    display: block;
+    font-size: 19px !important;
+    font-family: ProximaNovaRegular !important;
+  }
+  .heroDescHd {
+    display: none;
+  }
   .mainDiv {
     background-size: cover;
     background-position: bottom;
@@ -155,6 +177,23 @@
 @media only screen and (max-width: 767px) {
 
   //   /* phones */
+  .heroDesc p {
+    color: white;
+    background: transparent;
+    background-color: black;
+    margin: 3%;
+    padding: 3% 1%;
+    border-radius: 1rem;
+    line-height: normal;
+    display: block;
+    font-size: 19px !important;
+    font-family: ProximaNovaRegular !important;
+  }
+  .heroDescHd {
+    p{
+      display: none !important;
+    }
+  }
   .mainDiv {
     background-size: cover;
     background-position: bottom;

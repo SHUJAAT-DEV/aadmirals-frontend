@@ -87,7 +87,8 @@ function Home({ serviceDetail }) {
       return (
         <span
           onClick={handleSection}
-          className="hoverEffect button-container"
+          style={{color:"blue"}}
+          className="hoverEffect "
           >
           Read More
         </span>
@@ -99,8 +100,9 @@ function Home({ serviceDetail }) {
     if(section2){
         return (
           <span
+            style={{color:"blue"}}
             onClick={handleSection2}
-            className="hoverEffect button-container"
+            className="hoverEffect "
             >
             Read More
           </span>
@@ -113,7 +115,8 @@ function Home({ serviceDetail }) {
       return (
         <span
           onClick={handleSection3}
-          className="hoverEffect button-container"
+          style={{color:"blue"}}
+          className="hoverEffect "
           >
           Read More
         </span>

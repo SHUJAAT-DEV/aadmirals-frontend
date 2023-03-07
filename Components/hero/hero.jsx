@@ -29,14 +29,23 @@ const Hero = ({Text, Form, MotoHidden, img, Title}) => {
           </div>
           <h1 className={styles.home_h1}>{Title}</h1>
           {MotoHidden ? null : (
+            <div className={styles.heroDescHd} >
             <div
               className={styles.moto}
               dangerouslySetInnerHTML={{
                 __html: Text,
-              }}></div>
+              }}></div></div>
           )}
+
         </div>
         <Form />
+        
+            <div className={styles.heroDesc}>
+            <div
+              className={styles.moto}
+              dangerouslySetInnerHTML={{
+                __html: Text,
+              }}></div></div>
       </Container>
     </div>
   );
