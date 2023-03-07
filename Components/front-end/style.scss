@@ -213,6 +213,7 @@ section.section02,
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .cardsParentContainer2 {
@@ -699,6 +700,7 @@ section.section02,
 
 .section4 > .cardsContainer > .cardsParentContainer {
   .cards1 {
+    width: 22vw;
     background-color: white;
     padding-top: 10px;
     padding: 20px;
@@ -718,16 +720,18 @@ section.section02,
       font-size: 18px;
       font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
       color: black;
+      line-height: normal;
+      margin-bottom: 1rem;
     }
 
     p {
       color: black;
-      line-height: 6px;
+      line-height: normal;
       font-family: "ProximaNovaLight";
     }
 
     button {
-      width: 220px;
+      width: 100%;
       height: 61px;
       border-radius: 0px;
       color: white;
@@ -959,11 +963,21 @@ section.section02,
   .section5 .cards1 {
     margin: 2.5%;
   }
+  .section4 > .cardsContainer > .cardsParentContainer .cards1{
+    width: 50vw;
+  }
 
  
 }
 
 @media screen and(max-width:768px) {
+  .section4 > .cardsContainer > .cardsParentContainer .cards1
+   {
+    width: 80vw;
+  }
+  .section4 > .cardsContainer > .cardsParentContainer .cards1:nth-child(even){
+    display: none;
+    }
   .icons-container {
     flex-direction: column;
   }
@@ -1158,10 +1172,8 @@ section.section02,
   .section4 .cards1 {
     width: 85vw;
     margin: 3% 0;
-    text-align: -webkit-center !important;
     p {
       text-align-last: left;
-      margin-left: 2.3rem;
     }
   }
 }
