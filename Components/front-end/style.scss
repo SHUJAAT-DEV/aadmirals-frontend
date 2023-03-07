@@ -5,6 +5,9 @@ section {
   height: fit-content;
 }
 
+.hoverEffect:hover {
+  cursor: pointer;
+}
 .home-section {
   color: black;
   background-image: url(http://limme.like-themes.com/wp-content/uploads/2020/11/about-map.png);
@@ -129,7 +132,6 @@ section.section02,
 .content-container1 {
   margin-right: 2%;
   width: 50vw;
-  height: 30vw;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -347,7 +349,6 @@ section.section02,
   font-size: 17px;
   line-height: 21px;
   width: 50vw;
-  height: 34vw;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -364,21 +365,15 @@ section.section02,
   display: flex;
 }
 
-.section2 > .container2 > .content-container22 {
-  .button-container2 {
-    button {
+  .button-container {
+      width: fit-content;
+      padding: .5rem .7rem;
+      border-radius: .2rem;
       color: white;
       background-color: #ef4a67;
-    }
   }
-}
 
-.section02 > .section02-container > .content-container1 > .inner-text,
-.section3-container .inner-text,
-.section2 .inner-text {
-  height: 16vw;
-  overflow: hidden;
-}
+
 
 .button-container2 button {
   height: 3rem;
@@ -973,10 +968,7 @@ section.section02,
     margin: 2.5%;
   }
 
-  .inner-text {
-    height: 30vh;
-    overflow: hidden;
-  }
+ 
 }
 
 @media screen and(max-width:768px) {
@@ -985,12 +977,6 @@ section.section02,
   }
   .home-section .icons-container .icons .text {
     width: 100%;
-  }
-  .section02 > .section02-container > .content-container1 > .inner-text,
-  .section3-container .inner-text,
-  .section2 .inner-text {
-    height: 16vh;
-    overflow: hidden;
   }
 
   section {
@@ -1144,10 +1130,7 @@ section.section02,
     }
   }
 
-  .inner-text {
-    height: 30vh;
-    overflow: hidden;
-  }
+ 
   .contact .info-box {
     text-align-last: center;
   }

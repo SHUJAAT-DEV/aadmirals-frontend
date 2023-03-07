@@ -13,6 +13,9 @@ import imageCap1 from "../../Assets/cardTitle.png";
 import imageCap2 from "../../Assets/cardTitle2.jpg";
 import imageCap3 from "../../Assets/cardTitle3.jpg";
 import { useSelector } from "react-redux";
+import {fetchLimitedContent,fetchLimitedContent2,fetchLimitedContent3} from "./fetchLimitedContent";
+import { useState } from "react";
+import sanitizeHTML from "../hero/SanitizedReactUtils";
 
 const card1 = {
   title: "Standard Sedan Lincoln MKS, MKZ",
@@ -58,6 +61,67 @@ const airportCard4 ={
 }
 
 function Home({ serviceDetail }) {
+  const [section1, setSection1] = useState(true);
+  const [section2, setSection2] = useState(true);
+  const [section3, setSection3] = useState(true);
+
+  let sanitizedContentSection1 = sanitizeHTML(serviceDetail.firstSectionsDescription);
+  let showLimitedContentSection1 = "";
+  showLimitedContentSection1 = fetchLimitedContent(sanitizedContentSection1);
+  const sectionContent = section1 ? showLimitedContentSection1 : sanitizedContentSection1;
+  const handleSection = () => setSection1(false);
+
+  let sanitizedContentSection2 = sanitizeHTML(serviceDetail.secondSectionDescription);
+  let showLimitedContentSection2 = "";
+  showLimitedContentSection2 = fetchLimitedContent2(sanitizedContentSection2);
+  const sectionContent2 = section2 ? showLimitedContentSection2 : sanitizedContentSection2;
+  const handleSection2 = () => setSection2(false);
+
+  let sanitizedContentSection3 = sanitizeHTML(serviceDetail.thirdSectionDescription);
+  let showLimitedContentSection3 = "";
+  showLimitedContentSection3 = fetchLimitedContent3(sanitizedContentSection3);
+  const sectionContent3 = section3 ? showLimitedContentSection3 : sanitizedContentSection3;
+  const handleSection3 = () => setSection3(false);
+  const visible = () => {
+    if (section1) {
+      return (
+        <span
+          onClick={handleSection}
+          className="hoverEffect button-container"
+          >
+          Read More
+        </span>
+      );
+    }
+  return null;
+  };
+  const visible2 = () => {
+    if(section2){
+        return (
+          <span
+            onClick={handleSection2}
+            className="hoverEffect button-container"
+            >
+            Read More
+          </span>
+        );
+      }
+    return null;
+  };
+  const visible3 = () => {
+     if(section3){
+      return (
+        <span
+          onClick={handleSection3}
+          className="hoverEffect button-container"
+          >
+          Read More
+        </span>
+      );
+    }
+    return null;
+  };
+
   const details = useSelector((state) => state.contactDetails);
   const { contact_details_page } = details;
   const det = contact_details_page && contact_details_page.contactDetails[0];
@@ -73,12 +137,12 @@ function Home({ serviceDetail }) {
                   "AAdmirals Travel & Transportation Houston Limo Service"}
               </h3>
             </div>
-            <div
-              className="inner-text"
+            <div className="inner-text" 
               dangerouslySetInnerHTML={{
                 __html: serviceDetail.metaDescription,
               }}>
             </div>
+            
           </div>
         </div>
         <div className="icons-container">
@@ -134,8 +198,9 @@ function Home({ serviceDetail }) {
             <div
               className="inner-text"
               dangerouslySetInnerHTML={{
-                __html: serviceDetail.firstSectionsDescription,
+                __html:sectionContent,
               }}></div>
+              {visible()}
             <br />
             <div className="number-container2">
               <a href={`tel:+1${det && det.phoneNumber}`}>
@@ -188,8 +253,9 @@ function Home({ serviceDetail }) {
             <div
               className="inner-text"
               dangerouslySetInnerHTML={{
-                __html: serviceDetail.secondSectionDescription,
+                __html: sectionContent2,
               }}></div>
+              {visible2()}
             <br />
             <div className="number-container2">
               <a href={`tel:+1${det && det.phoneNumber}`}>
@@ -221,8 +287,9 @@ function Home({ serviceDetail }) {
             <div
               className="inner-text"
               dangerouslySetInnerHTML={{
-                __html: serviceDetail.thirdSectionDescription,
+                __html: sectionContent3,
               }}></div>
+              {visible3()}
             <br />
             <div className="number-container2">
               <a href={`tel:+1${det && det.phoneNumber}`}>
