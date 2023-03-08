@@ -230,7 +230,7 @@
 
     h1:nth-child(2) {
       line-height: 90%;
-      font-size: 2.3rem;
+      font-size: 1.3rem;
       font-family: ProximaNovaBold;
       text-align: center;
     }
@@ -255,6 +255,8 @@
       font-family: ProximaNovaRegular !important;
       color: white !important;
       margin: auto;
+      overflow: hidden;
+      height: 8rem;
     }
   }
 }
