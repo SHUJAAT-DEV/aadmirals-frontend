@@ -2,32 +2,24 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  /* font-family: ProximaNovaRegular !important; */
 }
 
 p,
 span,
 li,
 h6 {
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
-}
-
-span.displayed-text .read-more-button {
-  text-decoration: none !important;
-}
-
-span.displayed-text .read-more-button:hover {
-  cursor: pointer;
+  font-family: 'ProximaNovaRegular' !important;
 }
 
 button {
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  font-family: 'ProximaNovaBold';
 }
 
 h3,
 h2 {
 
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  font-family: 'ProximaNovaBold';
 }
 
 .dropdown-item {
@@ -37,8 +29,8 @@ h2 {
 }
 
 center h2 {
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+
+  font-family: 'ProximaNovaBold';
 }
 
 .dropdown-submenu-container {
@@ -94,15 +86,6 @@ center h2 {
   z-index: -1 !important;
 }
 
-::-webkit-scrollbar {
-  width: 3px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #808080ba;
-  border-radius: 0px;
-}
-
 .szh-menu li.szh-menu__item,
 .szh-menu li.szh-menu__submenu {
   display: block;
@@ -116,10 +99,6 @@ center h2 {
   background-color: transparent;
   border: 0;
   font-size: 14px;
-}
-
-.main_card_style {
-  width: 30vw !important;
 }
 
 .szh-menu li.szh-menu__submenu>div {
@@ -175,7 +154,7 @@ footer {
 .links_footer ul li {
   list-style: none;
   padding: 3px 0;
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  font-family: 'ProximaNovaRegular';
 }
 
 .footer_parenbt {
@@ -206,7 +185,7 @@ footer {
   font-size: 14px;
   line-height: 40px;
   color: #b2b3b5;
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  font-family: 'ProximaNovaRegular';
 }
 
 .sub-footer .copy a {
@@ -236,7 +215,7 @@ footer {
 .headeR_nav_main_header .button_dropdown,
 .headeR_nav_main_header .dropdown_Services {
   font-size: 12px;
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  font-family: 'ProximaNovaRegular';
 }
 
 .custom_lniks_mobile {
@@ -246,22 +225,22 @@ footer {
 .breakword_paragraph p {
   word-break: break-word;
 
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  font-family: 'ProximaNovaRegular';
 
 }
 
 .breakword_paragraph span {
 
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  font-family: 'ProximaNovaRegular';
 
 }
 
 .carCardContainer h6 {
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  font-family: 'ProximaNovaBold';
 }
 
 .carCardContainer p {
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  font-family: 'ProximaNovaRegular';
 
 }
 
@@ -280,16 +259,16 @@ footer {
 span.displayed-text .read-more-button {
   color: #ee405e;
   text-decoration: underline;
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  font-family: 'ProximaNovaBold';
 }
 
 .display-text-group span {
   font-size: 16px;
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  font-family: ProximaNovaRegular !important;
 }
 
 .custom_main_images {
-  width: 100%;
+  width: 90%;
 }
 
 .add_bottom_mrgin {
@@ -327,7 +306,7 @@ span.displayed-text .read-more-button {
   color: #ee405e;
   font-weight: 700;
   margin: 20px 0 10px 0;
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  font-family: 'ProximaNovaBold';
 }
 
 .contact .info-box p,
@@ -336,7 +315,7 @@ span.displayed-text .read-more-button {
   line-height: 24px;
   font-size: 14px;
   margin-bottom: 0;
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  font-family: 'ProximaNovaRegular';
 }
 
 .main_section_bg {
@@ -349,17 +328,8 @@ span.displayed-text .read-more-button {
   margin-right: 10px;
 }
 
-.info-box {
-  box-shadow: 0px 0px 4px 3px #80808026;
-}
-
-.terminate_newline {
-  display: inline-flex;
-  align-items: center;
-}
-
 .add_overflow {
-  padding-bottom: 101px;
+  overflow: hidden;
 }
 
 .custom_contactus {
@@ -367,7 +337,6 @@ span.displayed-text .read-more-button {
   padding: 30px 30px 0px;
   height: 100%;
   margin-top: 2rem;
-  box-shadow: 0px 0px 4px 3px #80808026;
 }
 
 .custom_contactus .card {
@@ -378,18 +347,18 @@ span.displayed-text .read-more-button {
   font-size: 16px !important;
   font-weight: bold;
   float: left;
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  font-family: 'ProximaNovaBold';
   margin-bottom: 6px;
   color: #000 !important;
 }
 
 .custom_contactus input {
   height: 46px !important;
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  font-family: 'ProximaNovaRegular';
 }
 
 .custom_contactus textarea {
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  font-family: 'ProximaNovaRegular';
 
 }
 
@@ -398,18 +367,18 @@ span.displayed-text .read-more-button {
   padding: 10px 20px;
   height: auto !important;
   font-size: 16px;
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  font-family: 'ProximaNovaBold';
 }
 
 .custom_class_nav .nav-tabs .nav-item.show .nav-link,
 .custom_class_nav .nav-tabs .nav-link {
   padding: 10px 20px;
   font-size: 16px;
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  font-family: 'ProximaNovaBold';
 }
 
 .custom_class_nav input {
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  font-family: 'ProximaNovaLight' !important;
   outline: none;
   box-shadow: none !important;
 }
@@ -429,13 +398,31 @@ span.displayed-text .read-more-button {
 .contact_heding h3 {
   font-size: 30px;
   font-weight: 600;
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  font-family: 'ProximaNovaBold';
   text-align: center;
   margin-bottom: 0;
 }
 
+/* .rec-carousel-item-next .testomial_main {
+  transform: scale(1.2);
+  filter: none ;
+} */
+/* .rec-carousel-item-next .testimonial {
+  padding: 20px 50px;
+  border: none;
+} */
+/* .rec-carousel-item-next h6 {
+  font-size: 12px;
+}
+.testomial_main {
+  filter: blur(1px);
+  transform: scale(.8);
+}
+.rec-carousel-item-next .rec-item-wrapper {
+  height: 300px;
+} */
 .navbar-expand-md .navbar-nav .nav-link {
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  font-family: 'ProximaNovaRegular';
 }
 
 @media only screen and (min-width: 1000px) {
@@ -451,15 +438,18 @@ span.displayed-text .read-more-button {
     padding: 10px 10px;
     height: auto !important;
     font-size: 16px;
-    font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+    font-family: 'ProximaNovaBold';
   }
+
 }
 
 .services-links li {
   list-style: none;
   font-weight: 600;
   color: black;
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+
+  font-family: 'ProximaNovaRegular';
+
 }
 
 .services-links a:active {
@@ -503,7 +493,7 @@ span.displayed-text .read-more-button {
 }
 
 .services-links h3 {
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  font-family: 'ProximaNovaBold';
 }
 
 @media screen and (max-width: 767px) {
@@ -513,6 +503,10 @@ span.displayed-text .read-more-button {
 
   .main_video_iframe {
     height: 220px;
+  }
+
+  .main_section_bg .row {
+    margin: 0;
   }
 
   .info_boxes_main {
@@ -527,11 +521,6 @@ span.displayed-text .read-more-button {
   .main_tabs_cnotent {
     padding: 0 16px 16px;
   }
-
-  .main_card_style {
-    width: 99% !important;
-    margin-left: -19px;
-  }
 }
 
 .swiper.swiper-initialized.swiper-horizontal.swiper-pointer-events.mySwiper {
@@ -541,68 +530,4 @@ span.displayed-text .read-more-button {
 .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
 .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
   background: #ee405e !important;
-}
-
-@media only screen and (max-width: 576px) {
-  .contact_div {
-    margin-left: 37px;
-    margin-right: 37px;
-  }
-
-  .useful_contact ul {
-    flex: auto;
-    max-width: auto;
-  }
-
-  .useful_contact {
-    margin-left: 32px;
-    margin-top: 26px;
-  }
-
-  .useful_contact2 {
-    margin-top: -182px;
-    margin-left: 225px;
-  }
-
-  .social_links {
-    margin-top: -60px;
-    margin-left: 215px;
-  }
-}
-
-@media only screen and (max-width: 426px) {
-  .footer_logo {
-    margin-left: 25px;
-  }
-
-  .social_links {
-    margin-left: 186px;
-  }
-
-  .useful_contact {
-    margin-left: 32px;
-  }
-
-  .useful_contact2 {
-    margin-left: 198px;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  .useful_contact2 {
-    margin-left: 22vh;
-  }
-
-  .useful_contact {
-    margin-left: 3vh;
-  }
-
-  .social_links {
-    margin-left: 9vh;
-    margin-top: -11px;
-  }
-
-  .footer_logo {
-    margin-left: 32%;
-  }
 }

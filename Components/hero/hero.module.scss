@@ -1,10 +1,9 @@
 @media only screen and (min-width: 1000px) {
-
   //   // FOR DESKTOP AND TABLET
   .heroDesc {
     display: none;
   }
-  .heroDescHd{
+  .heroDescHd {
     display: block;
   }
   .mainDiv {
@@ -41,7 +40,7 @@
       color: white !important;
 
       p {
-        line-height: normal !important;
+        line-height: 200% !important;
         font-size: 19px !important;
         font-family: ProximaNovaRegular !important;
         color: #fff !important;
@@ -69,13 +68,13 @@
     h1:nth-child(2) {
       line-height: 90%;
       font-size: 38px;
-      font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+      font-family: ProximaNovaBold;
     }
 
     h1:nth-child(3) {
       line-height: 90%;
       font-size: 48px;
-      font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+      font-family: ProximaNovaBold;
     }
 
     .des {
@@ -87,7 +86,6 @@
 }
 
 @media only screen and (min-width: 768px) and (max-width: 999px) {
-
   //   /* phones */
 
   .heroDesc {
@@ -135,7 +133,7 @@
     display: inline-block;
 
     p {
-      line-height: normal !important;
+      line-height: 200% !important;
       font-size: 19px !important;
       font-family: ProximaNovaRegular !important;
       color: #fff !important;
@@ -146,14 +144,14 @@
     h1:nth-child(2) {
       line-height: 90%;
       font-size: 2.3rem;
-      font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+      font-family: ProximaNovaBold;
       text-align: left;
       padding: 0 0.5rem;
     }
     h1:nth-child(3) {
       line-height: 90%;
       font-size: 2.3rem;
-      font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+      font-family: ProximaNovaBold;
       text-align: center;
     }
 
@@ -175,7 +173,6 @@
 }
 
 @media only screen and (max-width: 767px) {
-
   //   /* phones */
   .heroDesc p {
     color: white;
@@ -190,7 +187,7 @@
     font-family: ProximaNovaRegular !important;
   }
   .heroDescHd {
-    p{
+    p {
       display: none !important;
     }
   }
@@ -234,14 +231,14 @@
     h1:nth-child(2) {
       line-height: 90%;
       font-size: 2.3rem;
-      font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+      font-family: ProximaNovaBold;
       text-align: center;
     }
 
     h1:nth-child(3) {
       line-height: 90%;
       font-size: 2.3rem;
-      font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+      font-family: ProximaNovaBold;
       text-align: center;
     }
 
@@ -268,7 +265,7 @@
   .home_h1 {
     padding-bottom: 1%;
     font-size: 36px !important;
-    font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+    font-family: ProximaNovaBold;
   }
 }
 
@@ -276,7 +273,7 @@
   .home_h1 {
     padding-bottom: 1%;
     font-size: 32px !important;
-    font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+    font-family: ProximaNovaBold;
   }
 }
 
@@ -285,7 +282,7 @@
     font-size: 25px !important;
     padding-bottom: 1%;
 
-    font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+    font-family: ProximaNovaBold;
   }
 }
 
@@ -294,7 +291,7 @@
     font-size: 25px !important;
     padding-bottom: 1%;
 
-    font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+    font-family: ProximaNovaBold;
   }
 }
 

@@ -1,11 +1,11 @@
 /* eslint-disable react/display-name */
-import React, {useState, useRef, useEffect} from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styles from "./hero.module.scss";
-import {Container} from "reactstrap";
+import { Container } from "reactstrap";
 import Image from "next/image";
 import sanitizeHTML from "./SanitizedReactUtils";
 
-const Hero = React.memo(({Text, Form, MotoHidden, img, Title}) => {
+const Hero = React.memo(({ Text, Form, MotoHidden, img, Title }) => {
   const contentSanitized = sanitizeHTML(Text);
   return (
     <div>
@@ -23,7 +23,7 @@ const Hero = React.memo(({Text, Form, MotoHidden, img, Title}) => {
       </div>
       <Container className={styles.mainContainer} fluid>
         <div className={styles.headingsContainer}>
-          <div style={{paddingInline: "10px", width: "100%"}}>
+          <div style={{ paddingInline: "10px", width: "100%" }}>
             <p>
               <span
                 style={{
@@ -35,7 +35,7 @@ const Hero = React.memo(({Text, Form, MotoHidden, img, Title}) => {
               </span>
             </p>
           </div>
-          <h1 className={styles.home_h1}>{Title}</h1>
+          <h1>{Title}</h1>
           {MotoHidden ? null : (
             <div
               className={styles.moto}

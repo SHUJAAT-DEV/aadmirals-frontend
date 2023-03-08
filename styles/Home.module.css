@@ -65,7 +65,7 @@
   border-radius: 5px;
   padding: 0.75rem;
   font-size: 1.1rem;
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  font-family: ProximaNovaBold;
 }
 
 .grid {
@@ -99,7 +99,7 @@
 .card h2 {
   margin: 0 0 1rem 0;
   font-size: 1.5rem;
-  font-family: AvenirNext, Helvetica, Arial, Open Sans, sans-serif;
+  font-family: ProximaNovaBold;
 
 }
 
