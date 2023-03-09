@@ -16,6 +16,7 @@ import { useSelector } from "react-redux";
 import {fetchLimitedContent,fetchLimitedContent2,fetchLimitedContent3} from "./fetchLimitedContent";
 import { useState } from "react";
 import sanitizeHTML from "../hero/SanitizedReactUtils";
+import { useRouter } from "next/router";
 
 const card1 = {
   title: "Standard Sedan Lincoln MKS, MKZ",
@@ -132,7 +133,19 @@ const card =[
   link: "/celebrations/bachelor-party-transfer"
 }
 ]
+const cardCities =[
+  {
+    title: "city",
+    description: "city",
+    link: "/cities/houston-limo-car-service"
+  },
+{
+  title: "city",
+  description: "city",
+  link: "city"
+},
 
+]
 
 function Home({ serviceDetail }) {
   const [section1, setSection1] = useState(true);
@@ -202,6 +215,12 @@ function Home({ serviceDetail }) {
   const details = useSelector((state) => state.contactDetails);
   const { contact_details_page } = details;
   const det = contact_details_page && contact_details_page.contactDetails[0];
+
+  const router = useRouter();
+  const currentUrl = router.asPath;
+  const currentLocation=currentUrl.split("/");
+  console.log("url=",currentLocation[1]);
+
   return (
     <>
       <section className="home-section">
@@ -415,10 +434,7 @@ function Home({ serviceDetail }) {
             </div>
           </div>
           <div className="cardsParentContainer">
-            <CardsSection1 data={card}/>
-            {/* <CardsSection1 data={card} />
-            <CardsSection1 data={card} />
-            <CardsSection1 data={card} /> */}
+            {(currentLocation[1]==="cities")? <CardsSection1 data={cardCities}/>: <CardsSection1 data={card}/> }
           </div>
         </div>
       </section>

@@ -28,62 +28,62 @@ const Cities = (props) => {
         <link rel="canonical" href={`https://aadmirals.com/${props.router.query.slug}`} />
     </Head> */}
         {props.router.query.slug=="houston-limo-car-service" ?
-       <Houstoncarservice data1={props.data1} slug="houston-limo-car-service" />
+       <Houstoncarservice slug="houston-limo-car-service" />
        :
         ""
       } 
         {props.router.query.slug=="galveston-limo-car-service" ?
-       <GalvestonCarService data1={props.data1} slug="galveston-limo-car-service"  />
+       <GalvestonCarService slug="galveston-limo-car-service"  />
        :
         ""
       }
       {props.router.query.slug=="montgomery-limo-car-service"   ?
-       <MontgomeryCarService data1={props.data1} slug="montgomery-limo-car-service"/>
+       <MontgomeryCarService slug="montgomery-limo-car-service"/>
        :
         ""
       }
        {props.router.query.slug=="conroe-limo-car-service" ?
-       <ConroeCarService data1={props.data1} slug="conroe-limo-car-service"/>
+       <ConroeCarService slug="conroe-limo-car-service"/>
        :
         ""
       }
       {props.router.query.slug=="tomball-limo-car-service" ?
-       <TomballCarService data1={props.data1} slug="tomball-limo-car-service"/>
+       <TomballCarService slug="tomball-limo-car-service"/>
        :
         ""
       }
        {props.router.query.slug=="cypress-limo-car-service" ?
-       <CypressCarService data1={props.data1} slug="cypress-limo-car-service"/>
+       <CypressCarService slug="cypress-limo-car-service"/>
        :
         ""
       }
          {props.router.query.slug=="beaumont-limo-car-service" ?
-       <BeaumontCarService data1={props.data1} slug="beaumont-limo-car-service"/>
+       <BeaumontCarService slug="beaumont-limo-car-service"/>
        :
         ""
       }
          {props.router.query.slug=="sugarland-limo-car-service" ?
-       <SugarlandCarService data1={props.data1} slug="sugarland-limo-car-service"/>
+       <SugarlandCarService slug="sugarland-limo-car-service"/>
        :
         ""
       }
         {props.router.query.slug=="richmond-limo-car-service" ?
-       <RichmondCarService data1={props.data1}  slug="richmond-limo-car-service"/>
+       <RichmondCarService  slug="richmond-limo-car-service"/>
        :
         ""
       }
         {props.router.query.slug=="katy-limo-car-service" ?
-       <Katycarservice data1={props.data1} slug="katy-limo-car-service"/>
+       <Katycarservice slug="katy-limo-car-service"/>
        :
         ""
       }
            {props.router.query.slug=="spring-limo-car-service" ?
-       <SpringCarService data1={props.data1} slug="spring-limo-car-service" />
+       <SpringCarService  slug="spring-limo-car-service" />
        :
         ""
       }
            {props.router.query.slug=="fulshear-limo-car-service" ?
-       <FulshearCarService data1={props.data1} slug="fulshear-limo-car-service"/>
+       <FulshearCarService slug="fulshear-limo-car-service"/>
        :
         ""
       }

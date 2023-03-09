@@ -4,151 +4,52 @@ import Header from "../Header/Header";
 import HomeForm from "../Home Form/HomeForm";
 import Footer from "../Footer/Footer";
 import { Col, Container, Row } from "reactstrap";
-import Limo from "../limo/limo";
-import AskQuestion from "../askquestions/askquestion";
-import BestService from "../besttransporationservice/service";
-import ImageSection from "../imagesection/imagesectin";
-import Bookandpay from "../bokandpay/bookandpay";
-import Imagetitle from "../imagetitle/imagesectin";
-import PersonalService from "../personalcarservices/service";
 import Floatingbutton from "../floaingbutton/floatingbutton";
 import Hero from "../hero/hero";
 import SideNav from "../Header/SideNav/SideNav";
 import Loader from "../Loader/Loader";
-import { getRichmondLimoPage } from "../../redux/Cities/Richmond_Limo_Service/action";
-import { useDispatch, useSelector } from "react-redux";
 import { Alert } from "reactstrap";
 import { NextSeo } from "next-seo";
-import Image from "next/image";
+import { useRouter } from "next/router";
+import getServiceContentById  from "../../utils/services/serviceApi" ;
+import useService from "../../utils/services/useServices";
+import limo from "../../Assets/about-limmo.png";
+import Home from '../../Components/front-end/Home';
 const Richmondcarservice = (props) => {
-  const dispatch = useDispatch();
-
-  // const cms = useSelector((state) => state.richmondLimo);
-  // const { richmond_limo_page } = cms;
-
-  // const data = richmond_limo_page && richmond_limo_page.richmondLimoService[0];
-  // const faqs = cms.richmond_limo_page && cms.richmond_limo_page.faqs;
-
-  useEffect(() => {
-    dispatch(getRichmondLimoPage());
-  }, []);
-  const cms = props.data1;
-  const { richmond_limo_page } = cms;
-
-  const data = richmond_limo_page && richmond_limo_page.richmondLimoService[0];
-  const faqs = cms.richmond_limo_page && cms.richmond_limo_page.faqs;
+  const router = useRouter();
+  const {serviceContent ,isLoading, isError,error}= useService("64019d4189f32d0dc47729ba")
   return (
     <>
       <NextSeo
-        title={data?.metaTitle}
-        description={data?.metaDescription}
-        canonical={`https://aadmirals.com/cities/${props?.slug}`}
+        title={serviceContent?.metaTitle}
+        description={serviceContent?.metaDescription}
+        canonical={`https://aadmirals.com${router?.pathname}`}
       />
-      {cms.loading || cms.error ? (
+      {isError || isLoading ? (
         <Loader />
       ) : (
         <>
-          <div>
+          <div style={{ overflow: "hidden" }}>
             <SideNav />
             <Floatingbutton />
             <Header />
-            {cms.error ? (
+            {error ? (
               <Alert className="m-0" color="danger">
-                {cms.error}
+                {error}
               </Alert>
             ) : null}
-            <div className={styles.mainContainer}>
+            <Container className={`${styles.mainContainer} p-0`} fluid>
               <Hero
-                Text={data?.heroDescription}
-                Title={data?.heroTitle}
-                img={data?.heroImage}
+                Text={serviceContent?.heroDescription}
+                Title={
+                  serviceContent?.heroTitle ||
+                  "Galveston Cruise Transfer & Shuttle | IAH/Hobby Airport to Glaveston"
+                }
+                img={serviceContent?.heroImage|| limo}
                 Form={HomeForm}
               />
-            </div>
-            <Container>
-              <Row>
-                <Col xs={12}>
-                  <div className={styles.aligncenter}>
-                    <p className={styles.headtext}>
-                      We Are The Most Popular Leading Limousine And
-                      Transportation Service In The Houston Greater Area.
-                    </p>
-                  </div>
-                </Col>
-              </Row>
-              <Limo bannerImage={data.bannerImage} title={""} />
-
-              <BestService text1={data?.paragraph} pageTitle={data.heroTitle} />
-
-              <div className={styles.aligncontent}>
-                <p className={styles.text}>
-                  %10 off on all your transfer services when you complete 15
-                  reservations with AAdmirals Houston Limo Service. %15 off on
-                  your next Airport transfer service when you complete 5 Airport
-                  transfers or any transfer service with AAdmirals. %7 off on
-                  your next Airport Transfer when you rate and review AAdmirals
-                  Travel & Transportation on one of Google, Yelp or Tripadvisor.
-                  Get $5 off your next reservation when you refer AAdmirals
-                  Travel & Transportation to a friend, a family member or when
-                  you provide AAdmirals with an email of a friend or a family
-                  member, even more
-                  <span className={styles.textdark}>
-                    {" "}
-                    our online quotes and reservation system already includes a
-                    5% discounted price, so book online to save money with
-                    AAdmirals Travel & Transportation, Houston Limo Service.{" "}
-                  </span>
-                </p>
-              </div>
-
-              <ImageSection
-                alt1=""
-                alt2=""
-                alt3=""
-                alt4=""
-                alt5=""
-                alt6=""
-                img1={data?.imageOne}
-                img2={data?.imageTwo}
-                img3={data?.imageThree}
-                img4={data?.imageFour}
-                img5={data?.imageFive}
-                img6={data?.imageSix}
-              />
-              <div className={styles.aligncontent}>
-                <p className={styles.text}>
-                  AAdmirals Travel& Transportation Houston Limo Service offers
-                  ground transportation services, including Airport Transfer,
-                  Airport Private Shuttle, Galveston Cruise Transfer, Social
-                  Events Transfer, Business Conventions Transfer, Celebrations
-                  Transfer, City To City Transfer and By The Hour Car Service,
-                  AAdmirals Houston Limo Service delivers ground transportation
-                  services to Individuals, Groups and Corporations.
-                </p>
-              </div>
-
-              <Bookandpay
-                youCanGetASuperiorRide={data?.youCanGetASuperiorRide}
-              />
-              <Imagetitle />
-              <br />
-              <div className={styles.aligncontent}>
-                <p className={styles.text1}>
-                  Aadmirals houston limo service is the finest luxury car
-                  service which provides what you need when you need it,
-                  conveniently.
-                </p>
-              </div>
-              <PersonalService
-                airportTransfers={data.airportTransfers}
-                airportTransfersImage={data.airportTransfersImage}
-                carporateTransportation={data.carporateTransportation}
-                professionalCarServices={data.professionalCarServices}
-              />
-
-              <AskQuestion faqs={faqs} />
             </Container>
-            {/* <Testmonial /> */}
+            <Home serviceDetail={serviceContent} />
             <Footer />
           </div>
         </>
@@ -156,5 +57,13 @@ const Richmondcarservice = (props) => {
     </>
   );
 };
-
+export async function getStaticProps({ query }) {
+  const queryClient = new QueryClient()
+  await queryClient.prefetchQuery(['service-page', "64019d4189f32d0dc47729ba"], getServiceContentById("64019d4189f32d0dc47729ba"))
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  }
+}
 export default Richmondcarservice;
