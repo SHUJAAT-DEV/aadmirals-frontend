@@ -88,14 +88,15 @@
 @media only screen and (min-width: 768px) and (max-width: 999px) {
   //   /* phones */
 
-  .heroDesc {
+  .heroDesc p {
     color: white;
     background: transparent;
     background-color: black;
-    margin: 3%;
-    padding: 3% 1%;
-    border-radius: 1rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: .5rem;
     line-height: normal;
+    text-align: left;
     display: block;
     font-size: 19px !important;
     font-family: ProximaNovaRegular !important;
@@ -178,18 +179,16 @@
     color: white;
     background: transparent;
     background-color: black;
-    margin: 3%;
-    padding: 3% 1%;
-    border-radius: 1rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: .5rem;
     line-height: normal;
+    text-align: left;
     display: block;
     font-size: 19px !important;
-    font-family: ProximaNovaRegular !important;
   }
   .heroDescHd {
-    p {
-      display: none !important;
-    }
+    display: none !important;
   }
   .mainDiv {
     background-size: cover;
@@ -214,9 +213,10 @@
 
   .headingsContainer {
     color: white;
-    width: 90%;
+    width: 100%;
     padding-top: 20px;
-    text-align: center;
+    padding-left: .5rem;
+    text-align: left;
     margin-top: 1rem;
     z-index: 11;
     display: inline-block;
@@ -232,7 +232,9 @@
       line-height: 90%;
       font-size: 1.3rem;
       font-family: ProximaNovaBold;
-      text-align: center;
+      text-align: left;
+      padding-left: .5rem;
+
     }
 
     h1:nth-child(3) {
