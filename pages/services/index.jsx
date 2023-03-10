@@ -26,7 +26,7 @@ import { useRouter } from 'next/router'
 import {NextSeo} from 'next-seo'
 import Testinmonial from '../../Components/Testimonial/Testimonial' 
 import Image from "next/image";
-import limo from "../../Assets/about-limmo.png";
+import bg from "../../Assets/service-bg.jpg";
 function Services(props) {
   const router = useRouter()
 
@@ -67,7 +67,7 @@ const rawMarkup=(data) =>{
 
       <div className={styles.mainContainer} fluid id="#bookingForm">
       <Hero
-           Text={""} Title={data.Description1}  img={data?.Image1|| limo }  Form={HomeForm}
+           Text={""} Title={data.Description1}  img={ bg || data?.Image1}  Form={HomeForm}
         />
       </div>
 
