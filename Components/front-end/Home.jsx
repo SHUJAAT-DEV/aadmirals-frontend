@@ -336,7 +336,6 @@ function Home({ serviceDetail }) {
             <div>
               <h3>
                 {serviceDetail.firstSectionsTitle}
-                Get first-class service to and from the airport with AAdmirals
               </h3>
             </div>
             <div

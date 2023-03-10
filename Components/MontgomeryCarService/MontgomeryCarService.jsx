@@ -17,7 +17,7 @@ import Home from '../../Components/front-end/Home';
 
 const Montgomerycarservice = (props) => {
   const router = useRouter();
-  const {serviceContent ,isLoading, isError,error}= useService("64019d4189f32d0dc47729ba")
+  const {serviceContent ,isLoading, isError,error}= useService("640afd984c4719063b9994cf")
   return (
     <>
       <NextSeo
@@ -59,7 +59,7 @@ const Montgomerycarservice = (props) => {
 };
 export async function getStaticProps({ query }) {
   const queryClient = new QueryClient()
-  await queryClient.prefetchQuery(['service-page', "64019d4189f32d0dc47729ba"], getServiceContentById("64019d4189f32d0dc47729ba"))
+  await queryClient.prefetchQuery(['service-page', "640afd984c4719063b9994cf"], getServiceContentById("640afd984c4719063b9994cf"))
   return {
     props: {
       dehydratedState: dehydrate(queryClient),

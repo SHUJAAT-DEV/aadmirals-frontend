@@ -17,7 +17,7 @@ import useService from "../../utils/services/useServices";
 import Home from '../../Components/front-end/Home';
 const Katycarservice = (props) => {
   const router = useRouter();
-  const {serviceContent ,isLoading, isError,error}= useService("64019d4189f32d0dc47729ba")
+  const {serviceContent ,isLoading, isError,error}= useService("640afecf4c4719063b999673")
   return (
     <>
       <NextSeo
@@ -59,7 +59,7 @@ const Katycarservice = (props) => {
 };
 export async function getStaticProps({ query }) {
   const queryClient = new QueryClient()
-  await queryClient.prefetchQuery(['service-page', "64019d4189f32d0dc47729ba"], getServiceContentById("64019d4189f32d0dc47729ba"))
+  await queryClient.prefetchQuery(['service-page', "640afecf4c4719063b999673"], getServiceContentById("640afecf4c4719063b999673"))
   return {
     props: {
       dehydratedState: dehydrate(queryClient),

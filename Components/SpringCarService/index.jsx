@@ -16,7 +16,7 @@ import Home from '../../Components/front-end/Home';
 import { useRouter } from "next/router";
 const SpringCarService = () => {
   const router = useRouter();
-  const {serviceContent ,isLoading, isError,error}= useService("64019d4189f32d0dc47729ba")
+  const {serviceContent ,isLoading, isError,error}= useService("640afd454c4719063b999439")
   return (
     <>
       <NextSeo
@@ -58,7 +58,7 @@ const SpringCarService = () => {
 };
 export async function getStaticProps({ query }) {
   const queryClient = new QueryClient()
-  await queryClient.prefetchQuery(['service-page', "64019d4189f32d0dc47729ba"], getServiceContentById("64019d4189f32d0dc47729ba"))
+  await queryClient.prefetchQuery(['service-page', "640afd454c4719063b999439"], getServiceContentById("640afd454c4719063b999439"))
   return {
     props: {
       dehydratedState: dehydrate(queryClient),

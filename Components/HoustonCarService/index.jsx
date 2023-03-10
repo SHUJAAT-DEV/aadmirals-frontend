@@ -17,7 +17,7 @@ import limo from "../../Assets/about-limmo.png";
 import Home from '../../Components/front-end/Home';
 const Houstoncarservice = () => {
   const router = useRouter();
-  const {serviceContent ,isLoading, isError,error}= useService("64019d4189f32d0dc47729ba")
+  const {serviceContent ,isLoading, isError,error}= useService("640afbcb4c4719063b9993b2")
   return (
     <>
       <NextSeo
@@ -59,7 +59,7 @@ const Houstoncarservice = () => {
 };
 export async function getStaticProps({ query }) {
   const queryClient = new QueryClient()
-  await queryClient.prefetchQuery(['service-page', "64019d4189f32d0dc47729ba"], getServiceContentById("64019d4189f32d0dc47729ba"))
+  await queryClient.prefetchQuery(['service-page', "640afbcb4c4719063b9993b2"], getServiceContentById("640afbcb4c4719063b9993b2"))
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
