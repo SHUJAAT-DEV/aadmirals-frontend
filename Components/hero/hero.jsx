@@ -12,8 +12,6 @@ const Hero = ({ Text, Form, MotoHidden, img, Title }) => {
         quality={100}
         layout="fill"
         loading="lazy"
-        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADA..."
-        placeholder="blur"
       />
       <Container className={styles.mainContainer} fluid>
         <div className={styles.headingsContainer}>
