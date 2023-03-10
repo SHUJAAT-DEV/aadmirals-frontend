@@ -1,21 +1,23 @@
-import React, {useState, useRef, useEffect} from "react";
+import React from "react";
 import styles from "./hero.module.scss";
-import {Container} from "reactstrap";
+import { Container } from "reactstrap";
 import Image from "next/image";
-const Hero = ({Text, Form, MotoHidden, img, Title}) => {
+const Hero = ({ Text, Form, MotoHidden, img, Title }) => {
   return (
     <div>
       <Image
-        // priority={!!img}
         alt={Title}
         src={img}
-        layout="fill"
         objectFit="cover"
         quality={100}
+        layout="fill"
+        loading="lazy"
+        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADA..."
+        placeholder="blur"
       />
       <Container className={styles.mainContainer} fluid>
         <div className={styles.headingsContainer}>
-          <div style={{paddingInline: "10px", width: "100%"}}>
+          <div style={{ paddingInline: "10px", width: "100%" }}>
             <p>
               <span
                 style={{
@@ -29,23 +31,24 @@ const Hero = ({Text, Form, MotoHidden, img, Title}) => {
           </div>
           <h1 className={styles.home_h1}>{Title}</h1>
           {MotoHidden ? null : (
-            <div className={styles.heroDescHd} >
-            <div
-              className={styles.moto}
-              dangerouslySetInnerHTML={{
-                __html: Text,
-              }}></div></div>
+            <div className={styles.heroDescHd}>
+              <div
+                className={styles.moto}
+                dangerouslySetInnerHTML={{
+                  __html: Text,
+                }}></div>
+            </div>
           )}
-
         </div>
         <Form />
-        
-            <div className={styles.heroDesc}>
-            <div
-              className={styles.moto}
-              dangerouslySetInnerHTML={{
-                __html: Text,
-              }}></div></div>
+
+        <div className={styles.heroDesc}>
+          <div
+            className={styles.moto}
+            dangerouslySetInnerHTML={{
+              __html: Text,
+            }}></div>
+        </div>
       </Container>
     </div>
   );
