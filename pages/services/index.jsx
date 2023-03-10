@@ -67,7 +67,7 @@ const rawMarkup=(data) =>{
 
       <div className={styles.mainContainer} fluid id="#bookingForm">
       <Hero
-           Text={""} Title={data.Description1}  img={ bg || data?.Image1}  Form={HomeForm}
+           Text={""} Title={data.Description1}  img={bg}  Form={HomeForm}
         />
       </div>
 
