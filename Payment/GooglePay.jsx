@@ -37,7 +37,7 @@ export default function GooglePay() {
         transactionInfo: {
           totalPriceStatus: "FINAL",
           totalPriceLabel: "Total",
-          totalPrice: String(1),
+          totalPrice: String(PreBookingReducer.amount),
           currencyCode: "USD",
           countryCode: "US",
         },
