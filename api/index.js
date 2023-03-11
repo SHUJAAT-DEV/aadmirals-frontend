@@ -96,6 +96,8 @@ export const fetchFleetPage = () => axios.get(`${URL}/website-content/fleets`);
 
 export const fetchFaqsPage = () => axios.get(`${URL}/website-content/faqs`);
 
+export const fetchTestimonials = () => axios.get(`${URL}/website-content/testimonials`);
+
 export const fetchAboutPage = () =>
   axios.get(`${URL}/website-content/about-us-page`);
 

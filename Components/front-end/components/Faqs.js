@@ -16,7 +16,7 @@ const Faqs = memo(() => {
   };
   return (
     <div className="faq-container">
-      {faqsQs.map((faq, index) => (
+      {faqsQs && faqsQs.map((faq, index) => (
         <div key={index} className="faq">
           <div className="Question" onClick={() => handleClick(index)}>
             <h6>{faq.question}</h6>
