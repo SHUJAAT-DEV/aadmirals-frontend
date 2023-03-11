@@ -57,7 +57,7 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <script src="//code.tidio.co/qfrondfu1stskkupw9qtryxqmm3kzd7r.js" async></script>
+      <script src="//code.tidio.co/xkcrxghefev8kchv867idiqvf38dfmla.js" async></script>
       </Helmet>
       <NextSeo
         title={heroContent.metaTitle}
