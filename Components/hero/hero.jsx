@@ -10,7 +10,7 @@ const Hero = ({ Text, Form, MotoHidden, img, Title }) => {
         src={img}
         objectFit="cover"
         quality={100}
-        layout="fill"
+        layout="responsive"
         loading="lazy"
       />
       <Container className={styles.mainContainer} fluid>

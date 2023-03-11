@@ -1,9 +1,11 @@
 /* eslint-disable react/display-name */
-import React, { useState, useRef, useEffect } from "react";
-import styles from "./hero.module.scss";
-import { Container } from "reactstrap";
 import Image from "next/image";
+import React from "react";
+import { Container } from "reactstrap";
+import styles from "./hero.module.scss";
 import sanitizeHTML from "./SanitizedReactUtils";
+
+export const config = { unstable_runtimeJS: true };
 
 const Hero = React.memo(({ Text, Form, MotoHidden, img, Title }) => {
   const contentSanitized = sanitizeHTML(Text);

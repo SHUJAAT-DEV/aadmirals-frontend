@@ -1,34 +1,13 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 
 import styles from "./ServicesCards.module.scss";
 import Link from "next/link";
 import ReadMoreReact from "read-more-react";
 import Image from "next/image";
-function ServicesCards({image, description, title, url}) {
-  let [linkData, setLinkData] = useState("");
-  useEffect(() => {
-    if (title == "Galveston Cruise Transfer") {
-      setLinkData("/galveston-cruise-transfer");
-    }
-    if (title == "Airport Transfer") {
-      setLinkData("/airport-transportation-houston");
-    }
-    if (title == "Celebrations Transfer") {
-      setLinkData("/celebrations");
-    }
-    if (title == "City To City Transfer") {
-      setLinkData("/city-to-city-transfer");
-    }
-    if (title == "Events Transfer") {
-      setLinkData("/events");
-    }
-    if (title == "Point to Point Transfer") {
-      setLinkData("/city-to-city-transfer");
-    }
-    if (title == "Private Transfer for Families and Groups") {
-      setLinkData("/city-to-city-transfe");
-    }
-  }, []);
+
+export const config = { unstable_runtimeJS: true };
+
+function ServicesCards({ image, description, title, url }) {
   return (
     <div className="main_slider_serv">
       <Link href={`/${url ? url : ""}`}>
@@ -37,7 +16,6 @@ function ServicesCards({image, description, title, url}) {
             <div className={styles.cards}>
               <div className={styles.cardImage}>
                 <Image
-                  priority={true}
                   src={image}
                   alt={title}
                   width={50}
@@ -45,10 +23,11 @@ function ServicesCards({image, description, title, url}) {
                   blurDataURL="https://www.pexels.com/photo/dark-blur-blurred-gradient-1526/"
                   layout="responsive"
                   objectFit="cover"
+                  loading="lazy"
                 />
               </div>
               <div className={styles.cardDetail}>
-                <h3 className={styles.cardTitle} style={{color: "black"}}>
+                <h3 className={styles.cardTitle} style={{ color: "black" }}>
                   {title}
                 </h3>
                 <ReadMoreReact
