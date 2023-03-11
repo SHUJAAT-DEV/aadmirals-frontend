@@ -517,7 +517,7 @@ function Home({ serviceDetail }) {
             experiences for every client that walks through our doors.
           </p>
         </div>
-        <Faqs />
+        {/* <Faqs /> */}
       </section>
     </>
   );
