@@ -4,6 +4,7 @@ import 'swiper/css';
 import "swiper/css/pagination";
 import useTestimonial from './hooks/useTestimonial.ts';
 
+
 function CustomerFeedBack() {
         const { testimonials } = useTestimonial();
 
@@ -35,20 +36,18 @@ function CustomerFeedBack() {
                         onSlideChange={() => console.log('slide change')}
                         onSwiper={(swiper) => console.log(swiper)}
                 >
-                        <SwiperSlide>
-                                <CustomerCard />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                                <CustomerCard />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                                <CustomerCard />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                                <CustomerCard />
-                        </SwiperSlide>
 
-
+               {testimonials
+                  ? testimonials.map((testimonial, index) => (
+                  <SwiperSlide key={`${index}-${testimonial.name}`}>
+                    <CustomerCard
+                      image={testimonial.image}
+                      name={testimonial.name}
+                      msg={testimonial.message}
+                    />
+                  </SwiperSlide>
+                ))
+              : null}               
 
                 </Swiper>
 

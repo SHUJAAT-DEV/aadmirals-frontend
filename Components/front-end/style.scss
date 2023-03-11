@@ -4,7 +4,14 @@ section {
   overflow: hidden;
   height: fit-content;
 }
-
+.feedbacks {
+  height: 8rem;
+  overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 6;
+-webkit-box-orient: vertical;
+}
 .hoverEffect:hover {
   cursor: pointer;
 }
