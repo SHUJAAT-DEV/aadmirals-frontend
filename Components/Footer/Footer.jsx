@@ -1,14 +1,12 @@
-import React, {useEffect, useState} from "react";
 import dynamic from "next/dynamic";
+import React, { useEffect, useState } from "react";
 const styles = dynamic(() => import("../../pages/home.module.scss"));
 
-import {Container, Row, Col} from "reactstrap";
-import {Card, Button} from "reactstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Alert, Button, Card, Col, Container, Row } from "reactstrap";
+import { getContactDetailsPage } from "../../redux/Contact_details/action";
+import { getContactPage } from "../../redux/Contact_us/action";
 const BottomFooter = dynamic(() => import("./BottomFooter/BottomFooter"));
-import {getContactPage} from "../../redux/Contact_us/action";
-import {getContactDetailsPage} from "../../redux/Contact_details/action";
-import {useDispatch, useSelector} from "react-redux";
-import {Alert} from "reactstrap";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -21,8 +19,8 @@ const Footer = () => {
   const cms = useSelector((state) => state.contact);
   const details = useSelector((state) => state.contactDetails);
 
-  const {contact_us_page} = cms;
-  const {contact_details_page} = details;
+  const { contact_us_page } = cms;
+  const { contact_details_page } = details;
 
   const det = contact_details_page && contact_details_page.contactDetails[0];
 
@@ -58,7 +56,7 @@ const Footer = () => {
                       {" "}
                       <i
                         className="fa fa-volume-control-phone custom_size_icon"
-                        style={{transform: "rotate(-40deg)"}}></i>{" "}
+                        style={{ transform: "rotate(-40deg)" }}></i>{" "}
                       +1{det && det.phoneNumber}
                     </a>
                     <br />
@@ -108,17 +106,21 @@ const Footer = () => {
               </div>
             </div>
           </Col>
-          <Col style={{margin: "auto"}} xs={11} md={6} className="add_overflow">
+          <Col
+            style={{ margin: "auto" }}
+            xs={11}
+            md={6}
+            className="add_overflow">
             <div className="custom_contactus">
               {cms.error && (
                 <Alert className="m-0" color="danger">
                   {cms.error}
                 </Alert>
               )}
-              <Row style={{marginTop: "15px"}}>
+              <Row style={{ marginTop: "15px" }}>
                 <Col xs="12">
                   {reqFields ? (
-                    <Alert style={{borderRadius: "0.5rem"}} color="danger">
+                    <Alert style={{ borderRadius: "0.5rem" }} color="danger">
                       All Fields Are Required
                     </Alert>
                   ) : (
@@ -178,10 +180,10 @@ const Footer = () => {
                     </Button>
                   </Col>
                 </Row>
-                <Row style={{marginTop: "15px"}}>
+                <Row style={{ marginTop: "15px" }}>
                   <Col xs="12">
                     {contact_us_page && (
-                      <Alert style={{borderRadius: "0.5rem"}} color="success">
+                      <Alert style={{ borderRadius: "0.5rem" }} color="success">
                         {contact_us_page.status}
                       </Alert>
                     )}

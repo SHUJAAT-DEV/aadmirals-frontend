@@ -1,5 +1,7 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
+import Logo from "../../../Assets/logo-header.svg";
 
 const BottomFooter = () => {
   return (
@@ -10,7 +12,7 @@ const BottomFooter = () => {
             <div className="row">
               <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                 <div className="footer_logo">
-                  <img src="/Assets/logo-header.svg" alt="..12" />
+                  <Image src={Logo} alt="..12" loading="lazy" />
                 </div>
                 <div className="social_links">
                   <ul>
@@ -134,60 +136,6 @@ const BottomFooter = () => {
             </div>
           </footer>
         </div>
-        {/* <div className={styles.nav_container}>
-          <div className={styles.nav_inner_container}>
-            <Container>
-              <Row>
-                <Col xs={12} md={4}>
-                  <p className={styles.copyright}>
-                    2013 - 2020 All Rights Reserved © AAdmirals Group,INC
-                  </p>
-                </Col>
-                <Col xs={12} md={4}>
-                  <div className={styles.contact_container}>
-                    <a onClick={()=>{Router.push("/")}}>Home</a>
-                    <a onClick={()=>{Router.push("/login")}}>Login</a>
-                    <a onClick={()=>{Router.push("/FAQ")}}>FAQs</a>
-                    <a onClick={()=>{Router.push("/about-us")}}>About</a>
-                    <a onClick={()=>{Router.push("/fleet")}}>fleet</a>
-                  </div>
-                </Col>
-                <Col xs={12} md={4}>
-                  <a href="https://www.facebook.com/AAdmirals">
-                    <img
-                      src="/Assets/facebook.svg"
-                      className={`${styles.icon} img img-fluid`}
-                    />
-                  </a>
-                  <a href="https://twitter.com/AAdmiralsTravel">
-                    <img
-                      src="/Assets/twitter.svg"
-                      className={`${styles.icon} img img-fluid`}
-                    />
-                  </a>
-                  <a href="https://wa.me/13468574294">
-                    <img
-                      src="/Assets/whatsapp-footer.svg"
-                      className={`${styles.icon} img img-fluid`}
-                    />
-                  </a>
-                  <a href="https://www.linkedin.com/company/aadmirals-group-inc">
-                    <img
-                      src="/Assets/linkedin.svg"
-                      className={`${styles.icon} img img-fluid`}
-                    />
-                  </a>
-                  <a href="https://www.yelp.com/biz/aadmirals-travel-and-transportation-houston-2">
-                    <img
-                      src="/Assets/shop.svg"
-                      className={`${styles.icon} img img-fluid`}
-                    />
-                  </a>
-                </Col>
-              </Row>
-            </Container>
-          </div>
-        </div> */}
       </div>
       <div className="sub-footer">
         <div className="container">
