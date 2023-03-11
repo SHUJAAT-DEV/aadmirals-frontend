@@ -6,64 +6,61 @@ import Footer from "../../Components/Footer/Footer";
 import Floatingbutton from "../../Components/floaingbutton/floatingbutton";
 import SideNav from "../../Components/Header/SideNav/SideNav";
 import Askquestion from "../../Components/askquestions/askquestion";
-import { getFaqsPage } from '../../redux/Faqs/action'
-import { useDispatch, useSelector } from 'react-redux'
+import { getFaqsPage } from "../../redux/Faqs/action";
+import { useDispatch, useSelector } from "react-redux";
 import Head from "next/head";
-import { NextSeo } from 'next-seo'
+import { NextSeo } from "next-seo";
 import * as api from "../../api";
-import { useRouter } from 'next/router'
-import Image from 'next/image'
+import { useRouter } from "next/router";
+import Image from "next/image";
+import CustomerFeedBack from "../../Components/front-end/CustomerFeedBack";
 const FAQ = (props) => {
-  const router = useRouter()
+  const router = useRouter();
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const cms = useSelector(state => state.faq)
-  const { faqs_page } = cms
-  
+  const cms = useSelector((state) => state.faq);
+  const { faqs_page } = cms;
+
   // const data = faqs_page && faqs_page
-  const data=props.data1 && props.data1
+  const data = props.data1 && props.data1;
 
-   useEffect(() => {
-    dispatch(getFaqsPage())
-    }, [])
+  useEffect(() => {
+    dispatch(getFaqsPage());
+  }, []);
 
   return (
     <>
-     <NextSeo
+      <NextSeo
         title="FAQ | AAdmirals Travel & Transportation Services Houston"
-       description="Get all your doubts cleared related to AAdmirals travel & transportation services. Everything covered from one-way trip to round trip, drop-offs/pick-ups."
+        description="Get all your doubts cleared related to AAdmirals travel & transportation services. Everything covered from one-way trip to round trip, drop-offs/pick-ups."
         canonical={`https://aadmirals.com${router?.pathname}`}
-
-
       />
-       <SideNav />
+      <SideNav />
       <Floatingbutton />
       <Header />
       <div>
-              <div className={styles.mainContainer}>
-                 <Image priority={true}
-                  alt={''}
-                  src={'/Assets/Rectangle\ 220.png'}
-                  layout="fill"
-                  objectFit="cover"
-                  quality={100}
-                  
-                />
-              </div>
-              
-    
+        <div className={styles.mainContainer}>
+          <Image
+            priority={true}
+            alt={""}
+            src={"/Assets/Rectangle 220.png"}
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+          />
+        </div>
+
         <div className={styles.headingsContainer}>
           <h1>FAQ | AAdmirals Travel & Transportation</h1>
         </div>
-     </div>
+      </div>
       <Container>
-  
         <Row className="pt-5">
           <Col xs={12} xl={12} md={12}>
-            <Askquestion faqs={data} />
+            {/* <Askquestion faqs={data} /> */}
+            <CustomerFeedBack />
           </Col>
-          
         </Row>
         <center>
           <Row className="py-5">
@@ -77,8 +74,7 @@ const FAQ = (props) => {
                   color: "#777777",
                   fontSize: "17px",
                   fontFamily: "ProximaNovaLight",
-                }}
-              >
+                }}>
                 WHAT IS YOUR CANCELLATION POLICY? For Airport/ Point To Point
                 transfer services, cancellation is free of charge if there is
                 more than Two hour left before the agreed pickup time, For
@@ -110,8 +106,7 @@ const FAQ = (props) => {
                   color: "#777777",
                   fontSize: "17px",
                   fontFamily: "ProximaNovaLight",
-                }}
-              >
+                }}>
                 ARE YOUR DRIVERS FAMILIAR WITH LOCAL ATTRACTIONS? Yes
                 <br />
                 DO YOU PROVIDE CAR SEATS FOR INFANTS AND TODDLERS? Yes, please
@@ -148,8 +143,7 @@ const FAQ = (props) => {
                   color: "#777777",
                   fontSize: "17px",
                   fontFamily: "ProximaNovaLight",
-                }}
-              >
+                }}>
                 ARE WE ALLOWED TO BRING ALCOHOLIC BEVERAGES IN YOUR VEHICLES? If
                 you are 21 years or older , Yes.
                 <br />
@@ -195,8 +189,7 @@ const FAQ = (props) => {
                   color: "#777777",
                   fontSize: "17px",
                   fontFamily: "ProximaNovaLight",
-                }}
-              >
+                }}>
                 HOW WILL I KNOW WHERE TO MEET MY DRIVER AT THE AIRPORT? You will
                 see that information at the bottom of your booking, in addition
                 please see information in our Airport Transfer page on our
@@ -214,9 +207,9 @@ const FAQ = (props) => {
     </>
   );
 };
-export async function getStaticProps ({query}) {
-  const  data  = await api.fetchFaqsPage();  
-  const data1=data.data.faqs
-  return { props: {data1} }
+export async function getStaticProps({ query }) {
+  const data = await api.fetchFaqsPage();
+  const data1 = data.data.faqs;
+  return { props: { data1 } };
 }
 export default FAQ;
