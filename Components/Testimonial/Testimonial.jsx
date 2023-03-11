@@ -1,21 +1,21 @@
 /* eslint-disable react/jsx-key */
 import React from "react";
-import {Row, Col} from "reactstrap";
+import { Row, Col } from "reactstrap";
 import TestimonialCards from "./Testimonial Cards/TestimonialCards";
 import styles from "./Testimonial.module.scss";
-import {Swiper, SwiperSlide} from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import SwiperCore, {Pagination, Autoplay} from "swiper";
+import SwiperCore, { Pagination, Autoplay } from "swiper";
 SwiperCore.use([Pagination, Autoplay]);
 
-function Testinmonial({testimonials}) {
+function Testinmonial({ testimonials }) {
   const breakPoints = [
-    {width: 1, itemsToShow: 1},
-    {width: 550, itemsToShow: 1, itemsToScroll: 2},
-    {width: 768, itemsToShow: 1},
-    {width: 1200, itemsToShow: 3},
+    { width: 1, itemsToShow: 1 },
+    { width: 550, itemsToShow: 1, itemsToScroll: 2 },
+    { width: 768, itemsToShow: 1 },
+    { width: 1200, itemsToShow: 3 },
   ];
 
   return (
@@ -63,21 +63,6 @@ function Testinmonial({testimonials}) {
                 ))
               : null}
           </Swiper>
-          {/* <Carousel
-          itemPadding={[10, 10]}
-            autoPlaySpeed={4000}
-            showArrows={false}
-            breakPoints={breakPoints}
-            enableAutoPlay={true}
-          >
-            {
-              testimonials? testimonials.map(testimonial=>(
-                <TestimonialCards image={testimonial.image} name={testimonial.name} msg={testimonial.message} />
-
-              )):null
-            }
-
-          </Carousel> */}
         </Row>
       </center>
     </div>
