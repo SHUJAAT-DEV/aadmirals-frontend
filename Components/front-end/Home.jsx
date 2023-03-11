@@ -11,7 +11,10 @@ import logo2 from "../../Assets/logo2.svg";
 import logo3 from "../../Assets/logo3.svg";
 import imageCap1 from "../../Assets/cardTitle.png";
 import imageCap2 from "../../Assets/cardTitle2.jpg";
-import imageCap3 from "../../Assets/cardTitle3.jpg";
+import imageCap3 from "../../Assets/car3.png";
+import imageCap4 from "../../Assets/car2Card.png";
+import imageCap5 from "../../Assets/vanCard.png";
+import imageCap6 from "../../Assets/carCard.png";
 import { useSelector } from "react-redux";
 import {
   fetchLimitedContent,
@@ -32,13 +35,31 @@ const card2 = {
   title: "Standard SUV, Chevy Suburban",
   description:
     "Clean in and out 4 doors, 2 rows of seats clean Sedan car fit for 2 people with 2 check-in bags and 2 carry-ons",
-  price: "$75",
+  price: "$95",
 };
 const card3 = {
   title: "Business Sedan, Mercedes E350,",
   description:
     "Clean in and out luxury 4 doors, 2 rows of seats clean Sedan car of the top brands and models fit for 2 people with 2 check-in bags and 2 carry-ons.",
   price: "$85",
+};
+const card4 = {
+  title: "Mercedes- Benz R 350/ Lincoln MKT. Crossover Cars.",
+  description:
+    "Luxury crossover cars, fit for 3 people, 3 check-in bags, and 2 carry-on bags. Clean in and out.",
+  price: "$85",
+};
+const card5 = {
+  title: "Executive large VAN (Minibus) Sprinter, Transit Hard Top",
+  description:
+    "Luxury large VAN (Minibus) aisle seats mounted armrest, power outlets, Bluetooth connectivity, clean in and out, fit for 10 people with 8 check-in bags and 5 carry-ons.",
+  price: "$140",
+};
+const card6 = {
+  title: "Business SUV, Cadillac Escalade, Lincoln Navigator",
+  description:
+    "Luxury large SUV 4 doors, 3 rows of seats clean in and out, cars are one of the top SUV brands and models fit for 6 people with 4 check-in bags and 3 carry-ons.",
+  price: "$110",
 };
 const pStyle = {
   fontFamily: "ProximaNovaLight",
@@ -518,11 +539,11 @@ function Home({ serviceDetail }) {
       <section className="update-section5">
         <div className="updatecard-container">
           <CardsSection2 imageSrc={imageCap1} data={card1} />
-          <CardsSection2 imageSrc={imageCap2} data={card2} />
-          <CardsSection2 imageSrc={imageCap1} data={card3} />
-          <CardsSection2 imageSrc={imageCap1} data={card1} />
-          <CardsSection2 imageSrc={imageCap2} data={card2} />
-          <CardsSection2 imageSrc={imageCap1} data={card3} />
+          <CardsSection2 imageSrc={imageCap3} data={card2} />
+          <CardsSection2 imageSrc={imageCap2} data={card3} />
+          <CardsSection2 imageSrc={imageCap4} data={card4} />
+          <CardsSection2 imageSrc={imageCap5} data={card5} />
+          <CardsSection2 imageSrc={imageCap6} data={card6} />
         </div>
       </section>
 
