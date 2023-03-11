@@ -14,6 +14,7 @@ import * as api from "../../api";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import CustomerFeedBack from "../../Components/front-end/CustomerFeedBack";
+import Faqs from "../../Components/front-end/components/Faqs";
 const FAQ = (props) => {
   const router = useRouter();
 
@@ -59,7 +60,7 @@ const FAQ = (props) => {
         <Row className="pt-5">
           <Col xs={12} xl={12} md={12}>
             {/* <Askquestion faqs={data} /> */}
-            <CustomerFeedBack />
+            <Faqs />
           </Col>
         </Row>
         <center>
