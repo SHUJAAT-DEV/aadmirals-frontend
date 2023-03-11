@@ -267,8 +267,6 @@ function Home({ serviceDetail }) {
   const router = useRouter();
   const currentUrl = router.asPath;
   const currentLocation=currentUrl.split("/");
-  console.log("url=",currentLocation[1]);
-
   return (
     <>
       <section className="home-section">

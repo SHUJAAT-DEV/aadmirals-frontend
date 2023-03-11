@@ -2,7 +2,7 @@ import { memo, useState } from "react";
 import Image from 'next/image';
 import v from "../../../Assets/openv.svg";
 import v1 from "../../../Assets/closev.svg";
-import useFaqs from "../hooks/useFaqs";
+import useFaqs from "../hooks/useFaqs.ts";
 
 // eslint-disable-next-line react/display-name
 const Faqs = memo(() => {
