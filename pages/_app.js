@@ -23,6 +23,7 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import { useState } from 'react'
+import { Helmet } from "react-helmet";
 
 
 function MyApp({ Component, pageProps }) {
@@ -34,6 +35,10 @@ function MyApp({ Component, pageProps }) {
   };
 
   return (
+    <>
+    <Helmet>
+      <script src="//code.tidio.co/xkcrxghefev8kchv867idiqvf38dfmla.js" async></script>
+    </Helmet>
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
         <Provider store={store}>
@@ -53,6 +58,7 @@ function MyApp({ Component, pageProps }) {
         </Provider>
       </Hydrate>
     </QueryClientProvider>
+    </>
   )
 }
 
