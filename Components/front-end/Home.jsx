@@ -10,7 +10,7 @@ import logo1 from "../../Assets/logo1.svg";
 import logo2 from "../../Assets/logo2.svg";
 import logo3 from "../../Assets/logo3.svg";
 import imageCap1 from "../../Assets/cardTitle.png";
-import imageCap2 from "../../Assets/cardTitle2.jpg";
+import imageCap2 from "../../Assets/mercedes_Benz.png";
 import imageCap3 from "../../Assets/car3.png";
 import imageCap4 from "../../Assets/car2Card.png";
 import imageCap5 from "../../Assets/vanCard.png";
