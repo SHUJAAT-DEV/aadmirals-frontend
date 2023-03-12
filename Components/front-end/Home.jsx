@@ -519,7 +519,11 @@ function Home({ serviceDetail }) {
                 paddingBottom: "1%",
               }}>
               <div>
-                <h3 className="cards-heading">Popular Destnations</h3>
+                <h3 className="cards-heading">
+                  {currentLocation[1] === "cities"
+                    ? "Popular Cities"
+                    : "Popular Destnations"}
+                </h3>
               </div>
               <div>
                 <p className="cards-content">TO & FROM THE AIRPORT</p>
@@ -544,6 +548,35 @@ function Home({ serviceDetail }) {
           <CardsSection2 imageSrc={imageCap4} data={card4} />
           <CardsSection2 imageSrc={imageCap5} data={card5} />
           <CardsSection2 imageSrc={imageCap6} data={card6} />
+        </div>
+      </section>
+      <section className="section4">
+        <div className="cardsContainer">
+          <div className="content-container">
+            <div
+              className="cardContent"
+              style={{
+                paddingBottom: "1%",
+              }}>
+              <div>
+                <h3 className="cards-heading">
+                  {currentLocation[1] !== "cities"
+                    ? "Popular Cities"
+                    : "Popular Destnations"}
+                </h3>
+              </div>
+              <div>
+                <p className="cards-content">TO & FROM THE AIRPORT</p>
+              </div>
+            </div>
+          </div>
+          <div className="cardsParentContainer">
+            {currentLocation[1] !== "cities" ? (
+              <CardsSection1 data={cardCities} />
+            ) : (
+              <CardsSection1 data={card} />
+            )}
+          </div>
         </div>
       </section>
 
