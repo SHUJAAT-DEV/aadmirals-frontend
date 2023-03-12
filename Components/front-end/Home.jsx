@@ -5,16 +5,15 @@ import CardsSection1 from "./destinationCardsSection1";
 import Image from "next/image";
 import car1 from "../../Assets/car1.svg";
 import car2 from "../../Assets/car2.svg";
-import limo from "../../Assets/about-limmo.png";
 import logo1 from "../../Assets/logo1.svg";
 import logo2 from "../../Assets/logo2.svg";
 import logo3 from "../../Assets/logo3.svg";
 import imageCap1 from "../../Assets/cardTitle.png";
 import imageCap2 from "../../Assets/mercedes_Benz.png";
-import imageCap3 from "../../Assets/car3.png";
-import imageCap4 from "../../Assets/car2Card.png";
-import imageCap5 from "../../Assets/vanCard.png";
-import imageCap6 from "../../Assets/carCard.png";
+import imageCap3 from "../../Assets/suburban.png";
+import imageCap4 from "../../Assets/crossover.png";
+import imageCap5 from "../../Assets/van.png";
+import imageCap6 from "../../Assets/navigator.png";
 import { useSelector } from "react-redux";
 import {
   fetchLimitedContent,
