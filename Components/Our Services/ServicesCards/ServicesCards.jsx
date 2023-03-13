@@ -4,9 +4,6 @@ import styles from "./ServicesCards.module.scss";
 import Link from "next/link";
 import ReadMoreReact from "read-more-react";
 import Image from "next/image";
-
-export const config = { unstable_runtimeJS: true };
-
 function ServicesCards({ image, description, title, url }) {
   return (
     <div className="main_slider_serv">

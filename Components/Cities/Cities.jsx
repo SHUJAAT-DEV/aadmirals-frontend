@@ -27,7 +27,7 @@ function Cities({ cities }) {
                       src={city.image}
                       alt={city.name}
                       objectFit="cover"
-                      layout="responsive"
+                      layout="fill"
                       loading="lazy"
                     />
                     <div className={styles.overly}>

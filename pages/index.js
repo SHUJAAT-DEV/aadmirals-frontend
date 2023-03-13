@@ -57,7 +57,7 @@ const Home = () => {
   return (
     <>
       <Helmet>
-      <script src="//code.tidio.co/xkcrxghefev8kchv867idiqvf38dfmla.js" async></script>
+        <script src="//code.tidio.co/xkcrxghefev8kchv867idiqvf38dfmla.js" async></script>
       </Helmet>
       <NextSeo
         title={heroContent.metaTitle}
@@ -99,18 +99,6 @@ const Home = () => {
             />
           </div>
           <OurServices services={homeContent?.services} />
-
-          {/* <div>
-            <Image
-              priority={!!heroContent.serveYouLikeKingImage}
-              src={heroContent.serveYouLikeKingImage}
-              alt="Airport Shuttle Houston"
-              layout="responsive"
-              width={50} height={20}
-              quality={100}
-              objectFit="fill"
-            />
-          </div> */}
 
           <Cities cities={homeContent?.cityWeServe} />
           {/* testimonial */}
