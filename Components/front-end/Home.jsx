@@ -541,12 +541,7 @@ function Home({ serviceDetail }) {
 
       <section className="update-section5">
         <div className="updatecard-container">
-          <CardsSection2 imageSrc={imageCap1} data={card1} />
-          <CardsSection2 imageSrc={imageCap3} data={card2} />
-          <CardsSection2 imageSrc={imageCap2} data={card3} />
-          <CardsSection2 imageSrc={imageCap4} data={card4} />
-          <CardsSection2 imageSrc={imageCap5} data={card5} />
-          <CardsSection2 imageSrc={imageCap6} data={card6} />
+          <CardsSection2  />
         </div>
       </section>
       <section className="section4">

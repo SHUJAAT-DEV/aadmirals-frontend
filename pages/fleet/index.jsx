@@ -22,6 +22,7 @@ import { useRouter } from 'next/router'
 import { NextSeo } from 'next-seo'
 import axios from "axios";
 import Image from 'next/image'
+import CardsSection2 from "../../Components/front-end/destinationCardsSection2";
 const FleetPage = ({ data1 }) => {
   const dispatch = useDispatch();
   const router = useRouter()
@@ -132,23 +133,19 @@ const FleetPage = ({ data1 }) => {
               </Row>
             </Container>
             <hr className={styles.divider} />
-            <Container>
+            {/* <Container>
               <Row>
                 <Col sm={12}>
                   <CarTypes items={gotData?.fleets} />
                 </Col>
               </Row>
-              <hr className={styles.divider} />
-
-              <Row className={styles.fleet}>
-                <Col sm={12}>
-                  <Fleet fleet={gotData?.fleets} />
-                </Col>
-              </Row>
-
-            
-            </Container>
-
+            </Container> */}
+            <b><p style={{textAlign:"center", fontSize:"24px"}} >OUR FLEET</p></b>
+            <section className="update-section5">
+              <div className="updatecard-container">
+                <CardsSection2  />
+              </div>
+            </section>
             <hr className={styles.divider} />
             <Container>
               <Row className={styles.featuresContainer}>

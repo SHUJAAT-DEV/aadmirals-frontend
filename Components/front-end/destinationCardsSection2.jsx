@@ -1,34 +1,30 @@
-import React from "react";
+import { memo, useMemo } from "react";
 import Image from "next/image";
 import star from "../../Assets/Polygon 20.png";
 import car from "../../Assets/card image.svg";
 import seatIcon from "../../Assets/seat.svg";
 import dieselIcon from "../../Assets/desel.svg";
 import mechanicIcon from "../../Assets/mechanic.svg";
-
-const CardsSection2 = ({data, imageSrc}) => {
-
+import useFeets from "./hooks/useFeet.ts";
+const CardsSection2 = () => {
+  const {feets} = useFeets();
+  console.log("feets", feets)
   return (
     <>
-      <div className="updatechild-container">
+      { feets && feets.map((item , index) => (
+      <div className="updatechild-container" key={index}>
         <div className="image-container">
-          <Image src={imageSrc} className="card-image" alt="limousine car image" />
+          <img 
+            src={item.image || car} 
+            layout="fixed"
+            className="card-image" 
+            alt="limousine car image" 
+            loading="lazy" 
+          />
         </div>
         <div>
-          <h5>{data.title}</h5>
-          <p >{data.description}</p>
-          <ul>
-            <li>
-              <span></span>
-              <Image src={seatIcon} alt='seat icon' height={10} width="20px" />
-              4 seats</li>
-            <li><span></span>
-              <Image src={dieselIcon} alt='seat icon' height={10} width="20px" />
-              Diesel</li>
-            <li><span></span>
-              <Image src={mechanicIcon} alt='seat icon' height={10} width="20px" />
-              Mechanic</li>
-          </ul>
+          <h5>{item.name}</h5>
+          <p >{item.description}</p>
           <div className="card-inner">
             <span style={{ display: "flex", gap: '62px' }}>
               <span style={{
@@ -36,7 +32,7 @@ const CardsSection2 = ({data, imageSrc}) => {
                 fontWeight: "400",
                 fontSize: "24px"
               }}>
-                {data.price}
+                ${item.pricePerHour}
                 <span style={{ fontWeight: "400" }}> / per hour</span>
               </span>
               <span className="stars">
@@ -53,7 +49,9 @@ const CardsSection2 = ({data, imageSrc}) => {
           </div>
         </div>
       </div>
-    </>
+      ))
+     }
+  </>
   );
 };
 
