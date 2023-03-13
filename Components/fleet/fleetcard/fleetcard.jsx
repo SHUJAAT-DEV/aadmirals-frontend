@@ -8,7 +8,7 @@ const Fleetcard = ({ fleet }) => {
     window.scrollTo(0, 0);
   };
   return (
-    <div className={styles.main}>
+    <div className={styles.main}> 
       <Container>
         {fleet &&
           fleet?.map((flee,key) => (
