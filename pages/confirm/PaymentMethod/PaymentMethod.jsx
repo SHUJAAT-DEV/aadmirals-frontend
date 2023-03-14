@@ -11,7 +11,7 @@ import {useRouter} from "next/router";
 import {Alert} from "reactstrap";
 import GooglePay from "../../../Payment/GooglePay";
 import Image from "next/image";
-import google from "../../../Assets/googlepay.svg";
+import google from "../../../Assets/GPay_Acceptance_Mark_800.png";
 
 function PaymentMethod() {
   const dispatch = useDispatch();
@@ -69,11 +69,11 @@ function PaymentMethod() {
             <ListGroupItem
               className={styles.list_option}
               onClick={(e) => toggle3()}>
-              <span>
+              <span style={{paddingRight:"10px"}}>
                 <Image
                 src={google}
                 alt="Aadmirals service image"
-                width="45px"
+                width="55px"
                 height="32px"
                 quality={100}
                 placeholder="empty"
