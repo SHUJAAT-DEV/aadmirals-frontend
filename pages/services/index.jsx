@@ -10,7 +10,6 @@ import { Alert } from 'reactstrap';
 import Loader from '../../Components/Loader/Loader';
 import { useRouter } from 'next/router'
 import {NextSeo} from 'next-seo'
-import bg from "../../Assets/service-bg.jpg";
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import Home from '../../Components/front-end/Home';
 import  getServiceContentById  from "../../utils/services/serviceApi";

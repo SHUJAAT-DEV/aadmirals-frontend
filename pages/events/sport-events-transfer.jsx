@@ -15,7 +15,7 @@ import Loader from "./../../Components/Loader/Loader";
 import styles from "../../utils/services/service.module.scss";
 import getServiceContentById  from "../../utils/services/serviceApi" ;
 import useService from "../../utils/services/useServices";
-import bg from '../../Assets/event.jpg'
+import bg from '../../Assets/event-bg.png'
 
 function AstrogamePage() {
   const router = useRouter();

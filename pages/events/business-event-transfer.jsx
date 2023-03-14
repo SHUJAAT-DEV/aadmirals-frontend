@@ -15,7 +15,7 @@ import Loader from "./../../Components/Loader/Loader";
 import styles from "../../utils/services/service.module.scss";
 import getServiceContentById  from "../../utils/services/serviceApi" ;
 import useService from "../../utils/services/useServices";
-import limo from '../../Assets/event.jpg'
+import limo from '../../Assets/event-bg.png'
 
 function BusinessconventionsmeetingsPage() {
   const router = useRouter();

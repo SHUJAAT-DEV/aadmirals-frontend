@@ -15,7 +15,7 @@ import Loader from "./../../Components/Loader/Loader";
 import styles from "../../utils/services/service.module.scss";
 import getServiceContentById  from "../../utils/services/serviceApi" ;
 import useService from "../../utils/services/useServices";
-import bg from '../../Assets/event.jpg'
+import bg from '../../Assets/event-bg.png'
 function GraduationPage() {
   const router = useRouter();
   const {serviceContent ,isLoading, isError,error}= useService("64019e6389f32d0dc4772a4c")
