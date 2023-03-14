@@ -79,7 +79,7 @@ function PaymentMethod() {
                 placeholder="empty"
               />
               </span>
-              GooglePay
+              Google Pay
             </ListGroupItem>
           </ListGroup>
           <Collapse isOpen={isOpen}>
