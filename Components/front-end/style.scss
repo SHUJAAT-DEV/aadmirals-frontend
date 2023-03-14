@@ -49,7 +49,7 @@ display: -webkit-box;
   .icons-container {
     margin-top: 1rem;
     display: flex;
-    gap: 5vw;
+    gap: 3vw;
     justify-content: center;
     .icons {
       display: flex;
@@ -1150,6 +1150,7 @@ section.section02,
  
   .contact .info-box {
     text-align-last: center;
+    align-items: center;
   }
 }
 

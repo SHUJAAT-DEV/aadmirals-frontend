@@ -282,6 +282,8 @@ span.displayed-text .read-more-button {
   padding: 36px 30px 30px;
   margin-top: 2rem;
   min-height: 220px;
+    display: flex;
+      flex-direction: column;
 }
 
 .contact .info-box:hover {
