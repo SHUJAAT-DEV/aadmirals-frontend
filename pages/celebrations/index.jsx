@@ -15,7 +15,7 @@ import Home from '../../Components/front-end/Home';
 import  getServiceContentById  from "../../utils/services/serviceApi";
 import useService from "../../utils/services/useServices";
 import { dehydrate, QueryClient } from '@tanstack/react-query';
-import bg from '../../Assets/download.jpg'
+import bg from '../../Assets/event.jpg'
 
 function Celebrations() {
   const router = useRouter();

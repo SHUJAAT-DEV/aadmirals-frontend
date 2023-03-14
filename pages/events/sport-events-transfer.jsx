@@ -15,7 +15,7 @@ import Loader from "./../../Components/Loader/Loader";
 import styles from "../../utils/services/service.module.scss";
 import getServiceContentById  from "../../utils/services/serviceApi" ;
 import useService from "../../utils/services/useServices";
-import limo from "../../Assets/about-limmo.png";
+import bg from '../../Assets/event.jpg'
 
 function AstrogamePage() {
   const router = useRouter();
@@ -47,7 +47,7 @@ function AstrogamePage() {
                   serviceContent?.heroTitle ||
                   "Galveston Cruise Transfer & Shuttle | IAH/Hobby Airport to Glaveston"
                 }
-                img={serviceContent?.heroImage|| limo}
+                img={serviceContent?.heroImage|| bg}
                 Form={HomeForm}
               />
             </Container>

@@ -15,7 +15,7 @@ import Loader from "../../Components/Loader/Loader";
 import styles from "../../utils/services/service.module.scss";
 import  getServiceContentById  from "../../utils/services/serviceApi";
 import useService from "../../utils/services/useServices";
-
+import bg from "../../Assets/service-bg.jpg";
 function GalvestonCruisesTransportation() {
   const router = useRouter();
   const {serviceContent ,isLoading, isError,error}= useService("63f225ab74e668584c122b85")
@@ -46,7 +46,7 @@ function GalvestonCruisesTransportation() {
                   serviceContent?.heroTitle ||
                   "Galveston Cruise Transfer & Shuttle | IAH/Hobby Airport to Glaveston"
                 }
-                img={serviceContent?.heroImage}
+                img={serviceContent?.heroImage || bg}
                 Form={HomeForm}
               />
             </Container>

@@ -15,8 +15,7 @@ import Loader from "./../../Components/Loader/Loader";
 import styles from "../../utils/services/service.module.scss";
 import getServiceContentById  from "../../utils/services/serviceApi" ;
 import useService from "../../utils/services/useServices";
-import limo from "../../Assets/about-limmo.png";
-
+import limo from '../../Assets/event.jpg'
 function HoustonRodeoPage() {
   const router = useRouter();
   const {serviceContent ,isLoading, isError,error}= useService("64019e2f89f32d0dc4772a26")

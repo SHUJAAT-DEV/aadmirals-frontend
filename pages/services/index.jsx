@@ -15,6 +15,7 @@ import { dehydrate, QueryClient } from '@tanstack/react-query';
 import Home from '../../Components/front-end/Home';
 import  getServiceContentById  from "../../utils/services/serviceApi";
 import useService from "../../utils/services/useServices";
+import bg from "../../Assets/service-bg.jpg";
 function Services(props) {
   const router = useRouter();
   const {serviceContent ,isLoading, isError,error}= useService("640b5a7c4c4719063b999cb0")

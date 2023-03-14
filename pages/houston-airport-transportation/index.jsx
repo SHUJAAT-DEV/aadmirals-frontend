@@ -18,7 +18,7 @@ import  getServiceContentById  from "../../utils/services/serviceApi";
 import useService from "../../utils/services/useServices";
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import {NextSeo} from 'next-seo'
-import limo from '../../Assets/download.jpg'
+import limo from "../../Assets/service-bg.jpg";
 function AirportTransportationHouston(props) {
   const router = useRouter();
   const {serviceContent ,isLoading, isError,error}= useService("640c5ba94719540d93c3d64b")

@@ -14,7 +14,7 @@ import  getServiceContentById  from "../../utils/services/serviceApi";
 import useService from "../../utils/services/useServices";
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import {NextSeo} from 'next-seo'
-import limo from '../../Assets/download.jpg'
+import bg from "../../Assets/service-bg.jpg";
 
 function CityToCityTransfer(props) {
   const router = useRouter();
@@ -46,7 +46,7 @@ function CityToCityTransfer(props) {
                   serviceContent?.heroTitle ||
                   "Galveston Cruise Transfer & Shuttle | IAH/Hobby Airport to Glaveston"
                 }
-                img={serviceContent?.heroImage || limo }
+                img={serviceContent?.heroImage || bg }
                 Form={HomeForm}
               />
             </Container>

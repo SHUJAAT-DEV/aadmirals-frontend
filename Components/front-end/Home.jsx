@@ -339,7 +339,7 @@ function Home({ serviceDetail }) {
             />
             <div className="text">
               <p style={pStyle}>
-                Always on time for your pick-Up, and free of charge wait time
+              Always on time for your pick-Up, 60 minutes free of charge wait time for international flights, 30 minutes for domestic, and 15 minutes for others.
               </p>
             </div>
           </div>
@@ -352,7 +352,8 @@ function Home({ serviceDetail }) {
             />
             <div className="text">
               <p style={pStyle}>
-                Always on time for your pick-Up, and free of charge wait time
+              Private Travel Solutions In Houston
+one-way, round trip airport transfer, point to point, by the hour, long-distance rides city to city based on your time.
               </p>
             </div>
           </div>
@@ -365,7 +366,7 @@ function Home({ serviceDetail }) {
             />
             <div className="text">
               <p style={pStyle}>
-                Always on time for your pick-Up, and free of charge wait time
+              All inclusive- price professional car service in Houston with no hidden charges, pay what you see
               </p>
             </div>
           </div>
